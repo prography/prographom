@@ -33,7 +33,7 @@ body {
 }
 
 html {
-	background: #161415 url(../images/bg.jpg) no-repeat center center fixed;
+	background: #161415 url(../images/bg.jpg) no-repeat center center fixed !important;
 	-webkit-background-size: cover !important;
 	-moz-background-size: cover !important;
 	background-size: cover !important;
