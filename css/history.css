@@ -144,7 +144,7 @@ a:hover, a:active, a:focus {
 
 .timeline-item:nth-child(2) .timeline-img-header {
 	background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)),
-		url("his_img/hackton_2017.jpg") center center no-repeat;
+		url("web/his_img/hackton_2017.jpg") center center no-repeat;
 	background-size: cover;
 }
 
