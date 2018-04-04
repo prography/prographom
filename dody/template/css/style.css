@@ -169,7 +169,7 @@ ul, ol {
     right: 0;
     bottom: 0;
     opacity: .7;
-    background: #69417C;
+    background: #95DBD4;
 }
 
 
@@ -203,7 +203,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
     height: 40px;
     width: 100%;
     border: none;
-	  background: #F4F4F4;
+	background: #F4F4F4;
     border-bottom: 2px solid #EEE;
     color: #354052;
     padding: 0px 10px;
