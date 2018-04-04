@@ -8,8 +8,16 @@ Colors:
 	Primary 	: #6195FF
 	Dark      : #FCFCFF
 	Grey 		  : #F4F4F4 #FAFAFA #EEE
-
+주황d28921
 Fonts: Montserrat Varela Round
+
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Nanum Myeongjo', serif;
+font-family: 'Nanum Brush Script', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Questrial', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Poiret One', cursive;
 
 Table OF Contents
 ------------------------------------
@@ -45,7 +53,8 @@ Table OF Contents
 /* -- typography -- */
 
 body {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
@@ -53,15 +62,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    margin-top: 0px;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 300;
+    margin-top: -4px;
     margin-bottom: 20px;
     color: #10161A;
 }
 
 h1 {
-    font-size: 54px;
+    
+    font-size: 60px;
 }
 
 h2 {
@@ -74,11 +85,23 @@ h3 {
 
 h4 {
     font-size: 18px;
+    line-height: 1.7;
 }
 
 h5 {
     font-size: 16px;
+    line-height: 1.7;
 }
+.bold{
+    font-family: “Noto Sans KR”, sans-serif;
+    font-weight: 600;
+}
+.bold-impact{
+    font-family: “Noto Sans KR”, sans-serif;
+    font-weight: 500;
+    color: #76c1e2;
+}
+
 
 a {
     color: #6195FF;
@@ -168,8 +191,8 @@ ul, ol {
     top: 0;
     right: 0;
     bottom: 0;
-    opacity: .5;
-    background: #71BFB9;
+    opacity: .7;
+    background: #111111;
 }
 
 
@@ -203,7 +226,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
     height: 40px;
     width: 100%;
     border: none;
-	  background: #F4F4F4;
+	background: #F4F4F4;
     border-bottom: 2px solid #EEE;
     color: #354052;
     padding: 0px 10px;
@@ -236,13 +259,17 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .main-btn {
-    background: #6195FF;
+    background: #d28921;
     color: #FFF;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .white-btn {
     background: #FFF;
     color: #10161A !important;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .outline-btn {
@@ -1479,7 +1506,7 @@ header {
   line-height: 50px;
   text-align: center;
   border-radius: 3px;
-  background-color: #6195FF;
+  background-color: #d28921;
   color:#FFF;
 }
 
@@ -1648,7 +1675,7 @@ header {
   	height: 50px;
   	line-height: 50px;
   	text-align: center;
-  	background: #6195FF;
+  	background: #d28921;
   	border-radius:3px;
   	color: #FFF;
   	z-index: 9999;
