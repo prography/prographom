@@ -1,0 +1,22 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "prography node.js web server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prography/web.git"
+  },
+  "author": "prography web",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prography/web/issues"
+  },
+  "homepage": "https://github.com/prography/web#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
