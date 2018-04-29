@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/prography/web#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "ejs": "^2.5.9",
+    "express": "^4.16.3",
+    "nodemailer": "^4.6.4"
   }
 }
