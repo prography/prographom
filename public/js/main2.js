@@ -152,9 +152,10 @@
 	/*---------------------------------------------------- */
 	/* Map
 	------------------------------------------------------ */
-	var latitude = 14.549072,
-		 longitude = 121.046958,
-		 map_zoom = 15,		 
+	var latitude = 37.480588,
+		 longitude = 126.951861,
+
+		 map_zoom = 20,		 
 		 main_color = '#d8ac00',
 		 saturation_value= -30,
 		 brightness_value= 5,
