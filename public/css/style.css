@@ -94,6 +94,7 @@ a:hover, a:focus {
     color: #6195FF;
 }
 
+
 .main-color {
     color: #6195FF;
 }
@@ -840,6 +841,15 @@ header {
     color: #6195FF;
     border: 1px solid #6195FF;
     margin-right: 5px;
+}
+
+.feature textarea{
+  height:200px;
+
+}
+
+.feature button{
+  float:right;
 }
 
 /*------------------------------------*\

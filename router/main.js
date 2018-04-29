@@ -26,6 +26,8 @@ module.exports = function(app)
     app.get('/project', function(req, res) {
       res.render('project.html')
     });
+
+
     app.get('/send',function(req,res){
         rand=sha256(req.query.to);
         host=req.get('host');
@@ -33,9 +35,9 @@ module.exports = function(app)
         mailOptions={
             to : req.query.to,
             subject : "Please confirm your Email account",
-            html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>"
+            html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Click to verify</a>"
         }
-        console.log(mailOptions);
+        // console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response){
          if(error){
                 console.log(error);
@@ -44,7 +46,8 @@ module.exports = function(app)
                 console.log("Message sent: " + response.message);
             res.end("sent");
              }
-      });
+        });
+
     });
     app.get('/verify',function(req,res){
       console.log(req.protocol+":/"+req.get('host'));
@@ -54,17 +57,20 @@ module.exports = function(app)
           if(req.query.id==rand)
           {
               console.log("email is verified");
-              res.end("<h1>Email "+mailOptions.to+" is been Successfully verified");
+              data={
+                user:mailOptions.to
+              };
+              res.render('apply',data);
           }
           else
           {
-              console.log("email is not verified");
+              console.log("email not verified");
               res.end("<h1>Bad Request</h1>");
           }
       }
       else
       {
-          res.end("<h1>Request is from unknown source");
+          res.end("<h1>Request from unknown source");
       }
     });
 
@@ -77,4 +83,10 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout.html')
     });
+
+
+    //for testing
+    app.get('/apply', function(req, res){
+      res.render('applySample.html')
+    })
 }
