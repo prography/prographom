@@ -111,7 +111,9 @@
                   <h1>Apply</h1>
                   <input type="text" id="to" value='yyh729@naver.com' placeholder="Enter E-mail which you want to verify"><br>
                   <button id="send_email">Send Email</button><br>
+                  <p id="message">
 
+                  </p>
                </div> <!-- /sign-up form -->
 
             </div><!-- /main-content form -->
@@ -282,11 +284,13 @@
         $.get("http://localhost:3000/send",{to:to},function(data){
         if(data=="sent")
         {
-            $("#message").empty().html("<p>Email is been sent at "+to+" . Please check inbox !</p>");
+            $("#message").empty().html("<p>Email is been sent to "+to+" . Please check inbox !</p>");
         }
 
   });
     });
+
+    
   });
   </script>
 </body>

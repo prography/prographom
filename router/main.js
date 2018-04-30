@@ -35,7 +35,7 @@ module.exports = function(app)
         mailOptions={
             to : req.query.to,
             subject : "Please confirm your Email account",
-            html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Click to verify</a>"
+            html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Verify and write application form.</a>"
         }
         // console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response){
@@ -58,9 +58,15 @@ module.exports = function(app)
           {
               console.log("email is verified");
               data={
-                user:mailOptions.to
+                id:req.query.id,
+                user:req.query.to,
+
               };
-              res.render('apply',data);
+              //register data to database
+
+
+              //redirect to application page
+              res.redirect('/apply?id='+req.query.id);
           }
           else
           {
@@ -84,9 +90,23 @@ module.exports = function(app)
       res.render('layout.html')
     });
 
+    app.get('/apply', function(req ,res){
+      var id=req.query.id;
+      var user="example@prography.com";
+      var answers=['blah1','blah2','blah3','blah4'];
+      //find the user info by the id from database
 
-    //for testing
-    app.get('/apply', function(req, res){
-      res.render('applySample.html')
+
+
+
+      //
+      data={
+        user,
+        id,
+        answers
+      }
+      res.render('apply', data);
     })
+    
+
 }

@@ -79,39 +79,39 @@
   				<div class="col-md-6">
   					<div class="section-header">
               <p><%=user%> verified!</p>
+              <p>id: <%=id%> </p>
   						<h2 class="title">Application</h2>
   					</div>
 
             <form class="apply-form" action="index.html" method="post">
               <div class="feature">
       					<i class="fa fa-check"></i><p>Question1</p>
-                <textarea rows="4" cols="50" placeholder="answer1"></textarea>
+                <textarea rows="4" cols="50" placeholder="answer1" id='answer1'><%=answers[0]%></textarea>
                 <i class="fa fa-check"></i><p>Question2</p>
-                <textarea rows="4" cols="50" placeholder="answer2"></textarea>
+                <textarea rows="4" cols="50" placeholder="answer2" id='answer2'><%=answers[1]%></textarea>
                 <i class="fa fa-check"></i><p>Question3</p>
-                <textarea rows="4" cols="50" placeholder="answer3"></textarea>
+                <textarea rows="4" cols="50" placeholder="answer3" id='answer3'><%=answers[2]%></textarea>
                 <i class="fa fa-check"></i><p>Question4</p>
-                <textarea rows="4" cols="50" placeholder="answer4"></textarea>
-                <button type="submit" name="button">APPLY</button>
+                <textarea rows="4" cols="50" placeholder="answer4" id='answer4'><%=answers[3]%></textarea>
+                <button type="button" onclick="saveForm()" name="save">SAVE</button>
+                <button type="submit" name="submit">SUBMIT</button>
               </div>
 
             </form>
           </div>
-
-
-
-
-
-
   			</div>
-
   		</div>
-
   	</div>
+    <script>
+      function saveForm(){
+        //save #answer1_thru_4 to database
 
 
 
+        //
+        console.log("saved");
+      }
+    </script>
 
-
-</body>
+  </body>
 </html>
