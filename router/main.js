@@ -24,4 +24,6 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout.html')
     });
+
+    //apply post를 만들 계획
 }
