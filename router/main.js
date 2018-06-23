@@ -25,5 +25,5 @@ module.exports = function(app)
       res.render('layout.html')
     });
 
-    //apply post를 만들 계획
+    //apply post를 만들 계획임
 }
