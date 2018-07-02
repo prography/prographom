@@ -90,9 +90,6 @@ module.exports = function(app)
       res.render('layout.html')
     });
 
-<<<<<<< HEAD
-    //apply post를 만들 계획임
-=======
     app.get('/apply', function(req ,res){
       var id=req.query.id;
       var user="example@prography.com";
@@ -110,7 +107,6 @@ module.exports = function(app)
       }
       res.render('apply', data);
     })
-    
 
->>>>>>> yoo
+
 }
