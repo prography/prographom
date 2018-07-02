@@ -44,6 +44,8 @@
    =================================================== -->
    <!-- <link rel="shortcut icon" href="favicon.png" > -->
 
+
+
 </head>
 
 <body>
@@ -55,7 +57,7 @@
         <div class="navbar-header">
           <!-- Logo -->
           <div class="navbar-brand">
-            <a href="index.html">
+            <a href="/">
               <img class="logo" src="img/logo.png" alt="logo">
               <img class="logo-alt" src="img/logo-alt.png" alt="logo">
             </a>
@@ -105,26 +107,13 @@
               </div>
 
 
-               <!-- <div id="counter" class="group">
-                  <span>S <em>i</em></span>
-                  <span>O <em>n</em></span>
-                  <span>M <em>f</em></span>
-                  <span>E <em>o</em></span>
-               </div> -->
+               <div >
+                  <h1>Apply</h1>
+                  <input type="text" id="to" value='yyh729@naver.com' placeholder="Enter E-mail which you want to verify"><br>
+                  <button id="send_email">Send Email</button><br>
+                  <p id="message">
 
-               <!-- MailChimp Signup Form -->
-               <div id="mc-signup">
-
-                  <form id="mc-form" class="group">
-
-               		<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your Email" required>
-
-                     <input type="submit" value="get apply link" name="subscribe" class="button">
-
-                     <label for="mce-EMAIL" class="subscribe-message"></label>
-
-                  </form>
-
+                  </p>
                </div> <!-- /sign-up form -->
 
             </div><!-- /main-content form -->
@@ -286,5 +275,23 @@
   <!-- <script type="text/javascript" src="js/owl.carousel.min.js"></script> -->
   <script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
   <!-- <script type="text/javascript" src="js/main.js"></script>         -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var from,to,subject,text;
+    $("#send_email").click(function(){
+        to=$("#to").val();
+        $("#message").text("Sending E-mail...Please wait");
+        $.get("http://localhost:3000/send",{to:to},function(data){
+        if(data=="sent")
+        {
+            $("#message").empty().html("<p>Email is been sent to "+to+" . Please check inbox !</p>");
+        }
+
+  });
+    });
+
+    
+  });
+  </script>
 </body>
 </html>
