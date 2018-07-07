@@ -107,6 +107,6 @@ module.exports = function(app)
       }
       res.render('apply', data);
     })
-    
+
 
 }
