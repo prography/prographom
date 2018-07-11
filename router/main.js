@@ -149,31 +149,32 @@ module.exports = function(app)
         answers
       }
       res.render('apply', data);
-    })
-		require('date-utils');
-		var newDate = new Date();
-		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-		var id=req.query.id;
-		var user="example@prography.com";
-		var answers=['blah1','blah2','blah3','blah4'];
-
-		data={
-			user,
-			id,
-			answers
-			}
-
-		console.log(time); // remove
-		// before apply
-		if (time < '2018-07-09 05:52:00')
-			res.render('apply', data);
-		// after apply
-		else if (time < '2018-07-09 05:54:00')
-			res.render('recruit_fin.html');
-		// result
-		else
-			res.render('recruit_result.html');
     });
+
+		// require('date-utils');
+		// var newDate = new Date();
+		// var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+		// var id=req.query.id;
+		// var user="example@prography.com";
+		// var answers=['blah1','blah2','blah3','blah4'];
+    //
+		// data={
+		// 	user,
+		// 	id,
+		// 	answers
+		// 	}
+    //
+		// console.log(time); // remove
+		// // before apply
+		// if (time < '2018-07-09 05:52:00')
+		// 	res.render('apply', data);
+		// // after apply
+		// else if (time < '2018-07-09 05:54:00')
+		// 	res.render('recruit_fin.html');
+		// // result
+		// else
+		// 	res.render('recruit_result.html');
+    // });
 
 	app.post('/send_kakao', function(req, res){
 		client.query('USE prography');
@@ -183,8 +184,8 @@ module.exports = function(app)
 			} else {
 				console.log(result);
 			}
-	});
+	   });
 
 
-
+   });
 }
