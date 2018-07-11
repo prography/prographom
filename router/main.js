@@ -1,3 +1,21 @@
+var mysql = require('mysql');
+
+var client = mysql.createConnection({
+
+	host : 'localhost',
+	user: 'root',
+	password: 'sjm1771033',
+	database: 'prography'
+
+});
+
+client.connect(function(err){
+	if(err) throw err;
+	console.log("DB connected")
+});
+
+//
+
 var nodemailer=require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
