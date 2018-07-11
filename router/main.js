@@ -9,6 +9,12 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
+var mysql = require('mysql');
+var client = mysql.createConnection({
+	user: 'root',
+	password: 'ilove1421'
+});
+
 module.exports = function(app)
 {
     app.get('/', function(req,res) {
@@ -53,18 +59,14 @@ module.exports = function(app)
         // after apply
         else if (time < '2018-08-07 00:00:00')
            res.render('recruit-fin.html');
-        // result
-        else
-           res.render('recruit-result.html');
+        // 1차 발표
+        else if (time < '2018-08-09 00:00:00')
+           res.render('recruit-result1.html');
+        // 2차 발표
+        else if (time < '2018-08-10 00:00:00')
+           res.render('recruit-result2.html');
+
       });
-
-    app.get('/result1', function(req, res) {
-      res.render('result1.html')
-    });
-
-    app.get('/result2', function(req, res) {
-      res.render('result2.html')
-    });
 
     app.get('/application', function(req, res) {
       res.render('application.html')
@@ -133,6 +135,7 @@ module.exports = function(app)
     });
 
     app.get('/apply', function(req ,res){
+<<<<<<< HEAD
       var id=req.query.id;
       var user="example@prography.com";
       var answers=['blah1','blah2','blah3','blah4'];
@@ -148,6 +151,42 @@ module.exports = function(app)
       }
       res.render('apply', data);
     })
+=======
+		require('date-utils');
+		var newDate = new Date();
+		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+		var id=req.query.id;
+		var user="example@prography.com";
+		var answers=['blah1','blah2','blah3','blah4'];
+
+		data={
+			user,
+			id,
+			answers
+			}
+
+		console.log(time); // remove
+		// before apply
+		if (time < '2018-07-09 05:52:00')
+			res.render('apply', data);
+		// after apply
+		else if (time < '2018-07-09 05:54:00')
+			res.render('recruit_fin.html');
+		// result
+		else
+			res.render('recruit_result.html');
+    });
+
+	app.post('/send_kakao', function(req, res){
+		client.query('USE prography');
+		client.query('SELECT phone FROM applicants', function(error, result, fields) {
+			if (error){
+				console.log('쿼리 문장에 오류가 있습니다.');
+			} else {
+				console.log(result);
+			}
+	});
+>>>>>>> yeeun
 
 
 }
