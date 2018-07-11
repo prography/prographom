@@ -9,6 +9,12 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
+var mysql = require('mysql');
+var client = mysql.createConnection({
+	user: 'root',
+	password: 'ilove1421'
+});
+
 module.exports = function(app)
 {
     app.get('/', function(req,res) {
@@ -20,8 +26,24 @@ module.exports = function(app)
     app.get('/history', function(req, res) {
       res.render('history.html')
     });
+	app.get('/login', function(req, res) {
+		res.render('login.html')
+	});
     app.get('/recruit', function(req, res) {
-      res.render('recruit.html')
+		require('date-utils');
+		var newDate = new Date();
+		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+		
+		console.log(time); // remove
+		// before apply
+		if (time < '2018-08-01 00:00:00')
+			res.render('recruit-ing.html');
+		// after apply
+		else if (time < '2018-08-07 00:00:00')
+			res.render('recruit-fin.html');
+		// result
+		else
+			res.render('recruit-result.html');
     });
     app.get('/project', function(req, res) {
       res.render('project.html')
@@ -91,22 +113,40 @@ module.exports = function(app)
     });
 
     app.get('/apply', function(req ,res){
-      var id=req.query.id;
-      var user="example@prography.com";
-      var answers=['blah1','blah2','blah3','blah4'];
-      //find the user info by the id from database
-
-
-
-
-      //
-      data={
-        user,
-        id,
-        answers
-      }
-      res.render('apply', data);
-    })
+		require('date-utils');
+		var newDate = new Date();
+		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+		var id=req.query.id;
+		var user="example@prography.com";
+		var answers=['blah1','blah2','blah3','blah4'];
+		
+		data={
+			user,
+			id,
+			answers
+			}
+			
+		console.log(time); // remove
+		// before apply
+		if (time < '2018-07-09 05:52:00')
+			res.render('apply', data);
+		// after apply
+		else if (time < '2018-07-09 05:54:00')
+			res.render('recruit_fin.html');
+		// result
+		else
+			res.render('recruit_result.html');
+    });
+	
+	app.post('/send_kakao', function(req, res){
+		client.query('USE prography');
+		client.query('SELECT phone FROM applicants', function(error, result, fields) {
+			if (error){
+				console.log('쿼리 문장에 오류가 있습니다.');
+			} else {
+				console.log(result);
+			}
+	});
 
 
 }
