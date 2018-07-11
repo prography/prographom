@@ -135,7 +135,6 @@ module.exports = function(app)
     });
 
     app.get('/apply', function(req ,res){
-<<<<<<< HEAD
       var id=req.query.id;
       var user="example@prography.com";
       var answers=['blah1','blah2','blah3','blah4'];
@@ -151,7 +150,6 @@ module.exports = function(app)
       }
       res.render('apply', data);
     })
-=======
 		require('date-utils');
 		var newDate = new Date();
 		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
@@ -186,7 +184,7 @@ module.exports = function(app)
 				console.log(result);
 			}
 	});
->>>>>>> yeeun
+
 
 
 }
