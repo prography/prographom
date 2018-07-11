@@ -85,14 +85,24 @@
 
             <form class="apply-form" action="index.html" method="post">
               <div class="feature">
-      					<i class="fa fa-check"></i><p>Question1</p>
-                <textarea rows="4" cols="50" placeholder="answer1" id='answer1'><%=answers[0]%></textarea>
-                <i class="fa fa-check"></i><p>Question2</p>
-                <textarea rows="4" cols="50" placeholder="answer2" id='answer2'><%=answers[1]%></textarea>
-                <i class="fa fa-check"></i><p>Question3</p>
-                <textarea rows="4" cols="50" placeholder="answer3" id='answer3'><%=answers[2]%></textarea>
-                <i class="fa fa-check"></i><p>Question4</p>
-                <textarea rows="4" cols="50" placeholder="answer4" id='answer4'><%=answers[3]%></textarea>
+      					<i class="fa fa-check"></i><p>Question1. 간단히 자기소개를 해주세요. (500자 이내)</p>
+                <textarea rows="4" cols="50" id='answer1'><%=answers[0]%></textarea>
+                <i class="fa fa-check"></i><p>Question2. 프로그라피에 지원하게 된 동기에 대해 말씀해주세요. (500자 이내)</p>
+                <textarea rows="4" cols="50" id='answer2'><%=answers[1]%></textarea>
+                <i class="fa fa-check"></i><p>Question3. 프로그라피에서 만들어보고 싶은 것이 있다면 말씀해주세요. (300자 이내)</p>
+                <textarea rows="4" cols="50" id='answer3'><%=answers[2]%></textarea>
+                <i class="fa fa-check"></i><p>Question4. 과거 활동했던 경험과 현재 하고 있는 활동에 대해 말씀해주세요.(예: 학과 활동, 동아리, 단체 활동, 봉사 활동, 수상내역, 인턴 등)</p>
+                <textarea rows="4" cols="50" id='answer4'><%=answers[3]%></textarea>
+				 <i class="fa fa-check"></i><p>Question5. 위에서 표현하지 못한 자기 자신에 대해 적어주세요. (길이 제한 없음)</p>
+                <textarea rows="4" cols="50" id='answer5'><%=answers[4]%></textarea>
+				 <i class="fa fa-check"></i><p>Question6. 본인을 표현할 수 있는 사진을 넣어주세요.<br>	(예: 셀카, 여행 사진, 닮은 동물, 닮은꼴 등)</p>
+                <textarea rows="4" cols="50" id='answer6'><%=answers[5]%></textarea>
+				<i class="fa fa-check"></i><p>Question7. OT 참석 여부를 표시해주세요.</p>
+                <textarea rows="4" cols="50" id='answer7'><%=answers[6]%></textarea>
+				<i class="fa fa-check"></i><p>Question8. MT 참석 여부를 표시해주세요.</p>
+                <textarea rows="4" cols="50" id='answer8'><%=answers[7]%></textarea>
+				
+				
                 <button type="button" onclick="saveForm()" name="save">SAVE</button>
                 <button type="submit" name="submit">SUBMIT</button>
               </div>

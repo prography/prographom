@@ -1,0 +1,589 @@
+/*
+  [master css index]
+    0.color
+    1.basic
+      1-1.font
+      1-2.line
+    2.nav-top
+      2-1.nav-blue
+    3.logo
+    4.footer & p tag
+    5.glyphicon
+    6.span tag
+    7.poster & img
+    8.tab
+    9.banner
+    10.table
+*/
+
+
+/*
+-------- 0.color --------
+0. [gray] -기본 컬러
+
+  제일 연한 배경 색 : #f2f2f2;
+  블랙 대용 (배경) : #222;
+  블랙 대용 (글꼴) : #333;
+
+
+1. [pink] -동아리 기본 페이지
+  활기차고 에너지넘치는 분위기
+
+  기본핑크 : #d81d45;
+  진한 핑크 : #c01c3e;
+
+
+2. [blue] -운영진 페이지
+  안정적이고 미래 지향적, 성실함, 평화의 의미를 내포하는 컬러
+
+  기본 블루 : #0a88a7;
+  연한 블루 : #30aecd;
+
+
+3. [orange] -지원자 페이지
+  활동성과 호기심을 상징하고 영감과 유쾌한 자극을 줄 수 있는 외향적인 색으로 즐거움을 내포하는 컬러
+
+  기본 오렌지 : #ff7e28;
+  연한 오렌지 : #ff9f17;
+
+*/
+
+
+
+
+/*-------- 1.basic --------*/
+html, body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 400;
+}
+
+body{
+  font-size: 15px;
+  color: #777;
+  background-color: #f2f2f2;
+}
+
+h5{
+  line-height: 1.2em;
+}
+
+
+.text-white{
+  color: #fff;
+}
+
+textarea{
+  resize: none;
+}
+
+.box-gray{
+  width: 100%;
+  height: 300px;
+  background-color: #222;
+}
+
+.box-footer-pattern{
+  background:
+    linear-gradient(63deg, #282828 23%, transparent 23%) 7px 0,
+    linear-gradient(63deg, transparent 74%, #282828 78%),
+    linear-gradient(63deg, transparent 34%, #282828 38%, #282828 58%, transparent 62%),#222;
+  background-size: 16px 48px;
+  color: white;
+  padding: 40px;
+  height: 400px;
+}
+
+.position-a{
+  position: absolute;
+}
+
+
+/*-------- 1-1.font --------*/
+
+.main-font-size{
+  margin-top:140px;
+  font-weight:400;
+  color:#333;
+  font-size:50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-font-size {
+      font-size: 45px;
+    }
+}
+
+
+
+
+/*-------- 1-2.line --------*/
+
+.perpect-p{
+  width: 100%;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.half-p{
+  width: 50%;
+  height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .half-p {
+      width: 100%;
+    }
+}
+
+
+/*-------- 2.nav-top --------*/
+#navbar{
+  transition: top 0.3s;
+}
+
+
+.navbar{
+  background-color: #fff;
+  border: 0;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 0.9em;
+  transition: top 0.3s;
+}
+
+.open .dropdown-toggle{
+  color: #fff;
+  background-color: #d81d45 !important;
+}
+
+
+.dropdown-menu li a {
+  color: lightgray !important;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #d81d45 !important;
+  color: #fff!important;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+.navbar-inverse:hover .navbar-nav>li>a:hover{
+  opacity: 0.9;
+}
+
+.navbar .navbar-toggle{
+  border-color: #d81d45 !important;
+}
+
+.navbar:hover .navbar-toggle:hover{
+  background-color: #d81d45;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+  border-color: #d81d45 !important;
+}
+
+
+
+/*-------- 3.logo --------*/
+.logo-img{
+  width: 15%;
+  transition: 0.2s ease;
+}
+
+.logo-img:hover{
+  opacity: 0.7;
+}
+
+.footer-logo-img{
+  width: 32px;
+  padding-bottom: 15px;
+}
+
+.logo-middle{
+  width: 50px;
+  margin-top: 130px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.1s ease;
+}
+
+
+.logo-middle:hover{
+  /*filter: drop-shadow( 0px 1px 5px #fff );*/
+  opacity: 0.7;
+}
+
+
+
+.background-logo{
+  position:fixed;
+  width: 20%;
+  z-index: -1;
+  top: 70px;
+  right: 50px;
+  opacity: 0.05;
+}
+
+.background-logo-small{
+  position:fixed;
+  width: 7%;
+  z-index: -1;
+  top: 50px;
+  right: 300px;
+  opacity: 0.05;
+}
+
+/*-------- 4.footer & p tag --------*/
+
+footer{
+  background:
+    linear-gradient(63deg, #282828 23%, transparent 23%) 7px 0,
+    linear-gradient(63deg, transparent 74%, #282828 78%),
+    linear-gradient(63deg, transparent 34%, #282828 38%, #282828 58%, transparent 62%),#222;
+  background-size: 16px 48px;
+  color: white;
+  padding: 40px;
+}
+
+
+.p-p{
+  display: inline;
+  padding: 2px 23px 0px 23px;
+  font-weight: 400;
+  opacity: 0.8;
+  letter-spacing: 0.08em;
+}
+
+.p-pp{
+  display: inline;
+  padding: 0px 10px 0px 30px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  font-size:  12px;
+}
+
+
+.p-inline{
+  display: inline;
+}
+
+.p-md{
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .p-md {
+      font-size:15px;
+      margin-top: 10px;
+    }
+}
+
+.p-submain{
+  color: #fff;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .p-submain {
+      font-size: 16px;
+      font-weight: 400;
+    }
+}
+
+.recruit-box{
+  width: 90%;
+  height: auto;
+  background-color: #f2f2f2;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.recruit-box-text{
+  padding-top: 20px;
+  padding-bottom: 12px;
+  font-size: 20px;
+  color: #333;
+}
+
+@media only screen and (max-width: 600px) {
+    .recruit-box-text {
+      font-size: 16px;
+    }
+}
+
+.highlight{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 700;
+  color: #FF7E28;
+}
+
+.highlight-black{
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 700;
+  color: #222;
+}
+
+.explain{
+  font-size: 14px;
+  color: #444;
+  margin: 30px;
+  line-height: 23px;
+}
+
+@media only screen and (max-width: 600px) {
+    .explain {
+      font-size: 11px;
+      margin: 12px;
+    }
+}
+
+/*-------- 5.glyphicon --------*/
+
+.glyphicon-pink{
+  color: white;
+}
+
+.glyphicon-pink:hover{
+  color: #d81d45;
+}
+
+/*-------- 6.span tag--------*/
+
+/*-------- 7.poster & img--------*/
+.poster{
+  width: 90%;
+  height: auto;
+  box-shadow: 3px 5px 20px lightgray;
+  display: block;
+  margin-top: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .poster {
+        width: 100%;
+    }
+}
+
+.tab-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-img-circle{
+  width: 100px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+
+/*-------- 8.tab --------*/
+
+.tab-33{
+  width: 33.3333333%;
+  font-weight: 700;
+  color:#222;
+  font-size: 18px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .tab-33 {
+        font-size:12px;
+    }
+}
+
+.tab-box-pad{
+  padding: 20px;
+  height: auto;
+  background-color: #fff;
+}
+
+
+.nav-tabs>li>a{
+  border-radius: 5px 5px 0px 0px !important;
+}
+
+.nav-tabs>li>a:hover{
+  color: #fff;
+}
+
+
+.tab-content{
+  border-radius: 0px 0px 5px 5px;
+}
+
+
+
+
+/*-------- 9.banner --------*/
+.banner{
+  position: relative;
+  width: 100%;
+  height: 555px;
+  z-index: 100;
+}
+
+.banner2{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  z-index: 100;
+}
+
+.banner-contents{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  z-index: 100;
+  top: 0;
+}
+
+
+
+.bg-img{
+  background-image: url('../img/bg1.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  height: 500px;
+  z-index: -2;
+  user-select: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-img {
+      background-image: url('../img/bg1-1.jpg');
+    }
+}
+
+.bg-img2{
+  background-image: url('../img/bg2.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  height: 300px;
+  z-index: -2;
+  user-select: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-img2 {
+      background-image: url('../img/bg2-1.jpg');
+    }
+}
+
+.main-title{
+  color: #fff;
+  position: absolute;
+  top: 35%;
+  font-size: 40px;
+  z-index: 100;
+}
+
+
+.sub-title{
+  color: #fff;
+  position: absolute;
+  top: 45%;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  z-index: 100;
+}
+
+
+
+/*-------- 10.table --------*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr{
+  height: 30px;
+}
+
+
+.td-1 {
+  width: 40%;
+}
+
+.td-2 {
+  width: 30%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.thead{
+  color: #444;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+    .thead {
+      font-size: 14px;
+    }
+}
+
+.tbody{
+  color: #444;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+    .tbody {
+      font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
