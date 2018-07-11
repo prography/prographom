@@ -20,13 +20,55 @@ module.exports = function(app)
     app.get('/history', function(req, res) {
       res.render('history.html')
     });
+
+    app.get('/login', function(req, res) {
+      res.render('login.html')
+  });
+
+    app.get('/product', function(req, res) {
+      res.render('product.html')
+  });
+
+    app.get('/admin', function(req, res) {
+      res.render('admin.html')
+  });
+
+    app.get('/admin', function(req, res) {
+      res.render('admin.html')
+  });
+
+
+
+
+
     app.get('/recruit', function(req, res) {
-      res.render('recruit.html')
-    });
-    app.get('/project', function(req, res) {
-      res.render('project.html')
+        require('date-utils');
+        var newDate = new Date();
+        var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+
+        console.log(time); // remove
+        // before apply
+        if (time < '2018-08-01 00:00:00')
+           res.render('recruit-ing.html');
+        // after apply
+        else if (time < '2018-08-07 00:00:00')
+           res.render('recruit-fin.html');
+        // result
+        else
+           res.render('recruit-result.html');
+      });
+
+    app.get('/result1', function(req, res) {
+      res.render('result1.html')
     });
 
+    app.get('/result2', function(req, res) {
+      res.render('result2.html')
+    });
+
+    app.get('/application', function(req, res) {
+      res.render('application.html')
+    });
 
     app.get('/send',function(req,res){
         rand=sha256(req.query.to);
@@ -95,7 +137,6 @@ module.exports = function(app)
       var user="example@prography.com";
       var answers=['blah1','blah2','blah3','blah4'];
       //find the user info by the id from database
-
 
 
 
