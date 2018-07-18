@@ -146,6 +146,7 @@ module.exports = function(app)
       res.render('layout.html')
     });
 
+
     app.get('/apply', function(req ,res){
       var id=req.query.id;
       var user="example@prography.com";
@@ -200,4 +201,10 @@ module.exports = function(app)
 
 
    });
+	
+    app.get('/interview', function(req, res) {
+      res.render('interview.html')
+    });
+	
+	
 }
