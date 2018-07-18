@@ -11,7 +11,7 @@ radio btn
   border-radius: 20px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-bottom: 5px;
   border: 2px solid white;
   color: #29292c;
@@ -29,7 +29,7 @@ radio btn
   border-radius: 20px;
   margin-right: 5px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-bottom: 5px;
   border: 1px solid #lightgray;
   color: #222;
@@ -40,7 +40,7 @@ radio btn
   border-radius: 20px;
   margin-right: 10px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-bottom: 5px;
   border: 1px solid #d81d45;
   color: #29292c;
@@ -58,7 +58,7 @@ radio btn
   padding: 5px 30px;
   border-radius: 20px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-bottom: 5px;
   border: 1px solid lightgray;
   color: #29292c;
@@ -74,7 +74,7 @@ radio btn
   padding: 5px 30px;
   border-radius: 20px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   margin-bottom: 5px;
   border: 1px solid lightgray;
   color: #29292c;
@@ -95,7 +95,7 @@ radio btn
   width: 100%;
   border-radius: 20px;
   font-size: 17px;
-  font-family: 'Exo 2', sans-serif;
+  font-family:'Spoqa Han Sans', 'Sans-serif';
   font-weight: 700;
   border: 0.2px solid #222;
   color: #fff;
@@ -126,11 +126,11 @@ radio btn
     }
 }
 
-.btn-pink-top, .btn-pink-top:visited{
+.btn-pink-top{
   padding: 5px 50px;
   border-radius: 20px;
   font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   border: 1px solid #f2f2f2;
   color: #f2f2f2;
   transition: 0.3s ease;
@@ -147,11 +147,6 @@ radio btn
   text-decoration: none;
 }
 
-.btn-pink-top:active{
-  border: 1px solid #f2f2f2;
-  color: #f2f2f2;
-  text-decoration: none;
-}
 
 a[target="_blank"]{
   text-decoration: none;
@@ -223,6 +218,133 @@ a[target="_blank"]{
 }
 
 
+
+.light-btn{
+  font-size: 12px;
+  color: #fff;
+  border: 0.5px solid #fff;
+  border-radius: 20px;
+  padding: 3px 20px 3px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.2s ease;
+}
+
+
+.light-btn:hover{
+  color: #fff;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+
+
+ /*동그란 버튼들*/
+.gray-btn{
+  font-size: 15px;
+  color: #fff;
+  background-color: #999;
+  border: 0.5px solid #f2f2f2;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  /*padding: 30px 30px 30px 30px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.3s ease;
+}
+
+
+.gray-btn:hover{
+    color: #999;
+  background-color: #fff;
+  font-weight: 700;
+}
+
+
+
+ /*동그란 버튼들*/
+.deep-gray-btn{
+  font-size: 15px;
+  color: #fff;
+  background-color: #333;
+  border: 0.5px solid #f2f2f2;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  /*padding: 30px 30px 30px 30px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.3s ease;
+}
+
+
+.deep-gray-btn:hover{
+  opacity: 0.5;
+  text-decoration: none;
+  text-decoration:line-through;
+}
+
+
+ /*길죽한 버튼들*/
+.blue-btn{
+  font-size: 14px;
+  color: #fff;
+  background-color: #0a88a7;
+  border: 0.5px solid #30aecd;
+  border-radius: 100px;
+  width: 150px;
+  height: 50px;
+  /*padding: 30px 30px 30px 30px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.5s ease;
+}
+
+
+.blue-btn:hover{
+  color: #0a88a7;
+  background-color: #fff;
+  font-weight: 700;
+}
+
+
+/*동그란 버튼들*/
+.orange-btn{
+ font-size: 14px;
+ color: #fff;
+ background-color: #ff7e28;
+ border: 0.5px solid #ff9f17;
+ border-radius: 50px;
+ width: 70px;
+ height: 70px;
+ /*padding: 30px 30px 30px 30px;*/
+ margin-left: 5px;
+ margin-right: 5px;
+ transition: 0.5s ease;
+}
+
+@media only screen and (max-width: 600px) {
+    .orange-btn {
+      font-size: 12px;
+      color: #fff;
+      background-color: #ff7e28;
+      border: 0.5px solid #ff9f17;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      /*padding: 30px 30px 30px 30px;*/
+      margin-left: 5px;
+      margin-right: 5px;
+      transition: 0.5s ease;
+    }
+}
+
+.orange-btn:hover{
+ color: #ff7e28;
+ background-color: #fff;
+ font-weight: 700;
+}
 /*-------- submit-btn --------*/
 
 

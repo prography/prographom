@@ -14,6 +14,8 @@
     8.tab
     9.banner
     10.table
+    11.container percent
+    12.margin
 */
 
 
@@ -53,7 +55,7 @@
 
 /*-------- 1.basic --------*/
 html, body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: 400;
 }
 
@@ -176,7 +178,7 @@ textarea{
 }
 
 .navbar-inverse:hover .navbar-nav>li>a:hover{
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 .navbar .navbar-toggle{
@@ -200,7 +202,7 @@ textarea{
 }
 
 .logo-img:hover{
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .footer-logo-img{
@@ -214,34 +216,24 @@ textarea{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  transition: 0.1s ease;
+  transition: 0.2s ease;
 }
 
 
 .logo-middle:hover{
   /*filter: drop-shadow( 0px 1px 5px #fff );*/
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
-
-
-.background-logo{
-  position:fixed;
-  width: 20%;
-  z-index: -1;
-  top: 70px;
-  right: 50px;
-  opacity: 0.05;
+.logo-middle-noclick{
+  width: 50px;
+  opacity: 0.8;
+  user-select: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.background-logo-small{
-  position:fixed;
-  width: 7%;
-  z-index: -1;
-  top: 50px;
-  right: 300px;
-  opacity: 0.05;
-}
 
 /*-------- 4.footer & p tag --------*/
 
@@ -260,7 +252,7 @@ footer{
   display: inline;
   padding: 2px 23px 0px 23px;
   font-weight: 400;
-  opacity: 0.8;
+  opacity: 0.6;
   letter-spacing: 0.08em;
 }
 
@@ -328,15 +320,15 @@ footer{
 }
 
 .highlight{
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: 700;
   color: #FF7E28;
 }
 
 .highlight-black{
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: 700;
-  color: #222;
+  color: #444;
 }
 
 .explain{
@@ -349,6 +341,20 @@ footer{
 @media only screen and (max-width: 600px) {
     .explain {
       font-size: 11px;
+      margin: 12px;
+    }
+}
+
+.l-explain{
+  font-size: 30px;
+  color: #444;
+  margin: 30px;
+  line-height: 23px;
+}
+
+@media only screen and (max-width: 600px) {
+    .l-explain {
+      font-size: 17px;
       margin: 12px;
     }
 }
@@ -446,22 +452,23 @@ footer{
   position: relative;
   width: 100%;
   height: 555px;
-  z-index: 100;
+  z-index: -1;
 }
 
 .banner2{
-  position: relative;
   width: 100%;
   height: 200px;
-  z-index: 100;
+  z-index: -1;
 }
 
 .banner-contents{
   position: absolute;
-  width: 100%;
-  height: 200px;
   z-index: 100;
-  top: 0;
+  top: 300px;
+}
+
+.banner-contents2{
+  margin-top: -200px;
 }
 
 
@@ -498,20 +505,16 @@ footer{
 
 .main-title{
   color: #fff;
-  position: absolute;
-  top: 35%;
   font-size: 40px;
-  z-index: 100;
 }
 
 
 .sub-title{
   color: #fff;
-  position: absolute;
-  top: 45%;
   font-size: 16px;
   letter-spacing: 0.5px;
-  z-index: 100;
+  font-weight: 300;
+  margin-bottom: 20px;
 }
 
 
@@ -538,6 +541,15 @@ tr{
   margin-left: auto;
 }
 
+.td-3 {
+  width: 20%;
+}
+
+.td-4 {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .thead{
   color: #444;
@@ -564,7 +576,84 @@ tr{
 }
 
 
+/*-------- 11.container percent --------*/
 
+
+.div-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.per-90{
+  width: 90%;
+}
+
+@media only screen and (max-width: 600px) {
+    .per-90 {
+      width: 100%;
+    }
+}
+
+
+
+.per-80{
+  width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+    .per-80 {
+      width: 90%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------- 12.margin --------*/
+
+
+.margin-20{
+  margin: 20px;
+}
+.margin-top-20{
+  margin-top: 20px;
+}
+
+.margin-bottom-20{
+  margin-bottom: 20px;
+}
+
+.margin-40{
+  margin: 40px;
+}
+.margin-top-40{
+  margin-top: 40px;
+}
+
+.margin-bottom-40{
+  margin-bottom: 40px;
+}
+
+.margin-60{
+  margin: 60px;
+}
+.margin-top-60{
+  margin-top: 60px;
+}
+
+.margin-bottom-60{
+  margin-bottom: 60px;
+}
 
 
 
