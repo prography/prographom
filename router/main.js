@@ -24,4 +24,7 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout.html')
     });
+    app.get('/interview', function(req, res) {
+      res.render('interview.html')
+    });
 }
