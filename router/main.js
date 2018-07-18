@@ -68,6 +68,18 @@ module.exports = function(app)
 
       });
 
+    app.get('/recruit-fin', function(req, res) {
+      res.render('recruit-fin.html');
+    });
+
+    app.get('/recruit-result1', function(req, res) {
+      res.render('recruit-result1.html');
+    });
+
+    app.get('/recruit-result2', function(req, res) {
+      res.render('recruit-result2.html');
+    });
+
     app.get('/application', function(req, res) {
       res.render('application.html')
     });
