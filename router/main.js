@@ -11,8 +11,10 @@ var sha256 = require('js-sha256');
 
 var mysql = require('mysql');
 var client = mysql.createConnection({
+	host: '13.125.217.76',
 	user: 'root',
-	password: 'ilove1421'
+	password: '',
+	database : 'prography'
 });
 
 module.exports = function(app)
@@ -61,7 +63,7 @@ module.exports = function(app)
            res.render('recruit-fin.html');
         // 1차 발표
         else if (time < '2018-08-09 00:00:00')
-           res.render('recruit-result1.html');
+           res.render('recruit-result1');
         // 2차 발표
         else if (time < '2018-08-10 00:00:00')
            res.render('recruit-result2.html');
@@ -73,7 +75,23 @@ module.exports = function(app)
     });
 
     app.get('/recruit-result1', function(req, res) {
-      res.render('recruit-result1.html');
+		var name= "국지원";
+//		client.connect();
+//		client.query('SELECT name FROM members', function(error, result, fields) {
+//			if (error){
+//				console.log(error);
+//			} else {
+//				console.log(result);
+//			}
+//			
+//			client.end();
+//	   	});
+		
+      data={
+        name
+      }
+      res.render('recruit-result1', data);
+
     });
 
     app.get('/recruit-result2', function(req, res) {
@@ -202,9 +220,11 @@ module.exports = function(app)
 
    });
 	
-    app.get('/interview', function(req, res) {
-      res.render('interview.html')
-    });
+	
+	
+    app.get('/submit_day', function(req, res){
+		
+	});
 	
 	
 }
