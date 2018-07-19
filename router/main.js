@@ -83,10 +83,10 @@ module.exports = function(app)
 //			} else {
 //				console.log(result);
 //			}
-//			
+//
 //			client.end();
 //	   	});
-		
+
       data={
         name
       }
@@ -219,12 +219,12 @@ module.exports = function(app)
 
 
    });
-	
-	
-	
+
+
+
     app.get('/submit_day', function(req, res){
-		
+
 	});
-	
-	
+
+
 }
