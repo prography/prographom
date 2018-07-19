@@ -1,6 +1,7 @@
 /*
 button
 radio btn
+fixed-btn
 */
 
 
@@ -359,6 +360,20 @@ a[target="_blank"]{
 
 
 
+
+.fixed-button{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .fixed-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+    }
+}
 
 
 
