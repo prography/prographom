@@ -166,9 +166,12 @@ module.exports = function(app)
 
 
     app.get('/apply', function(req ,res){
-      var id=req.query.id;
-      var user="example@prography.com";
-      var answers=['blah1','blah2','blah3','blah4'];
+	  require('date-utils');
+        var id=req.query.id;
+        var user="example@prography.com";
+        var answers=['blah1','blah2','blah3','blah4'];
+	    var newDate = new Date();
+		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
       //find the user info by the id from database
 
 
@@ -179,52 +182,32 @@ module.exports = function(app)
         id,
         answers
       }
-      res.render('apply', data);
-    });
-
-		// require('date-utils');
-		// var newDate = new Date();
-		// var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-		// var id=req.query.id;
-		// var user="example@prography.com";
-		// var answers=['blah1','blah2','blah3','blah4'];
     //
-		// data={
-		// 	user,
-		// 	id,
-		// 	answers
-		// 	}
-    //
-		// console.log(time); // remove
-		// // before apply
-		// if (time < '2018-07-09 05:52:00')
-		// 	res.render('apply', data);
-		// // after apply
-		// else if (time < '2018-07-09 05:54:00')
-		// 	res.render('recruit_fin.html');
-		// // result
-		// else
-		// 	res.render('recruit_result.html');
-    // });
+		 console.log(time); // remove
+		 // apply 진행 중
+		 if (time < '2018-07-11 19:54:00')
+		 	res.render('apply.ejs', data);
+		 // after apply
+		 else if (time < '2018-07-11 19:54:30')
+		 	res.render('recruit-fin.html');
+		 // 1차 발표
+		 else if (time < '2018-07-11 19:54:00')
+		 	res.render('recruit-result1.html');
+		// 2차 발표
+		else
+			res.render('recruit-result2.html');
+     });
 
-	app.post('/send_kakao', function(req, res){
+	app.get('/send_kakao', function(req, res){
+		var phoneArray = new Array();
 		client.query('USE prography');
 		client.query('SELECT phone FROM applicants', function(error, result, fields) {
 			if (error){
 				console.log('쿼리 문장에 오류가 있습니다.');
 			} else {
-				console.log(result);
+				phoneArray = result;
+				console.log(phoneArray);
 			}
 	   });
-
-
    });
-
-
-
-    app.get('/submit_day', function(req, res){
-
-	});
-
-
 }
