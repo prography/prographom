@@ -309,6 +309,27 @@ a[target="_blank"]{
   font-weight: 700;
 }
 
+.blue-btn{
+  font-size: 14px;
+  color: #fff;
+  background-color: #0a88a7;
+  border: 0.5px solid #30aecd;
+  border-radius: 100px;
+  width: 150px;
+  height: 50px;
+  /*padding: 30px 30px 30px 30px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: 0.5s ease;
+}
+
+
+.blue-btn:hover{
+  color: #0a88a7;
+  background-color: #fff;
+  font-weight: 700;
+}
+
 
 /*동그란 버튼들*/
 .orange-btn{
