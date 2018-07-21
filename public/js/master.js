@@ -71,3 +71,26 @@ return false;
 }
 });
 });
+
+
+
+/* admin 페이지 menu */
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

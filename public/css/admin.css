@@ -1,0 +1,130 @@
+
+/*
+
+  1. background-color
+  2. font (color, size, weight ...)
+  3. output box
+  4. btn
+
+
+
+
+
+/*-------- 1.background-color --------*/
+
+.w3-teal{
+  background-color: #0a88a7 !important;
+}
+
+.hh:hover{
+  background-color: #0a88a7 !important;
+}
+
+
+
+
+/*-------- 2.font --------*/
+
+.sidebar-font{
+  color: #888;
+  font-weight: 400;
+  padding: 13px !important;
+  font-size: 16px;
+  text-decoration: none !important;
+  transition: 0.3s ease;
+}
+
+.sidebar-font:hover{
+  color: #fff !important;
+  font-weight: 400;
+  padding: 15px;
+  font-size: 16px;
+  text-decoration: none !important;
+  background-color: #0a88a7 !important;
+}
+
+.sidebar-font2{
+  color: #888;
+  font-weight: 400;
+  padding: 13px !important;
+  font-size: 16px;
+  text-decoration: none !important;
+  transition: 0.3s ease;
+}
+
+.sidebar-font2:hover{
+  font-weight: 400;
+  padding: 15px;
+  font-size: 16px;
+  text-decoration: none !important;
+  background-color: #e7e7e7 !important;
+}
+
+
+/*-------- 3. output box --------*/
+
+
+.output-box{
+  width: 100%;
+  height: auto;
+  color: #555;
+  font-size: 14px;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  padding: 8px;
+  padding-left: 15px;
+  border: 1px solid #e1e1e1;
+}
+
+
+.output-box-table{
+  width: 100%;
+  height: auto;
+  color: #555;
+  font-size: 14px;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  padding: 5px;
+  border: 1px solid #e1e1e1;
+}
+
+
+/*-------- 4. btn --------*/
+
+.cut-btn{
+  width: 90%;
+  background-color: #f2f2f2;
+  color: #222;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transition: 0.2s ease;
+}
+
+.cut-btn:hover{
+  background-color: #e8e8e8;
+  color: #222;
+}
+
+
+
+.btn-c:after {
+   font-family: "Glyphicons Halflings";
+   content: "\e114";
+   margin-left: 15px;
+   color: #0a88a7;
+ }
+ /* Icon when the collapsible content is hidden */
+ .btn-c.collapsed:after {
+   content: "\e080";
+ }
+
+
+
+
+
+
+
+/**/

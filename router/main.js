@@ -27,11 +27,7 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
-var mysql = require('mysql');
-var client = mysql.createConnection({
-	user: 'root',
-	password: 'ilove1421'
-});
+/* =================================================== */
 
 module.exports = function(app)
 {
@@ -79,23 +75,87 @@ module.exports = function(app)
            res.render('recruit-fin.html');
         // 1차 발표
         else if (time < '2018-08-09 00:00:00')
-           res.render('recruit-result1.html');
+           res.render('recruit-result1');
         // 2차 발표
         else if (time < '2018-08-10 00:00:00')
            res.render('recruit-result2.html');
 
       });
 
+    app.get('/recruit-fin', function(req, res) {
+      res.render('recruit-fin.html');
+    });
+
+	app.get('/check_result1', function(req, res){
+		var email = req.query.email;
+		console.log(client);
+		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
+		client.query(query, function(error, result){
+
+			if (error){
+				console.log(error);
+			} else {
+				var survived = result;
+				console.log(survived);
+			}
+
+			return result;
+		});
+	});
+
+    app.get('/recruit-result1', function(req, res) {
+		var name = '국지원';
+		client.query('SELECT name FROM Applicants', function(error, result, fields) {
+			if (error){
+				console.log(error);
+			} else {
+				console.log(result);
+			}
+			client.end();
+	   	});
+
+      data={
+        name
+      }
+      res.render('recruit-result1', data);
+
+    });
+
+    app.get('/recruit-result2', function(req, res) {
+      res.render('recruit-result2.html');
+    });
+
     app.get('/application', function(req, res) {
       res.render('application.html')
     });
 
+	// DB에 내용 추가
+	app.post('/application', function(req, res) {
+		var id = req.query.id;
+		var body = request.body;
+
+		client.query(`INSERT INTO applications (id) VALUES (?)`, [
+			id
+		], function() {
+			client.query(`INSERT INTO applications (sex, college, address, field, q1, q2, q3, q5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+				body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
+			], /* function() {
+				client.query(`INSERT INTO applicants (name, phone, n_th, application_id) VALUES (?, ?, ?, ?)`, [
+				body.name, body.phone, 3, id
+				], function() { */
+					response.redirect('/application'));
+				});
+			});
+
     app.get('/send',function(req,res){
-        rand=sha256(req.query.to);
+        email_to=req.query.email_to;
+        rand=sha256(req.query.email_to);
         host=req.get('host');
-        link="http://"+req.get('host')+"/verify?id="+rand;
+        link="http://"+host+"/verify?id="+rand;
+        // link="http://"+host+"/verify?id="+email_to;
+
         mailOptions={
-            to : req.query.to,
+            to : email_to,
             subject : "Please confirm your Email account",
             html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Verify and write application form.</a>"
         }
@@ -138,7 +198,7 @@ module.exports = function(app)
       }
       else
       {
-          res.end("<h1>Request from unknown source");
+          res.end("<h1>Request from unknown source</h1>");
       }
     });
 
@@ -152,10 +212,14 @@ module.exports = function(app)
       res.render('layout.html')
     });
 
+
     app.get('/apply', function(req ,res){
-      var id=req.query.id;
-      var user="example@prography.com";
-      var answers=['blah1','blah2','blah3','blah4'];
+	  require('date-utils');
+        var id=req.query.id;
+        var user="example@prography.com";
+        var answers=['blah1','blah2','blah3','blah4'];
+  	    var newDate = new Date();
+    		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
       //find the user info by the id from database
 
 
@@ -166,44 +230,19 @@ module.exports = function(app)
         id,
         answers
       }
-      res.render('apply', data);
-    });
-
-		// require('date-utils');
-		// var newDate = new Date();
-		// var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-		// var id=req.query.id;
-		// var user="example@prography.com";
-		// var answers=['blah1','blah2','blah3','blah4'];
     //
-		// data={
-		// 	user,
-		// 	id,
-		// 	answers
-		// 	}
-    //
-		// console.log(time); // remove
-		// // before apply
-		// if (time < '2018-07-09 05:52:00')
-		// 	res.render('apply', data);
-		// // after apply
-		// else if (time < '2018-07-09 05:54:00')
-		// 	res.render('recruit_fin.html');
-		// // result
-		// else
-		// 	res.render('recruit_result.html');
-    // });
-
-	app.post('/send_kakao', function(req, res){
-		client.query('USE prography');
-		client.query('SELECT phone FROM applicants', function(error, result, fields) {
-			if (error){
-				console.log('쿼리 문장에 오류가 있습니다.');
-			} else {
-				console.log(result);
-			}
-	   });
-
-
-   });
+		 console.log(time); // remove
+		 // apply 진행 중
+		 if (time < '2018-08-01 00:00:00')
+		 	res.render('apply.ejs', data);
+		 // after apply
+		 else if (time < '2018-08-07 00:00:00')
+		 	res.render('recruit-fin.html');
+		 // 1차 발표
+		 else if (time < '2018-07-09 00:00:00')
+		 	res.render('recruit-result1.html');
+		// 2차 발표
+		else
+			res.render('apply',data);
+     });
 }

@@ -79,12 +79,12 @@
   				<div class="col-md-6">
   					<div class="section-header">
               <p><%=user%> verified!</p>
-              <p>id: <%=id%> </p>
   						<h2 class="title">Application</h2>
   					</div>
 
             <form class="apply-form" action="index.html" method="post">
-              <div class="feature">
+                Email:<input name="id" value="<%=id%>" disabled></input>
+                <div class="feature">
       					<i class="fa fa-check"></i><p>Question1. 간단히 자기소개를 해주세요. (500자 이내)</p>
                 <textarea rows="4" cols="50" id='answer1'><%=answers[0]%></textarea>
                 <i class="fa fa-check"></i><p>Question2. 프로그라피에 지원하게 된 동기에 대해 말씀해주세요. (500자 이내)</p>
@@ -101,8 +101,8 @@
                 <textarea rows="4" cols="50" id='answer7'><%=answers[6]%></textarea>
 				<i class="fa fa-check"></i><p>Question8. MT 참석 여부를 표시해주세요.</p>
                 <textarea rows="4" cols="50" id='answer8'><%=answers[7]%></textarea>
-				
-				
+
+
                 <button type="button" onclick="saveForm()" name="save">SAVE</button>
                 <button type="submit" name="submit">SUBMIT</button>
               </div>
