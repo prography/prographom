@@ -1,0 +1,37 @@
+
+.padding-10px {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.input-top {
+	width: 40vw;
+}
+
+@media only screen and (max-width: 770px){
+	.input-top {
+		width: 70vw;
+	}
+}
+
+.textarea {
+	width: 100%;
+	margin: 10px 0;
+}
+
+.input-small {
+	width: 20vw;
+}
+
+.input-large {
+	width: 40vw;
+}
+
+.apply-buttons {
+	text-align: center;
+}
+
+.text-highlight {
+	font-weight: bold;
+    color: #ff9f17;
+}

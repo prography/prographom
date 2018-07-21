@@ -1,3 +1,25 @@
+var express = require('express');
+var fs = require('fs');
+var ejs = require('ejs');
+var mysql = require('mysql');
+var express = require('express');
+var bodyParser = require('body-parser');
+var http = require('http');
+var url = require('url');
+var qs = require('querystring');
+var path = require('path');
+
+var client = mysql.createConnection({
+	user : 'root',
+	password : 'ilove1421',
+	database : 'prography'
+});
+
+var app = express();
+app.use(bodyParser.urlencoded({
+	extended : false
+}));
+
 var nodemailer=require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
@@ -9,13 +31,7 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
-var mysql = require('mysql');
-var client = mysql.createConnection({
-	host: '13.125.217.76',
-	user: 'root',
-	password: '',
-	database : 'prography'
-});
+/*-------------------------------------------------*/
 
 module.exports = function(app)
 {
@@ -31,23 +47,38 @@ module.exports = function(app)
 
     app.get('/login', function(req, res) {
       res.render('login.html')
-  });
+    });
 
     app.get('/product', function(req, res) {
       res.render('product.html')
-  });
+	});
 
-    app.get('/admin', function(req, res) {
-      res.render('admin.html')
-  });
+    app.get('/admin', function(req,res) {
+		var _url = req.url;
+		var queryData = url.parse(_url, true).query;
 
-    app.get('/admin', function(req, res) {
-      res.render('admin.html')
-  });
-
-
-
-
+		if(Object.keys(queryData).length == 0){
+			fs.readFile('admin.html', 'utf8', function (error, data) {
+				client.query(`SELECT applications.id AS id, name, birth, sex, college, major
+				FROM applications, applicants
+				WHERE applications.id = applicants.id`, function (error, results) {
+					res.render('admin.html', {
+						data: results
+					})
+				});
+			});
+		} else{
+		    fs.readFile('admin.html', 'utf8', function (error, data) {
+				client.query(`SELECT applications.id AS id, name, birth, sex, college, major
+				FROM applications, applicants
+				WHERE applications.id = applicants.id and applications.id = ${queryData.id}`, function (error, results) {
+					res.render('admin.html', {
+						data: results
+					})
+				});
+			});
+		}
+	});
 
     app.get('/recruit', function(req, res) {
         require('date-utils');
@@ -68,7 +99,7 @@ module.exports = function(app)
         else if (time < '2018-08-10 00:00:00')
            res.render('recruit-result2.html');
 
-      });
+    });
 
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit-fin.html');
@@ -123,6 +154,7 @@ module.exports = function(app)
         });
 
     });
+	
     app.get('/verify',function(req,res){
       console.log(req.protocol+":/"+req.get('host'));
       if((req.protocol+"://"+req.get('host'))==("http://"+host))
@@ -154,9 +186,6 @@ module.exports = function(app)
       }
     });
 
-    app.get('/etc', function(req, res) {
-      res.render('etc.html')
-    });
     app.get('/activity', function(req, res) {
       res.render('activity.html')
     });
@@ -172,42 +201,24 @@ module.exports = function(app)
         var answers=['blah1','blah2','blah3','blah4'];
 	    var newDate = new Date();
 		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-      //find the user info by the id from database
-
-
-
-      //
-      data={
-        user,
-        id,
-        answers
-      }
-    //
+        data={
+          user,
+          id,
+          answers
+        }
+		
 		 console.log(time); // remove
 		 // apply 진행 중
-		 if (time < '2018-07-11 19:54:00')
+		if (time < '2018-08-01 00:00:00')
 		 	res.render('apply.ejs', data);
 		 // after apply
-		 else if (time < '2018-07-11 19:54:30')
+		else if (time < '2018-08-07 00:00:00')
 		 	res.render('recruit-fin.html');
 		 // 1차 발표
-		 else if (time < '2018-07-11 19:54:00')
+		else if (time < '2018-07-09 00:00:00')
 		 	res.render('recruit-result1.html');
 		// 2차 발표
 		else
 			res.render('recruit-result2.html');
      });
-
-	app.get('/send_kakao', function(req, res){
-		var phoneArray = new Array();
-		client.query('USE prography');
-		client.query('SELECT phone FROM applicants', function(error, result, fields) {
-			if (error){
-				console.log('쿼리 문장에 오류가 있습니다.');
-			} else {
-				phoneArray = result;
-				console.log(phoneArray);
-			}
-	   });
-   });
 }

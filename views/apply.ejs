@@ -1,127 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" dir="ltr">
   <head>
     <meta charset="utf-8">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-  	<!-- Google font -->
-  	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
-
-  	<!-- Bootstrap -->
-  	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
-  	<!-- Owl Carousel -->
-  	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
-  	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
-
-  	<!-- Magnific Popup -->
-  	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
-
-  	<!-- Font Awesome Icon -->
-  	<link rel="stylesheet" href="css/font-awesome.min.css">
-
-  	<!-- Custom stlylesheet -->
-  	<link type="text/css" rel="stylesheet" href="css/style.css" />
-
-  	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  	<!--[if lt IE 9]>
-  		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  	<![endif]-->
-    <title></title>
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/btn.css">
+	<link rel="stylesheet" href="css/apply.css">
+    <title>apply</title>
   </head>
 
-<body>
+    <section id="banner">
+      <div class="banner2">
+        <div class="bg-img2"></div>
+      </div>
+      <div class="container">
+        <div class="banner-contents2">
+          <a class="logo-middle div-center" href="/"><img src="img/logo-03.svg" alt="white-logo"></a>
+          <p class="p-submain text-center">[ 프로그라피 3기 ]<br><span class="p-main">지원서 작성하기</span></p>
+        </div>
+      </div>
+    </section>
+    <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+<!--.................................................................................................... -->
+	
+	
+	<section>
+		<form action="">
+    	<div class="tab-pane fade in active tab-box-pad">
+            <div class="per-90 div-center collapse in">
+                <div class="row">
+                    <div class="col-sm-6 margin-top-20">
+                      <label class="application-label">이름</label>
+                      <p><input class="padding-10px input-top" type="text" name="name" placeholder="Ex) 홍길동" size="50px"></p>
+                    </div>
+                    <div class="col-sm-6 margin-top-20">
+                      <label class="application-label">성별</label>
+                      <p><input class="padding-10px input-top" type="text" name="sex" placeholder="Ex) 여" size="50px"></p>
+                    </div>
+                </div>
 
-		<!-- Nav -->
-		<nav id="nav" class="navbar nav-transparent" style="background-image: url('./img/background1.jpg');">
-			<div class="container">
+                  <div class="row">
+                    <div class="col-sm-6 margin-top-20">
+                      <label class="application-label">생년월일</label>
+                      <p><input class="padding-10px input-top" type="text" name="birth" placeholder="Ex) 940429" size="50px"></p>
+                    </div>
+                    <div class="col-sm-6 margin-top-20">
+                      <label class="application-label">연락처 (중간 -를 생략하세요)</label>
+                      <p><input class="padding-10px input-top" type="text" name="phone" placeholder="Ex) 010XXXXXXXX" size="50px"></p>
+                    </div>
+                  </div>
 
-				<div class="navbar-header">
-					<!-- Logo -->
-					<div class="navbar-brand">
-						<a href="/">
-							<img class="logo" src="img/logo.png" alt="logo">
-							<img class="logo-alt" src="img/logo-alt.png" alt="logo">
-						</a>
+                  <div class="row">
+                    <div class="col-sm-6 margin-top-20">
+                      <label class="application-label">소속대학 / 전공 / 학년</label>
+                      <p><input class="padding-10px input-top" type="text" name="college" placeholder="Ex) 프로그라피 대학교 / OO학과 / 4" size="50px"></p>
+                    </div>
+					<div class="col-sm-6 margin-top-20">
+						<label class="application-label">현 거주지 및 가까운 역</label>
+						<p><input class="padding-10px input-top" type="text" name="address" placeholder="Ex) 서울시 강남구 or 강남역 근처" size="50px"></p>	
 					</div>
-					<!-- /Logo -->
+				  </div>
 
-					<!-- Collapse nav button -->
-					<div class="nav-collapse">
-						<span></span>
+                  <div class="row margin-top-20">
+                    <div class="col-sm-12">
+                      <label class="application-label">지원분야</label>
+                      <p><input class="padding-10px input-top" type="text" name="field" placeholder="Ex) 웹 / 앱 / 딥러닝" size="50px"></p>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <!--line-->
+                <div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; margin-top:40px; opacity:0.5;"></div>
+
+                <!--본격 내용-->
+                <div class="per-90 div-center" style="margin-top :50px;">
+                  <div class="row margin-top-40">
+                    <div class="col-sm-12">
+                      <label class="application-label">[1] 간단히 자기소개를 해주세요! (500자 이내)</label>
+                      <p><textarea class="padding-10px textarea" rows="6"></textarea></p>
+                    </div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <div class="col-sm-12">
+                      <label class="application-label">[2] 프로그라피에 지원하게 된 동기에 대해 말씀해주세요! (500자 이내)</label>
+                      <p><textarea class="padding-10px textarea" rows="6"></textarea></p>
+                    </div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <div class="col-sm-12">
+                      <label class="application-label">[3] 프로그라피에서 만들어보고 싶은 것이 있다면 말씀해주세요! (300자 이내)</label>
+                      <p><textarea class="padding-10px textarea" rows="6"></textarea></p>
+                    </div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <div class="col-sm-12">
+                      <label class="application-label">[4] 과거 활동했던 경험과 현재 하고 있는 활동에 대해 말씀해주세요!
+                      <br><p class="p-pp" style="margin-left:-20px;">(ex. 학과활동, 동아리, 단체활동, 봉사활동, 수상내역, 인턴, 기타 등)</p></label>
+                      <table class="table text-center" style="margin-top:20px;">
+                        <tbody>
+                          <tr class="thead" style="background-color:#f1f1f1;">
+                            <td class="td-3">분야</td>
+                            <td class="td-3">기간</td>
+                            <td class="td-4">직책 및 활동</td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text" placeholder="Ex) 봉사활동"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text" placeholder="Ex) 2017.02 ~ 2017.03"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text" placeholder="Ex) 초등학교 2학년을 상대로 코딩 교육봉사를 했습니다."></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                          <tr class="tbody" style="background-color:#fff;">
+                            <td class="td-3"><p><input class="padding-10px input-small" name="field" type="text"></p></td>
+                            <td class="td-3"><p><input class="padding-10px input-small" name="term" type="text"></p></td>
+                            <td class="td-4"><p><input class="padding-10px input-large" name="term" type="text"></p></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <div class="col-sm-12">
+					  <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요! (길이 제한 없음)</label>
+                      <p><textarea class="padding-10px textarea" rows="6"></textarea></p>
+                    </div>
+                  </div>
+                </div>
+				
+				<!-- line -->
+				<div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; margin-top:40px; opacity:0.5;"></div>
+				
+				<!-- OT/MT -->
+				<div class="per-90 div-center collapse in">
+					<div class="row">
+						<div class="col-sm-6 margin-top-20">
+						  <label class="application-label">OT 참석 여부 <span class="text-highlight">[ 00/00(토) ]</span></label>
+						  <div class="radio">
+						     <label><input type="radio" name="ot">참석</label>
+						  </div>
+						  <div class="radio">
+						     <label><input type="radio" name="ot">불참석</label>
+						  </div>
+						</div>
+						<div class="col-sm-6 margin-top-20">
+							<label class="application-label">MT 참석 여부 <span class="text-highlight">[ 00/00(토) ~ 00/00(일) ]</span></label>
+							<div class="radio">
+						      <label><input type="radio" name="mt">참석</label>
+							</div>
+							<div class="radio">
+						      <label><input type="radio" name="mt">불참석</label>
+							</div>	
+						</div>
 					</div>
-					<!-- /Collapse nav button -->
 				</div>
-
-				<!--  Main navigation  -->
-				<ul class="main-nav nav navbar-nav navbar-right">
-					<li><a href="history">History</a></li>
-					<li><a href="activity">Activities</a></li>
-					<li><a href="project">Projects</a></li>
-					<li><a href="recruit">Recruit</a></li>
-				</ul>
-				<!-- /Main navigation -->
-
-			</div>
-		</nav>
-
-  	<div id="features" class="section md-padding bg-grey">
-
-  		<div class="container">
-
-  			<div class="row">
-
-  				<div class="col-md-6">
-  					<div class="section-header">
-              <p><%=user%> verified!</p>
-              <p>id: <%=id%> </p>
-  						<h2 class="title">Application</h2>
-  					</div>
-
-            <form class="apply-form" action="index.html" method="post">
-              <div class="feature">
-      					<i class="fa fa-check"></i><p>Question1. 간단히 자기소개를 해주세요. (500자 이내)</p>
-                <textarea rows="4" cols="50" id='answer1'><%=answers[0]%></textarea>
-                <i class="fa fa-check"></i><p>Question2. 프로그라피에 지원하게 된 동기에 대해 말씀해주세요. (500자 이내)</p>
-                <textarea rows="4" cols="50" id='answer2'><%=answers[1]%></textarea>
-                <i class="fa fa-check"></i><p>Question3. 프로그라피에서 만들어보고 싶은 것이 있다면 말씀해주세요. (300자 이내)</p>
-                <textarea rows="4" cols="50" id='answer3'><%=answers[2]%></textarea>
-                <i class="fa fa-check"></i><p>Question4. 과거 활동했던 경험과 현재 하고 있는 활동에 대해 말씀해주세요.(예: 학과 활동, 동아리, 단체 활동, 봉사 활동, 수상내역, 인턴 등)</p>
-                <textarea rows="4" cols="50" id='answer4'><%=answers[3]%></textarea>
-				 <i class="fa fa-check"></i><p>Question5. 위에서 표현하지 못한 자기 자신에 대해 적어주세요. (길이 제한 없음)</p>
-                <textarea rows="4" cols="50" id='answer5'><%=answers[4]%></textarea>
-				 <i class="fa fa-check"></i><p>Question6. 본인을 표현할 수 있는 사진을 넣어주세요.<br>	(예: 셀카, 여행 사진, 닮은 동물, 닮은꼴 등)</p>
-                <textarea rows="4" cols="50" id='answer6'><%=answers[5]%></textarea>
-				<i class="fa fa-check"></i><p>Question7. OT 참석 여부를 표시해주세요.</p>
-                <textarea rows="4" cols="50" id='answer7'><%=answers[6]%></textarea>
-				<i class="fa fa-check"></i><p>Question8. MT 참석 여부를 표시해주세요.</p>
-                <textarea rows="4" cols="50" id='answer8'><%=answers[7]%></textarea>
 				
-				
-                <button type="button" onclick="saveForm()" name="save">SAVE</button>
-                <button type="submit" name="submit">SUBMIT</button>
-              </div>
+				<div class="box" style="height:30px;"></div><!-- 중간에 띄어놓음 -->
+	  
+		  <!-- button -->
+		  <div class="apply-buttons">
+			<input type="submit" value="저장하기" class="apply-btn">
+			<input type="submit" value="제출하기" class="apply-btn">
+			<div class="box" style="height:30px;"></div><!-- 중간에 띄어놓음 -->
+		  </div>
+		</div>
+	</form>
+	</section>
+	
+	
 
-            </form>
-          </div>
-  			</div>
-  		</div>
-  	</div>
-    <script>
-      function saveForm(){
-        //save #answer1_thru_4 to database
-
-
-
-        //
-        console.log("saved");
-      }
-    </script>
+    
+    <!-- footer -->
+	<div class="box" style="height:60px;"></div><!-- 중간에 띄어놓음 -->
+    <section class="text-center">
+      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
+      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
+      <br>
+      <div class="box" style="height:20px;"></div><!-- 중간에 띄어놓음 -->
+    </section>
+    <!-- footer end -->
+    <script type="text/javascript" src="js/master.js"></script>
 
   </body>
 </html>
