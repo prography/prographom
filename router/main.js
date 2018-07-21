@@ -61,8 +61,10 @@ module.exports = function(app)
       res.render('admin.html')
   });
 
-    app.get('/admin', function(req, res) {
-      res.render('admin.html')
+    app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
+			var body=req.body;
+			console.log(body);
+			return body;
   });
 
 
@@ -140,7 +142,7 @@ module.exports = function(app)
 	// DB에 내용 추가
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
-		var body = request.body;
+		var body = req.body;
 
 		client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [

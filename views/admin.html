@@ -51,7 +51,7 @@
 
           <!-- 선택하는 공간 -->
           <div class="box-gray">
-            <form action="http://localhost:3000/admin">
+            <!-- <form action="http://localhost:3000/admin" method="post"> -->
             <div class="row" style="padding-left:30px; padding-right:30px;">
               <div class="col-sm-3">
                 <div class="per-90 div-center">
@@ -72,8 +72,8 @@
               <!-- -->
               <div class="col-sm-3">
                 <div class="per-90 div-center">
-                  <label class="application-label" for="sel1">면접 시간</label>
-                  <select class="form-control" id="sel1" name="interview_time">
+                  <label class="application-label" for="sel2">면접 시간</label>
+                  <select class="form-control" id="sel2" name="interview_time">
                     <option value="11">AM 11:00 ~ 12:00</option>
                     <option value="12">PM 12:00 ~ 1:00</option>
                     <option value="13">PM 1:00 ~ 2:00</option>
@@ -104,23 +104,46 @@
               </div>
               <!-- -->
               <div class="col-sm-3">
-                <div class="per-90 div-center" action="http://localhost:3000/admin">
-                  <label class="application-label" for="sel1">면접 타임</label>
-                  <select class="form-control" id="sel1" name="interview_min">
+                <div class="per-90 div-center" >
+                  <label class="application-label" for="sel3">면접 타임</label>
+                  <select class="form-control" id="sel3" name="interview_min">
                     <option value="00">:00 ~ :20</option>
-                    <option value="20"> :20 ~ :40</option>
+                    <option value="20">:20 ~:40</option>
                     <option value="40">:40 ~ :00</option>
                   </select>
                 </div>
               </div>
-                </form>
+                <!-- </form> -->
               <!-- -->
               <div class="col-sm-3" style="padding:46px;">
-                <input type="submit" class="btn-gray-small-rec" value="조회하기">
+                <button type="button" class="btn-gray-small-rec" onclick="searchMemberByTime()" >조회하기</button>
               </div>
               </div>
           </div>
+<script type="text/javascript">
+  function searchMemberByTime(){
+    var date=$("#sel1 option:selected").val();
+    var hour=$("#sel2 option:selected").val();
+    var minute=$("#sel3 option:selected").val();
+    console.log(date, hour, minute);
+    $.ajax({
+  				type: 'POST',
+  				url: '/admin',
+  				data: {
+            date:date,
+            hour:hour,
+            minute:minute
+          },
+          dataType:"text",
 
+          success: function(data) {
+            alert(data);
+          }
+      });
+      console.log(typeof(date));
+
+  }
+</script>
 
 
           <!-- 지원서 보는 공간 -->
