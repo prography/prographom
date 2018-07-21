@@ -103,11 +103,14 @@ module.exports = function(app)
     });
 
     app.get('/send',function(req,res){
-        rand=sha256(req.query.email_to);
+        email_to=req.query.email_to;
+        // rand=sha256(req.query.email_to);
         host=req.get('host');
-        link="http://"+req.get('host')+"/verify?id="+rand;
+        // link="http://"+host+"/verify?id="+rand;
+        link="http://"+host+"/verify?id="+email_to;
+
         mailOptions={
-            to : req.query.email_to,
+            to : email_to,
             subject : "Please confirm your Email account",
             html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Verify and write application form.</a>"
         }
@@ -150,7 +153,7 @@ module.exports = function(app)
       }
       else
       {
-          res.end("<h1>Request from unknown source");
+          res.end("<h1>Request from unknown source</h1>");
       }
     });
 
@@ -170,8 +173,8 @@ module.exports = function(app)
         var id=req.query.id;
         var user="example@prography.com";
         var answers=['blah1','blah2','blah3','blah4'];
-	    var newDate = new Date();
-		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+  	    var newDate = new Date();
+    		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
       //find the user info by the id from database
 
 
@@ -195,7 +198,7 @@ module.exports = function(app)
 		 	res.render('recruit-result1.html');
 		// 2차 발표
 		else
-			res.render('recruit-result2.html');
+			res.render('apply',data);
      });
 
 	app.get('/send_kakao', function(req, res){
