@@ -156,38 +156,6 @@ a[target="_blank"]{
 
 
 
-.btn-pink-body, .btn-pink-body:visited{
-  padding: 7px 80px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Exo 2', sans-serif;
-  color: #fff;
-  background-color: #999;
-  transition: 0.3s ease;
-  margin-top: -130px;
-  z-index: 100;
-  text-decoration: none;
-}
-
-
-.btn-pink-body:hover{
-  background-color: #f2f2f2;
-  color: #d81d45;
-  border: 1px solid #c01a3e;
-  text-decoration: none;
-}
-
-.btn-pink-body:active{
-  border: 1px solid #f2f2f2;
-  color: #f2f2f2;
-  text-decoration: none;
-}
-
-
-
-
-
-
 
 /*-------- radio-btn --------*/
 
