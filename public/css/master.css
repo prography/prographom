@@ -105,6 +105,15 @@ textarea{
   position: absolute;
 }
 
+.display-in{
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+    .display-in {
+      display: block;
+    }
+}
 
 /*-------- 1-1.font --------*/
 
@@ -284,7 +293,7 @@ footer{
   font-weight: 400;
   opacity: 0.5;
   letter-spacing: 0.1em;
-  font-size:  12px;
+  font-size:  12px !important;
 }
 
 
@@ -379,6 +388,10 @@ footer{
       font-size: 17px;
       margin: 12px;
     }
+}
+
+.p-otmt{
+  font-size: 14px !important;
 }
 
 /*-------- 5.glyphicon --------*/
@@ -593,7 +606,7 @@ tr{
 
 .thead{
   color: #444;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
 }
 
@@ -647,6 +660,15 @@ tr{
 }
 
 
+.per-70{
+  width: 70%;
+}
+
+@media only screen and (max-width: 600px) {
+    .per-70 {
+      width: 95%;
+    }
+}
 
 
 /*-------- 12.margin --------*/
@@ -661,6 +683,14 @@ tr{
 
 .margin-bottom-20{
   margin-bottom: 20px;
+}
+
+.margin-left-20{
+  margin-left: 20px;
+}
+
+.margin-right-20{
+  margin-right: 20px;
 }
 
 .margin-40{
