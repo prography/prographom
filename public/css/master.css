@@ -297,14 +297,6 @@ footer{
 
 }
 
-.body-p-md{
-	font-weight: bold;
-}
-
-.index-p-md{
-  font-size: 40px;
-}
-
 @media only screen and (max-width: 600px) {
     .p-md {
       font-size:15px;
@@ -559,67 +551,10 @@ input::placeholder {
 
 .sub-title{
   color: #fff;
-  position: absolute;
-  top: 55%;
   font-size: 16px;
   letter-spacing: 0.5px;
   font-weight: 300;
   margin-bottom: 20px;
-}
-
-
-
-.index-main-title{
-  color: #fff;
-  position: absolute;
-  top: 35%;
-  font-size: 20px;
-  z-index: 100;
-  line-height: 1.1;
-}
-
-.body-title{
-  color: #555;
-  font-size: 40px;
-  margin: 50px 0 30px;
-  text-align: center;
-}
-
-
-.body-text{
-  margin: 0 0 30px;
-  text-align: center;
-}
-
-.basic-pj-box{
-	height: auto;
-    width: 100%;
-    text-align: center;
-}
-
-.index-pj-box{
-	height: 300px;
-    width: 300px;
-    position: relative;
-    border: 1px solid #7777774a;
-    background-color: white;
-	display: inline-block;
-	padding: 30px;
-}
-
-.index-pj-title{
-	font-size: 30px;
-    margin-top: 17%
-}
-
-.index-pj-text{
-	margin-bottom: 30px;
-}
-
-
-.btn-align{
-	margin:30px;
-	text-align: center;
 }
 
 
