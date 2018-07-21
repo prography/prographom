@@ -142,18 +142,13 @@ module.exports = function(app)
 		var id = req.query.id;
 		var body = request.body;
 
-		client.query(`INSERT INTO applications (id) VALUES (?)`, [
-			id
+		client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+			id, body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
 		], function() {
-			client.query(`INSERT INTO applications (sex, college, address, field, q1, q2, q3, q5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
-				body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
-			], /* function() {
-				client.query(`INSERT INTO applicants (name, phone, n_th, application_id) VALUES (?, ?, ?, ?)`, [
-				body.name, body.phone, 3, id
-				], function() { */
-					response.redirect('/application'));
-				});
-			});
+			response.redirect('/application');
+		});
+	});
 
     app.get('/send',function(req,res){
         email_to=req.query.email_to;
@@ -253,4 +248,4 @@ module.exports = function(app)
 		else
 			res.render('apply',data);
      });
-}
+};
