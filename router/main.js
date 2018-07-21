@@ -1,3 +1,24 @@
+var express = require('express');
+var fs = require('fs');
+var ejs = require('ejs');
+var mysql = require('mysql');
+var express = require('express');
+var bodyParser = require('body-parser');
+var http = require('http');
+var url = require('url');
+var qs = require('querystring');
+var path = require('path');
+
+var client = mysql.createConnection({
+	user : 'root',
+	password : 'ilove1421',
+	database : 'prography'
+});
+var app = express();
+app.use(bodyParser.urlencoded({
+	extended : false
+}));
+
 var nodemailer=require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
@@ -9,13 +30,7 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
-var mysql = require('mysql');
-var client = mysql.createConnection({
-	host: '13.125.217.76',
-	user: 'root',
-	password: '',
-	database : 'prography'
-});
+/* =================================================== */
 
 module.exports = function(app)
 {
@@ -101,6 +116,26 @@ module.exports = function(app)
     app.get('/application', function(req, res) {
       res.render('application.html')
     });
+	
+	// DB에 내용 추가
+	app.post('/application', function(req, res) {
+		var id = req.query.id;
+		var body = request.body;
+		
+		client.query(`INSERT INTO applications (id) VALUES (?)`, [
+			id
+		], function() {
+			client.query(`INSERT INTO applications (sex, college, address, field, q1, q2, q3, q5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+				body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
+			], /* function() {
+				client.query(`INSERT INTO applicants (name, phone, n_th, application_id) VALUES (?, ?, ?, ?)`, [
+				body.name, body.phone, 3, id
+				], function() { */
+					response.redirect('/application');
+				});
+			});
+		});
+	});
 
     app.get('/send',function(req,res){
         rand=sha256(req.query.to);
@@ -185,29 +220,16 @@ module.exports = function(app)
     //
 		 console.log(time); // remove
 		 // apply 진행 중
-		 if (time < '2018-07-11 19:54:00')
+		 if (time < '2018-08-01 00:00:00')
 		 	res.render('apply.ejs', data);
 		 // after apply
-		 else if (time < '2018-07-11 19:54:30')
+		 else if (time < '2018-08-07 00:00:00')
 		 	res.render('recruit-fin.html');
 		 // 1차 발표
-		 else if (time < '2018-07-11 19:54:00')
+		 else if (time < '2018-07-09 00:00:00')
 		 	res.render('recruit-result1.html');
 		// 2차 발표
 		else
 			res.render('recruit-result2.html');
      });
-
-	app.get('/send_kakao', function(req, res){
-		var phoneArray = new Array();
-		client.query('USE prography');
-		client.query('SELECT phone FROM applicants', function(error, result, fields) {
-			if (error){
-				console.log('쿼리 문장에 오류가 있습니다.');
-			} else {
-				phoneArray = result;
-				console.log(phoneArray);
-			}
-	   });
-   });
 }
