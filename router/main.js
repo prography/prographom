@@ -116,12 +116,12 @@ module.exports = function(app)
     app.get('/application', function(req, res) {
       res.render('application.html')
     });
-	
+
 	// DB에 내용 추가
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
 		var body = request.body;
-		
+
 		client.query(`INSERT INTO applications (id) VALUES (?)`, [
 			id
 		], function() {
@@ -131,18 +131,16 @@ module.exports = function(app)
 				client.query(`INSERT INTO applicants (name, phone, n_th, application_id) VALUES (?, ?, ?, ?)`, [
 				body.name, body.phone, 3, id
 				], function() { */
-					response.redirect('/application');
+					response.redirect('/application'));
 				});
 			});
-		});
-	});
 
     app.get('/send',function(req,res){
         email_to=req.query.email_to;
-        // rand=sha256(req.query.email_to);
+        rand=sha256(req.query.email_to);
         host=req.get('host');
-        // link="http://"+host+"/verify?id="+rand;
-        link="http://"+host+"/verify?id="+email_to;
+        link="http://"+host+"/verify?id="+rand;
+        // link="http://"+host+"/verify?id="+email_to;
 
         mailOptions={
             to : email_to,
