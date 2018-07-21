@@ -11,7 +11,7 @@ var path = require('path');
 
 var client = mysql.createConnection({
 	user : 'root',
-	password : 'ilove1421',
+	password : 'sjm1950688',
 	database : 'prography'
 });
 var app = express();
@@ -88,20 +88,20 @@ module.exports = function(app)
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit-fin.html');
     });
-	
+
 	app.get('/check_result1', function(req, res){
 		var email = req.query.email;
 		console.log(client);
 		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
 		client.query(query, function(error, result){
-			
+
 			if (error){
 				console.log(error);
 			} else {
 				var survived = result;
 				console.log(survived);
 			}
-			
+
 			return result;
 		});
 	});
@@ -116,7 +116,7 @@ module.exports = function(app)
 			}
 			client.end();
 	   	});
-		
+
       data={
         name
       }
