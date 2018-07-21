@@ -1,13 +1,4 @@
-var express = require('express');
-var fs = require('fs');
-var ejs = require('ejs');
 var mysql = require('mysql');
-var express = require('express');
-var bodyParser = require('body-parser');
-var http = require('http');
-var url = require('url');
-var qs = require('querystring');
-var path = require('path');
 
 var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',

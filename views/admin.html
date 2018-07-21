@@ -51,13 +51,14 @@
 
           <!-- 선택하는 공간 -->
           <div class="box-gray">
+            <form action="http://localhost:3000/admin">
             <div class="row" style="padding-left:30px; padding-right:30px;">
               <div class="col-sm-3">
-                <form class="per-90 div-center">
+                <div class="per-90 div-center">
                   <label class="application-label" for="sel1">면접 날짜</label>
-                  <select class="form-control" id="sel1">
-                    <option>8월 7일 (토)</option>
-                    <option>8월 8일 (일)</option>
+                  <select class="form-control" id="sel1" name="interview_date">
+                    <option value="7">8월 7일 (토)</option>
+                    <option value="8">8월 8일 (일)</option>
                   </select>
                   <!-- 라디오 버튼으로 할 시
                   <div class="radio">
@@ -66,19 +67,19 @@
                   <div class="radio">
                     <label><input type="radio" name="optradio">8월 8일 (일)</label>
                   </div>-->
-                </form>
+                </div>
               </div>
               <!-- -->
               <div class="col-sm-3">
-                <form class="per-90 div-center">
+                <div class="per-90 div-center">
                   <label class="application-label" for="sel1">면접 시간</label>
-                  <select class="form-control" id="sel1">
-                    <option>AM 11:00 ~ 12:00</option>
-                    <option>PM 12:00 ~ 1:00</option>
-                    <option>PM 1:00 ~ 2:00</option>
-                    <option>PM 2:00 ~ 3:00</option>
-                    <option>PM 3:00 ~ 4:00</option>
-                    <option>PM 4:00 ~ 5:00</option>
+                  <select class="form-control" id="sel1" name="interview_time">
+                    <option value="11">AM 11:00 ~ 12:00</option>
+                    <option value="12">PM 12:00 ~ 1:00</option>
+                    <option value="13">PM 1:00 ~ 2:00</option>
+                    <option value="14">PM 2:00 ~ 3:00</option>
+                    <option value="15">PM 3:00 ~ 4:00</option>
+                    <option value="16">PM 4:00 ~ 5:00</option>
                   </select>
                   <!-- 라디오 버튼으로 할 시
                   <div class="radio">
@@ -99,24 +100,25 @@
                   <div class="radio">
                     <label><input type="radio" name="optradio">PM 4:00 ~ 5:00</label>
                   </div>-->
-                </form>
+                </div>
               </div>
               <!-- -->
               <div class="col-sm-3">
-                <form class="per-90 div-center">
+                <div class="per-90 div-center" action="http://localhost:3000/admin">
                   <label class="application-label" for="sel1">면접 타임</label>
-                  <select class="form-control" id="sel1">
-                    <option> :00 ~ :20</option>
-                    <option> :20 ~ :40</option>
-                    <option> :40 ~ :00</option>
+                  <select class="form-control" id="sel1" name="interview_min">
+                    <option value="00">:00 ~ :20</option>
+                    <option value="20"> :20 ~ :40</option>
+                    <option value="40">:40 ~ :00</option>
                   </select>
-                </form>
+                </div>
               </div>
+                </form>
               <!-- -->
               <div class="col-sm-3" style="padding:46px;">
-                <button type="button" name="button" class="btn-gray-small-rec">조회하기</button>
+                <input type="submit" class="btn-gray-small-rec" value="조회하기">
               </div>
-            </div>
+              </div>
           </div>
 
 
@@ -176,7 +178,6 @@
                       <p class="output-box">웹 프론트 분야를 하고 싶습니다!</p>
                     </div>
                   </div>
-
                 </div>
 
 
