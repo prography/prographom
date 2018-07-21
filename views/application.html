@@ -183,17 +183,21 @@
             </tr>
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
-              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
-                <span class="checkmark"></span></label></td>
-              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
-                <span class="checkmark"></span></label></td>
+              <form action="index.html" method="post">
+                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                  <span class="checkmark"></span></label></td>
+                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                  <span class="checkmark"></span></label></td>
+              </form>
             </tr>
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
-              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
-                <span class="checkmark"></span></label></td>
-              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
-                <span class="checkmark"></span></label></td>
+              <form action="index.html" method="post">
+                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                  <span class="checkmark"></span></label></td>
+                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                  <span class="checkmark"></span></label></td>
+              </form>
             </tr>
           </tbody>
         </table>
@@ -218,9 +222,13 @@
 
       <!-- 버튼 -->
       <form class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
-        <button type="button" class="orange-btn fixed-button">SAVE</button>
-        <button type="submit" class="blue-btn">SUBMIT</button>
+        <button type="button" class="orange-btn fixed-button" name="btn_js_alert"
+        id="btn_js_alert" onclick="btn_js_alert_click();" value="알림창">SAVE</button>
+
+        <button type="submit" name="btn_js_confirm" id="btn_js_confirm"
+        onclick="btn_js_confirm_click();" value="확인창" class="blue-btn">SUBMIT</button>
       </form>
+
 
 
 
