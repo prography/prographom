@@ -10,9 +10,14 @@ var qs = require('querystring');
 var path = require('path');
 
 var client = mysql.createConnection({
+	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
 	user : 'root',
-	password : 'ilove1421',
+	password : '',
 	database : 'prography'
+});
+client.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
 });
 var app = express();
 app.use(bodyParser.urlencoded({
@@ -88,20 +93,20 @@ module.exports = function(app)
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit-fin.html');
     });
-	
+
 	app.get('/check_result1', function(req, res){
 		var email = req.query.email;
 		console.log(client);
 		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
 		client.query(query, function(error, result){
-			
+
 			if (error){
 				console.log(error);
 			} else {
 				var survived = result;
 				console.log(survived);
 			}
-			
+
 			return result;
 		});
 	});
@@ -116,7 +121,7 @@ module.exports = function(app)
 			}
 			client.end();
 	   	});
-		
+
       data={
         name
       }
