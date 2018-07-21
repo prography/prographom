@@ -108,6 +108,7 @@ $(document).ready(function() {
 $('.show1').show(); //페이지를 로드할 때 표시할 요소
 $('.show2').hide(); //페이지를 로드할 때 숨길 요소
 $('.show1').click(function(){
+$ ('.show1').show(); //클릭 시 두 번째 요소 표시
 $ ('.show2').show(); //클릭 시 두 번째 요소 표시
 return false;
 });
@@ -117,7 +118,7 @@ return false;
 
 
 
-
+/*application alert, confirm*/
 function btn_js_alert_click(){
   /* alert(문자열) */
   alert("저장되었습니다!\n9월1일까지 최종제출을 하셔야 지원 완료됩니다!");

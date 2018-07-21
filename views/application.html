@@ -221,6 +221,7 @@
 
 
       <!-- 버튼 -->
+      <!--
       <form class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
         <button type="button" class="orange-btn fixed-button" name="btn_js_alert"
         id="btn_js_alert" onclick="btn_js_alert_click();" value="알림창">SAVE</button>
@@ -228,8 +229,81 @@
         <button type="submit" name="btn_js_confirm" id="btn_js_confirm"
         onclick="btn_js_confirm_click();" value="확인창" class="blue-btn">SUBMIT</button>
       </form>
+    -->
 
 
+      <!-- Button trigger modal -->
+      <form class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
+        <button type="button" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1">SAVE</button>
+        <button type="button" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
+      </form>
+
+
+      <!-- Modal-alert -->
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle1">지원서 중간 저장</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              성공적으로 저장되었습니다. <br>
+              9월1일까지 최종제출을 잊지마세요! ღ'ᴗ'ღ
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal confirm-->
+      <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle2">지원서 최종 제출</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              지원서를 제출하시겠습니까?
+              <br>최종 제출하시면 더 이상 수정이 불가합니다!
+              <br>
+              <br>아직 제출하실 준비가 안되셨다면, 우선 SAVE 해두셔도 좋습니다.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal">최종 제출하기</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal confirm close-->
+      <div class="modal fade" id="submitapplication" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle3">지원서 최종 제출 </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              제출 완료!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <!-- <div class="w3-border-bottom w3-border-left w3-border-right
