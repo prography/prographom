@@ -151,13 +151,15 @@
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-          <form action="/send">
+          <!-- <form action="/send"> -->
             <div class="input-group">
-              <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" name="to">
+              <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" id="email_to">
               <div class="input-group-btn">
-                <button class="btn btn-default input-lg btn-pink-small" type="submit">Send Email</button></div>
+                <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email</button>
+              </div><br>
+              <p id="mail_success_message"></p>
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
       <div class="col-sm-1"></div>
@@ -197,6 +199,7 @@
     <!--.........................................................................................-->
     <!--.........................................................................................-->
     <script type="text/javascript" src="js/master.js"></script>
+    <script src="js/recruit-ing.js" charset="utf-8"></script>
 
   </body>
 </html>
