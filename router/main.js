@@ -74,7 +74,7 @@ module.exports = function(app)
         var newDate = new Date();
         var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
 
-        console.log(time); // remove
+        console.log(time); // remove;
         // before apply
         if (time < '2018-08-01 00:00:00')
            res.render('recruit-ing.html');
@@ -121,27 +121,19 @@ module.exports = function(app)
       res.render('recruit-result2.html');
     });
 
-    app.get('/application', function(req, res) {
-      res.render('application.html')
-    });
 
 	// DB에 내용 추가
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
 		var body = request.body;
 
-		client.query(`INSERT INTO applications (id) VALUES (?)`, [
-			id
+		client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+			id, body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
 		], function() {
-			client.query(`INSERT INTO applications (sex, college, address, field, q1, q2, q3, q5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
-				body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
-			], /* function() {
-				client.query(`INSERT INTO applicants (name, phone, n_th, application_id) VALUES (?, ?, ?, ?)`, [
-				body.name, body.phone, 3, id
-				], function() { */
-					response.redirect('/application'));
-				});
-			});
+			response.redirect('/application');
+		});
+	});
 
     app.get('/send',function(req,res){
         email_to=req.query.email_to;
@@ -184,7 +176,7 @@ module.exports = function(app)
 
 
               //redirect to application page
-              res.redirect('/apply?id='+req.query.id);
+              res.redirect('/application?id='+req.query.id);
           }
           else
           {
@@ -209,7 +201,7 @@ module.exports = function(app)
     });
 
 
-    app.get('/apply', function(req ,res){
+    app.get('/application', function(req ,res){
 	  require('date-utils');
         var id=req.query.id;
         var user="example@prography.com";
@@ -230,7 +222,7 @@ module.exports = function(app)
 		 console.log(time); // remove
 		 // apply 진행 중
 		 if (time < '2018-08-01 00:00:00')
-		 	res.render('apply.ejs', data);
+		 	res.render('application', data);
 		 // after apply
 		 else if (time < '2018-08-07 00:00:00')
 		 	res.render('recruit-fin.html');
@@ -239,6 +231,6 @@ module.exports = function(app)
 		 	res.render('recruit-result1.html');
 		// 2차 발표
 		else
-			res.render('apply',data);
+			res.render('application',data);
      });
-}
+};
