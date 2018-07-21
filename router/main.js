@@ -112,7 +112,7 @@ module.exports = function(app)
 	});
 
     app.get('/recruit-result1', function(req, res) {
-	
+
       res.render('recruit-result1');
 
     });
@@ -126,11 +126,6 @@ module.exports = function(app)
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
 		var body = req.body;
-<<<<<<< HEAD
-=======
-		console.log(body);
->>>>>>> chung
-
 		client.query(`INSERT INTO applications (id, college, address, field, q1, q2, q3, q5)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
 			id, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
