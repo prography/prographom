@@ -45,6 +45,10 @@ module.exports = function(app)
       res.render('admin.html')
   });
 
+    app.get('/admin-total', function(req, res) {
+      res.render('admin-total.html')
+  });
+
 
 
 

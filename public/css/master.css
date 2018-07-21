@@ -603,6 +603,9 @@ tr{
   margin-right: auto;
   margin-left: auto;
 }
+.td-5 {
+  width: 70%;
+}
 
 .thead{
   color: #444;
