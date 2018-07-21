@@ -73,19 +73,35 @@ module.exports = function(app)
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit-fin.html');
     });
+	
+	app.get('/check_result1', function(req, res){
+		var email = req.query.email;
+		console.log(client);
+		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
+		client.query(query, function(error, result){
+			
+			if (error){
+				console.log(error);
+			} else {
+				var survived = result;
+				console.log(survived);
+			}
+			
+			return result;
+		});
+	});
 
     app.get('/recruit-result1', function(req, res) {
-		var name= "국지원";
-//		client.connect();
-//		client.query('SELECT name FROM members', function(error, result, fields) {
-//			if (error){
-//				console.log(error);
-//			} else {
-//				console.log(result);
-//			}
-//			
-//			client.end();
-//	   	});
+		
+		var name = '국지원';
+		client.query('SELECT name FROM Applicants', function(error, result, fields) {
+			if (error){
+				console.log(error);
+			} else {
+				console.log(result);
+			}
+			client.end();
+	   	});
 		
       data={
         name
