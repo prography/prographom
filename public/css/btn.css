@@ -87,6 +87,28 @@ fixed-btn
   text-decoration: none;
 }
 
+.btn-gray-small-rec{
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  border: 1px solid lightgray;
+  color: #29292c;
+  transition: 0.3s ease;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: inherit;
+}
+.btn-gray-small-rec:hover{
+  background-color: #0a88a7;
+  color: #fff;
+  border: 1px solid lightgray;
+  text-decoration: none;
+}
+
+
 .basic-button{
   margin-bottom: 15px;
 }
