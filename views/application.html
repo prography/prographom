@@ -53,12 +53,12 @@
 
         <div class="row">
           <div class="col-sm-6 margin-top-20">
-            <label class="application-label">생년월일</label>
-            <input class="w3-input w3-border" type="text" placeholder="99.01.01">
+            <label class="application-label">생년월일 (중간 -를 생략하세요)</label>
+            <input class="w3-input w3-border" type="text" placeholder="990101">
           </div>
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">연락처 (중간 -를 생략하세요)</label>
-            <input class="w3-input w3-border" type="text" placeholder="010.1234.5678">
+            <input class="w3-input w3-border" type="text" placeholder="01012345678">
           </div>
         </div>
 
@@ -163,13 +163,46 @@
           </div>
         </div>
 
+
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요 (길이 제한 없음)</label>
             <textarea class="w3-input w3-border" rows="6" id="comment" placeholder=""></textarea>
           </div>
         </div>
-      </div>
+
+        <!--ot, mt 확인 버튼-->
+        <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+        <!-- -->
+        <table class="table table-striped text-center" style="width:100%; margin-right:auto; margin-left:auto;">
+          <tbody>
+            <tr class="thead ">
+              <td class="td-1" style="background-color:#0a88a7; opacity:0.6; color:#fff;">시간</td>
+              <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">참석</td>
+              <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">불참석</td>
+            </tr>
+            <tr class="tbody">
+              <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
+              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <span class="checkmark"></span></label></td>
+              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <span class="checkmark"></span></label></td>
+            </tr>
+            <tr class="tbody">
+              <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
+              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <span class="checkmark"></span></label></td>
+              <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <span class="checkmark"></span></label></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <span class="help-block text-center" style="margin-top:5px; color:gray; font-size:12px;">
+          ※ OT, MT는 필참입니다 ※</span>
+
+
 
       <!--line-->
       <div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; margin-top:40px; opacity:0.5;"></div>
