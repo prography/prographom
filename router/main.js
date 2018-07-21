@@ -103,11 +103,11 @@ module.exports = function(app)
     });
 
     app.get('/send',function(req,res){
-        rand=sha256(req.query.to);
+        rand=sha256(req.query.email_to);
         host=req.get('host');
         link="http://"+req.get('host')+"/verify?id="+rand;
         mailOptions={
-            to : req.query.to,
+            to : req.query.email_to,
             subject : "Please confirm your Email account",
             html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Verify and write application form.</a>"
         }
