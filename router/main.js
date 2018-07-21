@@ -20,9 +20,7 @@ client.connect(function(err) {
   console.log("Connected!");
 });
 var app = express();
-app.use(bodyParser.urlencoded({
-	extended : false
-}));
+
 
 var nodemailer=require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
@@ -64,7 +62,7 @@ module.exports = function(app)
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
 			var body=req.body;
 			console.log(body);
-			return body;
+			res.send(body);
   });
 
 
@@ -140,12 +138,16 @@ module.exports = function(app)
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
 		var body = req.body;
+<<<<<<< HEAD
+=======
+		console.log(body);
+>>>>>>> chung
 
-		client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
-			id, body.sex, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
+		client.query(`INSERT INTO applications (id, college, address, field, q1, q2, q3, q5)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+			id, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
 		], function() {
-			response.redirect('/application');
+			res.redirect('/application');
 		});
 	});
 
