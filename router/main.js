@@ -47,16 +47,17 @@ module.exports = function(app)
       res.render('history')
     });
 
-    app.get('/login', function(req, res) {
-      res.render('login')
-  });
 
     app.get('/product', function(req, res) {
       res.render('product')
   });
 
+		app.get('/login', function(req, res) {
+			res.render('login')
+	});
+
     app.get('/admin', function(req, res) {
-			if(req.query.filter==""){
+			if(!req.query.filter){
 				res.render('admin-total');
 			}
 			else if(req.query.filter=="interviewTime"){
@@ -68,18 +69,15 @@ module.exports = function(app)
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			var body=req.body;
-			console.log(body);
-			res.send(body);
+			if(req.query.filter=='interviewTime'){
+				var body=req.body;
+				console.log(body);
+				res.send(body);
+			}
+			else{
+				res.redirect('/admin');
+			}
   });
-
-    app.get('/admin-total', function(req, res) {
-      res.render('')
-  });
-
-
-
-
 
     app.get('/recruit', function(req, res) {
         require('date-utils');
