@@ -8,6 +8,14 @@ var http = require('http');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
+var hashMap={}
+
+function reverseHash(id){
+	return hashMap[id];
+}
+function hash(email){
+	return sha256("pRoG"+email+"rApHy");
+}
 
 var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
@@ -107,16 +115,13 @@ module.exports = function(app)
 	app.get('/check_result1', function(req, res){
 		var email = req.query.email;
 		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
-				var survived;
 		client.query(query, function(error, result){
-
 			if (error){
 				console.log(error);
-			} else {
+			}
+			else {
 				survived = JSON.stringify(result[0]['survived']);
-				//result[0]['name'];
-				console.log(survived);
-				return survived;
+				res.send( survived);
 			}
 		});
 	});
@@ -144,9 +149,15 @@ module.exports = function(app)
 		});
 	});
 
-    app.get('/send',function(req,res){
-        email_to=req.query.email_to;
-        rand=sha256(req.query.email_to);
+    app.post('/send',function(req,res){
+        email_to=req.body.email_to;
+        rand=hash(email_to);
+				hashMap[rand]=email_to;
+				console.log(hashMap);
+				setTimeout(function(){
+					delete hashMap[rand];
+					console.log(hashMap);
+				},300000);
         host=req.get('host');
         link="http://"+host+"/verify?id="+rand;
         // link="http://"+host+"/verify?id="+email_to;
@@ -159,11 +170,11 @@ module.exports = function(app)
         // console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response){
          if(error){
-                console.log(error);
-            res.end("error");
+            // console.log(error);
+            // res.send("error");
          }else{
                 console.log("Message sent: " + response.message);
-            res.end("sent");
+            res.send("success");
              }
         });
 
@@ -173,29 +184,25 @@ module.exports = function(app)
       if((req.protocol+"://"+req.get('host'))==("http://"+host))
       {
           console.log("Domain is matched. Information is from Authentic email");
-          if(req.query.id==rand)
+          if(req.query.id in hashMap)
           {
               console.log("email is verified");
-              data={
-                id:req.query.id,
-                user:req.query.to,
-
-              };
+							id=req.query.id;
               //register data to database
 
 
               //redirect to application page
-              res.redirect('/application?id='+req.query.id);
+              res.redirect('/application?id='+id);
           }
           else
           {
               console.log("email not verified");
-              res.end("<h1>Bad Request</h1>");
+              res.end("<h1>not verified.</h1>");
           }
       }
       else
       {
-          res.end("<h1>Request from unknown source</h1>");
+          res.end("<h1>wrong method.</h1>");
       }
     });
 
@@ -211,9 +218,9 @@ module.exports = function(app)
 
 
     app.get('/application', function(req ,res){
-	  require('date-utils');
+			  require('date-utils');
         var id=req.query.id;
-        var user="example@prography.com";
+				var user=reverseHash(id);
         var answers=['blah1','blah2','blah3','blah4'];
   	    var newDate = new Date();
     		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
@@ -227,19 +234,26 @@ module.exports = function(app)
         id,
         answers
       }
+			console.log(data)
     //
-		 console.log(time); // remove
+		 // console.log(time); // remove
 		 // apply 진행 중
-		 if (time < '2018-08-01 00:00:00')
-		 	res.render('application', data);
-		 // after apply
-		 else if (time < '2018-08-07 00:00:00')
-		 	res.render('recruit-fin');
-		 // 1차 발표
-		 else if (time < '2018-07-09 00:00:00')
-		 	res.render('recruit-result1');
-		// 2차 발표
-		else
-			res.render('application',data);
-     });
+		 if(id in hashMap){
+
+			 if (time < '2018-08-01 00:00:00')
+			 	res.render('application', data);
+			 // after apply
+			 else if (time < '2018-08-07 00:00:00')
+			 	res.render('recruit-fin', data);
+			 // 1차 발표
+			 else if (time < '2018-07-09 00:00:00')
+			 	res.render('recruit-result1', data);
+			// 2차 발표
+				else
+					res.render('application',data);
+		     }
+		 else{
+			 res.send('<h1>no id</h1>');
+		 }
+	 });
 };
