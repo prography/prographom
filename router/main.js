@@ -65,6 +65,10 @@ module.exports = function(app)
 			res.send(body);
   });
 
+    app.get('/admin-total', function(req, res) {
+      res.render('admin-total.html')
+  });
+
 
 
 
