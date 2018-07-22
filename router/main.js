@@ -3,7 +3,7 @@ var fs = require('fs');
 var ejs = require('ejs');
 var mysql = require('mysql');
 var express = require('express');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 var http = require('http');
 var url = require('url');
 var qs = require('querystring');
@@ -16,7 +16,14 @@ function reverseHash(id){
 function hash(email){
 	return sha256("pRoG"+email+"rApHy");
 }
-
+function verify_user(id, pw){
+	if(id=="웹팀이" && pw=="1등이야"){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
 	user : 'root',
@@ -77,14 +84,23 @@ module.exports = function(app)
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			if(req.query.filter=='interviewTime'){
-				var body=req.body;
-				console.log(body);
-				res.send(body);
-			}
-			else{
-				res.redirect('/admin');
-			}
+			id=req.body.admin_id;
+			pw=req.body.admin_pw;
+			console.log(id, pw);
+			// if(verify_user(id, pw)){
+				if(req.query.filter=='interviewTime'){
+					var body=req.body;
+					console.log(body);
+					res.send(body);
+				}
+				else{
+					res.redirect('/admin');
+				}
+
+			// }
+			// else{
+			// 	res.send("<h1>nope, don't even try</h1>")
+			// }
   });
 
     app.get('/recruit', function(req, res) {
