@@ -38,25 +38,33 @@ var sha256 = require('js-sha256');
 module.exports = function(app)
 {
     app.get('/', function(req,res) {
-    	res.render('index.html')
+    	res.render('index')
 	});
     app.get('/about', function(req,res) {
-    	res.render('about.html')
+    	res.render('about')
 	});
     app.get('/history', function(req, res) {
-      res.render('history.html')
+      res.render('history')
     });
 
     app.get('/login', function(req, res) {
-      res.render('login.html')
+      res.render('login')
   });
 
     app.get('/product', function(req, res) {
-      res.render('product.html')
+      res.render('product')
   });
 
     app.get('/admin', function(req, res) {
-      res.render('admin.html')
+			if(req.query.filter==""){
+				res.render('admin-total');
+			}
+			else if(req.query.filter=="interviewTime"){
+				res.render('admin');
+			}
+			else if(req.query.filter=="result"){
+				res.render('admin-result')
+			}
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
@@ -66,7 +74,7 @@ module.exports = function(app)
   });
 
     app.get('/admin-total', function(req, res) {
-      res.render('admin-total.html')
+      res.render('')
   });
 
 
@@ -81,21 +89,21 @@ module.exports = function(app)
         console.log(time); // remove;
         // before apply
         if (time < '2018-08-01 00:00:00')
-           res.render('recruit-ing.html');
+           res.render('recruit-ing');
         // after apply
         else if (time < '2018-08-07 00:00:00')
-           res.render('recruit-fin.html');
+           res.render('recruit-fin');
         // 1차 발표
         else if (time < '2018-08-09 00:00:00')
            res.render('recruit-result1');
         // 2차 발표
         else if (time < '2018-08-10 00:00:00')
-           res.render('recruit-result2.html');
+           res.render('recruit-result2');
 
       });
 
     app.get('/recruit-fin', function(req, res) {
-      res.render('recruit-fin.html');
+      res.render('recruit-fin');
     });
 
 	app.get('/check_result1', function(req, res){
@@ -122,7 +130,7 @@ module.exports = function(app)
     });
 
     app.get('/recruit-result2', function(req, res) {
-      res.render('recruit-result2.html');
+      res.render('recruit-result2');
     });
 
 
@@ -194,13 +202,13 @@ module.exports = function(app)
     });
 
     app.get('/etc', function(req, res) {
-      res.render('etc.html')
+      res.render('etc')
     });
     app.get('/activity', function(req, res) {
-      res.render('activity.html')
+      res.render('activity')
     });
     app.get('/layout', function(req, res) {
-      res.render('layout.html')
+      res.render('layout')
     });
 
 
@@ -228,10 +236,10 @@ module.exports = function(app)
 		 	res.render('application', data);
 		 // after apply
 		 else if (time < '2018-08-07 00:00:00')
-		 	res.render('recruit-fin.html');
+		 	res.render('recruit-fin');
 		 // 1차 발표
 		 else if (time < '2018-07-09 00:00:00')
-		 	res.render('recruit-result1.html');
+		 	res.render('recruit-result1');
 		// 2차 발표
 		else
 			res.render('application',data);
