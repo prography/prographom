@@ -56,7 +56,7 @@ module.exports = function(app)
   });
 
     app.get('/admin', function(req, res) {
-			if(req.query.filter==""){
+			/* if(req.query.filter==""){
 				res.render('admin-total');
 			}
 			else if(req.query.filter=="interviewTime"){
@@ -64,7 +64,8 @@ module.exports = function(app)
 			}
 			else if(req.query.filter=="result"){
 				res.render('admin-result')
-			}
+			} */
+			res.render('admin');
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
@@ -138,8 +139,13 @@ module.exports = function(app)
 	app.post('/application', function(req, res) {
 		var id = req.query.id;
 		var body = req.body;
-		client.query(`INSERT INTO applications (id, college, address, field, q1, q2, q3, q5)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+		var isSubmit = 0;
+		if(body.submit) isSubmit = 1;
+		
+		// record가 있는지 없는지 select문으로 체크
+		client.query(`SELECT * FROM Applications WHERE `),
+		// 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
+		client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5) VALUES (?,?,?,?,?,?,?,?,?)` [ //
 			id, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
 		], function() {
 			res.redirect('/application');
@@ -170,6 +176,7 @@ module.exports = function(app)
         });
 
     });
+	
     app.get('/verify',function(req,res){
       console.log(req.protocol+":/"+req.get('host'));
       if((req.protocol+"://"+req.get('host'))==("http://"+host))
@@ -213,6 +220,7 @@ module.exports = function(app)
 
 
     app.get('/application', function(req ,res){
+		// 정보가 있으면 select, 없으면 그냥~~
 	  require('date-utils');
         var id=req.query.id;
         var user="example@prography.com";
