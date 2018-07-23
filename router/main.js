@@ -56,15 +56,16 @@ module.exports = function(app)
   });
 
     app.get('/admin', function(req, res) {
-			if(req.query.filter==""){
-				res.render('admin-total');
-			}
-			else if(req.query.filter=="interviewTime"){
-				res.render('admin');
-			}
-			else if(req.query.filter=="result"){
-				res.render('admin-result')
-			}
+			// if(req.query.filter==""){
+			// 	res.render('admin-total');
+			// }
+			// else if(req.query.filter=="interviewTime"){
+			// 	res.render('admin');
+			// }
+			// else if(req.query.filter=="result"){
+			// 	res.render('admin-result')
+			// }
+			res.render('admin');
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
