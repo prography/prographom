@@ -123,35 +123,74 @@
           </div>
 
 <script type="text/javascript">
+
+
+/*admin 조회하기 누르면 나오기*/
+$(document).ready(function() {
+
+// $('.show3').show(); //페이지를 로드할 때 표시할 요소
+$('.show4').hide(); //페이지를 로드할 때 숨길 요소
+
+});
+
+
   function searchMemberByTime(){
     var date=$("#sel1 option:selected").val();
     var hour=$("#sel2 option:selected").val();
     var minute=$("#sel3 option:selected").val();
-
+    // console.log(date, hour, minute);
     $.ajax({
-  				type: 'POST',
-  				url: '/admin?filter=interviewTime',
-  				data: {
-            date:date,
-            hour:hour,
-            minute:minute
-          },
-          dataType:"text"
-      });
+            type: 'POST',
+            url: '/admin?filter=interviewTime',
+            data: {
+              date:date,
+              hour:hour,
+              minute:minute
+            },
+            dataType:"text",
+
+            success: function(data) {
+              // results=JSON.stringify(results);
+              //
+              // $ ('.show1').show(); //클릭 시 두 번째 요소 표시
+              // $ ('.show2').show(); //클릭 시 두 번째 요소 표시
+
+              console.log(data);
+              applications=JSON.parse(data);
+              // console.log(applications[0]);
+              // application=applications[0];
+              // console.log(application['name']);
+              for (var i=1;i<=applications.length ;i++){
+                application=applications[i-1];
+                $("#applicant"+i).find(".output-box").eq(0).text(application["name"]);
+                $("#applicant"+i).find(".output-box").eq(1).text(application["sex"]);
+                $("#applicant"+i).find(".output-box").eq(2).text(application["birth"]);
+                $("#applicant"+i).find(".output-box").eq(3).text(application["phone"]);
+                $("#applicant"+i).find(".output-box").eq(4).text(application["college"]);
+                $("#applicant"+i).find(".output-box").eq(5).text(application["address"]);
+                $("#applicant"+i).find(".output-box").eq(6).text(application["field"]);
+                $("#applicant"+i).find(".output-box").eq(7).text(application["q1"]);
+                $("#applicant"+i).find(".output-box").eq(8).text(application["q2"]);
+                $("#applicant"+i).find(".output-box").eq(9).text(application["q3"]);
+                $("#applicant"+i).find(".output-box").eq(10).text(application["q5"]);
+              }
+              $('.show4').show(); //페이지를 로드할 때 숨길 요소
+            }
+        });
+      // console.log(typeof(date));
 
   }
 </script>
 
           <!-- 지원서 보는 공간 -->
-          <section id="apply" class="show4">
+          <section id="apply" class="show4" id="">
             <ul class="nav nav-tabs nav-tabs-d">
-              <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant1">강민정</a></li>
-              <li class="tab-33 text-center"><a data-toggle="tab" href="#applicant2">박수현</a></li>
-              <li class="tab-33 text-center"><a data-toggle="tab" href="#applicant3">-</a></li>
+                <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant1">안녕</a></li>
             </ul>
 
-            <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar">
+            <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar" id="tmptmp">
 <!--.................................................................................................... -->
+
               <div id="applicant1" class="tab-pane fade in active tab-box-pad">
                 <button data-toggle="collapse" data-target="#personal-data-cut" class="cut-btn collapsed btn-c">인적사항 접기</button>
                 <div class="per-90 div-center collapse in" id="personal-data-cut">

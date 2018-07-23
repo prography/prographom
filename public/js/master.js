@@ -102,29 +102,6 @@ $("[id^=apply]").eq($(this).index()).toggle();
 });
 
 
-*/
-/*admin 조회하기 누르면 나오기*/
-$(document).ready(function() {
-$('.show1').show(); //페이지를 로드할 때 표시할 요소
-$('.show2').hide(); //페이지를 로드할 때 숨길 요소
-$('.show1').click(function(){
-$ ('.show1').show(); //클릭 시 두 번째 요소 표시
-$ ('.show2').show(); //클릭 시 두 번째 요소 표시
-return false;
-});
-});
-
-
-/*admin 조회하기 누르면 나오기*/
-$(document).ready(function() {
-$('.show3').show(); //페이지를 로드할 때 표시할 요소
-$('.show4').hide(); //페이지를 로드할 때 숨길 요소
-$('.show3').click(function(){
-$ ('.show4').show(); //클릭 시 두 번째 요소 표시
-return false;
-});
-});
-
 
 
 

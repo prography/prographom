@@ -54,6 +54,18 @@ var sha256 = require('js-sha256');
 
 module.exports = function(app)
 {
+
+	app.get('/test', function(req,res) {
+		data=[{
+				entry1:"1번의 entry1",
+				entry2:"1번의 entry2",
+			},
+			{
+				entry1:"2번의 entry1",
+				entry2:"2번의 entry2",
+			}]
+		res.render('test', data)
+});
     app.get('/', function(req,res) {
     	res.render('index')
 	});
@@ -78,7 +90,21 @@ module.exports = function(app)
 				res.render('admin-total');
 			}
 			else if(req.query.filter=="interviewTime"){
-				res.render('admin');
+				var body = req.body;
+				var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+				FROM Applications, Applicants
+				WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+				var params = [body.date, body.hour, body.minute];
+
+				client.query(sql, params, function (error, results) {
+					 if (error){
+						 console.log(error);
+					 }
+					 else {
+						 console.log(results);
+						 res.render('admin', {data:results});
+					 }
+				});
 			}
 			else if(req.query.filter=="result"){
 				res.render('admin-result')
@@ -88,32 +114,33 @@ module.exports = function(app)
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
 			id=req.body.admin_id;
 			pw=req.body.admin_pw;
-			console.log(id, pw);
+			// console.log(id, pw);
 			// if(verify_user(id, pw)){
 				if(req.query.filter=='interviewTime'){
 					var body = req.body;
-		 		 var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
-		    FROM Applications, Applicants
-		    WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
-		 		 var params = [body.date, body.hour, body.minute];
+		 		  var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+		    	FROM Applications, Applicants
+		    	WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+		 		  var params = [body.date, body.hour, body.minute];
 
-		          client.query(sql, params, function (error, results) {
-		 			 if (error){
-		 				 console.log(error);
-		 			 }
-		 			 else {
-		 				 res.send(results);
-		 			 }
-				}
-				else{
+		      client.query(sql, params, function (error, results) {
+			 			 if (error){
+			 				 console.log(error);
+			 			 }
+			 			 else {
+							 console.log(results);
+			 				 res.send(results);
+			 			 }
+					});
+				} else{
 					res.redirect('/admin');
 				}
 
 			// }
 			// else{
 			// 	res.send("<h1>nope, don't even try</h1>")
-			}
-  });
+
+  	});
 
     app.get('/recruit', function(req, res) {
         require('date-utils');
