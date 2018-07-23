@@ -108,7 +108,7 @@
                 <div class="per-90 div-center" >
                   <label class="application-label" for="sel3">면접 타임</label>
                   <select class="form-control" id="sel3" name="interview_min">
-                    <option value="00">:00 ~ :20</option>
+                    <option value="0">:00 ~ :20</option>
                     <option value="20">:20 ~:40</option>
                     <option value="40">:40 ~ :00</option>
                   </select>
@@ -121,27 +121,23 @@
               </div>
               </div>
           </div>
+		  
 <script type="text/javascript">
   function searchMemberByTime(){
     var date=$("#sel1 option:selected").val();
     var hour=$("#sel2 option:selected").val();
     var minute=$("#sel3 option:selected").val();
-    console.log(date, hour, minute);
+
     $.ajax({
-  				type: 'POST',
-  				url: '/admin',
-  				data: {
+          type: 'POST',
+          url: '/admin',
+          data: {
             date:date,
             hour:hour,
             minute:minute
           },
-          dataType:"text",
-
-          success: function(data) {
-            alert(data);
-          }
+          dataType:"text"
       });
-      // console.log(typeof(date));
 
   }
 </script>

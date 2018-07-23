@@ -8,6 +8,7 @@ var http = require('http');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
+var params = require('params');
 
 var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
@@ -69,9 +70,20 @@ module.exports = function(app)
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			var body=req.body;
-			console.log(body);
-			res.send(body);
+         var body = req.body;
+		 var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+   FROM Applications, Applicants
+   WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+		 var params = [body.date, body.hour, body.minute];
+		 
+         client.query(sql, params, function (error, results) {
+			 if (error){
+				 console.log(error);
+			 }
+			 else {
+				 res.send(results);
+			 }
+      });
   });
 
     app.get('/admin-total', function(req, res) {
