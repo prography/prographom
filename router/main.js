@@ -65,7 +65,7 @@ module.exports = function(app)
 			// else if(req.query.filter=="result"){
 			// 	res.render('admin-result')
 			// }
-			res.render('admin');
+			res.render('admin')
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
