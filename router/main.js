@@ -69,9 +69,13 @@ module.exports = function(app)
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			var body=req.body;
-			console.log(body);
-			res.send(body);
+			var body = req.body;
+			client.query(`SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+	FROM applications, applicants
+	WHERE applications.id = applicants.email and interview_date = ${body.date} and interview_hour = ${body.hour} and interview_minute = ${body.minute}`, function (error, results) {
+			res.send(results);
+			console.log(results);
+		});
   });
 
     app.get('/admin-total', function(req, res) {

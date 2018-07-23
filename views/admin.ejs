@@ -138,6 +138,14 @@
           dataType:"text",
 
           success: function(data) {
+            $(document).ready(function() {
+            $('.show3').show(); //페이지를 로드할 때 표시할 요소
+            // $('.show4').hide(); //페이지를 로드할 때 숨길 요소
+            $('.show3').click(function(){
+            $ ('.show4').show(); //클릭 시 두 번째 요소 표시
+            return false;
+            });
+            });
             alert(data);
           }
       });
@@ -149,9 +157,9 @@
           <!-- 지원서 보는 공간 -->
           <section id="apply" class="show4">
             <ul class="nav nav-tabs nav-tabs-d">
-              <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant1">강민정</a></li>
-              <li class="tab-33 text-center"><a data-toggle="tab" href="#applicant2">박수현</a></li>
-              <li class="tab-33 text-center"><a data-toggle="tab" href="#applicant3">-</a></li>
+              <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant1">심정민</a></li>
+              <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant2">심정민</a></li>
+              <li class="active tab-33 text-center"-><a data-toggle="tab" href="#applicant3">심정민</a></li>
             </ul>
 
             <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar">
