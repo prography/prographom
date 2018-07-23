@@ -75,7 +75,7 @@ module.exports = function(app)
   });
 
     app.get('/admin-total', function(req, res) {
-      res.render('')
+      res.render('admin-total')
   });
 
 
