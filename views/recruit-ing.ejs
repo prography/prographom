@@ -48,7 +48,7 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
+                <li><a href="http://prografeed.com/">Prografeed</a></li>
                 <li><a href="/login">Admin</a></li>
               </ul>
             </li>
@@ -156,9 +156,15 @@
               <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" id="email_to">
               <div class="input-group-btn">
                 <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email</button>
-              </div><br>
-              <p id="mail_success_message"></p>
+              </div>
+
             </div>
+            <p id="mail_success_message"></p>
+            <style>
+              #mail_success_message{
+                text-align: center;
+              }
+            </style>
           <!-- </form> -->
         </div>
       </div>

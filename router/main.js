@@ -3,12 +3,27 @@ var fs = require('fs');
 var ejs = require('ejs');
 var mysql = require('mysql');
 var express = require('express');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 var http = require('http');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
+var hashMap={}
 
+function reverseHash(id){
+	return hashMap[id];
+}
+function hash(email){
+	return sha256("pRoG"+email+"rApHy");
+}
+function verify_user(id, pw){
+	if(id=="웹팀이" && pw=="1등이야"){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
 	user : 'root',
@@ -47,40 +62,46 @@ module.exports = function(app)
       res.render('history')
     });
 
-    app.get('/login', function(req, res) {
-      res.render('login')
-  });
 
     app.get('/product', function(req, res) {
       res.render('product')
   });
 
+		app.get('/login', function(req, res) {
+			res.render('login')
+	});
+
     app.get('/admin', function(req, res) {
-			// if(req.query.filter==""){
-			// 	res.render('admin-total');
-			// }
-			// else if(req.query.filter=="interviewTime"){
-			// 	res.render('admin');
-			// }
-			// else if(req.query.filter=="result"){
-			// 	res.render('admin-result')
-			// }
-			res.render('admin')
+			if(!req.query.filter){
+				res.render('admin-total');
+			}
+			else if(req.query.filter=="interviewTime"){
+				res.render('admin');
+			}
+			else if(req.query.filter=="result"){
+				res.render('admin-result')
+			}
   });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			var body=req.body;
-			console.log(body);
-			res.send(body);
+			id=req.body.admin_id;
+			pw=req.body.admin_pw;
+			console.log(id, pw);
+			// if(verify_user(id, pw)){
+				if(req.query.filter=='interviewTime'){
+					var body=req.body;
+					console.log(body);
+					res.send(body);
+				}
+				else{
+					res.redirect('/admin');
+				}
+
+			// }
+			// else{
+			// 	res.send("<h1>nope, don't even try</h1>")
+			// }
   });
-
-    app.get('/admin-total', function(req, res) {
-      res.render('admin-total')
-  });
-
-
-
-
 
     app.get('/recruit', function(req, res) {
         require('date-utils');
@@ -110,16 +131,13 @@ module.exports = function(app)
 	app.get('/check_result1', function(req, res){
 		var email = req.query.email;
 		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
-				var survived;
 		client.query(query, function(error, result){
-
 			if (error){
 				console.log(error);
-			} else {
+			}
+			else {
 				survived = JSON.stringify(result[0]['survived']);
-				//result[0]['name'];
-				console.log(survived);
-				return survived;
+				res.send( survived);
 			}
 		});
 	});
@@ -141,7 +159,7 @@ module.exports = function(app)
 		var body = req.body;
 		var isSubmit = 0;
 		if(body.submit) isSubmit = 1;
-		
+
 		// record가 있는지 없는지 select문으로 체크
 		client.query(`SELECT * FROM Applications WHERE `),
 		// 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
@@ -152,9 +170,15 @@ module.exports = function(app)
 		});
 	});
 
-    app.get('/send',function(req,res){
-        email_to=req.query.email_to;
-        rand=sha256(req.query.email_to);
+    app.post('/send',function(req,res){
+        email_to=req.body.email_to;
+        rand=hash(email_to);
+				hashMap[rand]=email_to;
+				console.log(hashMap);
+				setTimeout(function(){
+					delete hashMap[rand];
+					console.log(hashMap);
+				},300000);
         host=req.get('host');
         link="http://"+host+"/verify?id="+rand;
         // link="http://"+host+"/verify?id="+email_to;
@@ -167,44 +191,40 @@ module.exports = function(app)
         // console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response){
          if(error){
-                console.log(error);
-            res.end("error");
+            // console.log(error);
+            // res.send("error");
          }else{
                 console.log("Message sent: " + response.message);
-            res.end("sent");
+            res.send("success");
              }
         });
 
     });
-	
+
     app.get('/verify',function(req,res){
       console.log(req.protocol+":/"+req.get('host'));
       if((req.protocol+"://"+req.get('host'))==("http://"+host))
       {
           console.log("Domain is matched. Information is from Authentic email");
-          if(req.query.id==rand)
+          if(req.query.id in hashMap)
           {
               console.log("email is verified");
-              data={
-                id:req.query.id,
-                user:req.query.to,
-
-              };
+							id=req.query.id;
               //register data to database
 
 
               //redirect to application page
-              res.redirect('/application?id='+req.query.id);
+              res.redirect('/application?id='+id);
           }
           else
           {
               console.log("email not verified");
-              res.end("<h1>Bad Request</h1>");
+              res.end("<h1>not verified.</h1>");
           }
       }
       else
       {
-          res.end("<h1>Request from unknown source</h1>");
+          res.end("<h1>wrong method.</h1>");
       }
     });
 
@@ -223,7 +243,7 @@ module.exports = function(app)
 		// 정보가 있으면 select, 없으면 그냥~~
 	  require('date-utils');
         var id=req.query.id;
-        var user="example@prography.com";
+				var user=reverseHash(id);
         var answers=['blah1','blah2','blah3','blah4'];
   	    var newDate = new Date();
     		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
@@ -237,19 +257,26 @@ module.exports = function(app)
         id,
         answers
       }
+			console.log(data)
     //
-		 console.log(time); // remove
+		 // console.log(time); // remove
 		 // apply 진행 중
-		 if (time < '2018-08-01 00:00:00')
-		 	res.render('application', data);
-		 // after apply
-		 else if (time < '2018-08-07 00:00:00')
-		 	res.render('recruit-fin');
-		 // 1차 발표
-		 else if (time < '2018-07-09 00:00:00')
-		 	res.render('recruit-result1');
-		// 2차 발표
-		else
-			res.render('application',data);
-     });
+		 if(id in hashMap){
+
+			 if (time < '2018-08-01 00:00:00')
+			 	res.render('application', data);
+			 // after apply
+			 else if (time < '2018-08-07 00:00:00')
+			 	res.render('recruit-fin', data);
+			 // 1차 발표
+			 else if (time < '2018-07-09 00:00:00')
+			 	res.render('recruit-result1', data);
+			// 2차 발표
+				else
+					res.render('application',data);
+		     }
+		 else{
+			 res.send('<h1>no id</h1>');
+		 }
+	 });
 };
