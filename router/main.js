@@ -8,6 +8,8 @@ var http = require('http');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path');
+var params = require('params');
+
 var hashMap={}
 
 function reverseHash(id){
@@ -89,9 +91,19 @@ module.exports = function(app)
 			console.log(id, pw);
 			// if(verify_user(id, pw)){
 				if(req.query.filter=='interviewTime'){
-					var body=req.body;
-					console.log(body);
-					res.send(body);
+					var body = req.body;
+		 		 var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+		    FROM Applications, Applicants
+		    WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+		 		 var params = [body.date, body.hour, body.minute];
+
+		          client.query(sql, params, function (error, results) {
+		 			 if (error){
+		 				 console.log(error);
+		 			 }
+		 			 else {
+		 				 res.send(results);
+		 			 }
 				}
 				else{
 					res.redirect('/admin');
@@ -100,7 +112,7 @@ module.exports = function(app)
 			// }
 			// else{
 			// 	res.send("<h1>nope, don't even try</h1>")
-			// }
+			}
   });
 
     app.get('/recruit', function(req, res) {
