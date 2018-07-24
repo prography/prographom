@@ -30,7 +30,8 @@ var client = mysql.createConnection({
 	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
 	user : 'root',
 	password : '',
-	database : 'prography'
+	database : 'prography',
+	multipleStatements: true
 });
 client.connect(function(err) {
   if (err) throw err;
@@ -91,7 +92,7 @@ module.exports = function(app)
 			}
 			else if(req.query.filter=="interviewTime"){
 				var body = req.body;
-				var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
+				var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
 				FROM Applications, Applicants
 				WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
 				var params = [body.date, body.hour, body.minute];
@@ -118,12 +119,14 @@ module.exports = function(app)
 			// if(verify_user(id, pw)){
 				if(req.query.filter=='interviewTime'){
 					var body = req.body;
-		 		  var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5
-		    	FROM Applications, Applicants
-		    	WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
 		 		  var params = [body.date, body.hour, body.minute];
 
-		      client.query(sql, params, function (error, results) {
+		      client.query(`SELECT Applications.id AS id, name, sex, DATE_FORMAT(birth, \'%y%m%d\'), phone, college, address, Applications.field AS field, q1, q2, q3, q5, q7, q8
+		    	FROM Applications, Applicants
+		    	WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?;
+				SELECT Q4.field AS q4_field, term, activity, application_id
+		    	FROM Applications, Q4
+		    	WHERE Applications.id = Q4.application_id`, params, function (error, results) {
 			 			 if (error){
 			 				 console.log(error);
 			 			 }
@@ -279,13 +282,16 @@ module.exports = function(app)
 
 
     app.get('/application', function(req ,res){
-		// 정보가 있으면 select, 없으면 그냥~~
-	  require('date-utils');
+      // 정보가 있으면 select, 없으면 그냥~~
+     require('date-utils');
         var id=req.query.id;
-				var user=reverseHash(id);
+            var user=reverseHash(id);
         var answers=['blah1','blah2','blah3','blah4'];
-  	    var newDate = new Date();
-    		var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+         var newDate = new Date();
+          var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+               var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
+               FROM Applications, Applicants
+               WHERE Applications.id = Applicants.email and Applications.id = ?`;
       //find the user info by the id from database
 
 
@@ -296,26 +302,35 @@ module.exports = function(app)
         id,
         answers
       }
-			console.log(data)
+         console.log(data)
     //
-		 // console.log(time); // remove
-		 // apply 진행 중
-		 if(id in hashMap){
+       // console.log(time); // remove
+       // apply 진행 중
+       if(id in hashMap){
 
-			 if (time < '2018-08-01 00:00:00')
-			 	res.render('application', data);
-			 // after apply
-			 else if (time < '2018-08-07 00:00:00')
-			 	res.render('recruit-fin', data);
-			 // 1차 발표
-			 else if (time < '2018-07-09 00:00:00')
-			 	res.render('recruit-result1', data);
-			// 2차 발표
-				else
-					res.render('application',data);
-		     }
-		 else{
-			 res.send('<h1>no id</h1>');
-		 }
-	 });
+          if (time < '2018-08-01 00:00:00') {
+                  client.query(sql, [user], function (error, results) {
+                        if (error){
+                            console.log(error);
+                        }
+                        else {
+                            console.log(results);
+                            res.render('application', {data:results});
+                        }
+                  });
+                }
+          // after apply
+          else if (time < '2018-08-07 00:00:00')
+             res.render('recruit-fin', data);
+          // 1차 발표
+          else if (time < '2018-07-09 00:00:00')
+             res.render('recruit-result1', data);
+         // 2차 발표
+            else
+               res.render('application',data);
+           }
+       else{
+          res.send('<h1>no id</h1>');
+       }
+    });
 };
