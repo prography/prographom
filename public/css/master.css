@@ -5,7 +5,6 @@
       1-1.font
       1-2.line
     2.nav-top
-      2-1.nav-blue
     3.logo
     4.footer & p tag
     5.glyphicon
@@ -13,10 +12,13 @@
     7.poster & img
     8.tab
     9.banner
+      9-1.index-banner
     10.table
     11.container percent
     12.margin
-    13.application css
+    13.index . css
+    14.product . css
+    15.activity . css
 */
 
 
@@ -52,6 +54,20 @@
 */
 
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+
+ /*{ font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; } */
+ /*{ font-family: 'Spoqa Han Sans', 'Sans-serif'; } */
+
+/* 왼쪽 화살표 */
+/* &#xE000; 뒤로 가기 */
+
+/* 오른쪽 화살표 */
+ /* 더 알아보기 &#xE001;*/
+
+
+
 
 
 /*-------- 1.basic --------*/
@@ -64,6 +80,11 @@ body{
   font-size: 15px;
   color: #777;
   background-color: #f2f2f2;
+}
+
+.body{
+  margin: 0;
+  padding: 0;
 }
 
 h5{
@@ -175,11 +196,11 @@ textarea{
 /*-------- 2.nav-top --------*/
 #navbar{
   transition: top 0.3s;
+   opacity:0.8;
 }
 
 
 .navbar{
-  background-color: #fff;
   border: 0;
   color: #fff;
   opacity: 0.9;
@@ -187,9 +208,19 @@ textarea{
   transition: top 0.3s;
 }
 
+.navbar-iii{
+  top:-50px;
+  border: 0;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 0.9em;
+  transition: top 0.3s;
+}
+
+
+
 .open .dropdown-toggle{
   color: #fff;
-  background-color: #d81d45 !important;
 }
 
 
@@ -241,7 +272,7 @@ textarea{
 }
 
 .logo-middle{
-  width: 50px;
+  width: 7%;
   margin-top: 130px;
   display: block;
   margin-left: auto;
@@ -249,11 +280,11 @@ textarea{
   transition: 0.2s ease;
 }
 
-
+/*
 .logo-middle:hover{
-  /*filter: drop-shadow( 0px 1px 5px #fff );*/
+
   opacity: 0.6;
-}
+}*/
 
 .logo-middle-noclick{
   width: 50px;
@@ -288,14 +319,18 @@ footer{
 
 .p-pp{
   display: inline;
-  padding: 0px 10px 0px 30px;
+  padding: 0px 10px 0px 10px;
   margin-bottom: 30px;
   font-weight: 400;
   opacity: 0.5;
   letter-spacing: 0.1em;
   font-size:  12px !important;
 }
-
+@media only screen and (max-width: 600px) {
+    .p-pp{
+      width: ;
+    }
+}
 
 .p-inline{
   display: inline;
@@ -309,7 +344,7 @@ footer{
 @media only screen and (max-width: 600px) {
     .p-md {
       font-size:15px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 }
 
@@ -563,9 +598,12 @@ input::placeholder {
     }
 }
 
+
+/*공식활동, 포트폴리오, 히스토리, 지원하기 의 워딩*/
 .main-title{
   color: #fff;
   font-size: 40px;
+  letter-spacing: 1px;
 }
 
 
@@ -577,6 +615,98 @@ input::placeholder {
   margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+    .main-title {
+
+    }
+}
+@media only screen and (max-width: 600px) {
+    .sub-title {
+
+    }
+}
+
+/*-------- 9-1.index-banner --------*/
+.cropping{
+  height:800px;
+  overflow: hidden;
+  margin: 0;
+}
+@media only screen and (max-width: 1200px) {
+    .cropping {
+      width: 1200px;
+      overflow: hidden;
+      margin-bottom: -100px;
+      z-imdex:-1;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .cropping {
+      width: 1000px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      z-imdex:-1;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .cropping video{
+      max-height: inherit;
+      margin-left: -20%;
+    }
+}
+
+.b-0{
+  font-size: 55px;
+  font-weight: 300;
+  line-height: 1.2;
+  text-shadow: none;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+    .b-0{
+      margin-bottom: 25px;
+      font-size: 40px;
+    }
+}
+.b-p{
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: none;
+  letter-spacing: 1.2;
+}
+@media only screen and (max-width: 600px) {
+    .b-p{
+      font-size: 20px;
+    }
+}
+.b-p span{
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+.b-pp{
+  font-size: 16px;
+  text-shadow: none;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+@media only screen and (max-width: 600px) {
+    .b-pp{
+      font-size: 12px;
+    }
+}
+.carousel-caption{
+  margin-bottom: 200px !important;
+}
+@media only screen and (max-width: 800px) {
+    .carousel-caption{
+      margin-bottom: 300px !important;
+    }
+}
 
 
 /*-------- 10.table --------*/
@@ -725,57 +855,362 @@ tr{
   margin-bottom: 60px;
 }
 
-
-
-
-
-
-
-
-
-
--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    width: 100%;
-    margin: auto;
+/**/
+.margin-150{
+  margin: 150px;
 }
+.margin-top-150{
+  margin-top: 150px;
+}
+
+.margin-bottom-150{
+  margin-bottom: 150px;
+}
+
+
+.margin-left-150{
+  margin-left: 150px;
+}
+
+.margin-right-150{
+  margin-right: 150px;
+}
+/**/
+.margin-200{
+  margin: 200px;
+}
+.margin-top-200{
+  margin-top: 200px;
+}
+
+.margin-bottom-200{
+  margin-bottom: 200px;
+}
+
+.margin-left-200{
+  margin-left: 200px;
+}
+
+.margin-right-200{
+  margin-right: 200px;
+}
+
+
+
+
+
+/*-------- 13.index . css --------*/
+.bg-img3{
+  background-image: url('../img/bg3.jpg');
+  margin-top: 30px;
+  width: 100%;
+  height: 400px;
+  z-index: -2;
+  user-select: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .bg-img3 {
+      background-image: none;
+      width: 100%;
+    }
+}
+
+.bg-img4{
+  background-image: url('../img/bg3.jpg');
+  margin-top: 30px;
+  width: 100%;
+  height: 600px;
+  z-index: -2;
+  user-select: none;
+  display: block;
+}
+
+@media only screen and (max-width: 800px) {
+    .bg-img4 {
+      width: 100%;
+      height: 400;
+    }
+}
+.bg-container{
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.bg-container-content1{
+  top: 0px;
+  left: 10%;
+  width: 90%;
+  position: absolute;
+}
+
+
+.main-title-b{
+  color: #333;
+  font-size: 36px;
+  margin-top: 250px;
+}
+.sub-title-b{
+  color: #333;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 800px) {
+    .main-title-b{
+      font-size: 24px;
+      margin-top:-150px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .main-title-b2{
+      font-size: 24px;
+      margin-top:-250px;
+    }
+}@media only screen and (max-width: 800px) {
+    .main-title-b3{
+      font-size: 24px;
+      margin-top:150px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .sub-title-b{
+      font-size: 14px;
+    }
+}
+
+
+
+/*프로젝트 팀 오버레이*/
+.overlay-container{
+  position: relative;
+  width: 33.33%;
+}
+@media only screen and (max-width: 800px) {
+    .overlay-container{
+      width:100%;
+    }
+}
+
+.overlay-container2{
+  position: relative;
+  display: inline-block;
+  width: 33.33%;
+}
+@media only screen and (max-width: 800px) {
+    .overlay-container{
+      width:100%;
+    }
+}
+.col-sm-4{
+  padding: 0px !important;
+}
+
+.col-sm-8{
+  padding: 0px !important;
+}
+@media only screen and (max-width: 800px) {
+    .col-sm-8{
+      margin: 0px !important;
+      padding: 0px !important;
+
+    }
+}
+
+.eximg{
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  padding: : 0 !important;
+  display: inline-block;
+}
+
+.overlay-1{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.6s ease;
+  background-color: #000;
+}
+
+.overlay-container:hover, .overlay-1:hover{
+  opacity: 0.9;
+}
+
+.overlay-text{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.o-p{
+  font-size: 25px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.o-pp{
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+
+
+
+
+
+
+
+/*-------- 14.product . css --------*/
+.unit-nav{
+
+}
+
+.filter-btn{
+  margin-right: 10px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  box-shadow: none !important;
+  color: #fff;
+}
+
+#filtering-portfolio{
+  display: inline-block;
+}
+
+.unit-p-main{
+  font-size: 60px;
+  color: #333;
+  font-weight: 300;
+}
+
+.unit-p-small{
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+  font-weight: 300;
+  user-select: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .unit-p-main{
+      font-size: 40px;
+      display: block;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .unit-p-small{
+      font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .line{
+      width: 80% !important;
+      margin-top: 20px;
+    }
+}
+
+
+
+
+
+
+
+/*-------- 15.activity . css --------*/
+
+.activity-content-1{
+  width: 100%;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+
+.activity-img{
+  background-image: url('../img/bg1.jpg');
+  width: 100%;
+  height: 400px;
+  z-index: -2;
+  user-select: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .activity-img{
+      width: 100%;
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+}
+
+.black-box{
+  width: 100%;
+  height: auto;
+  background-color: #222;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+@media only screen and (max-width: 600px) {
+    .black-box{
+      height: auto;
+    }
+}
+
+.black-box>h1{
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+}
+
+.black-box>p{
+  text-align: center;
+  color: #fff;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

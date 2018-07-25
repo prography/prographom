@@ -28,7 +28,7 @@
       </div>
       <div class="container">
         <div class="banner-contents2">
-          <a class="logo-middle div-center" href="/"><img src="img/logo-03.svg" alt="white-logo"></a>
+          <img src="img/logo-03.svg" alt="white-logo" class="logo-middle div-center">
           <p class="p-submain text-center">[ 프로그라피 3기 ]<br><span>1차 서류전형 결과 확인</span></p>
         </div>
       </div>
@@ -44,10 +44,10 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
             <div class="input-group">
-              <input type="text" class="form-control input-lg btn-white-nohover" 
+              <input type="text" class="form-control input-lg btn-white-nohover"
               placeholder="지원자의 메일을 적어주세요" id="email" name="email">
               <div class="input-group-btn">
-                <button class="btn btn-default input-lg btn-orange-small" 
+                <button class="btn btn-default input-lg btn-orange-small"
                 onclick="checkValue()" type="submit">Confirm</button></div>
             </div>
         </div>
@@ -176,7 +176,7 @@
         //save #answer1_thru_4 to database
         console.log(document.getElementById("email").value);
 		  var email = document.getElementById("email").value;
-		  
+
 		  $.ajax({
 			  type :"GET",
 			  url : "/check_result1",
@@ -190,20 +190,20 @@
 			  if(result == '1') {
 				  document.getElementById("result-after-pass-1").style.visibility="visible";
 			  }
-				   
-				  
-				
+
+
+
 			  else {
-				  document.getElementById("result-after-fail-1").style.visibility="visible"; 
+				  document.getElementById("result-after-fail-1").style.visibility="visible";
 			}
-				 
-				
-				
-				
+
+
+
+
 		  }
-		  });		  
-		 
-		  
+		  });
+
+
 
       }
     </script>

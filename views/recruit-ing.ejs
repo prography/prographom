@@ -155,9 +155,10 @@
             <div class="input-group">
               <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" id="email_to">
               <div class="input-group-btn">
-                <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email</button>
-              </div><br>
-              <p id="mail_success_message"></p>
+                <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email
+                  <p id="mail_success_message"></p> <!--버튼 안에 넣어야 안깨짐--></button>
+              </div>
+
             </div>
           <!-- </form> -->
         </div>
@@ -200,6 +201,7 @@
     <!--.........................................................................................-->
     <script type="text/javascript" src="js/master.js"></script>
     <script src="js/recruit-ing.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/basic-nav.js"></script>
 
   </body>
 </html>

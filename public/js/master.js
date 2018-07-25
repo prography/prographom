@@ -1,35 +1,33 @@
+/*
+
+  index
+  -하단에서 상단으로 스크롤 부드럽게
+  -아코디언
+  -#id 지점으로 부드럽게 이동
+  -admin 페이지 menu
+  -모달 표시하기
+  -admin 조회하기 누르면 나오기
+  -application alert, confirm 모달뜨게하기
+  -portfolio filtering
+  -
+*/
+
+
+
+
+
+
+
+
+
+
+
 /* 하단에서 상단으로 스크롤 부드럽게 */
 $( '.top' ).click( function() {
   $( 'html, body' ).animate( { scrollTop : 0 }, 100 );
   return false;
 } );
 
-
-/* nav 스크롤 효과 */
-
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-45px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-
-
-/* nav 내리면 활성화 *//*
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
-}
-*/
 
 /* 아코디언 */
 function myFunction(accordion1) {
@@ -48,8 +46,6 @@ function myFunction(accordion2) {
         x.className = x.className.replace(" w3-show", "");
     }
 }
-
-
 
 
 
@@ -85,24 +81,6 @@ function w3_close() {
 
 
 
-
-
-/*
-
-$(function () {
-$("[id=apply]").hide();
-
-// 클래스가 일치하는 버튼을 가지지만, float_l 클래스가 아닌 요소
-$(".button:not(.float_l)").click(function (e) {
-e.stopPropagation();
-
-// index가 클릭한 것과 일치하는 요소를 찾음
-$("[id^=apply]").eq($(this).index()).toggle();
-});
-});
-
-
-*/
 /*모달 표시하기*/
 $(document).ready(function() {
 $('.show1').show(); //페이지를 로드할 때 표시할 요소
@@ -128,7 +106,7 @@ return false;
 
 
 
-/*application alert, confirm*/
+/*application alert, confirm 모달뜨게하기*/
 function btn_js_alert_click(){
   /* alert(문자열) */
   alert("저장되었습니다!\n9월1일까지 최종제출을 하셔야 지원 완료됩니다!");
@@ -140,70 +118,3 @@ function btn_js_confirm_click(){
   if(check) alert("지원서 제출 완료");
   else alert("지원서 제출 취소");
 }
-
-
-
-
-/*
-html
-
-<form name="input_type" id="input_type" method="post" >
-
-
-  <input type="button" name="btn_js_alert" id="btn_js_alert" onclick="btn_js_alert_click();" value="알림창" />
-  <br />
-  <input type="button" name="btn_js_confirm" id="btn_js_confirm" onclick="btn_js_confirm_click();" value="확인창" />
-  <br />
-
-</form>
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/
