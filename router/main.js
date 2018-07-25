@@ -346,7 +346,7 @@ module.exports = function(app)
         id,
         answers
       }
-         console.log(data)
+         console.log(data);
     //
        // console.log(time); // remove
        // apply 진행 중
@@ -367,6 +367,8 @@ module.exports = function(app)
            }
        else{
           res.send('<h1>no id</h1>');
-       }
-    }
-});
+		}
+		
+	   }
+	});
+};
