@@ -22,6 +22,7 @@
     <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
 
     <section id="banner" class="container per-80">
+	 <form method="post" action="/application">
 
       <!--로고 & line-->
       <!-- <img src="img/logo-01.svg" alt="white-logo" class="logo-middle-noclick"> -->
@@ -38,14 +39,12 @@
       <!--line-->
       <div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; opacity:0.5;"></div>
 
-
-	  <form method="post" action="/application">
       <!--인적사항-->
       <div class="per-90 div-center">
         <div class="row">
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">이메일</label>
-            <input name="id" class="w3-input w3-border" value="<%=user%>" disabled>
+            <input name="id" class="w3-input w3-border" value="<%=user%>">
           </div>
         </div>
         <div class="row">
@@ -132,9 +131,9 @@
                   <td class="td-4">직책 및 활동</td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
                   <td class="td-3"><input class="w3-input w3-border-lightgray" type="text"></td>
@@ -224,7 +223,6 @@
       <p class="explain text-center">
       제출 전까지 <strong>'SAVE'</strong>로 작성하신 부분까지 저장하시고,
       최종 제출 시에만 <strong>'SUBMIT'</strong>으로 최종 제출하세요!
-    <br>정민아???!!!! 여기 제출하기랑 저장하기 경고창들 한번씩 만들어야 할듯</p>
 
 
 
@@ -243,11 +241,8 @@
       <!-- Button trigger modal -->
       <div class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
         <button type="submit" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1">SAVE</button>
-        <button type="submit" name="submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
+        <button type="button" name="pre-submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
 	  </div>
-	  
-      </form>
-
 
       <!-- Modal-alert -->
       <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
@@ -288,7 +283,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal">최종 제출하기</button>
+              <button type="submit" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal">최종 제출하기</button>
 
             </div>
           </div>
@@ -314,7 +309,7 @@
           </div>
         </div>
       </div>
-
+	 </form>
 
       <!-- <div class="w3-border-bottom w3-border-left w3-border-right
       w3-border-lightgray application-bottom-division"></div> -->

@@ -174,14 +174,36 @@ $('.show4').hide(); //페이지를 로드할 때 숨길 요소
 			  
 			  var all = applications[0]; // except q4
 			  var q4s = applications[1]; // only q4
-
+			  
+			  // reset
+			  for (var i=1; i<=3; i++){
+				$("#applicant_tab"+i).find(".tab").text("-");
+				
+				for (var j=0; j<=10; j++){
+					$("#applicant"+i).find(".output-box").eq(j).text("-");
+				}
+				
+				for (var j=1; j<=7; j++) {
+					$("#applicant"+i).find("#q4-"+j).find(".output-box-table").eq(0).text("-");
+					$("#applicant"+i).find("#q4-"+j).find(".output-box-table").eq(1).text("-");
+					$("#applicant"+i).find("#q4-"+j).find(".output-box-table").eq(2).text("-");
+				}
+				
+				document.forms["ot"+i]["ot_attend"].checked=false;
+				document.forms["ot"+i]["ot_absent"].checked=false;
+				document.forms["mt"+i]["mt_attend"].checked=false;
+				document.forms["mt"+i]["mt_absent"].checked=false;
+				
+			  }
+			  
+			  
               for (var i=1;i<=all.length;i++){
 				var count =  0;
 				application=all[i-1];
 				$("#applicant_tab"+i).find(".tab").text(application["name"]);
 				$("#applicant"+i).find(".output-box").eq(0).text(application["name"]);
 				$("#applicant"+i).find(".output-box").eq(1).text(application["sex"]);
-				$("#applicant"+i).find(".output-box").eq(2).text(application["DATE_FORMAT(birth, \'%y%m%d\')"]);
+				$("#applicant"+i).find(".output-box").eq(2).text(application["DATE_FORMAT(birth, \'%y-%m-%d\')"]);
 				$("#applicant"+i).find(".output-box").eq(3).text(application["phone"]);
 				$("#applicant"+i).find(".output-box").eq(4).text(application["college"]);
 				$("#applicant"+i).find(".output-box").eq(5).text(application["address"]);
@@ -204,12 +226,22 @@ $('.show4').hide(); //페이지를 로드할 때 숨길 요소
 				
 				//q7, q8
 				if (application["q7"] == 1) {
-					$("#applicant"+i).find(".checkmark").eq(0).prop('checked', true);
+					document.forms["ot"+i]["ot_attend"].checked=true;
 				}
-              }
+				else {
+					document.forms["ot"+i]["ot_absent"].checked=true;
+				}
+
+				if (application["q8"] == 1) {
+					document.forms["mt"+i]["mt_attend"].checked=true;
+				}
+				else {
+					document.forms["mt"+i]["mt_absent"].checked=true;
+                }
+			  }
 			  
-              $('.show4').show(); //페이지를 로드할 때 숨길 요소
-            }
+			  $('.show4').show(); //페이지를 로드할 때 숨길 요소
+			}
         });
       // console.log(typeof(date));
   }
@@ -372,21 +404,21 @@ $('.show4').hide(); //페이지를 로드할 때 숨길 요소
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="ot1" name = "ot_select" >
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="mt1" name = "mt_select">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                     </tbody>
                   </table>
@@ -533,21 +565,21 @@ $('.show4').hide(); //페이지를 로드할 때 숨길 요소
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="ot2" name = "ot_select" >
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="mt2" name = "mt_select">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                     </tbody>
                   </table>
@@ -696,21 +728,21 @@ $('.show4').hide(); //페이지를 로드할 때 숨길 요소
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="ot3" name = "ot_select" >
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="ot_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                       <tr class="tbody">
                         <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
-                        <div>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                        <form id="mt3" name = "mt_select">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_attend">
                             <p class="checkmark"></p></label></td>
-                          <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                          <td class="td-2"><label class="label-circle"><input type="radio" id="mt_absent">
                             <p class="checkmark"></p></label></td>
-                        </div>
+                        </form>
                       </tr>
                     </tbody>
                   </table>
