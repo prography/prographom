@@ -20,4 +20,13 @@ $ node server.js
 Express server has started on port 3000
 ```
 
+AWS 상에서 확인
+-putty 등을 통해 13.125.217.76 서버에 접속합니다
+-마지막 개발의 편의를 위해 nodemon package를 활용합니다
+```shell
+$ sudo nodemon server
+Express server has started on port 80
+```
+
 웹페이지에서 `localhost:3000`으로 들어갔을 때 Prography의 홈이 뜨면 성공!
+
