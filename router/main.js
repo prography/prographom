@@ -12,30 +12,31 @@ var params = require('params');
 var hashMap={}
 
 function reverseHash(id){
-	return hashMap[id];
+    return hashMap[id];
 }
 function hash(email){
-	return sha256("pRoG"+email+"rApHy");
+    return sha256("pRoG" + email + "rApHy");
 }
 function verify_user(id, pw){
-	if(id=="웹팀이" && pw=="1등이야"){
-		return true;
-	}
-	else{
-		return false;
-	}
+    if (id == "웹팀이" && pw == "1등이야") {
+        return true;
+    } else {
+        return false;
+    }
 }
 var client = mysql.createConnection({
-	host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
-	user : 'root',
-	password : '',
-	database : 'prography',
-	multipleStatements: true
+    host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
+    user : 'root',
+    password : '',
+    database : 'prography',
+    multipleStatements: true
 });
-client.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+
+client.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
 });
+
 var app = express();
 
 var nodemailer=require("nodemailer");
@@ -46,6 +47,7 @@ var smtpTransport = nodemailer.createTransport({
         pass: "verify.test"
     }
 });
+
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
@@ -53,40 +55,40 @@ module.exports = function(app)
 {
     app.get('/', function(req,res) {
         res.render('index')
-	});
+    });
     app.get('/about', function(req,res) {
         res.render('about')
-	});
+    });
     app.get('/history', function(req, res) {
         res.render('history')
     });
     app.get('/product', function(req, res) {
         res.render('product')
     });
-	app.get('/login', function(req, res) {
-	    res.render('login')
-	});
+    app.get('/login', function(req, res) {
+        res.render('login')
+    });
     app.get('/admin', function(req, res) {
-	    if (!req.query.filter) {
-			res.render('admin-total');
-		} else if (req.query.filter == "interviewTime") {
-		    var body = req.body;
-		    var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
-			FROM Applications, Applicants
-			WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
-			var params = [body.date, body.hour, body.minute];
+        if (!req.query.filter) {
+            res.render('admin-total');
+        } else if (req.query.filter == "interviewTime") {
+            var body = req.body;
+            var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
+            FROM Applications, Applicants
+            WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+            var params = [body.date, body.hour, body.minute];
 
-			client.query(sql, params, function (error, results) {
-			    if (error){
-				    console.log(error);
-				} else {
-					console.log(results);
-					res.render('admin', {data:results});
-				}
-			});
-		} else if (req.query.filter == "result") {
-		    res.render('admin-result')
-		}
+            client.query(sql, params, function (error, results) {
+                if (error){
+                    console.log(error);
+                } else {
+                    console.log(results);
+                    res.render('admin', {data:results});
+                }
+            });
+        } else if (req.query.filter == "result") {
+            res.render('admin-result')
+        }
     });
 
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
