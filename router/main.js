@@ -3,7 +3,6 @@ var fs = require('fs');
 var ejs = require('ejs');
 var mysql = require('mysql');
 var express = require('express');
-// var bodyParser = require('body-parser');
 var http = require('http');
 var url = require('url');
 var qs = require('querystring');
@@ -39,7 +38,6 @@ client.connect(function(err) {
 });
 var app = express();
 
-
 var nodemailer=require("nodemailer");
 var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
@@ -51,98 +49,74 @@ var smtpTransport = nodemailer.createTransport({
 var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
-/* =================================================== */
-
 module.exports = function(app)
 {
-
-	app.get('/test', function(req,res) {
-		data=[{
-				entry1:"1번의 entry1",
-				entry2:"1번의 entry2",
-			},
-			{
-				entry1:"2번의 entry1",
-				entry2:"2번의 entry2",
-			}]
-		res.render('test', data)
-});
     app.get('/', function(req,res) {
-    	res.render('index')
+        res.render('index')
 	});
     app.get('/about', function(req,res) {
-    	res.render('about')
+        res.render('about')
 	});
     app.get('/history', function(req, res) {
-      res.render('history')
+        res.render('history')
+    });
+    app.get('/product', function(req, res) {
+        res.render('product')
+    });
+	app.get('/login', function(req, res) {
+	    res.render('login')
+	});
+    app.get('/admin', function(req, res) {
+	    if (!req.query.filter) {
+			res.render('admin-total');
+		} else if (req.query.filter == "interviewTime") {
+		    var body = req.body;
+		    var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
+			FROM Applications, Applicants
+			WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
+			var params = [body.date, body.hour, body.minute];
+
+			client.query(sql, params, function (error, results) {
+			    if (error){
+				    console.log(error);
+				} else {
+					console.log(results);
+					res.render('admin', {data:results});
+				}
+			});
+		} else if (req.query.filter == "result") {
+		    res.render('admin-result')
+		}
     });
 
-
-    app.get('/product', function(req, res) {
-      res.render('product')
-  });
-
-		app.get('/login', function(req, res) {
-			res.render('login')
-	});
-
-    app.get('/admin', function(req, res) {
-			if(!req.query.filter){
-				res.render('admin-total');
-			}
-			else if(req.query.filter=="interviewTime"){
-				var body = req.body;
-				var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
-				FROM Applications, Applicants
-				WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?`;
-				var params = [body.date, body.hour, body.minute];
-
-				client.query(sql, params, function (error, results) {
-					 if (error){
-						 console.log(error);
-					 }
-					 else {
-						 console.log(results);
-						 res.render('admin', {data:results});
-					 }
-				});
-			}
-			else if(req.query.filter=="result"){
-				res.render('admin-result')
-			}
-  });
-
     app.post('/admin', function(req, res) {//조회하기 클릭 시 처리
-			id=req.body.admin_id;
-			pw=req.body.admin_pw;
-			// console.log(id, pw);
-			// if(verify_user(id, pw)){
-				if(req.query.filter=='interviewTime'){
-					var body = req.body;
-		 		  var params = [body.date, body.hour, body.minute];
+	    id=req.body.admin_id;
+		pw=req.body.admin_pw;
+		// console.log(id, pw);
+		// if(verify_user(id, pw)){
+		if (req.query.filter == 'interviewTime') {
+		    var body = req.body;
+		 	var params = [body.date, body.hour, body.minute];
 
-		      client.query(`SELECT Applications.id AS id, name, sex, DATE_FORMAT(birth, \'%y-%m-%d\'), phone, college, address, Applications.field AS field, q1, q2, q3, q5, q7, q8
-		    	FROM Applications, Applicants
-		    	WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?;
-				SELECT Q4.field AS q4_field, term, activity, application_id
-		    	FROM Applications, Q4
-		    	WHERE Applications.id = Q4.application_id`, params, function (error, results) {
-			 			 if (error){
-			 				 console.log(error);
-			 			 }
-			 			 else {
-							 //console.log(results);
-			 				 res.send(results);
-			 			 }
-					});
-				} else{
-					res.redirect('/admin');
-				}
-
-			// }
-			// else{
-			// 	res.send("<h1>nope, don't even try</h1>")
-
+		    client.query(`SELECT Applications.id AS id, name, sex, DATE_FORMAT(birth, \'%y-%m-%d\'), phone, college, address, Applications.field AS field, q1, q2, q3, q5, q7, q8
+		    FROM Applications, Applicants
+		    WHERE Applications.id = Applicants.email and interview_date = ? and interview_hour = ? and interview_min = ?;
+			SELECT Q4.field AS q4_field, term, activity, application_id
+		    FROM Applications, Q4
+		    WHERE Applications.id = Q4.application_id`, params, function (error, results) {
+			    if (error) {
+			 	    console.log(error);
+			 	} else {
+					//console.log(results);
+			 		res.send(results);
+			 	}
+			});
+		} else {
+			res.redirect('/admin');
+		}
+		// }
+		// else{
+		// 	res.send("<h1>nope, don't even try</h1>")
   	});
 
     app.get('/recruit', function(req, res) {
@@ -175,9 +149,8 @@ module.exports = function(app)
 		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
 		client.query(query, function(error, result){
 			if (error){
-				console.log(error);
-			}
-			else {
+			    console.log(error);
+			} else {
 				survived = JSON.stringify(result[0]['survived']);
 				res.send( survived);
 			}
@@ -185,15 +158,12 @@ module.exports = function(app)
 	});
 
     app.get('/recruit-result1', function(req, res) {
-
       res.render('recruit-result1');
-
     });
 
     app.get('/recruit-result2', function(req, res) {
       res.render('recruit-result2');
     });
-
 
 	// DB에 내용 추가
 	app.post('/application', function(req, res) {
@@ -201,7 +171,7 @@ module.exports = function(app)
 		var body = req.body;
 		var id = body.id;
 		var isSubmit = 0;
-		if(body.submit) isSubmit = 1;
+		if (body.submit) isSubmit = 1;
 		
 		console.log(body);
 		console.log("id = " + id);
@@ -216,15 +186,15 @@ module.exports = function(app)
 				], function(error, result){ */
 				client.query(`INSERT INTO Applications (id, sex, submit) VALUES (?,?, 0)` ,[
 					id, body.sex
-				], function(error, result){
-					if (error)
-						console.log("Error!");
-					else {
-						client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, [body.name, body.phone, id], function(error, result) {
-							// q4 여러개일때 어떻게 넣지?
+				], function (error, result) {
+				    if (error) {
+                        console.log("Error!");
+                    } else {
+					    client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, [body.name, body.phone, id], function(error, result) {
+					        // q4 여러개일때 어떻게 넣지?
 							client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field, body.term, body.activity, id], function(error, result){
 							});
-						});
+					    });
 					}
 				});
 			}
@@ -232,7 +202,7 @@ module.exports = function(app)
 			else {
 				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, [
 					body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id
-				], function(error, result) {
+				], function (error, result) {
 					client.query(`UPDATE Applicants SET name=?, phone=? WHERE email=?`, [body.name, body.phone, id], function(error, result) {
 						// q4 여러개일때 어떻게 넣지?
 						client.query(`UPDATE Q4 SET field=?, term=?, activity=? WHERE application_id = ?`, [body.q4_field, body.term, body.activity, id], function(error, result){
@@ -242,10 +212,10 @@ module.exports = function(app)
 			}
 			
 			//submit 버튼이면 submit을 1로 update
-			if (isSubmit == 1){
+			if (isSubmit == 1) {
 				client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, [user], function(){
-				});
-			}
+			    });
+		    }
 		});			
 		// 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
 		/* client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5) VALUES (?,?,?,?,?,?,?,?,?)` [ //
@@ -256,17 +226,17 @@ module.exports = function(app)
 	});
 
     app.post('/send',function(req,res){
-        email_to=req.body.email_to;
-        rand=hash(email_to);
-				hashMap[rand]=email_to;
-				console.log(hashMap);
-				setTimeout(function(){
-					delete hashMap[rand];
-					console.log(hashMap);
-				},300000);
-        host=req.get('host');
-        link="http://"+host+"/verify?id="+rand;
-        // link="http://"+host+"/verify?id="+email_to;
+        email_to = req.body.email_to;
+        rand = hash(email_to);
+		hashMap[rand] = email_to;
+		console.log(hashMap);
+		setTimeout(function () {
+			delete hashMap[rand];
+			console.log(hashMap);
+			}, 300000);
+        host = req.get('host');
+        link = "http://" + host + "/verify?id=" + rand;
+        // link = "http://" + host + "/verify?id=" + email_to;
 
         mailOptions={
             to : email_to,
@@ -275,42 +245,34 @@ module.exports = function(app)
         }
         // console.log(mailOptions);
         smtpTransport.sendMail(mailOptions, function(error, response){
-         if(error){
-            // console.log(error);
-            // res.send("error");
-         }else{
+            if (error) {
+                // console.log(error);
+                // res.send("error");
+            } else {
                 console.log("Message sent: " + response.message);
-            res.send("success");
-             }
+                res.send("success");
+            }
         });
-
     });
 
     app.get('/verify',function(req,res){
-      console.log(req.protocol+":/"+req.get('host'));
-      if((req.protocol+"://"+req.get('host'))==("http://"+host))
-      {
-          console.log("Domain is matched. Information is from Authentic email");
-          if(req.query.id in hashMap)
-          {
-              console.log("email is verified");
-							id=req.query.id;
-              //register data to database
+        console.log(req.protocol+":/" + req.get('host'));
+        if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {
+            console.log("Domain is matched. Information is from Authentic email");
+            if(req.query.id in hashMap) {
+                console.log("email is verified");
+				id = req.query.id;
+                //register data to database
 
-
-              //redirect to application page
-              res.redirect('/application?id='+id);
-          }
-          else
-          {
-              console.log("email not verified");
-              res.end("<h1>not verified.</h1>");
-          }
-      }
-      else
-      {
-          res.end("<h1>wrong method.</h1>");
-      }
+                //redirect to application page
+                res.redirect('/application?id=' + id);
+            } else {
+                console.log("email not verified");
+                res.end("<h1>not verified.</h1>");
+            }
+        } else {
+            res.end("<h1>wrong method.</h1>");
+        }
     });
 
     app.get('/etc', function(req, res) {
@@ -325,50 +287,41 @@ module.exports = function(app)
 
 
     app.get('/application', function(req ,res){
-      // 정보가 있으면 select, 없으면 그냥~~
-     require('date-utils');
-        //var id=req.query.id;
-        //var user=reverseHash(id);
-        var answers=['blah1','blah2','blah3','blah4'];
-         var newDate = new Date();
-          var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-               
-			   var user = 'yesung000@naver.com';
-			var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
+        // 정보가 있으면 select, 없으면 그냥~~
+        require('date-utils');
+        //var id = req.query.id;
+        //var user = reverseHash(id);
+        var answers = ['blah1', 'blah2', 'blah3', 'blah4'];
+        var newDate = new Date();
+        var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');       
+		var user = 'yesung000@naver.com';
+		var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
+        
+        //find the user info by the id from database
 
-      //find the user info by the id from database
-
-
-
-      //
-      data={
-        user,
-        id,
-        answers
-      }
-         console.log(data);
-    //
-       // console.log(time); // remove
-       // apply 진행 중
-       if(id in hashMap){
-		if (true) {
-
-          if (time < '2018-08-01 00:00:00')
-             res.render('application', data);
-          // after apply
-          else if (time < '2018-08-07 00:00:00')
-             res.render('recruit-fin', data);
-          // 1차 발표
-          else if (time < '2018-07-09 00:00:00')
-             res.render('recruit-result1', data);
-         // 2차 발표
+        data={
+            user,
+            id,
+            answers
+        }
+        console.log(data);
+        //
+        // console.log(time); // remove
+        // apply 진행 중
+        if (id in hashMap) {
+            if (time < '2018-08-01 00:00:00') res.render('application', data);
+            // after apply
+            else if (time < '2018-08-07 00:00:00')
+            res.render('recruit-fin', data);
+            // 1차 발표
+            else if (time < '2018-07-09 00:00:00')
+            res.render('recruit-result1', data);
+            // 2차 발표
             else
-               res.render('application',data);
-           }
-       else{
-          res.send('<h1>no id</h1>');
+            res.render('application',data);
+        } else {
+            res.send('<h1>no id</h1>');
 		}
 		
-	   }
-	});
+    });
 };
