@@ -144,18 +144,18 @@ module.exports = function(app)
       res.render('recruit-fin');
     });
 
-	app.get('/check_result1', function(req, res){
-		var email = req.query.email;
-		var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
-		client.query(query, function(error, result){
-			if (error){
-			    console.log(error);
-			} else {
-				survived = JSON.stringify(result[0]['survived']);
-				res.send( survived);
-			}
-		});
-	});
+    app.get('/check_result1', function(req, res){
+        var email = req.query.email;
+        var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
+        client.query(query, function(error, result){
+            if (error){
+                console.log(error);
+            } else {
+                survived = JSON.stringify(result[0]['survived']);
+                res.send( survived);
+            }
+        });
+    });
 
     app.get('/recruit-result1', function(req, res) {
       res.render('recruit-result1');
@@ -166,64 +166,64 @@ module.exports = function(app)
     });
 
 	// DB에 내용 추가
-	app.post('/application', function(req, res) {
-		//var id = req.query.id;
-		var body = req.body;
-		var id = body.id;
-		var isSubmit = 0;
-		if (body.submit) isSubmit = 1;
-		
-		console.log(body);
-		console.log("id = " + id);
-		
-		// record가 있는지 없는지 select문으로 체크
-		client.query(`SELECT * FROM Applications WHERE id = ?`,["id"], function(error, result){
-			console.log(result);
-			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
-			if (result.length == 0) {
-				/* client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, q7, q8, submit) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, 0)` ,[
-					id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8
-				], function(error, result){ */
-				client.query(`INSERT INTO Applications (id, sex, submit) VALUES (?,?, 0)` ,[
-					id, body.sex
-				], function (error, result) {
-				    if (error) {
+    app.post('/application', function(req, res) {
+        //var id = req.query.id;
+        var body = req.body;
+        var id = body.id;
+        var isSubmit = 0;
+        if (body.submit) isSubmit = 1;
+        
+        console.log(body);
+        console.log("id = " + id);
+        
+        // record가 있는지 없는지 select문으로 체크
+        client.query(`SELECT * FROM Applications WHERE id = ?`,["id"], function(error, result){
+            console.log(result);
+            // 해당 id가 db에 존재하지 않으면 모든 내용을 insert
+            if (result.length == 0) {
+                /* client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, q7, q8, submit) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, 0)` ,[
+                    id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8
+                ], function(error, result){ */
+                client.query(`INSERT INTO Applications (id, sex, submit) VALUES (?,?, 0)`, [
+                    id, body.sex
+                ], function (error, result) {
+                    if (error) {
                         console.log("Error!");
                     } else {
-					    client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, [body.name, body.phone, id], function(error, result) {
-					        // q4 여러개일때 어떻게 넣지?
-							client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field, body.term, body.activity, id], function(error, result){
-							});
-					    });
-					}
-				});
-			}
-			// 해당 id가 db에 존재하면 update
-			else {
-				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, [
-					body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id
-				], function (error, result) {
-					client.query(`UPDATE Applicants SET name=?, phone=? WHERE email=?`, [body.name, body.phone, id], function(error, result) {
-						// q4 여러개일때 어떻게 넣지?
-						client.query(`UPDATE Q4 SET field=?, term=?, activity=? WHERE application_id = ?`, [body.q4_field, body.term, body.activity, id], function(error, result){
-						});
-					});
-				});
-			}
-			
-			//submit 버튼이면 submit을 1로 update
-			if (isSubmit == 1) {
-				client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, [user], function(){
-			    });
-		    }
-		});			
-		// 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
-		/* client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5) VALUES (?,?,?,?,?,?,?,?,?)` [ //
-			id, baody.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
-		], function() {
-			res.redirect('/application');
-		})); */
-	});
+                        client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, [body.name, body.phone, id], function(error, result) {
+                            // q4 여러개일때 어떻게 넣지?
+                            client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field, body.term, body.activity, id], function(error, result){
+                            });
+                        });
+                    }
+                });
+            }
+            // 해당 id가 db에 존재하면 update
+            else {
+                client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, [
+                    body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id
+                ], function (error, result) {
+                    client.query(`UPDATE Applicants SET name=?, phone=? WHERE email=?`, [body.name, body.phone, id], function(error, result) {
+                        // q4 여러개일때 어떻게 넣지?
+                        client.query(`UPDATE Q4 SET field=?, term=?, activity=? WHERE application_id = ?`, [body.q4_field, body.term, body.activity, id], function(error, result){
+                        });
+                    });
+                });
+            }
+            
+            //submit 버튼이면 submit을 1로 update
+            if (isSubmit == 1) {
+                client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, [user], function(){
+                });
+            }
+        });			
+        // 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
+        /* client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5) VALUES (?,?,?,?,?,?,?,?,?)` [ //
+            id, baody.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
+        ], function() {
+            res.redirect('/application');
+        })); */
+    });
 
     app.post('/send',function(req,res){
         email_to = req.body.email_to;
