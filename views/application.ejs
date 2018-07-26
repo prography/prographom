@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">이메일</label>
-            <input name="id" class="w3-input w3-border" value="<%=user%>">
+            <input name="id" class="w3-input w3-border" value="<%=user%>" readonly>
           </div>
         </div>
         <div class="row">
@@ -240,7 +240,7 @@
 
       <!-- Button trigger modal -->
       <div class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
-        <button type="submit" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1">SAVE</button>
+        <button type="submit" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1" onclick="saveButton()">SAVE</button>
         <button type="button" name="pre-submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
 	  </div>
 
@@ -281,9 +281,10 @@
               <br>
               <br>아직 제출하실 준비가 안되셨다면, 우선 SAVE 해두셔도 좋습니다.
             </div>
-            <div class="modal-footer">
+			
+            <div class="modal-footer" method="post" action="#">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal">최종 제출하기</button>
+              <button type="submit" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal" onclick="submitButton()">최종 제출하기</button>
 
             </div>
           </div>
@@ -310,6 +311,14 @@
         </div>
       </div>
 	 </form>
+	 
+<!--.................................................................................................... -->
+	<script>
+		
+	</script>
+	 
+	 
+	 
 
       <!-- <div class="w3-border-bottom w3-border-left w3-border-right
       w3-border-lightgray application-bottom-division"></div> -->
