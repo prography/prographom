@@ -120,6 +120,7 @@ module.exports = function(app)
 				if(req.query.filter=='interviewTime'){
 					var body = req.body;
 		 		  var params = [body.date, body.hour, body.minute];
+				  console.log(params);
 
 		      client.query(`SELECT Applications.id AS id, name, sex, DATE_FORMAT(birth, \'%y-%m-%d\'), phone, college, address, Applications.field AS field, q1, q2, q3, q5, q7, q8
 		    	FROM Applications, Applicants
@@ -202,57 +203,134 @@ module.exports = function(app)
 		var id = body.id;
 		var isSubmit = 0;
 		if(body.submit) isSubmit = 1;
+		var params1 = [id];
+		var params2 = [id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5];
+		var params3 = [body.name, body.phone, id];
+		var q4 = [body.q4_field, body.term, body.activity];
+		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, id];
+		var update2 = [body.name, body.phone, id];
+		var update3 = [body.q4_field, body.term, body.activity, id];
 		
-		console.log(body);
-		console.log("id = " + id);
+		var q4_length = 0;
+		//find longest q4 length
+		for (var i=0; i<3; i++){
+			var temp = 0;
+			for (var j=0; j<7; j++){
+				if (q4[i][j] != '')
+					temp++;
+			}
+			if (temp > q4_length)
+				q4_length = temp;
+		}
+		console.log("q4_length: " + q4_length);
 		
 		// record가 있는지 없는지 select문으로 체크
-		client.query(`SELECT * FROM Applications WHERE id = ?`,["id"], function(error, result){
-			console.log(result);
+		client.query(`SELECT * FROM Applications WHERE id = ?`, params1, function(error, result){
 			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
 			if (result.length == 0) {
-				/* client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, q7, q8, submit) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, 0)` ,[
-					id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8
-				], function(error, result){ */
-				client.query(`INSERT INTO Applications (id, sex, submit) VALUES (?,?, 0)` ,[
-					id, body.sex
-				], function(error, result){
+				console.log("정보 없음");
+				client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, submit) VALUES (?,?,?,?,?,?,?,?,?,?, 0)`, params2, function(error, result){
 					if (error)
-						console.log("Error!");
+						console.log("Error in INSERT INTO Applications!");
 					else {
-						client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, [body.name, body.phone, id], function(error, result) {
-							// q4 여러개일때 어떻게 넣지?
-							client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field, body.term, body.activity, id], function(error, result){
-							});
+						client.query(`INSERT INTO Applicants (name, phone, email, n_th, survived) VALUES (?, ?, ?, 3, 1)`, params3, function(error, result) {
+							if (error)
+								console.log("Error in INSERT INTO Applicants!");
+							else {
+								if (q4_length > 0) { // q4에 정보를 넣었을 때
+									for (var i=0; i<q4_length; i++){
+										client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field[i], body.term[i], body.activity[i], id], function(error, result){
+											if (error)
+												console.log("Error in INSERT INTO Q4!");
+											else
+												res.redirect('application', String(result));
+										});
+									}
+								}
+								else {
+									res.redirect('application', String(result));
+								}
+							}
 						});
 					}
 				});
 			}
+			
+			
+			
 			// 해당 id가 db에 존재하면 update
 			else {
-				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, [
-					body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id
-				], function(error, result) {
-					client.query(`UPDATE Applicants SET name=?, phone=? WHERE email=?`, [body.name, body.phone, id], function(error, result) {
-						// q4 여러개일때 어떻게 넣지?
-						client.query(`UPDATE Q4 SET field=?, term=?, activity=? WHERE application_id = ?`, [body.q4_field, body.term, body.activity, id], function(error, result){
+				console.log("정보 이미 존재");
+				
+				for (var k=0; k<9; k++){
+					if (update1[k] == ''){
+						update1[k] = null;
+					}
+				}
+				console.log(update1);
+				
+				for (var k=0; k<2; k++){
+					if (update2[k] == ''){
+						update2[k] = null;
+					}
+				}
+				console.log(update2);
+					
+				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=? WHERE id=?`, update1, function(error, result) {
+					if (error)
+						console.log("Error in UPDATE Applications!");
+					else {
+						client.query(`UPDATE Applicants SET name=?, phone=? WHERE email=?`, update2, function(error, result) {
+							if (error)
+								console.log("Error in UPDATE Applicants!");
+							else {
+								var post_length;
+							
+								client.query(`SELECT application_id FROM Q4 WHERE application_id = ?`, params1, function(error, res){
+									post_length = res.length;
+									console.log("post_length: " + post_length);
+									if (post_length > q4_length){
+										console.log("post>q4");
+										client.query(`DELETE FROM Q4 WHERE application_id = ?`, params1, function(error, result){ //일단 지우고
+											if (error)
+												console.log("Error in DELETE FROM Q4!");
+											else {
+												for (var i=0; i<q4_length; i++){
+													client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field[i], body.term[i], body.activity[i], id], function(error, result){
+														if (error)
+															console.log("Error in INSERT INTO Q4(2)!");
+														else 
+															res.redirect('application', String(result));
+													});
+												}
+											}
+										});
+									}
+									else {
+										console.log("post<=q4");
+										for (var i=0; i<q4_length; i++){
+											client.query(`UPDATE Q4 SET field=?, term=?, activity=? WHERE application_id = ?`, [body.q4_field[i], body.term[i], body.activity[i], id], function(error, result){
+												if (error)
+													console.log("Error in UPDATE Q4(2)!");
+												else
+													res.redirect('application', String(result));
+											});
+										}										
+									}	
+								});
+							}
 						});
-					});
+					}
 				});
 			}
 			
 			//submit 버튼이면 submit을 1로 update
 			if (isSubmit == 1){
-				client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, [user], function(){
+				client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
+					
 				});
 			}
-		});			
-		// 없을때는 insert, complete = isSubmit, 있을때는 update (id빼고 다) => complete == 1이면 Exception (이미 제출되었습니다!), 0이면 update, complete = isSubmit
-		/* client.query(`INSERT INTO applications (id, sex, college, address, field, q1, q2, q3, q5) VALUES (?,?,?,?,?,?,?,?,?)` [ //
-			id, baody.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5
-		], function() {
-			res.redirect('/application');
-		})); */
+		});
 	});
 
     app.post('/send',function(req,res){
@@ -350,7 +428,7 @@ module.exports = function(app)
     //
        // console.log(time); // remove
        // apply 진행 중
-       if(id in hashMap){
+       //if(id in hashMap){
 		if (true) {
 
           if (time < '2018-08-01 00:00:00')
@@ -369,6 +447,6 @@ module.exports = function(app)
           res.send('<h1>no id</h1>');
 		}
 		
-	   }
+	   //}
 	});
 };
