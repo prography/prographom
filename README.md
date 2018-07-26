@@ -21,8 +21,8 @@ Express server has started on port 3000
 ```
 
 AWS 상에서 확인
--putty 등을 통해 13.125.217.76 서버에 접속합니다
--마지막 개발의 편의를 위해 nodemon package를 활용합니다
+- putty 등을 통해 13.125.217.76 서버에 접속합니다
+- 마지막 개발의 편의를 위해 nodemon package를 활용합니다
 ```shell
 $ sudo nodemon server
 Express server has started on port 80
