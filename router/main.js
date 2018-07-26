@@ -51,6 +51,9 @@ var sha256 = require('js-sha256');
 
 var admin = require('./admin.js');
 var application = require('./application.js');
+var recruit = require('./recruit.js');
+var send = require('./send.js');
+var verify = require('./verify.js');
 
 module.exports = function(app)
 {
@@ -69,29 +72,12 @@ module.exports = function(app)
     app.get('/login', function(req, res) {
         res.render('login')
     });
+
     app.use('/admin', admin);
     app.use('/application', application);
-
-    app.get('/recruit', function(req, res) {
-        require('date-utils');
-        var newDate = new Date();
-        var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-
-        console.log(time); // remove;
-        // before apply
-        if (time < '2018-08-01 00:00:00')
-           res.render('recruit-ing');
-        // after apply
-        else if (time < '2018-08-07 00:00:00')
-           res.render('recruit-fin');
-        // 1차 발표
-        else if (time < '2018-08-09 00:00:00')
-           res.render('recruit-result1');
-        // 2차 발표
-        else if (time < '2018-08-10 00:00:00')
-           res.render('recruit-result2');
-
-      });
+    app.use('/recruit', recruit);
+    app.use('/send', send);
+    app.use('/verify', verify);
 
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit-fin');
@@ -116,56 +102,6 @@ module.exports = function(app)
 
     app.get('/recruit-result2', function(req, res) {
       res.render('recruit-result2');
-    });
-
-    app.post('/send',function(req,res){
-        email_to = req.body.email_to;
-        rand = hash(email_to);
-		hashMap[rand] = email_to;
-		console.log(hashMap);
-		setTimeout(function () {
-			delete hashMap[rand];
-			console.log(hashMap);
-			}, 300000);
-        host = req.get('host');
-        link = "http://" + host + "/verify?id=" + rand;
-        // link = "http://" + host + "/verify?id=" + email_to;
-
-        mailOptions={
-            to : email_to,
-            subject : "Please confirm your Email account",
-            html : "Hello,<br> Please click the link below to verify your email.<br><a href="+link+">Verify and write application form.</a>"
-        }
-        // console.log(mailOptions);
-        smtpTransport.sendMail(mailOptions, function(error, response){
-            if (error) {
-                // console.log(error);
-                // res.send("error");
-            } else {
-                console.log("Message sent: " + response.message);
-                res.send("success");
-            }
-        });
-    });
-
-    app.get('/verify',function(req,res){
-        console.log(req.protocol+":/" + req.get('host'));
-        if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {
-            console.log("Domain is matched. Information is from Authentic email");
-            if(req.query.id in hashMap) {
-                console.log("email is verified");
-				id = req.query.id;
-                //register data to database
-
-                //redirect to application page
-                res.redirect('/application?id=' + id);
-            } else {
-                console.log("email not verified");
-                res.end("<h1>not verified.</h1>");
-            }
-        } else {
-            res.end("<h1>wrong method.</h1>");
-        }
     });
 
     app.get('/etc', function(req, res) {
