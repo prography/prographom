@@ -174,7 +174,7 @@
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요 (길이 제한 없음)</label>
-            <textarea name="q5" class="w3-input w3-border" rows="6" id="q5" placeholder=""></textarea>
+            <textarea name="q5" class="w3-input w3-border" rows="6" id="q5" placeholder="" ><%=data.q5%></textarea>
           </div>
         </div>
 
@@ -334,13 +334,13 @@
 		var activity = new Array(q4_length);
 		for(var i=0; i<7; i++){                          
 			q4_field[i] = $("input[name='q4_field']").eq(i).val();
-			console.log("q4_field[" + i + "] = " + q4_field[i]);
+			//console.log("q4_field[" + i + "] = " + q4_field[i]);
 			term[i] = $("input[name='term']").eq(i).val();
-			console.log("term[" + i + "] = " + term[i]);
+			//console.log("term[" + i + "] = " + term[i]);
 			activity[i] = $("input[name='activity']").eq(i).val();
-			console.log("activity[" + i + "] = " + activity[i]);
+			//console.log("activity[" + i + "] = " + activity[i]);
 		}
-		console.log("q4_field = " + q4_field);
+		//console.log("q4_field = " + q4_field);
 		var q7 = $(":input:radio[name='radio1']:checked").val();
 		var q8 = $(":input:radio[name='radio2']:checked").val();
 		
@@ -375,17 +375,19 @@
 		var term = new Array(q4_length);
 		var activity = new Array(q4_length);
 		for(var i=0; i<7; i++){                          
-			q4_field[i] = $("input[name='q4_field']")[i].value;
-			console.log(q4_field[i]);
-			term[i] = $("input[name='term']")[i].value;
-			console.log(term[i]);
-			activity[i] = $("input[name='activity']")[i].value;
-			console.log(activity[i]);
+			q4_field[i] = $("input[name='q4_field']").eq(i).val();
+			//console.log("q4_field[" + i + "] = " + q4_field[i]);
+			term[i] = $("input[name='term']").eq(i).val();
+			//console.log("term[" + i + "] = " + term[i]);
+			activity[i] = $("input[name='activity']").eq(i).val();
+			//console.log("activity[" + i + "] = " + activity[i]);
 		}
-		var q7 = $("input[name='radio1']").val();
-		var q8 = $("input[name='radio2']").val();
+		console.log("q4_field = " + q4_field);
+		var q7 = $(":input:radio[name='radio1']:checked").val();
+		var q8 = $(":input:radio[name='radio2']:checked").val();
 		var isSubmit = 1;
-	
+		console.log(isSubmit);
+		
 		$.ajax({
 			type:"POST",
 			url:'application',
@@ -394,7 +396,6 @@
 				name:name, phone:phone, q1:q1, q2:q2, q3:q3, q5:q5, q4_field:q4_field,
 				term:term, activity:activity, q7:q7, q8:q8, isSubmit:isSubmit
 			},
-			traditional : true,
 			dataType:"json"
 		});
 	});

@@ -18,26 +18,32 @@ client.connect(function (err) {
 });
 
 router.get('/', function(req ,res){
-      // 정보가 있으면 select, 없으면 그냥~~
      require('date-utils');
-        //var id=req.query.id;
-        //var user=reverseHash(id);
-		//var url_id = req.query.id;
-		//var url_email = reverseHash(id);
+        var id=req.query.id;
+		var user=reverseHash(id);
+		var url_id = req.query.id;
+		var url_email = reverseHash(id);
 		
         var answers=[];
          var newDate = new Date();
           var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-               
-			   var user = 'yesung000@naver.com';
-			var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
 	
        // apply 진행 중
-       //if(id in hashMap){
+       if(id in hashMap){
 		if (true) {
 
           if (time < '2018-08-01 00:00:00'){
-			  var sql = `SELECT name, sex, birth, phone, college, address, field, email, q1, q2, q3, q5, q7, q8
+			  
+			client.query(`SELECT submit FROM Applications WHERE id = ?`, [user], function(error, result){
+				if (error) console.log(error);
+				else {
+					if (result[0].submit == 1){
+						res.render('application-reject');
+					}
+				}
+			});
+				
+			  var sql = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') AS birth, phone, college, address, field, email, q1, q2, q3, q5, q7, q8
 			  FROM Applications, Applicants
 			  WHERE Applications.id = Applicants.email and Applicants.email = ?`;
 			  
@@ -84,7 +90,7 @@ router.get('/', function(req ,res){
           res.send('<h1>no id</h1>');
 		}
 		
-	   //}
+	  }
 	});
 
 // DB에 내용 추가
@@ -92,12 +98,11 @@ router.get('/', function(req ,res){
 		var body = req.body;
 		var id = body.id;
 		var isSubmit = 0;
-		if(body.submit) isSubmit = 1;
+		if(body.isSubmit) isSubmit = 1;
+		console.log(body.isSubmit);
 		console.log(body);
 		if (body.q7 == undefined) body.q7 = null;
 		if (body.q8 == undefined) body.q8 = null;
-		
-		console.log("body.q4_field = " + body.q4_field);
 
 		var field_length = 0; var term_length = 0; var activity_length = 0;
 		for (var i=0; i<7; i++){
@@ -159,12 +164,12 @@ router.get('/', function(req ,res){
 									//submit 버튼이면 submit을 1로 update
 									if (isSubmit == 1){
 										client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-											console.log(result);
+											//console.log(result);
 											res.sendStatus(200);
 										});
 									}
 									else {
-										console.log(result);
+										//console.log(result);
 										res.sendStatus(200);
 									}
 								}
@@ -172,12 +177,12 @@ router.get('/', function(req ,res){
 									//submit 버튼이면 submit을 1로 update
 									if (isSubmit == 1){
 										client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-											console.log(result);
+											//console.log(result);
 											res.sendStatus(200);
 										});
 									}
 									else {
-										console.log(result);
+										//console.log(result);
 										res.sendStatus(200);
 									}
 								}
@@ -191,6 +196,19 @@ router.get('/', function(req ,res){
 			
 			// 해당 id가 db에 존재하면 update
 			else {
+				/*
+				// 나중에 손 볼 부분 -> 사용자가 제출 완료한 상태에서 close하고 다시 수정해서 제출 버튼 눌렀을 시!
+				client.query(`SELECT submit FROM Applications WHERE id = ?`, params1, function(error, result){
+					if (error) console.log(error);
+					else {
+						console.log(result[0]);
+						if (result[0].submit == 1){
+							res.render('application-reject');
+							return;
+						}
+					}
+				}); */
+				
 				for (var k=0; k<11; k++){
 					if (update1[k] == ''){
 						update1[k] = null;
@@ -220,12 +238,12 @@ router.get('/', function(req ,res){
 											//submit 버튼이면 submit을 1로 update
 											if (isSubmit == 1){
 												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-													console.log("1. " + result);
+													//console.log("1. " + result);
 													res.sendStatus(200);
 												});
 											}
 											else {
-												console.log("2. " + result);
+												//console.log("2. " + result);
 												res.sendStatus(200);
 											}
 										}
@@ -239,12 +257,12 @@ router.get('/', function(req ,res){
 											//submit 버튼이면 submit을 1로 update
 											if (isSubmit == 1){
 												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-													console.log("3. " + result);
+													//console.log("3. " + result);
 													res.sendStatus(200);
 												});
 											}
 											else {
-												console.log("4. " + result);
+												//console.log("4. " + result);
 												res.sendStatus(200);
 												return;
 											}

@@ -112,5 +112,9 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout')
     });
+	// 나중에 지울 것
+	app.get('/application-reject', function(req, res){
+		res.render('application-reject');
+	});
 	
 };
