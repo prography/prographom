@@ -44,49 +44,49 @@
         <div class="row">
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">이메일</label>
-            <input id="id" name="id" class="w3-input w3-border" value="<%=user%>" readonly>
+            <input id="id" name="id" class="w3-input w3-border" value="<%=data.email%>" readonly>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">이름</label>
-            <input id="name" name="name" class="w3-input w3-border" type="text" placeholder="김라피">
+            <input id="name" name="name" class="w3-input w3-border" type="text" placeholder="김라피" value="<%=data.name%>">
           </div>
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">성별</label>
-            <input id="sex" name="sex" class="w3-input w3-border" type="text" placeholder="여 / 남">
-          </div>
+            <input id="sex" name="sex" class="w3-input w3-border" type="text" placeholder="여 / 남" value="<%=data.sex%>">
+          </div> 
         </div>
 
         <div class="row">
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">생년월일 (중간 -를 생략하세요)</label>
-            <input id="birth" name="birth" class="w3-input w3-border" type="text" placeholder="990101">
+            <input id="birth" name="birth" class="w3-input w3-border" type="text" placeholder="990101" value="<%=data.birth%>">
           </div>
           <div class="col-sm-6 margin-top-20">
             <label class="application-label">연락처 (중간 -를 생략하세요)</label>
-            <input id="phone" name="phone" class="w3-input w3-border" type="text" placeholder="01012345678">
+            <input id="phone" name="phone" class="w3-input w3-border" type="text" placeholder="01012345678" value="<%=data.phone%>">
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-12 margin-top-20">
             <label class="application-label">소속대학 / 전공 / 학년</label>
-            <input id="college" name="college" class="w3-input w3-border" type="text" placeholder="ex) 단국대 녹지조경학과 4학년">
+            <input id="college" name="college" class="w3-input w3-border" type="text" placeholder="ex) 단국대 녹지조경학과 4학년" value="<%=data.college%>">
           </div>
         </div>
 
         <div class="row margin-top-20">
           <div class="col-sm-12">
             <label class="application-label">현 거주지 및 가까운 역</label>
-            <input id="address" name="address" class="w3-input w3-border" type="text" placeholder="ex) 서울시 영등포구 ... / 문래역">
+            <input id="address" name="address" class="w3-input w3-border" type="text" placeholder="ex) 서울시 영등포구 ... / 문래역" value="<%=data.address%>">
           </div>
         </div>
 
         <div class="row margin-top-20">
           <div class="col-sm-12">
             <label class="application-label">지원분야</label>
-            <input id="field" name="field" class="w3-input w3-border" type="text" placeholder="웹 프론트앤드 or 백앤드 / 앱 개발 / 딥러닝 / UXUI 디자인">
+            <input id="field" name="field" class="w3-input w3-border" type="text" placeholder="웹 프론트앤드 or 백앤드 / 앱 개발 / 딥러닝 / UXUI 디자인" value="<%=data.field%>">
           </div>
         </div>
 
@@ -101,21 +101,21 @@
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[1] 간단히 자기소개를 해주세요! (500자 이내)</label>
-            <textarea name="q1" class="w3-input w3-border" rows="6" id="comment" placeholder=""></textarea>
+            <textarea name="q1" class="w3-input w3-border" rows="6" id="q1" placeholder=""><%=data.q1%></textarea>
           </div>
         </div>
 
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[2] 프로그라피에 지원하게 된 동기에 대해 말씀해주세요! (500자 이내)</label>
-            <textarea name="q2" class="w3-input w3-border" rows="6" id="comment" placeholder=""></textarea>
+            <textarea name="q2" class="w3-input w3-border" rows="6" id="q2" placeholder=""><%=data.q2%></textarea>
           </div>
         </div>
 
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[3] 프로그라피에서 만들어보고 싶은 것이 있다면 말해주세요! (300자 이내)</label>
-            <textarea name="q3" class="w3-input w3-border" rows="3" id="comment" placeholder=""></textarea>
+            <textarea name="q3" class="w3-input w3-border" rows="3" id="q3" placeholder=""><%=data.q3%></textarea>
           </div>
         </div>
 
@@ -131,39 +131,39 @@
                   <td class="td-4">직책 및 활동</td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[0].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[0].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[0].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[1].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[1].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[1].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[2].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[2].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[2].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[3].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[3].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[3].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[4].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[4].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[4].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[5].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[5].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[5].activity%>"></td>
                 </tr>
                 <tr class="tbody" style="background-color:#fff;">
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field"></td>
-                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term"></td>
-                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="q4_field" value="<%=data2[6].q4_field%>"></td>
+                  <td class="td-3"><input class="w3-input w3-border-lightgray" type="text" name="term" value="<%=data2[6].term%>"></td>
+                  <td class="td-4"><input class="w3-input w3-border-lightgray" type="text" name="activity" value="<%=data2[6].activity%>"></td>
                 </tr>
               </tbody>
             </table>
@@ -174,7 +174,7 @@
         <div class="row margin-top-60">
           <div class="col-sm-12">
             <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요 (길이 제한 없음)</label>
-            <textarea name="q5" class="w3-input w3-border" rows="6" id="comment" placeholder=""></textarea>
+            <textarea name="q5" class="w3-input w3-border" rows="6" id="q5" placeholder=""></textarea>
           </div>
         </div>
 
@@ -191,18 +191,18 @@
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
               <form action="index.html" method="post">
-                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <td class="td-2"><label class="label-circle"><input type="radio" class="ot" name="radio1" value="1">
                   <span class="checkmark"></span></label></td>
-                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <td class="td-2"><label class="label-circle"><input type="radio" class="ot" name="radio1" value="0">
                   <span class="checkmark"></span></label></td>
               </form>
             </tr>
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
               <form action="index.html" method="post">
-                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <td class="td-2"><label class="label-circle"><input type="radio" class="mt" name="radio2" value="1">
                   <span class="checkmark"></span></label></td>
-                <td class="td-2"><label class="label-circle"><input type="radio" name="radio">
+                <td class="td-2"><label class="label-circle"><input type="radio" class="mt" name="radio2" value="0">
                   <span class="checkmark"></span></label></td>
               </form>
             </tr>
@@ -239,8 +239,8 @@
 
 
       <!-- Button trigger modal -->
-      <div class="basic-button" action="#" method="post" style="width:150px; margin:0 auto; margin-top:30px;">
-        <button name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1" id="saveButton">SAVE</button>
+      <div class="basic-button" style="width:150px; margin:0 auto; margin-top:30px;">
+        <button type="button" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1" id="saveButton">SAVE</button>
         <button type="button" name="pre-submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
 	  </div>
 
@@ -282,9 +282,9 @@
               <br>아직 제출하실 준비가 안되셨다면, 우선 SAVE 해두셔도 좋습니다.
             </div>
 			
-            <div class="modal-footer" method="post" action="#">
+            <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal" id="submitButton">최종 제출하기</button>
+              <button type="button" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication"  data-dismiss="modal" id="submitButton">최종 제출하기</button>
             </div>
           </div>
         </div>
@@ -315,41 +315,87 @@
 	<script type="text/javascript">
 	
 	$("#saveButton").click(function(){
-		/*var date=$("#sel1 option:selected").val();
-		var hour=$("#sel2 option:selected").val();
-		var minute=$("#sel3 option:selected").val(); */
-		
-		/*var params1 = [id];
-		var params2 = [id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5];
-		var params3 = [body.name, body.phone, id];
-		var q4 = [body.q4_field, body.term, body.activity];
-		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, id];
-		var update2 = [body.name, body.phone, id];
-		var update3 = [body.q4_field, body.term, body.activity, id]; */
-		
 		var id = $("#id").val();
 		var sex = $("#sex").val();
 		var birth = $("#birth").val();
 		var college = $("#college").val();
 		var address = $("#address").val();
 		var field = $("#field").val();
-		var q1 = $("#address").val();
 		var name = $("#name").val();
-	
+		var phone = $("#phone").val();
+		var q1 = $("#q1").val();
+		var q2 = $("#q2").val();
+		var q3 = $("#q3").val();
+		var q5 = $("#q5").val();
+		var q4_length = $("input[name='q4_field']").length;
+		//console.log("q4_length = " + q4_length);
+		var q4_field = new Array(q4_length);
+		var term = new Array(q4_length);
+		var activity = new Array(q4_length);
+		for(var i=0; i<7; i++){                          
+			q4_field[i] = $("input[name='q4_field']").eq(i).val();
+			console.log("q4_field[" + i + "] = " + q4_field[i]);
+			term[i] = $("input[name='term']").eq(i).val();
+			console.log("term[" + i + "] = " + term[i]);
+			activity[i] = $("input[name='activity']").eq(i).val();
+			console.log("activity[" + i + "] = " + activity[i]);
+		}
+		console.log("q4_field = " + q4_field);
+		var q7 = $(":input:radio[name='radio1']:checked").val();
+		var q8 = $(":input:radio[name='radio2']:checked").val();
+		
 		$.ajax({
 			type:"POST",
-			url:'/application' // 이것도 틀렸는데 ㅠㅠ id값이 hash값이어야함... 어떻게 하지?ㅠㅠ
-			
-			
-			
-			success: function(data){
-				console.log(data);
-			}
+			url:'application',
+			data: {
+				id:id, sex:sex, birth:birth, college:college, address:address, field:field,
+				name:name, phone:phone, q1:q1, q2:q2, q3:q3, q5:q5, q4_field:q4_field,
+				term:term, activity:activity, q7:q7, q8:q8
+			},
+			dataType:"json"
 		});
 	});
 	
 	$("#submitButton").click(function(){
+		var id = $("#id").val();
+		var sex = $("#sex").val();
+		var birth = $("#birth").val();
+		var college = $("#college").val();
+		var address = $("#address").val();
+		var field = $("#field").val();
+		var name = $("#name").val();
+		var phone = $("#phone").val();
+		var q1 = $("#q1").val();
+		var q2 = $("#q2").val();
+		var q3 = $("#q3").val();
+		var q5 = $("#q5").val();
+		var q4_length = $("input[name='q4_field']").length;
+		//console.log("q4_length = " + q4_length);
+		var q4_field = new Array(q4_length);
+		var term = new Array(q4_length);
+		var activity = new Array(q4_length);
+		for(var i=0; i<7; i++){                          
+			q4_field[i] = $("input[name='q4_field']")[i].value;
+			console.log(q4_field[i]);
+			term[i] = $("input[name='term']")[i].value;
+			console.log(term[i]);
+			activity[i] = $("input[name='activity']")[i].value;
+			console.log(activity[i]);
+		}
+		var q7 = $("input[name='radio1']").val();
+		var q8 = $("input[name='radio2']").val();
+		var isSubmit = 1;
+	
 		$.ajax({
+			type:"POST",
+			url:'application',
+			data: {
+				id:id, sex:sex, birth:birth, college:college, address:address, field:field,
+				name:name, phone:phone, q1:q1, q2:q2, q3:q3, q5:q5, q4_field:q4_field,
+				term:term, activity:activity, q7:q7, q8:q8, isSubmit:isSubmit
+			},
+			traditional : true,
+			dataType:"json"
 		});
 	});
 		

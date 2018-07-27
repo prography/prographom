@@ -1,39 +1,75 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
 
 var hashMap={}
+
+var client = mysql.createConnection({
+    host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
+    user : 'root',
+    password : '',
+    database : 'prography',
+    multipleStatements: true
+});
+
+client.connect(function (err) {
+    if (err) throw err;
+   // console.log("Connected!");
+});
 
 router.get('/', function(req ,res){
       // 정보가 있으면 select, 없으면 그냥~~
      require('date-utils');
-        var id=req.query.id;
-        var user=reverseHash(id);
-        var answers=['blah1','blah2','blah3','blah4'];
+        //var id=req.query.id;
+        //var user=reverseHash(id);
+		//var url_id = req.query.id;
+		//var url_email = reverseHash(id);
+		
+        var answers=[];
          var newDate = new Date();
           var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
                
-			   //var user = 'yesung000@naver.com';
-			//var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
-
-      //find the user info by the id from database
-
-
-
-      //
-      data={
-        user,
-        id,
-        answers
-      }
-         console.log(data);
-    //
+			   var user = 'yesung000@naver.com';
+			var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
 	
        // apply 진행 중
-       if(id in hashMap){
+       //if(id in hashMap){
 		if (true) {
 
-          if (time < '2018-08-01 00:00:00')
-             res.render('application', data);
+          if (time < '2018-08-01 00:00:00'){
+			  var sql = `SELECT name, sex, birth, phone, college, address, field, email, q1, q2, q3, q5, q7, q8
+			  FROM Applications, Applicants
+			  WHERE Applications.id = Applicants.email and Applicants.email = ?`;
+			  
+			  var params = [user];
+			  
+			  client.query(sql, params, function(error, results){
+				  if (error) console.log(error);
+				  else {
+					  if (results.length == 0){
+						  res.render('application');
+					  }
+					  var data = results[0];
+					  
+					  var sql = `SELECT Q4.field AS q4_field, term, activity
+					  FROM Applications, Q4
+					  WHERE Applications.id = Q4.application_id and Applications.id = ?`;
+					  
+					  client.query(sql, params, function(error, results){
+						  if (error) console.log(error);
+						  else {
+							  var q4_length = results.length;
+							  var remain_row = 7 - q4_length;
+							  
+							  for (var i = 0; i < remain_row; i++) {
+								  results[q4_length + i] = {'q4_field': '', 'term': '', 'activity': ''};
+							  }
+							  res.render('application', {'data':data, 'data2':results});
+						  }
+					  });
+				  }
+			  });
+		  }
           // after apply
           else if (time < '2018-08-07 00:00:00')
              res.render('recruit-fin', data);
@@ -48,44 +84,64 @@ router.get('/', function(req ,res){
           res.send('<h1>no id</h1>');
 		}
 		
-	   }
+	   //}
 	});
 
 // DB에 내용 추가
 	router.post('/', function(req, res) {
-		//var id = req.query.id;
 		var body = req.body;
 		var id = body.id;
 		var isSubmit = 0;
 		if(body.submit) isSubmit = 1;
+		console.log(body);
+		if (body.q7 == undefined) body.q7 = null;
+		if (body.q8 == undefined) body.q8 = null;
+		
+		console.log("body.q4_field = " + body.q4_field);
+
+		var field_length = 0; var term_length = 0; var activity_length = 0;
+		for (var i=0; i<7; i++){
+			if (body.q4_field[i] == "")
+				body.q4_field[i] = null;
+			else 
+				field_length ++;
+		}
+		for (var i=0; i<7; i++){
+			if (body.term[i] == "")
+				body.term[i] = null;
+			else 
+				term_length ++;
+		}
+		for (var i=0; i<7; i++){
+			if (body.activity[i] == "")
+				body.activity[i] = null;
+			else 
+				activity_length ++;
+		}
+		
+		var q4_length = field_length;
+		if (q4_length < term_length) q4_length = term_length;
+		if (q4_length < activity_length) q4_length = activity_length;
+		
+		console.log(body.q4_field);
+		console.log(body.term);
+		console.log(body.activity);
 		var params1 = [id];
-		var params2 = [id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5];
+		var params2 = [id, body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8];
+		console.log(params2);
 		var params3 = [body.name, body.phone, id];
 		var q4 = [body.q4_field, body.term, body.activity];
-		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, id];
+		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id];
 		var update2 = [body.name, body.phone, id];
 		var update3 = [body.q4_field, body.term, body.activity, id];
 		
-		console.log(isSubmit);
-		
-		var q4_length = 0;
-		//find longest q4 length
-		for (var i=0; i<3; i++){
-			var temp = 0;
-			for (var j=0; j<7; j++){
-				if (q4[i][j] != '')
-					temp++;
-			}
-			if (temp > q4_length)
-				q4_length = temp;
-		}
+		console.log("q4 = " + q4);
 		
 		// record가 있는지 없는지 select문으로 체크
 		client.query(`SELECT * FROM Applications WHERE id = ?`, params1, function(error, result){
 			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
 			if (result.length == 0) {
-
-				client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, submit) VALUES (?,?,?,?,?,?,?,?,?,?, 0)`, params2, function(error, result){
+				client.query(`INSERT INTO Applications (id, sex, birth, college, address, field, q1, q2, q3, q5, q7, q8, submit) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, 0)`, params2, function(error, result){
 					if (error)
 						console.log("Error in INSERT INTO Applications!");
 					else {
@@ -98,20 +154,18 @@ router.get('/', function(req ,res){
 										client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field[i], body.term[i], body.activity[i], id], function(error, result){
 											if (error)
 												console.log("Error in INSERT INTO Q4!");
-											else {
-												//submit 버튼이면 submit을 1로 update
-												if (isSubmit == 1){
-													client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-														console.log(result);
-														res.send(String(result));
-													});
-												}
-												else {
-													console.log(result);
-													res.send(String(result));
-												}
-											}
 										});
+									}
+									//submit 버튼이면 submit을 1로 update
+									if (isSubmit == 1){
+										client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
+											console.log(result);
+											res.sendStatus(200);
+										});
+									}
+									else {
+										console.log(result);
+										res.sendStatus(200);
 									}
 								}
 								else {
@@ -119,12 +173,12 @@ router.get('/', function(req ,res){
 									if (isSubmit == 1){
 										client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
 											console.log(result);
-											res.send(String(result));
+											res.sendStatus(200);
 										});
 									}
 									else {
 										console.log(result);
-										res.send(String(result));
+										res.sendStatus(200);
 									}
 								}
 							}
@@ -137,7 +191,7 @@ router.get('/', function(req ,res){
 			
 			// 해당 id가 db에 존재하면 update
 			else {
-				for (var k=0; k<9; k++){
+				for (var k=0; k<11; k++){
 					if (update1[k] == ''){
 						update1[k] = null;
 					}
@@ -149,7 +203,7 @@ router.get('/', function(req ,res){
 					}
 				}
 					
-				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=? WHERE id=?`, update1, function(error, result) {
+				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, update1, function(error, result) {
 					if (error)
 						console.log("Error in UPDATE Applications!");
 					else {
@@ -158,6 +212,7 @@ router.get('/', function(req ,res){
 								console.log("Error in UPDATE Applicants!");
 							else {
 								client.query(`DELETE FROM Q4 WHERE application_id = ?`, params1, function(error, result){ //일단 지우고
+									console.log("q4 = " + q4);
 									if (error)
 										console.log("Error in DELETE FROM Q4!");
 									else {
@@ -165,13 +220,13 @@ router.get('/', function(req ,res){
 											//submit 버튼이면 submit을 1로 update
 											if (isSubmit == 1){
 												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-													console.log(result);
-													res.send(String(result));
+													console.log("1. " + result);
+													res.sendStatus(200);
 												});
 											}
 											else {
-												console.log(result);
-												res.send(String(result));
+												console.log("2. " + result);
+												res.sendStatus(200);
 											}
 										}
 										else {
@@ -179,20 +234,19 @@ router.get('/', function(req ,res){
 												client.query(`INSERT INTO Q4 (field, term, activity, application_id) VALUES (?, ?, ?, ?)`, [body.q4_field[i], body.term[i], body.activity[i], id], function(error, result){
 													if (error)
 														console.log("Error in INSERT INTO Q4(2)!");
-													else {
-														//submit 버튼이면 submit을 1로 update
-														if (isSubmit == 1){
-															client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
-																console.log(result);
-																res.send(String(result));
-															});
-														}
-														else {
-															console.log(result);
-															res.send(String(result));
-														}
-													}
 												});
+											}
+											//submit 버튼이면 submit을 1로 update
+											if (isSubmit == 1){
+												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
+													console.log("3. " + result);
+													res.sendStatus(200);
+												});
+											}
+											else {
+												console.log("4. " + result);
+												res.sendStatus(200);
+												return;
 											}
 										}
 									}
