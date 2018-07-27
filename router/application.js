@@ -45,14 +45,14 @@ var hashMap={}
 router.get('/', function(req ,res){
       // 정보가 있으면 select, 없으면 그냥~~
      require('date-utils');
-        //var id=req.query.id;
-        //var user=reverseHash(id);
+        var id=req.query.id;
+        var user=reverseHash(id);
         var answers=['blah1','blah2','blah3','blah4'];
          var newDate = new Date();
           var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
                
-			   var user = 'yesung000@naver.com';
-			var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
+			   //var user = 'yesung000@naver.com';
+			//var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
 
       //find the user info by the id from database
 
