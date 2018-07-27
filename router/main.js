@@ -85,17 +85,44 @@ module.exports = function(app)
 
 
     app.get('/check_result1', function(req, res){
-        var email = req.query.email;
-        var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
+        var email = req.query.email
+		var query = "SELECT survived, name FROM Applicants WHERE email = '"+email+"'";
         client.query(query, function(error, result){
             if (error){
-                console.log(error);
+                console.log('에러');
             } else {
-                survived = JSON.stringify(result[0]['survived']);
-                res.send( survived);
+                res.send(result);
+
             }
         });
     });
+    
+    app.post('/inputTime', function(req, res){
+        var day = req.body.day;
+        var hour = req.body.hour;
+        var min = req.body.min;
+        var email = req.body.email;
+        console.log(day);
+        console.log(hour);
+        console.log(min);
+        console.log(email);
+
+        
+        var query = "UPDATE Applications SET interview_date = "+day+", interview_hour = "+hour+", interview_min = "+min+" WHERE id = '"+email+"'";
+        console.log('쿼리문성공');
+        client.query(query, function(error, result){
+            if (error){
+                console.log('에러');
+                console.log(error);
+            }
+            else {
+                console.log('mainelse성공');
+                res.send(result);
+            }
+        });
+    });
+
+
 
     app.get('/recruit-result1', function(req, res) {
       res.render('recruit/recruit-result1');
