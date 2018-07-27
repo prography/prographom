@@ -7,210 +7,212 @@ fixed-btn
 
 /*-------- button --------*/
 
-.btn-white{
-  padding: 5px 50px;
-  border-radius: 20px;
-  margin-right: 10px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  margin-bottom: 5px;
-  border: 2px solid white;
-  color: #29292c;
+.btn-white {
+    padding: 5px 50px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    margin-bottom: 5px;
+    border: 2px solid white;
+    color: #29292c;
 }
 
-.btn-white:hover{
-  background-color: gray;
-  color: white;
-  border: 2px solid lightgray;
-  text-decoration: none;
+.btn-white:hover {
+    background-color: gray;
+    color: white;
+    border: 2px solid lightgray;
+    text-decoration: none;
 }
 
-.btn-white-nohover{
-  padding: 5px 20px;
-  border-radius: 20px;
-  margin-right: 5px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  margin-bottom: 5px;
-  border: 1px solid #lightgray;
-  color: #222;
+.btn-white-nohover {
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    margin-bottom: 5px;
+    border: 1px solid #lightgray;
+    color: #222;
 }
 
-.btn-pink{
-  padding: 5px 50px;
-  border-radius: 20px;
-  margin-right: 10px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  margin-bottom: 5px;
-  border: 1px solid #d81d45;
-  color: #29292c;
-  transition: 0.3s ease;
+.btn-pink {
+    padding: 5px 50px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    margin-bottom: 5px;
+    border: 1px solid #d81d45;
+    color: #29292c;
+    transition: 0.3s ease;
 }
 
-.btn-pink:hover{
-  background-color: #d81d45;
-  color: white;
-  border: 1px solid #c01a3e;
-  text-decoration: none;
+.btn-pink:hover {
+    background-color: #d81d45;
+    color: white;
+    border: 1px solid #c01a3e;
+    text-decoration: none;
 }
 
-.btn-pink-small{
-  padding: 5px 30px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  margin-bottom: 5px;
-  border: 1px solid lightgray;
-  color: #29292c;
-}
-.btn-pink-small:hover{
-  background-color: #d81d45;
-  color: white;
-  border: 1px solid lightgray;
-  text-decoration: none;
+.btn-pink-small {
+    padding: 5px 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    color: #29292c;
 }
 
-.btn-orange-small{
-  padding: 5px 30px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  margin-bottom: 5px;
-  border: 1px solid lightgray;
-  color: #29292c;
-}
-.btn-orange-small:hover{
-  background-color: #ff7e28;
-  color: white;
-  border: 1px solid lightgray;
-  text-decoration: none;
+.btn-pink-small:hover {
+    background-color: #d81d45;
+    color: white;
+    border: 1px solid lightgray;
+    text-decoration: none;
 }
 
-.btn-gray-small-rec{
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  border: 1px solid lightgray;
-  color: #29292c;
-  transition: 0.3s ease;
-  width: 100%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: inherit;
-}
-.btn-gray-small-rec:hover{
-  background-color: #0a88a7;
-  color: #fff;
-  border: 1px solid lightgray;
-  text-decoration: none;
+.btn-orange-small {
+    padding: 5px 30px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    color: #29292c;
 }
 
-
-.basic-button{
-  margin-bottom: 15px;
+.btn-orange-small:hover {
+    background-color: #ff7e28;
+    color: white;
+    border: 1px solid lightgray;
+    text-decoration: none;
 }
 
-
-.btn-pink-big{
-  border: none;
-  color: #fff;
-  background-color: #d81d45;
-  padding: 5px 50px;
-  border-radius: 50px;
-  font-size: 17px;
-  transition: 0.3s ease;
+.btn-gray-small-rec {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    border: 1px solid lightgray;
+    color: #29292c;
+    transition: 0.3s ease;
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: inherit;
 }
 
-.btn-pink-big:hover{
-  text-decoration: none;
-  border: 0.5px solid gray;
-  background-color: #f2f2f2;
-  border: 0.5px solid lightgray;
-  color: #333;
+.btn-gray-small-rec:hover {
+    background-color: #0a88a7;
+    color: #fff;
+    border: 1px solid lightgray;
+    text-decoration: none;
+}
+
+.basic-button {
+    margin-bottom: 15px;
+}
+
+.btn-pink-big {
+    border: none;
+    color: #fff;
+    background-color: #d81d45;
+    padding: 5px 50px;
+    border-radius: 50px;
+    font-size: 17px;
+    transition: 0.3s ease;
+}
+
+.btn-pink-big:hover {
+    text-decoration: none;
+    border: 0.5px solid gray;
+    background-color: #f2f2f2;
+    border: 0.5px solid lightgray;
+    color: #333;
 }
 
 @media only screen and (max-width: 800px) {
     .btn-pink-big {
-      font-size:15px;
-      margin-top: 10px;
+        font-size: 15px;
+        margin-top: 10px;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .btn-pink-big:hover {
-      border: 1px solid gray;
-      font-size:15px;
-      margin-top: 10px;
+        border: 1px solid gray;
+        font-size: 15px;
+        margin-top: 10px;
     }
 }
 
-.btn-pink-top{
-  padding: 5px 50px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  border: 1px solid #f2f2f2;
-  color: #f2f2f2;
-  transition: 0.3s ease;
-  margin-top: -130px;
-  z-index: 100;
-  text-decoration: none;
+.btn-pink-top {
+    padding: 5px 50px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    border: 1px solid #f2f2f2;
+    color: #f2f2f2;
+    transition: 0.3s ease;
+    margin-top: -130px;
+    z-index: 100;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-
-.btn-pink-top:hover{
-  background-color: #f2f2f2;
-  color: #d81d45;
-  border: 1px solid #c01a3e;
-  text-decoration: none;
+.btn-pink-top:hover {
+    background-color: #f2f2f2;
+    color: #d81d45;
+    border: 1px solid #c01a3e;
+    text-decoration: none;
 }
 
-.btn-white-top{
-  padding: 5px 50px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Spoqa Han Sans', 'Sans-serif';
-  border: 1px solid #fff;
-  color: #fff;
-  transition: 0.3s ease;
-  margin-top: -130px;
-  z-index: 100;
-  text-decoration: none;
-  text-shadow: none;
+.btn-white-top {
+    padding: 5px 50px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    border: 1px solid #fff;
+    color: #fff;
+    transition: 0.3s ease;
+    margin-top: -130px;
+    z-index: 100;
+    text-decoration: none;
+    text-shadow: none;
+    cursor: pointer;
 }
 
-.btn-white-top:hover{
-  background-color: #fff;
-  color: #444;
-  text-decoration: none;
+.btn-white-top:hover {
+    background-color: #fff;
+    color: #444;
+    text-decoration: none;
 }
 
-.btn-white-top-overlay{
-  padding: 5px 50px;
-  border-radius: 20px;
-  font-size: 14px;
-  border: 1px solid #fff;
-  color: #fff;
-  transition: 0.2s ease;
-  margin-top: -130px;
-  z-index: 100;
-  text-decoration: none;
-  text-shadow: none;
+.btn-white-top-overlay {
+    padding: 5px 50px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid #fff;
+    color: #fff;
+    transition: 0.2s ease;
+    margin-top: -130px;
+    z-index: 100;
+    text-decoration: none;
+    text-shadow: none;
 }
 
-.btn-white-top-overlay:hover{
-  text-decoration: line-through;
-  color: #999;
+.btn-white-top-overlay:hover {
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
 }
 
-a[target="_blank"]{
-  text-decoration: none;
-  color: #fff;
+a[target="_blank"] {
+    text-decoration: none;
+    color: #fff;
 }
-
-
 
 
 /*-------- radio-btn --------*/
@@ -224,14 +226,18 @@ a[target="_blank"]{
     user-select: none;
 }
 
+
 /* Hide the browser's default radio button */
+
 .label-circle input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
+
 /* Create a custom radio button */
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -242,210 +248,192 @@ a[target="_blank"]{
     border-radius: 50%;
 }
 
+
 /* On mouse-over, add a grey background color */
+
 .label-circle:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
+
 /* When the radio button is checked, add a blue background */
+
 .label-circle input:checked ~ .checkmark {
     background-color: #ff7e28;
 }
 
+
 /* Create the indicator (the dot/circle - hidden when not checked) */
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
+
 /* Show the indicator (dot/circle) when checked */
+
 .label-circle input:checked ~ .checkmark:after {
     display: block;
 }
 
+
 /* Style the indicator (dot/circle) */
+
 .label-circle .checkmark:after {
- 	top: 4px;
-	left: 4px;
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: white;
+    top: 4px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
 }
-
-
 
 
 /*....................................................*/
 
-.light-btn{
-  font-size: 12px;
-  color: #fff;
-  border: 1px solid #fff;
-  border-radius: 20px;
-  padding: 3px 15px 3px 15px;
-  transition: 0.2s ease;
-  margin-left: 5px;
-  margin-right: 5px;
+.light-btn {
+    font-size: 12px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 3px 15px 3px 15px;
+    transition: 0.2s ease;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-
-.light-btn:hover{
-  color: #fff;
-  opacity: 0.6;
-  text-decoration: none;
-}
-
-
-
- /*동그란 버튼들*/
-.gray-btn{
-  font-size: 15px;
-  color: #fff;
-  background-color: #999;
-  border: 0.5px solid #f2f2f2;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
-  /*padding: 30px 30px 30px 30px;*/
-  margin-left: 5px;
-  margin-right: 5px;
-  transition: 0.3s ease;
-}
-
-
-.gray-btn:hover{
-    color: #999;
-  background-color: #fff;
-  font-weight: 700;
-}
-
-
-
- /*동그란 버튼들*/
-.deep-gray-btn{
-  font-size: 15px;
-  color: #fff;
-  background-color: #333;
-  border: 0.5px solid #f2f2f2;
-  border-radius: 50px;
-  width: 100px;
-  height: 100px;
-  /*padding: 30px 30px 30px 30px;*/
-  margin-left: 5px;
-  margin-right: 5px;
-  transition: 0.3s ease;
-}
-
-
-.deep-gray-btn:hover{
-  opacity: 0.5;
-  text-decoration: none;
-  text-decoration:line-through;
-}
-
-
- /*길죽한 버튼들*/
-.blue-btn{
-  font-size: 14px;
-  color: #fff;
-  background-color: #0a88a7;
-  border: 0.5px solid #30aecd;
-  border-radius: 100px;
-  width: 150px;
-  height: 50px;
-  /*padding: 30px 30px 30px 30px;*/
-  margin-left: 5px;
-  margin-right: 5px;
-  transition: 0.5s ease;
-}
-
-
-.blue-btn:hover{
-  color: #0a88a7;
-  background-color: #fff;
-  font-weight: 700;
+.light-btn:hover {
+    color: #fff;
+    opacity: 0.6;
+    text-decoration: none;
 }
 
 
 /*동그란 버튼들*/
-.orange-btn{
- font-size: 14px;
- color: #fff;
- background-color: #ff7e28;
- border: 0.5px solid #ff9f17;
- border-radius: 50px;
- width: 70px;
- height: 70px;
- /*padding: 30px 30px 30px 30px;*/
- margin-left: 5px;
- margin-right: 5px;
- transition: 0.5s ease;
+
+.gray-btn {
+    font-size: 15px;
+    color: #fff;
+    background-color: #999;
+    border: 0.5px solid #f2f2f2;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    /*padding: 30px 30px 30px 30px;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.3s ease;
+}
+
+.gray-btn:hover {
+    color: #999;
+    background-color: #fff;
+    font-weight: 700;
+}
+
+
+/*동그란 버튼들*/
+
+.deep-gray-btn {
+    font-size: 15px;
+    color: #fff;
+    background-color: #333;
+    border: 0.5px solid #f2f2f2;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    /*padding: 30px 30px 30px 30px;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.3s ease;
+}
+
+.deep-gray-btn:hover {
+    opacity: 0.5;
+    text-decoration: none;
+    text-decoration: line-through;
+}
+
+
+/*길죽한 버튼들*/
+
+.blue-btn {
+    font-size: 14px;
+    color: #fff;
+    background-color: #0a88a7;
+    border: 0.5px solid #30aecd;
+    border-radius: 100px;
+    width: 150px;
+    height: 50px;
+    /*padding: 30px 30px 30px 30px;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.5s ease;
+}
+
+.blue-btn:hover {
+    color: #0a88a7;
+    background-color: #fff;
+    font-weight: 700;
+}
+
+
+/*동그란 버튼들*/
+
+.orange-btn {
+    font-size: 14px;
+    color: #fff;
+    background-color: #ff7e28;
+    border: 0.5px solid #ff9f17;
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    /*padding: 30px 30px 30px 30px;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.5s ease;
 }
 
 @media only screen and (max-width: 600px) {
     .orange-btn {
-      font-size: 12px;
-      color: #fff;
-      background-color: #ff7e28;
-      border: 0.5px solid #ff9f17;
-      border-radius: 50px;
-      width: 50px;
-      height: 50px;
-      /*padding: 30px 30px 30px 30px;*/
-      margin-left: 5px;
-      margin-right: 5px;
-      transition: 0.5s ease;
+        font-size: 12px;
+        color: #fff;
+        background-color: #ff7e28;
+        border: 0.5px solid #ff9f17;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        /*padding: 30px 30px 30px 30px;*/
+        margin-left: 5px;
+        margin-right: 5px;
+        transition: 0.5s ease;
     }
 }
 
-.orange-btn:hover{
- color: #ff7e28;
- background-color: #fff;
- font-weight: 700;
+.orange-btn:hover {
+    color: #ff7e28;
+    background-color: #fff;
+    font-weight: 700;
 }
+
+
 /*-------- submit-btn --------*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.fixed-button{
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
+.fixed-button {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
 }
 
 @media only screen and (max-width: 600px) {
     .fixed-button {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /**/

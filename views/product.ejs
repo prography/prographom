@@ -1,114 +1,329 @@
 <% include common/header %>
-	<title>포트폴리오</title>
-	<meta property="og:title" content="포트폴리오" />
+    <title>포트폴리오</title>
+    <meta property="og:title" content="포트폴리오" />
     <section>
-      <div class="banner">
-        <div class="pr-bg-img">
+        <div class="banner">
+            <div class="pr-bg-img">
+            </div>
         </div>
-      </div>
-      <div class="container">
-        <div class="banner-contents">
-          <p class="main-title">PORTFOLIO</p>
-          <p class="sub-title"><strong style="margin-bottom:-20px;">Web / App / DeepLearning</strong><br>1기부터 현 기수까지 웹, 앱, 딥러닝을 넘나드는
-          <br>프로젝트를 한눈에 볼수 있습니다.
-          </p>
+        <div class="container">
+            <div class="banner-contents">
+                <p class="main-title">PORTFOLIO</p>
+                <p class="sub-title"><strong style="margin-bottom:-20px;">Web / App / DeepLearning</strong>
+                    <br>1기부터 현 기수까지 웹, 앱, 딥러닝을 넘나드는
+                    <br>프로젝트를 한눈에 볼수 있습니다.
+                </p>
+                <a onclick="slide_section(1)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important;">1기</a>
+                <a onclick="slide_section(2)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important; margin-left:5px !important;">2기</a>
+            </div>
         </div>
-      </div>
     </section>
     <!--.........................................................................................-->
-    <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
-		<link rel="stylesheet" href="css/product.css">
+    <div class="box" style="height:50px;"></div>
+    <!-- 중간에 띄어놓음 -->
+    <link rel="stylesheet" href="css/product.css">
 
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3">
-					<p class="a-main-p">1기 <span class="a-main-span">웹 1 / 앱 3 / 딥 3</span></p>
-				</div>
-				<div class="col-sm-9">
-					<div class="w3-border-bottom w3-border-lightgray" style=" width: 100%; height:45px;"></div>
-				</div>
-			</div>
+    <section id="2th">
+        <div class="unit">
+            <div class="unit-nav container">
+                <span class="unit-p-main">2기</span>
+                <span class="unit-p-small">Web 1</span>
+                <span class="unit-p-small">App 3</span>
+                <span class="unit-p-small">Deep-Learning 3</span>
+            </div>
+            <div class="w3-border-top w3-border-lightgray line hi-line" style=" width: 40%; margin-bottom:20px;"></div>
+        </div>
+        <div class="container">
+            <div class="hi-box">
+                <!-- start -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-1-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 웹팀, <strong>Prography Homepage</strong></h2>
+                            <p>프로그라피 웹페이지 리뉴얼 프로젝트</p>
+                            <p>: 운영진과 지원자를 위해 쓰임새가 있고 운영에 도움이 될 수 있는 페이지</p>
+                            <P>프론트엔드 -강민정 / 김홍찬
+                                <br> 백엔드 - 심정민 / 정예은 / 국지원 / 유용환 / 신주형</p>
+                            <div class="hi-click-btn">
+                                <a target="_blank" href="http://13.124.159.186/" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">페이지 가기</a>
+                            </div>
+                        </div>
 
-		</div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-2-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 앱팀, <strong>모지모지</strong></h2>
+                            <p>드라마에 나온 아이템을 알려주는 플랫폼</p>
+                            <p>: 방송사별 드라마 아이템부터 데일리 추천 상품과 베스트 상품 리스트까지 옷, 악세서리, 신발 등 정보를 알려주는 앱 서비스</p>
+                            <P>박찬웅 / 김라피 / 최라피 / 강라피 / 박라피</p>
+                            <div class="hi-click-btn">
+                                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.prograpy.app1.appdev1" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱 다운로드</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-3-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 앱팀, <strong>MILOTIC</strong></h2>
+                            <p>취미기반 소셜 매칭 서비스</p>
+                            <p>: 소개팅앱이 아닌 취미를 같이 즐길 사람을 매칭하는 "사람 만나기 프로젝트" </p>
+                            <P>이승준 / 최혜송 / 이다영 / 한승동</p>
+                            <div class="hi-click-btn">
+                                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.prograpy.app2.appdev2" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱 다운로드</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-4-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 앱팀, <strong>Prography App</strong></h2>
+                            <p>프로그라피 공식 커뮤니티 앱</p>
+                            <p>: 프로그라피 멤버들을 위한 커뮤니티 앱으로 소통공간부터 나와 팀의 정보까지 찾아볼 수 있는 앱</p>
+                            <P>송가람 / 유용환 / 이루다 / 추청원 / 하태린 / 강재윤 / 이민영 / 이승준</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-5-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 딥러닝팀, <strong>Make Unmakeup Face</strong></h2>
+                            <p>GAN 모델을 이용한 메이크업 어플리케이션</p>
+                            <p>: 쌩얼을 화장한 얼굴로 만들어주고, 화장한 얼굴을 쌩얼로 만들어주는 서비스로 GAN모델 중 pix to pix 모델을 활용한 딥러닝 기법 사용</p>
+                            <P>노재석 / 허은지 / 지서영 / 기호건 / 박찬웅</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-6-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 딥러닝팀, <strong>Highlight Tekken</strong></h2>
+                            <p>철권 게임에서 하이라이트를 추출하는 서비스</p>
+                            <p>: 철권의 '화랑' 캐릭터를 모델로 하여 Supervied 모델과 Unsupervised모델을 이용</p>
+                            <P>김동훈 / 송영인 / 이유정 / 장혁진 / 박수현</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides2">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/2-7-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>2기 딥러닝팀, <strong>Smile Detection</strong></h2>
+                            <p>웃는지 안 웃는지 알려주는 서비스</p>
+                            <p>: 직접 만개의 이미지로 데이터셋을 만들어 높은 정확도로 실시간 웹캠을 이용해 바로 확인해 볼 수 있는 서비스</p>
+                            <P>이종희 / 최지수 / 김승재</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+            </div>
+        </div>
 
-		<div class="w3-content w3-display-container">
-			<div class="mySlides">
-				<div class="w3-tb-cell">
-					<h2 class="w3-center">A</h2>
-					<img src="http://prography.org/images/poster1.jpg" style="width:100%">
-				</div>
-				<div class="w3-tb-cell-content">
-					<h2>앱팀</h2>
-					<p>소개블라블라블라</p>
-					<input type="button" class="w3-button w3-black" value="자세히보기"/>
-				</div>
-			</div>
+    </section>
 
-			<div class="mySlides">
-				<div class="w3-tb-cell">
-					<h2 class="w3-center">B</h2>
-					<img src="http://prography.org/images/poster2.jpg" style="width:100%">
-				</div>
-				<div class="w3-tb-cell-content">
-					<h2>웹팀</h2>
-					<p>소개블라블라블라</p>
-					<input type="button" class="w3-button w3-black" value="자세히보기"/>
-				</div>
-			</div>
+    <section id="1th" style="display:none">
+        <div class="unit">
+            <div class="unit-nav container">
+                <span class="unit-p-main">1기</span>
+                <span class="unit-p-small">Web 1</span>
+                <span class="unit-p-small">App 4</span>
+                <span class="unit-p-small">Deep-Learning 2</span>
+            </div>
+            <div class="w3-border-top w3-border-lightgray line hi-line" style=" width: 40%; margin-bottom:20px;"></div>
+        </div>
+        <div class="container">
+            <div class="hi-box">
+                <!-- start -->
 
-			<div class="mySlides">
-				<div class="w3-tb-cell">
-					<h2 class="w3-center">C</h2>
-					<img src="http://prography.org/images/poster3.jpg" style="width:100%">
-				</div>
-				<div class="w3-tb-cell-content">
-					<h2>딥러닝</h2>
-					<p>소개블라블라블라</p>
-					<input type="button" class="w3-button w3-black" value="자세히보기"/>
-				</div>
-			</div>
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-1-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 웹 1팀, <strong>Puppy Signal</strong></h2>
+                            <p>사람과 반려동물의 조화로운 삶을 위한 프로젝트</p>
+                            <p>: 애완동물의 귀여운 단면만 보여주는 매체의 문제점을 전하며, 유기견의 현실을 보여주기 위한 웹페이지</p>
+                            <P>강민정 / 심준식 / 유용환 / 지서영 / 이예은</p>
+                            <div class="hi-click-btn">
+                                <a target="_blank" href="http://puppysignal.com/" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">페이지 가기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-2-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+            box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 앱 2팀, <strong>맛집Go!</strong></h2>
+                            <p>분위기별로 맛집 추천해주는 서비스</p>
+                            <p>: 무조건 맛있는 곳이 아닌, 분위기 별로 동형 별로 갈 곳을 추천서비스를 위한 앱 서비스</p>
+                            <P>김수빈 / 김현성 / 김지원</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-3-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+              box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 앱 2팀, <strong>Travel Maker</strong></h2>
+                            <p>관광지 추천 및 경로 탐색 어플</p>
+                            <p>: 도쿄를 여행하고 싶어하는 고객을 위하여 인기있는 관광지 추천과 관광지를 연결한 경로를 만들어주는 앱 서비스</p>
+                            <P>김록현 / 이유림 / 김선경 / 국지원 / 고서연 / 하태린</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-4-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+              box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 앱 3팀, <strong>Fit Me</strong></h2>
+                            <p>피트니스 강사 매칭 서비스</p>
+                            <p>: 내게 맞는 강사를 매칭할 수 있는 피트니스 플랫폼 앱 서비스</p>
+                            <P>허은지 / 장혁진</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-5-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+              box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 앱 3팀, <strong>나만의 여행일기</strong></h2>
+                            <p>위치 기반 다이어리</p>
+                            <p>: 위치에 기반하여 나의 일상을 기록할 수 있는 앱 서비스</p>
+                            <P>김혜진 / 이자연 / 추청원 / 강민정</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-6-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+              box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 딥러닝 1팀, <strong>Visnet</strong></h2>
+                            <p>유사한 옷 추천 서비스</p>
+                            <p>: 소비자들이 인터넷으로 옷을 쇼핑하게 될 때, 효율적이고 저렴하게 소비할 수 있게 편의를 제공하는 것을 프로젝트 목적</p>
+                            <P>박찬웅 / 김라피 / 최라피 / 강라피 / 박라피</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="row mySlides1">
+                    <div class="col-sm-6"><img onclick="pop(this.src)" src="img/panel/1-7-poster.jpg" style="width:80%; margin-left:auto;margin-right:auto; display:block;
+              box-shadow:10px 10px 30px #e9e9e9;border-radius:5px;border:1px solid #888;"></div>
+                    <div class="col-sm-6">
+                        <div class="w3-tb-cell-content">
+                            <h2>1기 딥러닝 2팀, <strong>iFontMe</strong></h2>
+                            <p>나의 글씨체를 나만의 폰트로</p>
+                            <p>: 내 글씨 200자를 학습된 모델에 넣어 한글 낱글자 2350자를 생성</p>
+                            <P>김승재 / 노신영 / 김현성 / 박수현</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end -->
+            </div>
+        </div>
+    </section>
 
-			<div class="mySlides">
-				<div class="w3-tb-cell">
-					<h2 class="w3-center">D</h2>
-					<img src="http://prography.org/images/poster4.jpg" style="width:100%">
-				</div>
-				<div class="w3-tb-cell-content">
-					<h2>운영팀</h2>
-					<p>소개블라블라블라</p>
-					<input type="button" class="w3-button w3-black" value="자세히보기"/>
-				</div>
-			</div>
-			<div class="w3-btn-nav">
-			<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-			<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-			</div>
-		</div>
+    <div class="w3-content w3-display-container">
+        <div class="w3-btn-nav">
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+    </div>
 
+    <div class="box" style="height:500px;"></div>
+    <!-- 중간에 띄어놓음 -->
 
-		<script>
-		    var slideIndex = 1;
-		    showDivs(slideIndex);
+    <script>
+        var x = document.getElementsByClassName("mySlides" + $("a[name=sel_th]").length);
 
-		    function plusDivs(n) {
-		        showDivs(slideIndex += n);
-		    }
+        function slide_section(n) {
+            x = document.getElementsByClassName("mySlides" + n);
+            for (i = 1; i < 3; i++) {
+                if (i == n) {
+                    $('#' + i + 'th').css("display", "block");
+                } else {
+                    $('#' + i + 'th').css("display", "none");
+                }
+            }
+            showDivs(1);
+        }
 
-		    function showDivs(n) {
-		        var i;
-		        var x = document.getElementsByClassName("mySlides");
-		        if (n > x.length) {
-		            slideIndex = 1
-		        }
-		        if (n < 1) {
-		            slideIndex = x.length
-		        }
-		        for (i = 0; i < x.length; i++) {
-		            x[i].style.display = "none";
-		        }
-		        x[slideIndex - 1].style.display = "block";
-		    }
-		</script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
 
-		<div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+
+            if (n > x.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+
+        function pop(src) {
+            $('.modal-body').html('');
+            $('#exampleModalCenter1').modal('show');
+            $('.modal-body').append('<img style="width:100%" src="' + src + '" data-dismiss="modal" aria-label="Close"/>');
+
+        }
+    </script>
+
+    <!-- Modal-alert -->
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align:center;>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 <% include common/footer %>

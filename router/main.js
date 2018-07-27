@@ -51,6 +51,7 @@ var sha256 = require('js-sha256');
 
 var admin = require('./admin.js');
 var application = require('./application.js');
+var application_specific = require('./application-specific.js');
 var recruit = require('./recruit.js');
 var send = require('./send.js');
 var verify = require('./verify.js');
@@ -74,10 +75,10 @@ module.exports = function(app)
     });
     app.use('/admin', admin);
     app.use('/application', application);
+    app.use('/application-specific', application_specific);
     app.use('/recruit', recruit);
     app.use('/send', send);
     app.use('/verify', verify);
-
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit/recruit-fin');
     });
