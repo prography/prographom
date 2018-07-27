@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/nav-blue.css">
+    <link rel="stylesheet" href="css/btn.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <title>admin</title>
+  </head>
+
+
+  <body>
+    <nav>
+      <div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+        <a href="/admin" class="w3-bar-item w3-button sidebar-font">전체 지원서</a>
+        <a href="/admin?filter=interviewTime" class="w3-bar-item w3-button sidebar-font">지원서 확인</a>
+        <a href="/admin?filter=result" class="w3-bar-item w3-button sidebar-font">결과 확인</a>
+        <a href="/" class="w3-bar-item w3-button sidebar-font2">홈페이지</a>
+      </div>
+    </nav>
+
+
+    <div class="w3-main" style="margin-left:200px">
+      <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large hh" onclick="w3_open()">&#9776;</button>
+        <div class="container">
+          <p class="main-title" style="margin-top:20px;">운영진 페이지 <span class="p-md">- 지원서 확인</span></p>
+          <!-- <a class="navbar-brand" href="#"><img src="img/logo-03.svg"
+            alt="white-logo" class="logo-img"></a> -->
+        </div>
+      </div>
+
+  <!-- 지원서 보는 공간 -->
+  <section id="apply" class="show4">
+
+    <ul class="nav nav-tabs nav-tabs-d">
+      <li id= "applicant_tab1" class="active tab-33 text-center"-><a class = "tab" data-toggle="tab" href="#applicant1">-</a></li>
+    </ul>
+
+    <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar" id="tmptmp">
+<!--.................................................................................................... -->
+
+      <div id="applicant" class="tab-pane fade in active tab-box-pad">
+        <button data-toggle="collapse" data-target="#personal-data-cut" class="cut-btn collapsed btn-c">인적사항 접기</button>
+        <div class="per-90 div-center collapse in" id="personal-data-cut">
+          <div class="row">
+            <div class="col-sm-6 margin-top-20">
+              <label class="application-label">이름</label>
+              <p class="output-box"><%=data.name%></p>
+            </div>
+            <div class="col-sm-6 margin-top-20">
+              <label class="application-label">성별</label>
+              <p class="output-box"><%=data.sex%></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 margin-top-20">
+              <label class="application-label">생년월일</label>
+              <p class="output-box"><%=data.birth%></p>
+            </div>
+            <div class="col-sm-6 margin-top-20">
+              <label class="application-label">연락처 (중간 -를 생략하세요)</label>
+              <p class="output-box"><%=data.phone%></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 margin-top-20">
+              <label class="application-label">소속대학 / 전공 / 학년</label>
+              <p class="output-box"><%=data.college%></p>
+            </div>
+          </div>
+
+          <div class="row margin-top-20">
+            <div class="col-sm-12">
+              <label class="application-label">현 거주지 및 가까운 역</label>
+              <p class="output-box"><%=data.address%></p>
+            </div>
+          </div>
+
+          <div class="row margin-top-20">
+            <div class="col-sm-12">
+              <label class="application-label">지원분야</label>
+              <p class="output-box"><%=data.field%></p>
+            </div>
+          </div>
+        </div>
+
+
+        <!--line-->
+        <div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; margin-top:40px; opacity:0.5;"></div>
+
+        <!--본격 내용-->
+        <div class="per-90 div-center" style="margin-top :50px;">
+          <div class="row margin-top-40">
+            <div class="col-sm-12">
+              <label class="application-label">[1] 간단히 자기소개를 해주세요! (500자 이내)</label>
+              <p class="output-box"><%=data.q1%></p>
+            </div>
+          </div>
+
+          <div class="row margin-top-40">
+            <div class="col-sm-12">
+              <label class="application-label">[2] 프로그라피에 지원하게 된 동기에 대해 말씀해주세요! (500자 이내)</label>
+              <p class="output-box"><%=data.q2%></p>
+            </div>
+          </div>
+
+          <div class="row margin-top-40">
+            <div class="col-sm-12">
+              <label class="application-label">[3] 프로그라피에서 만들어보고 싶은 것이 있다면 말해주세요! (300자 이내)</label>
+              <p class="output-box"><%=data.q3%></p>
+            </div>
+          </div>
+
+          <div class="row margin-top-40">
+            <div class="col-sm-12">
+              <label class="application-label">[4] 과거 활동했던 경험과 현재 하고 있는 활동에 대해 말씀해주세요!
+              <br><p class="p-pp" style="margin-left:-20px;">(ex. 학과활동, 동아리, 단체활동, 봉사활동, 수상내역, 인턴, 기타 등)</p></label>
+              <table class="table text-center" style="margin-top:20px;">
+                <tbody>
+                  <tr class="thead" style="background-color:#f1f1f1;">
+                    <td class="td-3">분야</td>
+                    <td class="td-3">기간</td>
+                    <td class="td-4">직책 및 활동</td>
+                  </tr>
+                  <% data2.forEach(function (q) { %>
+                    <tr id="q4-1" class="tbody" style="background-color:#fff;">
+                      <td class="td-3"><p class="output-box-table"><%=q.field%></p></td>
+                      <td class="td-3"><p class="output-box-table"><%=q.term%></p></td>
+                      <td class="td-4"><p class="output-box-table text-left"><%=q.activity%></p></td>
+                    </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row margin-top-40">
+            <div class="col-sm-12">
+              <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요 (길이 제한 없음)</label>
+              <p class="output-box"><%=data.q5%></p>
+            </div>
+          </div>
+
+          <!--ot, mt 확인 버튼-->
+          <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+          <!-- -->
+          <table class="table table-striped text-center" style="width:100%; margin-right:auto; margin-left:auto;">
+            <tbody>
+              <tr class="thead ">
+                <td class="td-1" style="background-color:#0a88a7; opacity:0.6; color:#fff;">시간</td>
+                <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">참석</td>
+                <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">불참석</td>
+              </tr>
+              <tr class="tbody">
+                <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
+                <form id="ot1" name = "ot_select" >
+                  <td class="td-2"><label class="label-circle"><input type="radio" id="ot_attend">
+                    <p class="checkmark"></p></label></td>
+                  <td class="td-2"><label class="label-circle"><input type="radio" id="ot_absent">
+                    <p class="checkmark"></p></label></td>
+                  <script>
+                    if (<%=data.q7%>) { 
+                      $("#ot_attend").click();
+                      $("#ot_absent").attr('disabled', true);
+                    } else { 
+                      $("#ot_absent").click();
+                      $("#ot_attend").attr('disabled', true);
+                    }
+                  </script>
+                </form>
+              </tr>
+              <tr class="tbody">
+                <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
+                <form id="mt1" name = "mt_select">
+                  <td class="td-2"><label class="label-circle"><input type="radio" id="mt_attend">
+                    <p class="checkmark"></p></label></td>
+                  <td class="td-2"><label class="label-circle"><input type="radio" id="mt_absent">
+                    <p class="checkmark"></p></label></td>
+                  <script>
+                    if (<%=data.q8%>) { 
+                      $("#mt_attend").click();
+                      $("#mt_absent").attr('disabled', true);
+                    } else { 
+                      $("#mt_absent").click();
+                      $("#mt_attend").attr('disabled', true);
+                    }
+                  </script>
+                </form>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><!--탭 마무리-->
+    </div>
+  </body>
+</html>
