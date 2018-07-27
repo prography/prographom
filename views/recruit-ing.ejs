@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/input.css">
+    <link rel="stylesheet" href="css/btn.css">
+    <title>recruit-ing</title>
+  </head>
+
+
+
+
+
+  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- nav -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#d81d45;">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- 모바일 햄버거 메뉴 버튼 -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- 상단 로고 -->
+          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
+            alt="white-logo" class="logo-img"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/about">소개</a></li>
+            <li><a href="/activity">공식활동</a></li>
+            <li><a href="/product">포트폴리오</a></li>
+            <li><a href="/history">히스토리</a></li>
+            <li><a href="/recruit">지원하기</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://prografeed.com/">Prografeed</a></li>
+                <li><a href="/login">Admin</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+
+<!--.........................................................................................-->
+    <section>
+      <div class="banner">
+        <div class="bg-img">
+        </div>
+      </div>
+      <div class="container">
+        <div class="banner-contents" >
+          <p class="main-title">지원하기 <span class="p-md">( ~ 07 / 30)</span></p>
+          <p class="sub-title">진정 빡코딩을 원하는자, 주저말고 지원하자!<br>라피가 그대를 기다리고 있다!</p>
+          <a href="#tabs-tabs" class="btn-pink-top scroll">공지사항 확인</a>
+        </div>
+      </div>
+    </section>
+<!--.........................................................................................-->
+
+
+    <section class="container">
+      <br>
+      <img src="img/18.02_2nd_poster.jpg" alt="2th poster" class="poster img-responsive">
+    </section>
+
+    <!--.........................................................................................-->
+    <div class="box" style="height:100px;" id="tabs-tabs"></div><!-- 중간에 띄어놓음 -->
+    <!--.........................................................................................-->
+
+    <section class="container" >
+      <ul class="nav nav-tabs nav-tabs-d">
+        <li class="active tab-33 text-center"-><a data-toggle="tab" href="#process">지원 프로세스</a></li>
+        <li class="tab-33 text-center"><a data-toggle="tab" href="#notice">공지사항</a></li>
+        <li class="tab-33 text-center"><a data-toggle="tab" href="#question">자주 묻는 질문</a></li>
+      </ul>
+
+      <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar">
+
+        <div id="process" class="tab-pane fade in active tab-box-pad">
+          <!--이미지 넣기-->
+          <img src="img/empty-img.jpg" alt="2th poster" class="tab-img img-responsive">
+        </div>
+
+        <div id="notice" class="tab-pane fade tab-box-pad">
+          <!--이미지 넣기-->
+          <div class="row">
+            <div class="col-sm-3">
+              <img src="img/circle.svg" class="tab-img-circle">
+              <p class="text-center" style="margin-top:10px;">지원하기</p>
+            </div>
+            <div class="col-sm-3">
+              <img src="img/circle.svg" class="tab-img-circle">
+              <p class="text-center" style="margin-top:10px;">지원하기</p>
+            </div>
+            <div class="col-sm-3">
+              <img src="img/circle.svg" class="tab-img-circle">
+              <p class="text-center" style="margin-top:10px;">지원하기</p>
+            </div>
+            <div class="col-sm-3">
+              <img src="img/circle.svg" class="tab-img-circle">
+              <p class="text-center" style="margin-top:10px;">지원하기</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="question" class="tab-pane fade tab-box-pad">
+          <!--이미지 넣기-->
+          <div class="q1">
+            <button onclick="myFunction('accordion1')" class="w3-button w3-block w3-left-align">
+              Q. 면접은 어떻게 진행이 되나요?</button>
+            <div id="accordion1" class="w3-hide w3-container">
+              <p style="margin:20px;">앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!<br>면접은 다수대 다수로
+                진행이 되고, 약 20분정도 소요가 된답니다(찡긋)</p>
+            </div>
+          </div>
+
+          <div class="q2">
+            <button onclick="myFunction('accordion2')" class="w3-button w3-block w3-left-align">
+              Q. 면접준비는 어떻게 할까요?</button>
+            <div id="accordion2" class="w3-hide w3-container">
+              <p style="margin:20px;">앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!<br>면접은 지원서 토대로
+                질문드리는 개인 질문과 모두에게 통일된 질문을 드리는 공통질문이 있습니다.(찡긋)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--.........................................................................................-->
+    <div class="box" style="height:150px;"></div><!-- 중간에 띄어놓음 -->
+    <!--.........................................................................................-->
+
+    <section class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <!-- <form action="/send"> -->
+            <div class="input-group">
+              <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" id="email_to">
+              <div class="input-group-btn">
+                <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email
+                  <p id="mail_success_message"></p> <!--버튼 안에 넣어야 안깨짐--></button>
+              </div>
+
+            </div>
+            
+            <style>
+              #mail_success_message{
+                text-align: center;
+              }
+            </style>
+          <!-- </form> -->
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+
+      <span class="help-block text-center" style="margin-top:20px; color:gray; font-size:14px;">
+        * 해당 메일로 지원서가 보내집니다 / 지원서는 00일까지 접수 가능합니다</span>
+    </section>
+    <!--.........................................................................................-->
+    <div class="box" style="height:200px;"></div><!-- 중간에 띄어놓음 -->
+
+
+    <!--.........................................................................................-->
+    <!--.........................................................................................-->
+    <!--.........................................................................................-->
+    <!-- footer -->
+    <footer class="text-center">
+      <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a><br><br>
+      <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
+      <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
+
+      <div class="basic-button">
+        <a href="/login" class="light-btn">Admin Page</a>
+        <a href="#" class="light-btn">Prograpfeed</a>
+      </div>
+
+      <p class="p-p"><small>E:prography@gmail.com</small></p>
+      <p class="p-p"><small>F:facebook.com/prography</small></p>
+      <p class="p-p"><small>I:instagram.com/prography</small></p>
+      <br>
+      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
+      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
+      <br>
+    </footer>
+    <!-- footer end -->
+    <!--.........................................................................................-->
+    <!--.........................................................................................-->
+    <!--.........................................................................................-->
+    <script type="text/javascript" src="js/master.js"></script>
+    <script src="js/recruit-ing.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/basic-nav.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -->
