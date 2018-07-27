@@ -82,7 +82,6 @@ module.exports = function(app)
       res.render('recruit/recruit-fin');
     });
 
-
     app.get('/check_result1', function(req, res){
         var email = req.query.email;
         var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
@@ -115,5 +114,3 @@ module.exports = function(app)
     });
 	
 };
-
-

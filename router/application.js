@@ -3,45 +3,6 @@ var router = express.Router();
 
 var hashMap={}
 
-/* router.get('/', function(req ,res){
-    // 정보가 있으면 select, 없으면 그냥~~
-    require('date-utils');
-    //var id = req.query.id;
-    //var user = reverseHash(id);
-    var answers = ['blah1', 'blah2', 'blah3', 'blah4'];
-    var newDate = new Date();
-    var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');       
-    var user = 'yesung000@naver.com';
-    var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
-    
-    //find the user info by the id from database
-
-    data={
-        user,
-        id,
-        answers
-    }
-    console.log(data);
-    //
-    // console.log(time); // remove
-    // apply 진행 중
-    if (id in hashMap) {
-        if (time < '2018-08-01 00:00:00') res.render('application', data);
-        // after apply
-        else if (time < '2018-08-07 00:00:00')
-        res.render('recruit/recruit-fin', data);
-        // 1차 발표
-        else if (time < '2018-07-09 00:00:00')
-        res.render('recruit/recruit-result1', data);
-        // 2차 발표
-        else
-        res.render('application',data);
-    } else {
-        res.send('<h1>no id</h1>');
-    }
-    
-}); */
-
 router.get('/', function(req ,res){
       // 정보가 있으면 select, 없으면 그냥~~
      require('date-utils');
@@ -66,9 +27,9 @@ router.get('/', function(req ,res){
       }
          console.log(data);
     //
-       // console.log(time); // remove
+	
        // apply 진행 중
-       //if(id in hashMap){
+       if(id in hashMap){
 		if (true) {
 
           if (time < '2018-08-01 00:00:00')
@@ -87,7 +48,7 @@ router.get('/', function(req ,res){
           res.send('<h1>no id</h1>');
 		}
 		
-	   //}
+	   }
 	});
 
 // DB에 내용 추가
