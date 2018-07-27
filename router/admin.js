@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
     if (!req.query.filter) {
-        res.render('admin-total');
+        res.render('admin/admin-total');
     } else if (req.query.filter == "interviewTime") {
         var body = req.body;
         var sql = `SELECT name, sex, birth, phone, college, address, field , q1, q2, q3, q5, q7, q8
@@ -16,11 +16,11 @@ router.get('/', function(req, res) {
                 console.log(error);
             } else {
                 console.log(results);
-                res.render('admin', {data:results});
+                res.render('admin/admin', {data:results});
             }
         });
     } else if (req.query.filter == "result") {
-        res.render('admin-result')
+        res.render('admin/admin-result')
     }
 });
 

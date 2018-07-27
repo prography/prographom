@@ -1,63 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <title>History</title>
-  </head>
-
-
-
-
-
-  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- nav -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#d81d45;">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 모바일 햄버거 메뉴 버튼 -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- 상단 로고 -->
-          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
-            alt="white-logo" class="logo-img"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">소개</a></li>
-            <li><a href="/activity">공식활동</a></li>
-            <li><a href="/product">포트폴리오</a></li>
-            <li><a href="/history">히스토리</a></li>
-            <li><a href="/recruit">지원하기</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- nav end -->
-
-<!--.........................................................................................-->
+<% include common/header %>
+	<title>히스토리</title>
+	<meta property="og:title" content="히스토리" />
     <section>
       <div class="banner">
         <div class="bg-img">
@@ -70,25 +13,7 @@
         </div>
       </div>
     </section>
-<!--.........................................................................................-->
 
-
-
-
-    <section>
-      <div class="banner">
-        <div class="bg-img">
-        </div>
-      </div>
-      <div class="container">
-        <div class="banner-contents">
-          <p class="main-title">포트폴리오</p>
-          <p class="sub-title">1기부터 현 기수까지 웹, 앱, 딥러닝을 넘나드는
-          <br>프로젝트를 한눈에 볼수 있습니다.
-          </p>
-        </div>
-      </div>
-    </section>
     <!--.........................................................................................-->
     <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
     <section class="unit">
@@ -100,65 +25,5 @@
       </div>
       <div class="w3-border-top w3-border-lightgray line" style=" width: 40%; margin-bottom:20px;"></div>
     </section>
-
-
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!-- footer -->
-    <footer class="text-center">
-      <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a><br><br>
-      <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
-      <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
-
-      <div class="basic-button">
-        <a href="/login" class="light-btn">Admin Page</a>
-        <a href="#" class="light-btn">Prograpfeed</a>
-      </div>
-
-      <p class="p-p"><small>E:prography@gmail.com</small></p>
-      <p class="p-p"><small>F:facebook.com/prography</small></p>
-      <p class="p-p"><small>I:instagram.com/prography</small></p>
-      <br>
-      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-      <br>
-    </footer>
-    <!-- footer end -->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="js/basic-nav.js"></script>
-
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->
+	
+<% include common/footer %>

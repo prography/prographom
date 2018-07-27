@@ -1,0 +1,162 @@
+
+
+#portfolio {
+	padding-top: 12rem;
+	padding-bottom: 12rem;
+}
+#portfolio .folio-item {
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+}
+#portfolio .folio-item img {
+	vertical-align: middle;
+	transition: all 0.5s ease-in-out;
+}
+
+#portfolio .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	transition: all 0.5s ease-in-out;
+}
+
+#portfolio .folio-item-table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+#portfolio .folio-item-cell {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	left: -100%;
+}
+
+#portfolio .folio-title {
+	color: #FFFFFF;
+	font-size: 4rem;
+	padding: 0 3rem;
+	margin-bottom: 20px;;
+}
+@media only screen and (max-width: 800px) {
+    #portfolio .folio-title{
+      font-size: 3rem;
+    }
+}
+
+#portfolio .folio-types {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	color: #fff;
+  font-weight: 300;
+}
+#portfolio .folio-item:hover .overlay {
+	background: rgba(0, 0, 0, 0.8);
+}
+#portfolio .folio-item:hover .folio-item-cell {
+	left: 0;
+}
+#portfolio .folio-item:hover img {
+	transform: scale(1.05);
+}
+
+a {
+	background: transparent;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+  text-decoration: none  !important;
+}
+
+img {
+	border: 0;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+  text-decoration: none  !important;
+}
+
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+	line-height: inherit;
+}
+
+a img {
+	border: none;
+}
+
+.roww {
+	width: 94%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.roww:before,
+.roww:after {
+	content: "";
+	display: table;
+}
+
+.roww:after {
+	clear: both;
+}
+
+.roww .roww {
+	width: auto;
+	max-width: none;
+	margin-left: -20px;
+	margin-right: -20px;
+}
+
+[class*="coll-"] {
+	padding: 0 20px;
+}
+
+
+
+/**
+ * ===================================================================
+ * block grids - (_grid.scss)
+ *
+ * -------------------------------------------------------------------
+ */
+[class*="block-"]:before,
+[class*="block-"]:after {
+	content: "";
+	display: table;
+}
+
+[class*="block-"]:after {
+	clear: both;
+}
+
+
+
+.block-1-2 .bgrid {
+	width: 50%;
+}

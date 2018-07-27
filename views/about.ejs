@@ -1,108 +1,58 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <title>About</title>
-  </head>
+<% include common/header %>
+	<link rel="stylesheet" href="css/about.css">
+	<title>소개</title>
 
 
 
 
+	<!--.........................................................................................-->
+	<section style="margin-top:-60px; margin-bottom:0px; background-color:#222;">
+		<div class="ab-img-box">
+			<img src="img/ab-1.JPG" alt="" class="bg-img1">
+			<div class=" ab-text-box">
+				<img src="img/logo-03.svg"alt="white-logo" style="margin-bottom:20px; width:30%; opacity:0.1;">
+				<h2>PROJECT</h2>
+				<h1>프로그라피는<br>교육동아리가 아니다</h1>
+				<p>단순한 스터디를 위한 모임이 아닌<br>
+				새로움을 위해 매 기수 멘토 프로젝트 & 멘티 프로젝트를 진행합니다.
+				<br><br>
+				"새로움이 무엇이냐" 묻고 싶으시다면,
+				<br>프로그라피는 "여러분에게 있습니다."라고 대답하겠습니다.</p>
+			</div>
+		</div>
 
-  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- nav -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#d81d45;">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 모바일 햄버거 메뉴 버튼 -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- 상단 로고 -->
-          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
-            alt="white-logo" class="logo-img"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">소개</a></li>
-            <li><a href="/activity">공식활동</a></li>
-            <li><a href="/product">포트폴리오</a></li>
-            <li><a href="/history">히스토리</a></li>
-            <li><a href="/recruit">지원하기</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- nav end -->
 
-<!--.........................................................................................-->
-    <section>
-      <div class="banner">
-        <div class="bg-img">
-        </div>
-      </div>
-      <div class="container">
-        <div class="banner-contents">
-          <p class="main-title">동아리 소개</p>
-          <p class="sub-title">진정 빡코딩을 원하는자, 주저말고 지원하자!<br>라피가 그대를 기다리고 있다!</p>
-        </div>
-      </div>
-    </section>
+		<div class="ab-img-box">
+			<img src="img/ab-2.JPG" alt="" class="bg-img2">
+			<div class="row">
+				<div class="col-sm- ab-text-box-r">
+					<h2>MENTORING</h2>
+					<h1>멘토와 멘티의<br>상생을 추구한다</h1>
+					<p>멘토는 멘티를 이끌어주고<br>
+					멘티는 멘토에게 새로운 영감을 줍니다.
+					<br><br>
+					세션마다 멘토링을 진행하며, 멘토는 멘토 프로젝트를 진행합니다.</p>
+				</div>
+			</div>
+		</div>
 
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!-- footer -->
-    <footer class="text-center">
-      <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a><br><br>
-      <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
-      <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
+		<div class="ab-img-box">
+			<img src="img/ab-3.JPG" alt="" class="bg-img2">
+			<div class=" ab-text-box">
+				<h2>WEB + APP + DEEP</h2>
+				<h1>프로그래머들의<br>허브를 꿈꾸다</h1>
+				<p>웹은 웹, 앱은 앱, 딥러닝은 딥러닝<br>
+				프로그라피는 거기서 멈추지 않는다.
+				<br><br>
+				웹과 앱, 딥러닝 멘티 멘토가 각각 모여
+				<br>넓고 깊은 프로젝트를 진행합니다.</p>
+			</div>
+		</div>
+	</section>
 
-      <div class="basic-button">
-        <a href="/login" class="light-btn">Admin Page</a>
-        <a href="#" class="light-btn">Prograpfeed</a>
-      </div>
+	<div class="box" style="width: 100%; height: 40px; background-color: #222;margin-bottom:-60px;"></div>
 
-      <p class="p-p"><small>E:prography@gmail.com</small></p>
-      <p class="p-p"><small>F:facebook.com/prography</small></p>
-      <p class="p-p"><small>I:instagram.com/prography</small></p>
-      <br>
-      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-      <br>
-    </footer>
-    <!-- footer end -->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="js/basic-nav.js"></script>
-
-  </body>
-</html>
+<% include common/footer %>
 
 
 

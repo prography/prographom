@@ -1,9 +1,11 @@
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {
+    scrollFunction()
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-50px";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        $("#navbar").css("background-color", "#d81d45");
+    } else {
+        $("#navbar").css("background-color", "transparent");
+    }
 }

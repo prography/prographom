@@ -1,0 +1,104 @@
+
+.ab-img-box{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.ab-text-box{
+  position: absolute;
+  top: 40%;
+  left:15%;
+  color: #fff;
+}
+.ab-text-box-r{
+  position: absolute;
+  top: 40%;
+  color: #fff;
+  right:15%;
+  text-align: right;
+}
+@media only screen and (max-width: 600px) {
+    .ab-text-box{
+      left:3%;
+    }
+    .ab-text-box-r{
+      right:3%;}
+
+    .ab-text-box h1{
+      font-size: 30px !important;
+    }
+
+    .ab-text-box h2{
+      font-size: 26px !important;
+    }
+    .ab-text-box p{
+      font-size: 13px !important;
+    }
+    .ab-text-box-r h1{
+      font-size: 30px !important;
+    }
+    .ab-text-box-r h2{
+      font-size: 26px !important;
+    }
+    .ab-text-box-r p{
+      font-size: 13px !important;
+    }
+
+}
+.ab-text-box h1{
+  font-weight: 300;
+  letter-spacing: 1.5px;
+}
+
+.ab-text-box h2{
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  opacity: 0.4;
+}
+.ab-text-box p{
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1.3px;
+  opacity: 0.8;
+}
+.ab-text-box-r h1{
+  font-weight: 300;
+  letter-spacing: 1.5px;
+}
+
+.ab-text-box-r h2{
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  opacity: 0.4;
+}
+.ab-text-box-r p{
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 1.3px;
+  opacity: 0.8;
+}
+
+
+.bg-img1{
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-img1 {
+      width: auto;
+      height: 700px;
+    }
+}
+.bg-img2{
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-img2 {
+      width: auto;
+      height: 500px;
+    }
+}

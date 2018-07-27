@@ -29,10 +29,10 @@ router.get('/', function(req ,res){
         if (time < '2018-08-01 00:00:00') res.render('application', data);
         // after apply
         else if (time < '2018-08-07 00:00:00')
-        res.render('recruit-fin', data);
+        res.render('recruit/recruit-fin', data);
         // 1차 발표
         else if (time < '2018-07-09 00:00:00')
-        res.render('recruit-result1', data);
+        res.render('recruit/recruit-result1', data);
         // 2차 발표
         else
         res.render('application',data);

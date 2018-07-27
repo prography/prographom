@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
@@ -10,118 +11,79 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/nav-blue.css">
     <link rel="stylesheet" href="css/btn.css">
-    <title>login</title>
-  </head>
+    <% include common/var_header %>
+	<meta property="og:title" content="로그인" />
+	
+    <title>로그인</title>
+</head>
 
-
-
-
-
-  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
     <!-- nav -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#0a88a7;">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 모바일 햄버거 메뉴 버튼 -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- 상단 로고 -->
-          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
-            alt="white-logo" class="logo-img"></a>
+        <div class="container">
+            <div class="navbar-header">
+                <!-- 모바일 햄버거 메뉴 버튼 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- 상단 로고 -->
+                <a class="navbar-brand" href="/"><img src="img/logo-03.svg" alt="white-logo" class="logo-img"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/about">소개</a></li>
+                    <li><a href="/activity">공식활동</a></li>
+                    <li><a href="/product">포트폴리오</a></li>
+                    <li><a href="/history">히스토리</a></li>
+                    <li><a href="/recruit">지원하기</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Prografeed</a></li>
+                            <li><a href="/login">Admin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">소개</a></li>
-            <li><a href="/activity">공식활동</a></li>
-            <li><a href="/product">포트폴리오</a></li>
-            <li><a href="/history">히스토리</a></li>
-            <li><a href="/recruit">지원하기</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
     </nav>
     <!-- nav end -->
 
-
-
     <section class="container">
-      <h1 class="text-center" style="margin-top:140px; font-weight:400; color:#333; font-size:40px;">ADMIN LOGIN</h1>
-      <h5 class="text-center" >프로그라피 운영진 전용 로그인</h5>
-      <div class="w3-border-bottom w3-border-lightgray half-p"></div>
-      <!--  ..........  -->
-      <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
-      <!--  ..........  -->
-      <div class="row">
-        <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
-        <div class="login-form col-sm-6">
-          <form action="/admin" method="post" class="form-horizontal">
-            <label for="admin-id">Admin ID</label>
-            <input type="text" class="login-input" id="admin_id" name="admin_id" placeholder="운영진 아이디를 입력하세요" >
+        <h1 class="text-center" style="margin-top:140px; font-weight:400; color:#333; font-size:40px;">ADMIN LOGIN</h1>
+        <h5 class="text-center">프로그라피 운영진 전용 로그인</h5>
+        <div class="w3-border-bottom w3-border-lightgray half-p"></div>
+        <!--  ..........  -->
+        <div class="box" style="height:50px;"></div>
+        <!-- 중간에 띄어놓음 -->
+        <!--  ..........  -->
+        <div class="row">
+            <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
+            <div class="login-form col-sm-6">
+                <form action="/admin" method="post" class="form-horizontal">
+                    <label for="admin-id">Admin ID</label>
+                    <input type="text" class="login-input" id="admin_id" name="admin_id" placeholder="운영진 아이디를 입력하세요">
 
-            <label for="admin-pw">Password</label>
-            <input type="text" class="login-input" id="admin_pw" name="admin_pw" placeholder="Password">
+                    <label for="admin-pw">Password</label>
+                    <input type="text" class="login-input" id="admin_pw" name="admin_pw" placeholder="Password">
 
-            <input type="submit" value="LOGIN" class="login-btn">
-          </form>
+                    <input type="submit" value="LOGIN" class="login-btn">
+                </form>
+            </div>
+            <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
         </div>
-        <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
-      </div>
     </section>
-
-
-
 
     <script type="text/javascript" src="js/master.js"></script>
     <script type="text/javascript" src="js/basic-nav.js"></script>
 
-  </body>
+</body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->

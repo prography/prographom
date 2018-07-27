@@ -72,7 +72,6 @@ module.exports = function(app)
     app.get('/login', function(req, res) {
         res.render('login')
     });
-
     app.use('/admin', admin);
     app.use('/application', application);
     app.use('/recruit', recruit);
@@ -80,8 +79,9 @@ module.exports = function(app)
     app.use('/verify', verify);
 
     app.get('/recruit-fin', function(req, res) {
-      res.render('recruit-fin');
+      res.render('recruit/recruit-fin');
     });
+
 
     app.get('/check_result1', function(req, res){
         var email = req.query.email;
@@ -97,11 +97,11 @@ module.exports = function(app)
     });
 
     app.get('/recruit-result1', function(req, res) {
-      res.render('recruit-result1');
+      res.render('recruit/recruit-result1');
     });
 
     app.get('/recruit-result2', function(req, res) {
-      res.render('recruit-result2');
+      res.render('recruit/recruit-result2');
     });
 
     app.get('/etc', function(req, res) {
@@ -113,6 +113,7 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout')
     });
-
-
+	
 };
+
+

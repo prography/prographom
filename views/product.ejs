@@ -1,63 +1,6 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <title>product</title>
-  </head>
-
-
-
-
-
-  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <!-- nav -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#d81d45;">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 모바일 햄버거 메뉴 버튼 -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- 상단 로고 -->
-          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
-            alt="white-logo" class="logo-img"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">소개</a></li>
-            <li><a href="/activity">공식활동</a></li>
-            <li><a href="/product">포트폴리오</a></li>
-            <li><a href="/history">히스토리</a></li>
-            <li><a href="/recruit">지원하기</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- nav end -->
-
-<!--.........................................................................................-->
+<% include common/header %>
+	<title>포트폴리오</title>
+	<meta property="og:title" content="포트폴리오" />
     <section>
       <div class="banner">
         <div class="bg-img">
@@ -74,70 +17,98 @@
     </section>
     <!--.........................................................................................-->
     <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
-    <section class="unit">
-      
-    </section>
+		<link rel="stylesheet" href="css/product.css">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<p class="a-main-p">1기 <span class="a-main-span">웹 1 / 앱 3 / 딥 3</span></p>
+				</div>
+				<div class="col-sm-9">
+					<div class="w3-border-bottom w3-border-lightgray" style=" width: 100%; height:45px;"></div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="w3-content w3-display-container">
+			<div class="mySlides">
+				<div class="w3-tb-cell">
+					<h2 class="w3-center">A</h2>
+					<img src="http://prography.org/images/poster1.jpg" style="width:100%">
+				</div>
+				<div class="w3-tb-cell-content">
+					<h2>앱팀</h2>
+					<p>소개블라블라블라</p>
+					<input type="button" class="w3-button w3-black" value="자세히보기"/>
+				</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="w3-tb-cell">
+					<h2 class="w3-center">B</h2>
+					<img src="http://prography.org/images/poster2.jpg" style="width:100%">
+				</div>
+				<div class="w3-tb-cell-content">
+					<h2>웹팀</h2>
+					<p>소개블라블라블라</p>
+					<input type="button" class="w3-button w3-black" value="자세히보기"/>
+				</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="w3-tb-cell">
+					<h2 class="w3-center">C</h2>
+					<img src="http://prography.org/images/poster3.jpg" style="width:100%">
+				</div>
+				<div class="w3-tb-cell-content">
+					<h2>딥러닝</h2>
+					<p>소개블라블라블라</p>
+					<input type="button" class="w3-button w3-black" value="자세히보기"/>
+				</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="w3-tb-cell">
+					<h2 class="w3-center">D</h2>
+					<img src="http://prography.org/images/poster4.jpg" style="width:100%">
+				</div>
+				<div class="w3-tb-cell-content">
+					<h2>운영팀</h2>
+					<p>소개블라블라블라</p>
+					<input type="button" class="w3-button w3-black" value="자세히보기"/>
+				</div>
+			</div>
+			<div class="w3-btn-nav">
+			<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+			<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+			</div>
+		</div>
 
 
+		<script>
+		    var slideIndex = 1;
+		    showDivs(slideIndex);
 
+		    function plusDivs(n) {
+		        showDivs(slideIndex += n);
+		    }
 
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!-- footer -->
-    <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
-    <footer class="text-center">
-      <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a><br><br>
-      <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
-      <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
+		    function showDivs(n) {
+		        var i;
+		        var x = document.getElementsByClassName("mySlides");
+		        if (n > x.length) {
+		            slideIndex = 1
+		        }
+		        if (n < 1) {
+		            slideIndex = x.length
+		        }
+		        for (i = 0; i < x.length; i++) {
+		            x[i].style.display = "none";
+		        }
+		        x[slideIndex - 1].style.display = "block";
+		    }
+		</script>
 
-      <div class="basic-button">
-        <a href="/login" class="light-btn">Admin Page</a>
-        <a href="#" class="light-btn">Prograpfeed</a>
-      </div>
-
-      <p class="p-p"><small>E:prography@gmail.com</small></p>
-      <p class="p-p"><small>F:facebook.com/prography</small></p>
-      <p class="p-p"><small>I:instagram.com/prography</small></p>
-      <br>
-      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-      <br>
-    </footer>
-    <!-- footer end -->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="js/basic-nav.js"></script>
-    <script type="text/javascript" src="js/product.js"></script>
-
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->
+		<div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+<% include common/footer %>

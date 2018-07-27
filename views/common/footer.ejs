@@ -1,0 +1,75 @@
+<!-- footer -->
+<footer class="text-center" style="margin-top:30px;">
+    <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a>
+    <br>
+    <br>
+    <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
+    <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
+
+    <div class="basic-button">
+        <a href="/login" class="light-btn">Admin Page</a>
+        <a href="#" class="light-btn">Prograpfeed</a>
+    </div>
+
+    <p class="p-p"><small>E:prography@gmail.com</small></p>
+    <p class="p-p"><small>F:facebook.com/prography</small></p>
+    <p class="p-p"><small>I:instagram.com/prography</small></p>
+    <br>
+    <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
+    <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
+    <br>
+</footer>
+<!-- footer end -->
+<script type="text/javascript" src="js/master.js"></script>
+<script type="text/javascript" src="js/index-nav.js"></script>
+
+</body>
+
+</html>
+
+<!-- Channel Plugin Scripts -->
+<script>
+    ;
+    window.channelPluginSettings = {
+        "pluginKey": "c01373e4-2452-4ce4-8e9d-c25fa238eea8"
+    };
+    (function() {
+        var w = window;
+        if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
+        }
+        var d = window.document;
+        var ch = function() {
+            ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+            ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+
+        function l() {
+            if (w.ChannelIOInitialized) {
+                return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+            l();
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', l);
+        } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+            window.addEventListener('load', l, false);
+        }
+    })();
+</script>
+<!-- End Channel Plugin -->

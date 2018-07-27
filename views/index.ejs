@@ -1,85 +1,27 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/btn.css">
-    <title>Home</title>
-  </head>
-
-
-
-
-
-  <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50" class="body">
-    <!-- nav -->
-    <nav class="navbar-iii ii navbar-inverse navbar-fixed-top" id="navbar" style="background-color:#d81d45;">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 모바일 햄버거 메뉴 버튼 -->
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- 상단 로고 -->
-          <a class="navbar-brand" href="/"><img src="img/logo-03.svg"
-            alt="white-logo" class="logo-img"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/about">소개</a></li>
-            <li><a href="/activity">공식활동</a></li>
-            <li><a href="/product">포트폴리오</a></li>
-            <li><a href="/history">히스토리</a></li>
-            <li><a href="/recruit">지원하기</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Prografeed</a></li>
-                <li><a href="/login">Admin</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- nav end -->
-
-<!--.........................................................................................-->
-
+	<% include common/header %>
+	<title>Prography(프로그라피), 대학생 연합 프로그래밍 그룹</title>
+	<meta property="og:title" content="Prography(프로그라피), 대학생 연합 프로그래밍 그룹" />
     <!--동영상 배너-->
-    <section style="width:100%; height:auto: background-color:#444;">
+    <section>
         <div class="carousel-inner" role="listbox">
-          <!---->
-          <div class="item active">
-            <div class="cropping">
+            <!---->
+            <div class="item active">
+                <div class="cropping">
+                    <video autoplay muted loop id="myVideo">
+                        <source src="vedio/Walking.mp4" type="video/mp4">
+                    </video>
 
-              <video autoplay muted loop id="myVideo" style="width: 100%;">
-                <source src="video/Walking.mp4" type="video/mp4">
-              </video>
-
+                </div>
+                <div class="carousel-caption">
+                    <p class="b-0">08.01 - 08.14</p>
+                    <div class="b-p">연합 프로그래밍 동아리
+                        <br><span>프로그라피에서 3기를 모집</span>합니다.</div>
+                    <p class="b-pp">[ 3기 프로젝트 기간 : 9월 ~ 2019년 1월 ]</p>
+                    <a href="/recruit" class="btn-white-top scroll">지원하기 GO</a>
+                </div>
             </div>
-            <div class="carousel-caption">
-              <p class="b-0">08.01 - 08.14</p>
-              <div class="b-p">연합 프로그래밍 동아리<br><span>프로그라피에서 3기를 모집</span>합니다.</div>
-              <p class="b-pp">[ 3기 프로젝트 기간 : 9월 ~ 2019년 1월 ]</p>
-              <a href="/recruit" class="btn-white-top scroll">지원하기 GO</a>
-            </div>
-          </div>
 
-          <!-- 모집 때 말고 사용할 배너
+            <!-- 모집 때 말고 사용할 배너
           <div class="item">
             <div class="cropping" >
               <video autoplay muted loop id="myVideo" style="width: 100%;">
@@ -95,91 +37,90 @@
     </section>
 
     <!--프로그라피 소개-->
-    <section>
-      <p class="main-title-b container">프로그라피 소개</p>
-      <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
-      <p class="sub-title-b container">프로그라피는 연합 프로그라핑 동아리로<br>웹, 앱, 딥러닝으로 구성되고, 기수마다 다양한 주제의 프로젝트 활동을 하고 있습니다. </p>
-      <div class="margin-top-20 container">
-        <a href="/activity" class="btn-pink-big scroll">공식활동</a>
-      </div>
-
-      <div style="width: 100%; height:400px; position:relative; ">
-        <div class="container-fluid" >
-          <div style="position:absolute; top:0px; left: 10%; width: 90%;">
-            <div class="bg-img3"></div>
-          </div>
+    <section style="margin-top:200px">
+        <p class="main-title-b container">프로그라피 소개</p>
+        <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
+        <p class="sub-title-b container">프로그라피는 연합 프로그라핑 동아리로
+            <br>웹, 앱, 딥러닝으로 구성되고, 기수마다 다양한 주제의 프로젝트 활동을 하고 있습니다. </p>
+        <div class="margin-top-20 container">
+            <a href="/activity" class="btn-pink-big scroll">공식활동</a>
         </div>
-      </div>
-    </section>
 
+        <div style="width: 100%; height:400px; position:relative; ">
+            <div class="container-fluid">
+                <div style="position:absolute; top:0px; left: 10%; width: 90%;">
+                    <div class="bg-img3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--프로젝트 팀-->
     <section>
-      <p class="main-title-b main-title-b2 container">프로젝트 팀</p>
-      <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
-      <p class="sub-title-b container">각 분야에는 프로젝트를 진행하는 다수의 팀이 있으며
-        <br>해당 팀은 멘토와 멘티로 구성되어 있습니다.</p>
+        <p class="main-title-b main-title-b2 container">프로젝트 팀</p>
+        <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
+        <p class="sub-title-b container">각 분야에는 프로젝트를 진행하는 다수의 팀이 있으며
+            <br>해당 팀은 멘토와 멘티로 구성되어 있습니다.</p>
 
-      <div>
-        <div class="row ">
-          <div class="col-sm-4 overlay-container">
-            <img src="img/eximg.jpg" alt="" class="eximg">
-            <div class="overlay-1">
-              <div class="overlay-text">
-                <p class="o-p">웹 프로젝트</p>
-                <p class="o-pp">Frontend, Backend 각 분야<br>다양한 멘토들로 구성된 웹 개발 파트</p>
-                <a href="/portfolio" class="btn-white-top-overlay scroll">웹 포트폴리오</a>
-              </div>
+        <div>
+            <div class="row ">
+                <div class="col-sm-4 overlay-container">
+                    <img src="img/eximg.jpg" alt="" class="eximg">
+                    <div class="overlay-1">
+                        <div class="overlay-text">
+                            <p class="o-p">웹 프로젝트</p>
+                            <p class="o-pp">Frontend, Backend 각 분야
+                                <br>다양한 멘토들로 구성된 웹 개발 파트</p>
+                            <a href="/portfolio" class="btn-white-top-overlay scroll">웹 포트폴리오</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 overlay-container">
+                    <img src="img/eximg.jpg" alt="" class="eximg">
+                    <div class="overlay-1">
+                        <div class="overlay-text">
+                            <p class="o-p">앱 프로젝트</p>
+                            <p class="o-pp">앱 개발 멘토와 UXUI 멘토로
+                                <br>구성된 앱 개발 파트</p>
+                            <a href="/portfolio" class="btn-white-top-overlay scroll">앱 포트폴리오</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 overlay-container">
+                    <img src="img/eximg.jpg" alt="" class="eximg">
+                    <div class="overlay-1">
+                        <div class="overlay-text">
+                            <p class="o-p">딥러닝 프로젝트</p>
+                            <p class="o-pp">프로그라피에서 가장 활발하게 진행된
+                                <br>파이썬을 기반의 딥러닝 프로젝트</p>
+                            <a href="/portfolio" class="btn-white-top-overlay scroll">딥 포트폴리오</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-
-          <div class="col-sm-4 overlay-container">
-            <img src="img/eximg.jpg" alt="" class="eximg">
-            <div class="overlay-1">
-              <div class="overlay-text">
-                <p class="o-p">앱 프로젝트</p>
-                <p class="o-pp">앱 개발 멘토와 UXUI 멘토로<br>구성된 앱 개발 파트</p>
-                <a href="/portfolio" class="btn-white-top-overlay scroll">앱 포트폴리오</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 overlay-container">
-            <img src="img/eximg.jpg" alt="" class="eximg">
-            <div class="overlay-1">
-              <div class="overlay-text">
-                <p class="o-p">딥러닝 프로젝트</p>
-                <p class="o-pp">프로그라피에서 가장 활발하게 진행된<br>파이썬을 기반의 딥러닝 프로젝트</p>
-                <a href="/portfolio" class="btn-white-top-overlay scroll">딥 포트폴리오</a>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
     </section>
-
-
-
 
     <!--그렇게-->
     <section>
-      <p class="main-title-b main-title-b3 container">그렇게,</p>
-      <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
-      <p class="sub-title-b container">현재까지 <strong style="font-size:20px;"> 120명 </strong>의
-        프로그라피들이 <strong style="font-size:20px;"> 20개 </strong>의 프로젝트를 진행했으며<br>
-        쉬지 않고 계속해서 프로젝트는 진행됩니다!</p>
-      <div class="margin-top-20 container">
-        <a href="/history" class="btn-pink-big scroll">히스토리</a>
-      </div>
-
-      <div style="width: 100%; height:600px; position:relative;">
-        <div style="position:absolute; top:0px; width: 100%;">
-          <div class="bg-img4"></div>
+        <p class="main-title-b main-title-b3 container">그렇게,</p>
+        <div class="w3-border-top w3-border-lightgray" style=" width: 40%; margin-bottom:20px;"></div>
+        <p class="sub-title-b container">현재까지 <strong style="font-size:20px;"> 120명 </strong>의 프로그라피들이 <strong style="font-size:20px;"> 20개 </strong>의 프로젝트를 진행했으며
+            <br> 쉬지 않고 계속해서 프로젝트는 진행됩니다!</p>
+        <div class="margin-top-20 container">
+            <a href="/history" class="btn-pink-big scroll">히스토리</a>
         </div>
-      </div>
 
-      <!--왼쪽으로 치우친
+        <div style="width: 100%; height:600px; position:relative;">
+            <div style="position:absolute; top:0px; width: 100%;">
+                <div class="bg-img4"></div>
+            </div>
+        </div>
+
+        <!--왼쪽으로 치우친
       <div style="width: 100%; height:600px; position:relative; margin-left:-20px;">
         <div class="container-fluid">
           <div style="position:absolute; top:0px;">
@@ -189,68 +130,4 @@
       </div>-->
     </section>
 
-
-
-
-
-
-<!--.........................................................................................-->
-
-    <!-- footer -->
-    <footer class="text-center" style="margin-top:30px;">
-      <a class="up-arrow arrow-margin top" href="#" data-toggle="tooltip" title="TO TOP">
-        <span class="glyphicon glyphicon-chevron-up glyphicon-pink"></span></a><br><br>
-      <img src="img/logo-03.svg" alt="Prography-logo" class="footer-logo-img">
-      <h6 style="margin-bottom:20px">프로그라피 / Prography</h6>
-
-      <div class="basic-button">
-        <a href="/login" class="light-btn">Admin Page</a>
-        <a href="#" class="light-btn">Prograpfeed</a>
-      </div>
-
-      <p class="p-p"><small>E:prography@gmail.com</small></p>
-      <p class="p-p"><small>F:facebook.com/prography</small></p>
-      <p class="p-p"><small>I:instagram.com/prography</small></p>
-      <br>
-      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-      <br>
-    </footer>
-    <!-- footer end -->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <!--.........................................................................................-->
-    <script type="text/javascript" src="js/master.js"></script>
-    <script type="text/javascript" src="./js/vinyli.viSimpleSlider.js"></script>
-    <script type="text/javascript" src="js/index-nav.js"></script>
-
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->
+    <% include common/footer %>
