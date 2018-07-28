@@ -58,13 +58,14 @@
                         <td class="td-3" style="background-color:#0a88a7; opacity:0.8; color:#fff; padding:10px;">이름</td>
                         <td class="td-2" style="background-color:#0a88a7; opacity:0.6; color:#fff; padding:10px;">지원분야</td>
                       </tr>
-                      <% data.forEach(function (applicant) { %>
+                      <% data.forEach(function (applicant, index) { %>
+                      <% if(index % 2 == 0) { %>
                         <tr class="tbody applicant" id="<%= applicant.application_id %>"> 
                             <td class="td-3" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.application_id %></span></td>
                             <td class="td-3" style="background-color:#fff; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.name %></span></td>
                             <td class="td-2" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.field %></span></td>
                         </tr>
-                      <% }) %>  
+                      <% }}) %>  
                     </tbody>
                   </table>
                 </form>
@@ -79,13 +80,14 @@
                         <td class="td-3" style="background-color:#0a88a7; opacity:0.8; color:#fff; padding:10px;">이름</td>
                         <td class="td-2" style="background-color:#0a88a7; opacity:0.6; color:#fff; padding:10px;">지원분야</td>
                       </tr>
-                      <% data.forEach(function (applicant) { %> 
+                      <% data.forEach(function (applicant, index) { %> 
+                      <% if(index % 2 == 1) { %>
                         <tr class="tbody applicant" id="<%= applicant.application_id %>"> 
                             <td class="td-3" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.application_id %></span></td>
                             <td class="td-3" style="background-color:#fff; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.name %></span></td>
                             <td class="td-2" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><span><%= applicant.field %></span></td>
                         </tr>
-                      <% }) %>  
+                      <% }}) %>  
                     </tbody>
                   </table>
                 </form>

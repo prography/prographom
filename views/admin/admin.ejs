@@ -227,16 +227,20 @@ $(document).ready(function() {
 				//q7, q8
 				if (application["q7"] == 1) {
 					document.forms["ot"+i]["ot_attend"].checked=true;
+					document.forms["ot"+i]["ot_absent"].disabled=true;
 				}
 				else {
 					document.forms["ot"+i]["ot_absent"].checked=true;
+					document.forms["ot"+i]["ot_attend"].disabled=true;
 				}
 
 				if (application["q8"] == 1) {
 					document.forms["mt"+i]["mt_attend"].checked=true;
+					document.forms["mt"+i]["mt_absent"].disabled=true;
 				}
 				else {
 					document.forms["mt"+i]["mt_absent"].checked=true;
+					document.forms["mt"+i]["mt_attend"].disabled=true;
                 }
 			  }
 			  
@@ -755,22 +759,6 @@ $(document).ready(function() {
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
     <!--.................................................................................................... -->
     <!-- footer -->
@@ -788,34 +776,3 @@ $(document).ready(function() {
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->

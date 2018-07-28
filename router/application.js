@@ -64,8 +64,6 @@ router.get('/', function(req ,res){
      require('date-utils');
         var id=req.query.id;
 		var user=reverseHash(id);
-		var url_id = req.query.id;
-		var url_email = reverseHash(id);
 		
         var answers=[];
          var newDate = new Date();
@@ -80,7 +78,7 @@ router.get('/', function(req ,res){
 			client.query(`SELECT submit FROM Applications WHERE id = ?`, [user], function(error, result){
 				if (error) console.log(error);
 				else {
-					if (result[0].submit == 1){
+					if (result.length !=0 && result[0].submit == 1){
 						res.render('application-reject');
 					}
 				}
@@ -96,7 +94,7 @@ router.get('/', function(req ,res){
 				  if (error) console.log(error);
 				  else {
 					  if (results.length == 0){
-						  res.render('application');
+						  res.render('application', {'data':{'email':user}, 'data2':[{},{},{},{},{},{},{}]});
 					  }
 					  var data = results[0];
 					  
@@ -260,7 +258,7 @@ router.get('/', function(req ,res){
 						update2[k] = null;
 					}
 				}
-					
+		        console.log(update1);			
 				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q7=?, q8=? WHERE id=?`, update1, function(error, result) {
 					if (error)
 						console.log("Error in UPDATE Applications!");
@@ -298,7 +296,7 @@ router.get('/', function(req ,res){
 											if (isSubmit == 1){
 												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
 													//console.log("3. " + result);
-													res.sendStatus(200);
+													res.redirect('/');
 												});
 											}
 											else {
