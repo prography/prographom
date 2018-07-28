@@ -17,7 +17,7 @@ client.connect(function (err) {
 
 router.get('/', function(req, res) {
     var id = req.query.id;
-    var sql = `SELECT name, sex, birth, phone, college, address, field, email, q1, q2, q3, q5, q7, q8
+    var sql = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') as birth, phone, college, address, field, email, q1, q2, q3, q5, q7, q8
     FROM Applications, Applicants
     WHERE Applications.id = Applicants.email and Applicants.application_id=?`;
     
