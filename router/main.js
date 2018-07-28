@@ -21,7 +21,7 @@ function hash(email){
     return sha256("pRoG" + email + "rApHy");
 }
 function verify_user(id, pw){
-    if (id == "웹팀이" && pw == "1등이야") {
+    if (id == "webteam" && pw == "isbest") {
         return true;
     } else {
         return false;
@@ -76,16 +76,27 @@ module.exports = function(app)
         res.render('product')
     });
     app.get('/login', function(req, res) {
-        res.render('login')
+        res.render('login', {'data': {}})
     });
 	app.post('/login', function(req, res){
 		var body = req.body;
 		if (verify_user(body.admin_id, body.admin_pw)){
-			res.render('admin-total');
+			var body = req.body;
+			var sql = `SELECT application_id, email, name, field
+				FROM Applications, Applicants 
+				WHERE Applications.id = Applicants.email`;
+
+			client.query(sql, function (error, results) {
+				if (error){
+					console.log(error);
+				} else {
+					// console.log(results);
+					res.render('admin/admin-total', {data: results});
+				}
+			});
 		}
 		else {
-			res.send('<script type="text/javascript">alert("아이디와 비밀 번호가 일치하지 않습니다.");</script>');
-			res.redirect('login');
+			res.render('login', {'data': '<script type="text/javascript">alert("아이디와 비밀 번호가 일치하지 않습니다.");</script>'});
 		}
 	});
     app.use('/admin', admin);

@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
             <div class="login-form col-sm-6">
-                <form action="/admin" method="post" class="form-horizontal">
+                <form method="post" class="form-horizontal">
                     <label for="admin-id">Admin ID</label>
                     <input type="text" class="login-input" id="admin_id" name="admin_id" placeholder="운영진 아이디를 입력하세요">
 
@@ -83,6 +83,12 @@
 
     <script type="text/javascript" src="js/master.js"></script>
     <script type="text/javascript" src="js/basic-nav.js"></script>
+	<script>
+		window.onload = function () {
+			if (<%=data%>)
+				alert(<%=data%>);
+		}
+	</script>
 
 </body>
 
