@@ -9,6 +9,11 @@ var qs = require('querystring');
 var path = require('path');
 var params = require('params');
 
+var hashMap={}
+module.exports={
+  hashMap:hashMap
+}
+
 function reverseHash(id){
     return hashMap[id];
 }
@@ -51,6 +56,7 @@ var sha256 = require('js-sha256');
 
 var admin = require('./admin.js');
 var application = require('./application.js');
+var application_specific = require('./application-specific.js');
 var recruit = require('./recruit.js');
 var send = require('./send.js');
 var verify = require('./verify.js');
@@ -74,26 +80,53 @@ module.exports = function(app)
     });
     app.use('/admin', admin);
     app.use('/application', application);
+    app.use('/application-specific', application_specific);
     app.use('/recruit', recruit);
     app.use('/send', send);
     app.use('/verify', verify);
-
     app.get('/recruit-fin', function(req, res) {
       res.render('recruit/recruit-fin');
     });
 
     app.get('/check_result1', function(req, res){
-        var email = req.query.email;
-        var query = "SELECT survived FROM Applicants WHERE email = '"+email+"'";
+        var email = req.query.email
+		var query = "SELECT survived, name FROM Applicants WHERE email = '"+email+"'";
         client.query(query, function(error, result){
             if (error){
-                console.log(error);
+                console.log('에러');
             } else {
-                survived = JSON.stringify(result[0]['survived']);
-                res.send( survived);
+                res.send(result);
+
             }
         });
     });
+
+    app.post('/inputTime', function(req, res){
+        var day = req.body.day;
+        var hour = req.body.hour;
+        var min = req.body.min;
+        var email = req.body.email;
+        console.log(day);
+        console.log(hour);
+        console.log(min);
+        console.log(email);
+
+
+        var query = "UPDATE Applications SET interview_date = "+day+", interview_hour = "+hour+", interview_min = "+min+" WHERE id = '"+email+"'";
+        console.log('쿼리문성공');
+        client.query(query, function(error, result){
+            if (error){
+                console.log('에러');
+                console.log(error);
+            }
+            else {
+                console.log('mainelse성공');
+                res.send(result);
+            }
+        });
+    });
+
+
 
     app.get('/recruit-result1', function(req, res) {
       res.render('recruit/recruit-result1');
@@ -112,9 +145,4 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout')
     });
-	// 나중에 지울 것
-	app.get('/application-reject', function(req, res){
-		res.render('application-reject');
-	});
-	
 };

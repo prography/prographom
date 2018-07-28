@@ -2,22 +2,52 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-var hashMap={}
+var hashMap=require("./main.js").hashMap;
+function reverseHash(id){
+    return hashMap[id];
+}
+/* router.get('/', function(req ,res){
+    // 정보가 있으면 select, 없으면 그냥~~
+    require('date-utils');
+    //var id = req.query.id;
+    //var user = reverseHash(id);
+    var answers = ['blah1', 'blah2', 'blah3', 'blah4'];
+    var newDate = new Date();
+    var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
+    var user = 'yesung000@naver.com';
+    var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
 
-var client = mysql.createConnection({
-    host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
-    user : 'root',
-    password : '',
-    database : 'prography',
-    multipleStatements: true
-});
+    //find the user info by the id from database
 
-client.connect(function (err) {
-    if (err) throw err;
-   // console.log("Connected!");
-});
+    data={
+        user,
+        id,
+        answers
+    }
+    console.log(data);
+    //
+    // console.log(time); // remove
+    // apply 진행 중
+    if (id in hashMap) {
+        if (time < '2018-08-01 00:00:00') res.render('application', data);
+        // after apply
+        else if (time < '2018-08-07 00:00:00')
+        res.render('recruit/recruit-fin', data);
+        // 1차 발표
+        else if (time < '2018-07-09 00:00:00')
+        res.render('recruit/recruit-result1', data);
+        // 2차 발표
+        else
+        res.render('application',data);
+    } else {
+        res.send('<h1>no id</h1>');
+    }
+
+}); */
 
 router.get('/', function(req ,res){
+      // 정보가 있으면 select, 없으면 그냥~~
+      console.log(hashMap);
      require('date-utils');
         var id=req.query.id;
 		var user=reverseHash(id);
@@ -27,7 +57,7 @@ router.get('/', function(req ,res){
         var answers=[];
          var newDate = new Date();
           var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-	
+
        // apply 진행 중
        if(id in hashMap){
 		if (true) {
@@ -89,7 +119,6 @@ router.get('/', function(req ,res){
        else{
           res.send('<h1>no id</h1>');
 		}
-		
 	  }
 	});
 
@@ -140,8 +169,6 @@ router.get('/', function(req ,res){
 		var update2 = [body.name, body.phone, id];
 		var update3 = [body.q4_field, body.term, body.activity, id];
 		
-		console.log("q4 = " + q4);
-		
 		// record가 있는지 없는지 select문으로 체크
 		client.query(`SELECT * FROM Applications WHERE id = ?`, params1, function(error, result){
 			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
@@ -191,9 +218,9 @@ router.get('/', function(req ,res){
 					}
 				});
 			}
-			
-			
-			
+
+
+
 			// 해당 id가 db에 존재하면 update
 			else {
 				/*
@@ -214,7 +241,7 @@ router.get('/', function(req ,res){
 						update1[k] = null;
 					}
 				}
-				
+
 				for (var k=0; k<2; k++){
 					if (update2[k] == ''){
 						update2[k] = null;

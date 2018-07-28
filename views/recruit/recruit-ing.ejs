@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/btn.css">
-	
-	<% include ../common/var_header %>
-	<meta property="og:title" content="지원하기" />
-	
-    <title>지원하기</title>
+
+    <% include ../common/var_header %>
+        <meta property="og:title" content="지원하기" />
+
+        <title>지원하기</title>
 </head>
 
 <body id="mypage" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -59,7 +59,7 @@
     <!--.........................................................................................-->
     <section>
         <div class="banner">
-            <div class="bg-img">
+            <div class="re-bg-img">
             </div>
         </div>
         <div class="container">
@@ -94,14 +94,14 @@
 
             <div id="process" class="tab-pane fade in active tab-box-pad">
                 <!--이미지 넣기-->
-                <img src="img/empty-img.jpg" alt="2th poster" class="tab-img img-responsive">
+                <img src="img/apply_process.jpg" alt="2th poster" class="tab-img img-responsive">
             </div>
 
             <div id="notice" class="tab-pane fade tab-box-pad">
                 <!--이미지 넣기-->
-				<div class="q1">
+                <div class="q1">
                     <button onclick="myFunction('notice1')" class="w3-button w3-block w3-left-align">
-                        프로그라피 홈페이지 신버전 오픈했습니다.</button>
+                        1) 프로그라피 홈페이지 신버전 오픈했습니다.</button>
                     <div id="notice1" class="w3-hide w3-container">
                         <p style="margin:10px;">└　많은 이용 바랍니다.</p>
                     </div>
@@ -109,12 +109,20 @@
 
                 <div class="q2">
                     <button onclick="myFunction('notice2')" class="w3-button w3-block w3-left-align">
-                        3기 멘토를 모집합니다.</button>
+                        2) 3기 멘토를 모집합니다.</button>
                     <div id="notice2" class="w3-hide w3-container">
                         <p style="margin:10px;">└　멘토에 관심이 있다면 지원해보세요!</p>
                     </div>
                 </div>
-				
+
+                <div class="q3">
+                    <button onclick="myFunction('notice3')" class="w3-button w3-block w3-left-align">
+                        3) 프로그라피 3기 회원을 모집합니다. </button>
+                    <div id="notice3" class="w3-hide w3-container">
+                        <p style="margin:10px;">└　궁금한 사항이 있으시다면, 우측하단 채팅으로 질문주시면 대답 드립니다.</p>
+                    </div>
+                </div>
+
             </div>
 
             <div id="question" class="tab-pane fade tab-box-pad">
@@ -123,8 +131,8 @@
                     <button onclick="myFunction('accordion1')" class="w3-button w3-block w3-left-align">
                         Q. 면접은 어떻게 진행이 되나요?</button>
                     <div id="accordion1" class="w3-hide w3-container">
-                        <p style="margin:10px;">└　앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!
-                            <br>면접은 다수대 다수로 진행이 되고, 약 20분정도 소요가 된답니다(찡긋)</p>
+                        <p style="margin:10px;">A.　앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!
+                            <br>　　면접은 다수대 다수로 진행이 되고, 약 20분정도 소요가 된답니다(찡긋)</p>
                     </div>
                 </div>
 
@@ -132,8 +140,17 @@
                     <button onclick="myFunction('accordion2')" class="w3-button w3-block w3-left-align">
                         Q. 면접준비는 어떻게 할까요?</button>
                     <div id="accordion2" class="w3-hide w3-container">
-                        <p style="margin:10px;">└　앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!
-                            <br>면접은 지원서 토대로 질문드리는 개인 질문과 모두에게 통일된 질문을 드리는 공통질문이 있습니다.(찡긋)</p>
+                        <p style="margin:10px;">A.　앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!
+                            <br>　　면접은 지원서 토대로 질문드리는 개인 질문과 모두에게 통일된 질문을 드리는 공통질문이 있습니다.(찡긋)</p>
+                    </div>
+                </div>
+
+                <div class="q3">
+                    <button onclick="myFunction('accordion3')" class="w3-button w3-block w3-left-align">
+                        Q. 몇명 뽑나요?</button>
+                    <div id="accordion3" class="w3-hide w3-container">
+                        <p style="margin:10px;">A.　앗, 그점이 궁금하셨군요? 친절한 라피가 알려드리지요!
+                            <br>　　3기 인원은 30명 정도로 생각하고 있으며, 지원분야에 따라 인원을 정해놓지는 않습니다.</p>
                     </div>
                 </div>
             </div>
@@ -153,19 +170,10 @@
                 <div class="input-group">
                     <input type="text" class="form-control input-lg btn-white-nohover" placeholder="지원자의 메일을 적어주세요" id="email_to">
                     <div class="input-group-btn">
-                        <button class="btn btn-default input-lg btn-pink-small" type="button" onclick="send_email()">Send Email
-                            <p id="mail_success_message"></p>
-                            <!--버튼 안에 넣어야 안깨짐-->
-                        </button>
+                        <button class="btn btn-default input-lg btn-pink-small" type="button" data-toggle="modal" data-target="#exampleModalCenter1" onclick="send_email()">Send Email</button>
                     </div>
 
                 </div>
-
-                <style>
-                    #mail_success_message {
-                        text-align: center;
-                    }
-                </style>
                 <!-- </form> -->
             </div>
         </div>
@@ -174,12 +182,32 @@
         <span class="help-block text-center" style="margin-top:20px; color:gray; font-size:14px;">
         * 해당 메일로 지원서가 보내집니다 / 지원서는 00일까지 접수 가능합니다</span>
     </section>
+
     <!--.........................................................................................-->
     <div class="box" style="height:200px;"></div>
     <!-- 중간에 띄어놓음 -->
 
     <!--.........................................................................................-->
     <!--.........................................................................................-->
+    <!-- Modal-alert -->
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>알림</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="mail_success_message" style="text-align: center"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--.........................................................................................-->
     <!-- footer -->
     <footer class="text-center">
