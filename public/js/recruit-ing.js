@@ -17,7 +17,7 @@ function send_email() {
             $("#mail_success_message").html("메일 전송에 실패했습니다. 메일 주소를 확인해주세요.");
         },
         success: function(data) {
-
+            console.log(data);
             // $("#mail_success_message").css('display', '');
             $("#mail_success_message").html("이메일이 전송되었습니다.");
         }

@@ -1,6 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
+var nodemailer=require("nodemailer");
+var smtpTransport = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+        user: "prography.verify",
+        pass: "verify.test"
+    }
+});
+
+var rand,mailOptions,host,link;
+var sha256 = require('js-sha256');
+
+
+hashMap = {}
+
+function hash(email){
+    return sha256("pRoG" + email + "rApHy");
+}
+
 router.post('/',function(req,res){
     email_to = req.body.email_to;
     rand = hash(email_to);
@@ -22,8 +41,8 @@ router.post('/',function(req,res){
     // console.log(mailOptions);
     smtpTransport.sendMail(mailOptions, function(error, response){
         if (error) {
-            // console.log(error);
-            // res.send("error");
+            console.log(error);
+            res.send("error");
         } else {
             console.log("Message sent: " + response.message);
             res.send("success");

@@ -47,11 +47,11 @@ router.get('/', function(req, res) {
             if (error){
                 console.log(error);
             } else {
-                res.render('admin', {data:results});
+                res.render('admin/admin', {data:results});
             }
         });
     } else if(req.query.filter=="result"){
-        res.render('admin-result')
+        res.render('admin/admin-result')
     }
 });
 
