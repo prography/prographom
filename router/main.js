@@ -78,6 +78,16 @@ module.exports = function(app)
     app.get('/login', function(req, res) {
         res.render('login')
     });
+	app.post('/login', function(req, res){
+		var body = req.body;
+		if (verify_user(body.admin_id, body.admin_pw)){
+			res.render('admin-total');
+		}
+		else {
+			res.send('<script type="text/javascript">alert("아이디와 비밀 번호가 일치하지 않습니다.");</script>');
+			res.redirect('login');
+		}
+	});
     app.use('/admin', admin);
     app.use('/application', application);
     app.use('/application-specific', application_specific);
