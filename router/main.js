@@ -9,6 +9,11 @@ var qs = require('querystring');
 var path = require('path');
 var params = require('params');
 
+var hashMap={}
+module.exports={
+  hashMap:hashMap
+}
+
 function reverseHash(id){
     return hashMap[id];
 }
@@ -96,7 +101,7 @@ module.exports = function(app)
             }
         });
     });
-    
+
     app.post('/inputTime', function(req, res){
         var day = req.body.day;
         var hour = req.body.hour;
@@ -107,7 +112,7 @@ module.exports = function(app)
         console.log(min);
         console.log(email);
 
-        
+
         var query = "UPDATE Applications SET interview_date = "+day+", interview_hour = "+hour+", interview_min = "+min+" WHERE id = '"+email+"'";
         console.log('쿼리문성공');
         client.query(query, function(error, result){
@@ -141,7 +146,5 @@ module.exports = function(app)
     app.get('/layout', function(req, res) {
       res.render('layout')
     });
-	
+
 };
-
-

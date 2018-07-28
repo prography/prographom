@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var hashMap={}
-
+var hashMap=require("./main.js").hashMap;
+function reverseHash(id){
+    return hashMap[id];
+}
 /* router.get('/', function(req ,res){
     // 정보가 있으면 select, 없으면 그냥~~
     require('date-utils');
@@ -10,10 +12,10 @@ var hashMap={}
     //var user = reverseHash(id);
     var answers = ['blah1', 'blah2', 'blah3', 'blah4'];
     var newDate = new Date();
-    var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');       
+    var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
     var user = 'yesung000@naver.com';
     var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
-    
+
     //find the user info by the id from database
 
     data={
@@ -39,20 +41,21 @@ var hashMap={}
     } else {
         res.send('<h1>no id</h1>');
     }
-    
+
 }); */
 
 router.get('/', function(req ,res){
       // 정보가 있으면 select, 없으면 그냥~~
+      console.log(hashMap);
      require('date-utils');
         //var id=req.query.id;
         //var user=reverseHash(id);
         var answers=['blah1','blah2','blah3','blah4'];
          var newDate = new Date();
           var time = newDate.toFormat('YYYY-MM-DD HH24:MI:SS');
-               
-			   var user = 'yesung000@naver.com';
-			var id = '4182a668a2d3924d6e4c5b1cb4d8e0cd213b9bfb4085e57786f2d182e09a74ca';
+
+			var id = req.query.id;
+      var user = reverseHash(id);
 
       //find the user info by the id from database
 
@@ -86,7 +89,7 @@ router.get('/', function(req ,res){
        else{
           res.send('<h1>no id</h1>');
 		}
-		
+
 	   //}
 	});
 
@@ -104,9 +107,9 @@ router.get('/', function(req ,res){
 		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, id];
 		var update2 = [body.name, body.phone, id];
 		var update3 = [body.q4_field, body.term, body.activity, id];
-		
+
 		console.log(isSubmit);
-		
+
 		var q4_length = 0;
 		//find longest q4 length
 		for (var i=0; i<3; i++){
@@ -118,7 +121,7 @@ router.get('/', function(req ,res){
 			if (temp > q4_length)
 				q4_length = temp;
 		}
-		
+
 		// record가 있는지 없는지 select문으로 체크
 		client.query(`SELECT * FROM Applications WHERE id = ?`, params1, function(error, result){
 			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
@@ -171,9 +174,9 @@ router.get('/', function(req ,res){
 					}
 				});
 			}
-			
-			
-			
+
+
+
 			// 해당 id가 db에 존재하면 update
 			else {
 				for (var k=0; k<9; k++){
@@ -181,13 +184,13 @@ router.get('/', function(req ,res){
 						update1[k] = null;
 					}
 				}
-				
+
 				for (var k=0; k<2; k++){
 					if (update2[k] == ''){
 						update2[k] = null;
 					}
 				}
-					
+
 				client.query(`UPDATE Applications SET sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=? WHERE id=?`, update1, function(error, result) {
 					if (error)
 						console.log("Error in UPDATE Applications!");

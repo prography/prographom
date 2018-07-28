@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var hashMap = require('./main.js').hashMap;
+
 router.get('/',function(req,res){
     console.log(req.protocol+":/" + req.get('host'));
     //if ((req.protocol + "://" + req.get('host')) == ("http://" + host)) {

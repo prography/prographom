@@ -6,7 +6,7 @@ var smtpTransport = nodemailer.createTransport({
     service: "Gmail",
     auth: {
         user: "prography.verify",
-        pass: "verify.test"
+        pass: "verify.test",
     }
 });
 
@@ -14,11 +14,12 @@ var rand,mailOptions,host,link;
 var sha256 = require('js-sha256');
 
 
-hashMap = {}
+var hashMap = require('./main.js').hashMap;
 
 function hash(email){
     return sha256("pRoG" + email + "rApHy");
 }
+
 
 router.post('/',function(req,res){
     email_to = req.body.email_to;
