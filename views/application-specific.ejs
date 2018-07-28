@@ -27,7 +27,7 @@
         <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
         <a href="/admin" class="w3-bar-item w3-button sidebar-font">전체 지원서</a>
         <a href="/admin?filter=interviewTime" class="w3-bar-item w3-button sidebar-font">지원서 확인</a>
-        <a href="/admin?filter=result" class="w3-bar-item w3-button sidebar-font">결과 확인</a>
+        <!--<a href="/admin?filter=result" class="w3-bar-item w3-button sidebar-font">결과 확인</a>-->
         <a href="/" class="w3-bar-item w3-button sidebar-font2">홈페이지</a>
       </div>
     </nav>
@@ -37,7 +37,7 @@
       <div class="w3-teal">
         <button class="w3-button w3-teal w3-xlarge w3-hide-large hh" onclick="w3_open()">&#9776;</button>
         <div class="container">
-          <p class="main-title" style="margin-top:20px;">운영진 페이지 <span class="p-md">- 지원서 확인</span></p>
+          <p class="main-title" style="margin-top:20px;">운영진 페이지 <span class="p-md">- 전체 지원서</span></p>
           <!-- <a class="navbar-brand" href="#"><img src="img/logo-03.svg"
             alt="white-logo" class="logo-img"></a> -->
         </div>
@@ -47,7 +47,7 @@
   <section id="apply" class="show4">
 
     <ul class="nav nav-tabs nav-tabs-d">
-      <li id= "applicant_tab1" class="active tab-33 text-center"-><a class = "tab" data-toggle="tab" href="#applicant1">-</a></li>
+      <li id= "applicant_tab1" class="active tab-33 text-center"-><a class = "tab" data-toggle="tab" href="#applicant1"><%=data.name%></a></li>
     </ul>
 
     <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar" id="tmptmp">
