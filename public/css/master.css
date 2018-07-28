@@ -232,8 +232,8 @@ textarea {
 }
 
 .dropdown-menu li a:hover {
-    background-color: #d81d45 !important;
-    color: #fff!important;
+    background-color: #d81d45 ;
+    color: #fff;
 }
 
 .navbar-inverse .navbar-nav>li>a {

@@ -2,6 +2,19 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
+var client = mysql.createConnection({
+    host: 'ec2-13-125-217-76.ap-northeast-2.compute.amazonaws.com',
+    user : 'root',
+    password : '',
+    database : 'prography',
+    multipleStatements: true
+});
+
+client.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
+
 var hashMap=require("./main.js").hashMap;
 function reverseHash(id){
     return hashMap[id];
