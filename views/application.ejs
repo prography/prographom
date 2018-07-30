@@ -194,19 +194,33 @@
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
               <form action="index.html" method="post">
-                <td class="td-2"><label class="label-circle"><input type="radio" class="ot" name="radio1" value="1">
+                <td class="td-2"><label class="label-circle"><input type="radio" id="ot_attend" class="ot" name="radio1" value="1">
                   <span class="checkmark"></span></label></td>
-                <td class="td-2"><label class="label-circle"><input type="radio" class="ot" name="radio1" value="0">
+                <td class="td-2"><label class="label-circle"><input type="radio" id="ot_absent" class="ot" name="radio1" value="0">
                   <span class="checkmark"></span></label></td>
+                  <script>
+                    if (<%=data.q7%> == 1) { 
+                      $("#ot_attend").click();
+                    } else if (<%=data.q7%> == 0){ 
+                      $("#ot_absent").click();
+                    }
+                  </script>
               </form>
             </tr>
             <tr class="tbody">
               <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
               <form action="index.html" method="post">
-                <td class="td-2"><label class="label-circle"><input type="radio" class="mt" name="radio2" value="1">
+                <td class="td-2"><label class="label-circle"><input type="radio" id="mt_attend" class="mt" name="radio2" value="1">
                   <span class="checkmark"></span></label></td>
-                <td class="td-2"><label class="label-circle"><input type="radio" class="mt" name="radio2" value="0">
+                <td class="td-2"><label class="label-circle"><input type="radio" id="mt_absent" class="mt" name="radio2" value="0">
                   <span class="checkmark"></span></label></td>
+                  <script>
+                    if (<%=data.q8%> == 1) { 
+                      $("#mt_attend").click();
+                    } else if (<%=data.q8%> == 0){ 
+                      $("#mt_absent").click();
+                    }
+                  </script>
               </form>
             </tr>
           </tbody>
@@ -399,7 +413,11 @@
 				name:name, phone:phone, q1:q1, q2:q2, q3:q3, q5:q5, q4_field:q4_field,
 				term:term, activity:activity, q7:q7, q8:q8, isSubmit:isSubmit
 			},
-			dataType:"json"
+			dataType:"json",
+            success: function (data) {
+                console.log('hello');
+                location.href = "/";
+            }
 		});
 	});
 		
@@ -431,30 +449,3 @@
 
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- -->

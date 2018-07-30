@@ -94,7 +94,7 @@ router.get('/', function(req ,res){
 				  if (error) console.log(error);
 				  else {
 					  if (results.length == 0){
-						  res.render('application', {'data':{'email':user}, 'data2':[{},{},{},{},{},{},{}]});
+						  res.render('application', {'data':{'email':user, 'q7':-1, 'q8':-1}, 'data2':[{},{},{},{},{},{},{}]});
 					  }
 					  var data = results[0];
 					  
@@ -179,7 +179,18 @@ router.get('/', function(req ,res){
 		var update1 = [body.sex, body.birth, body.college, body.address, body.field, body.q1, body.q2, body.q3, body.q5, body.q7, body.q8, id];
 		var update2 = [body.name, body.phone, id];
 		var update3 = [body.q4_field, body.term, body.activity, id];
-		
+        
+        for (var k=0; k<12; k++){
+            if (params2[k] == ''){
+                params2[k] = null;
+            }
+        }
+
+        for (var k=0; k<2; k++){
+            if (params3[k] == ''){
+                params3[k] = null;
+            }
+        }	
 		// record가 있는지 없는지 select문으로 체크
 		client.query(`SELECT * FROM Applications WHERE id = ?`, params1, function(error, result){
 			// 해당 id가 db에 존재하지 않으면 모든 내용을 insert
@@ -296,7 +307,7 @@ router.get('/', function(req ,res){
 											if (isSubmit == 1){
 												client.query(`UPDATE Applications SET submit = 1 WHERE id = ?`, params1, function(error, result){
 													//console.log("3. " + result);
-													res.redirect('/');
+													res.sendStatus(200);
 												});
 											}
 											else {

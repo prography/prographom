@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
         //WHERE Applications.id = Q4.application_id`;
         var sql = `SELECT application_id, email, name, field
         FROM Applications, Applicants 
-        WHERE Applications.id = Applicants.email`;
+        WHERE Applications.id = Applicants.email and submit=1`;
 
         client.query(sql, function (error, results) {
             if (error){

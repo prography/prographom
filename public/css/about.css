@@ -82,7 +82,7 @@
 
 .bg-img1{
   width: 100%;
-  height: auto;
+  height: fit-content;
 }
 
 @media only screen and (max-width: 600px) {

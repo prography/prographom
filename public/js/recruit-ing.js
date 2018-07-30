@@ -1,6 +1,14 @@
 function send_email() {
-    // $("#mail_success_message").css('display', '');
+    if($("#email_to").val()){
+		$('#exampleModalCenter1').modal('show');
+	}else{
+		$("#mail_success_message").html("메일을 입력해주세요!");
+		$('#exampleModalCenter1').modal('show');
+		return;
+	}
+		
     $("#mail_success_message").html("메일을 전송 중입니다. 잠시만 기다려주세요.");
+	$(".modal-footer").css("display","none");
 
     var email_to = $("#email_to").val();
     console.log(email_to);
@@ -20,6 +28,7 @@ function send_email() {
             console.log(data);
             // $("#mail_success_message").css('display', '');
             $("#mail_success_message").html("이메일이 전송되었습니다.");
+			$(".modal-footer").css("display","");
         }
     });
 }
