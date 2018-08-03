@@ -94,7 +94,7 @@ router.post('/', function(req, res) {
     client.query(`SELECT * FROM application WHERE email = ?`, [body.email], function (error, result) {
         var query_string = ''
         if (result.length == 0) {
-            query_string = `INSERT INTO application ('` + body.email + `', name, phone, sex, birth, college, address, field, q1, q2, q3, q5, q6, q7, n_th, survived, submit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+            query_string = `INSERT INTO application (email, name, phone, sex, birth, college, address, field, q1, q2, q3, q5, q6, q7, n_th, survived, submit) VALUES ('` + body.email + `', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         } else {
             query_string = `UPDATE application SET name=?, phone=?, sex=?, birth=?, college=?, address=?, field=?, q1=?, q2=?, q3=?, q5=?, q6=?, q7=?, n_th=?, survived=?, submit=? WHERE email = '` + body.email + `'`;
             if (q4_exists) query_string += `; DELETE FROM q4 WHERE email = '` + body.email + `'`;
