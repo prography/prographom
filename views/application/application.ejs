@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="css/input.css">
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/btn.css">
-
-    <% include ../common/var_header %>
-	<meta property="og:title" content="<%=n_th%>기 지원서 작성" />
-	<% include ../common/var_etc_header.ejs %>
+<% include common/head_header %><meta property="og:title" content="<%=n_th%>기 지원서 작성" /><% include common/body_header %>
+    <link rel="stylesheet" href="css/history.css">
     <title><%=n_th%>기 지원서 작성</title>
-	
-</head>
-
-<body style="background-color:#f9f9f9;">
-    <!--.................................................................................................... -->
+   
     <div class="box" style="height:100px;"></div>
-    <!-- 중간에 띄어놓음 -->
-
     <section id="banner" class="container per-80">
         <form method="post" action="/application">
 
@@ -292,95 +267,79 @@
                 <!--마지막 안내 사항-->
                 <p class="explain text-center">
                     제출 전까지 <strong>'SAVE'</strong>로 작성하신 부분까지 저장하시고, 최종 제출 시에만 <strong>'SUBMIT'</strong>으로 최종 제출하세요!
-    
-                    <!-- Button trigger modal -->
-                    <div class="basic-button" style="width:150px; margin:0 auto; margin-top:30px;">
-                        <button type="button" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1" id="saveButton">SAVE</button>
-                        <button type="button" name="pre-submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
-                    </div>
+                </p>    
+                <!-- Button trigger modal -->
+                <div class="basic-button" style="width:150px; margin:0 auto; margin-top:30px;">
+                    <button type="button" name="save" class="orange-btn fixed-button" data-toggle="modal" data-target="#exampleModalCenter1" id="saveButton">SAVE</button>
+                    <button type="button" name="pre-submit" class="blue-btn" data-toggle="modal" data-target="#exampleModalCenter2">SUBMIT</button>
+                </div>
 
-                    <!-- Modal-alert -->
-                    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle1">지원서 중간 저장</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    성공적으로 저장되었습니다.
-                                    <br> 9월1일까지 최종제출을 잊지마세요! ღ'ᴗ'ღ
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
+                <!-- Modal-alert -->
+                <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle1">지원서 중간 저장</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                성공적으로 저장되었습니다.
+                                <br> 9월1일까지 최종제출을 잊지마세요! ღ'ᴗ'ღ
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Modal confirm-->
-                    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle2">지원서 최종 제출</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    지원서를 제출하시겠습니까?
-                                    <br>최종 제출하시면 더 이상 수정이 불가합니다!
-                                    <br>
-                                    <br>아직 제출하실 준비가 안되셨다면, 우선 SAVE 해두셔도 좋습니다.
-                                </div>
+                <!-- Modal confirm-->
+                <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle2">지원서 최종 제출</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                지원서를 제출하시겠습니까?
+                                <br>최종 제출하시면 더 이상 수정이 불가합니다!
+                                <br>
+                                <br>아직 제출하실 준비가 안되셨다면, 우선 SAVE 해두셔도 좋습니다.
+                            </div>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication" data-dismiss="modal" id="submitButton">최종 제출하기</button>
-                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#submitapplication" data-dismiss="modal" id="submitButton">최종 제출하기</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Modal confirm close-->
-                    <div class="modal fade" id="submitapplication" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle3" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle3">지원서 최종 제출 </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div id="submitapplication-modal-body" class="modal-body">제출 완료!</div>
-                                <div class="modal-footer">
-                                    <button type="button" id="complete_submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
+                <!-- Modal confirm close-->
+                <div class="modal fade" id="submitapplication" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle3" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle3">지원서 최종 제출 </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div id="submitapplication-modal-body" class="modal-body">제출 완료!</div>
+                            <div class="modal-footer">
+                                <button type="button" id="complete_submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </form>
-
     </section>
-    <!--.................................................................................................... -->
-
     <div class="box" style="height:150px;"></div>
-    <!-- 중간에 띄어놓음 -->
-
-    <!--.................................................................................................... -->
-    <!-- footer -->
-    <section class="text-center">
-        <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-        <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-        <br>
-        <div class="box" style="height:20px;"></div>
-        <!-- 중간에 띄어놓음 -->
-    </section>
-    <!-- footer end -->
-    <script type="text/javascript" src="js/master.js"></script>
     <script type="text/javascript" src="js/application.js"></script>
-</body>
-</html>
+<% include common/footer %>

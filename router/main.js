@@ -24,10 +24,10 @@ module.exports = {
   dates: dates
 }
 
-var application = require('./application.js');
-var admin = require('./admin.js');
-var recruit = require('./recruit.js');
 var send = require('./send.js');
+var application = require('./application.js');
+var recruit = require('./recruit.js');
+var admin = require('./admin.js');
 
 module.exports = function(app)
 {
@@ -46,43 +46,9 @@ module.exports = function(app)
     app.get('/history', function (req, res) {
         res.render('history')
     });
-
-    app.use('/application', application);
-    app.use('/admin', admin);
-    app.use('/recruit', recruit);
+    
     app.use('/send', send);
-
-    app.get('/check_result1', function(req, res){
-        var email = req.query.email;
-        var query = `SELECT survived, name FROM application WHERE email = '` + email + `'`;
-        client.query(query, function(error, result){
-            if (error){
-                console.log(error);
-            }
-            else {
-                res.send(result);
-            }
-        });
-    });
-
-    app.post('/inputTime', function(req, res){
-        var day = req.body.day;
-        var hour = req.body.hour;
-        var min = req.body.min;
-        var email = req.body.email;
-
-        var query = "UPDATE Applications SET interview_date = "+day+", interview_hour = "+hour+", interview_min = "+min+" WHERE id = '"+email+"'";
-        console.log('쿼리문성공');
-        client.query(query, function(error, result){
-            if (error){
-                console.log('에러');
-                console.log(error);
-            }
-            else {
-                console.log('mainelse성공');
-                res.send(result);
-            }
-        });
-    });
-
+    app.use('/application', application);
+    app.use('/recruit', recruit);
+    app.use('/admin', admin);
 };
