@@ -1,12 +1,3 @@
-/*
-button
-radio btn
-fixed-btn
-*/
-
-
-/*-------- button --------*/
-
 .btn-white {
     padding: 5px 50px;
     border-radius: 20px;
@@ -214,7 +205,6 @@ a[target="_blank"] {
     color: #fff;
 }
 
-
 /*-------- radio-btn --------*/
 
 .label-circle {
@@ -226,7 +216,6 @@ a[target="_blank"] {
     user-select: none;
 }
 
-
 /* Hide the browser's default radio button */
 
 .label-circle input {
@@ -234,7 +223,6 @@ a[target="_blank"] {
     opacity: 0;
     cursor: pointer;
 }
-
 
 /* Create a custom radio button */
 
@@ -248,20 +236,17 @@ a[target="_blank"] {
     border-radius: 50%;
 }
 
-
 /* On mouse-over, add a grey background color */
 
 .label-circle:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
-
 /* When the radio button is checked, add a blue background */
 
 .label-circle input:checked ~ .checkmark {
     background-color: #ff7e28;
 }
-
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 
@@ -270,7 +255,6 @@ a[target="_blank"] {
     position: absolute;
     display: none;
 }
-
 
 /* Show the indicator (dot/circle) when checked */
 
@@ -290,9 +274,6 @@ a[target="_blank"] {
     background: white;
 }
 
-
-/*....................................................*/
-
 .light-btn {
     font-size: 12px;
     color: #fff;
@@ -310,8 +291,7 @@ a[target="_blank"] {
     text-decoration: none;
 }
 
-
-/*동그란 버튼들*/
+/*-------- round btns --------*/
 
 .gray-btn {
     font-size: 15px;
@@ -333,9 +313,6 @@ a[target="_blank"] {
     font-weight: 700;
 }
 
-
-/*동그란 버튼들*/
-
 .deep-gray-btn {
     font-size: 15px;
     color: #fff;
@@ -355,32 +332,6 @@ a[target="_blank"] {
     text-decoration: none;
     text-decoration: line-through;
 }
-
-
-/*길죽한 버튼들*/
-
-.blue-btn {
-    font-size: 14px;
-    color: #fff;
-    background-color: #0a88a7;
-    border: 0.5px solid #30aecd;
-    border-radius: 100px;
-    width: 150px;
-    height: 50px;
-    /*padding: 30px 30px 30px 30px;*/
-    margin-left: 5px;
-    margin-right: 5px;
-    transition: 0.5s ease;
-}
-
-.blue-btn:hover {
-    color: #0a88a7;
-    background-color: #fff;
-    font-weight: 700;
-}
-
-
-/*동그란 버튼들*/
 
 .orange-btn {
     font-size: 14px;
@@ -418,6 +369,27 @@ a[target="_blank"] {
     font-weight: 700;
 }
 
+/*-------- long btns --------*/
+
+.blue-btn {
+    font-size: 14px;
+    color: #fff;
+    background-color: #0a88a7;
+    border: 0.5px solid #30aecd;
+    border-radius: 100px;
+    width: 150px;
+    height: 50px;
+    /*padding: 30px 30px 30px 30px;*/
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: 0.5s ease;
+}
+
+.blue-btn:hover {
+    color: #0a88a7;
+    background-color: #fff;
+    font-weight: 700;
+}
 
 /*-------- submit-btn --------*/
 
@@ -434,6 +406,3 @@ a[target="_blank"] {
         bottom: 20px;
     }
 }
-
-
-/**/

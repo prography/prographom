@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
@@ -10,35 +11,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/btn.css">
     <% include ../common/var_header %>
 	<meta property="og:title" content="2차 면접 결과 확인" />
+	<% include ../common/var_etc_header.ejs %>
     <title>2차 면접 결과 확인</title>
-  </head>
+</head>
 
-
-    <section id="banner">
-      <div class="banner2">
+<section id="banner">
+    <div class="banner2">
         <div class="bg-img2"></div>
-      </div>
-      <div class="container">
+    </div>
+    <div class="container">
         <div class="banner-contents2">
-          <img src="img/logo-03.svg" alt="white-logo" class="logo-middle div-center">
-          <p class="p-submain text-center">[ 프로그라피 3기 ]<br><span>2차 면접 결과 확인</span></p>
+            <img src="img/logo-03.svg" alt="white-logo" class="logo-middle div-center">
+            <p class="p-submain text-center">[ 프로그라피 3기 ]
+                <br><span>2차 면접 결과 확인</span></p>
         </div>
-      </div>
-    </section>
-    <div class="box" style="height:150px;"></div><!-- 중간에 띄어놓음 -->
+    </div>
+</section>
+<div class="box" style="height:150px;"></div>
+<!-- 중간에 띄어놓음 -->
 
-
-
-
-
-    <!-- <section id="result-before" class="container">
+<!-- <section id="result-before" class="container">
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
@@ -57,33 +55,30 @@
         * 본인 확인을 위해 메일을 적어주세요</span>
       </section>-->
 
-    <section id="result-after-pass" class="container">
-      <div class="recruit-box">
-        <img src="img/emotion_smile.svg" class="tab-img-circle" >
-        <p class="text-center recruit-box-text">지원자님 프로그라피 3기 모집<br>
-          2차 면접 <span class="highlight">합격을 축하드립니다.</span></p>
-      </div>
+<section id="result-after-pass" class="container">
+    <div class="recruit-box">
+        <img src="img/emotion_smile.svg" class="tab-img-circle">
+        <p class="text-center recruit-box-text">지원자님 프로그라피 3기 모집
+            <br> 2차 면접 <span class="highlight">합격을 축하드립니다.</span></p>
+    </div>
 
-      <div class="recruit-box" style="margin-top:20px; height:500px;">
+    <div class="recruit-box" style="margin-top:20px; height:500px;">
 
         <p class="text-center explain">
-          엠티 엘티 공지 해주고
-          공지해줄 사항들 정리하기
-          <br>
-          가능한 일정을 <span class="highlight-black">모두</span> 선택해주시면,
-          <span class="highlight-black">추후 최종적으로 정해진 일정은 0월0일
+            엠티 엘티 공지 해주고 공지해줄 사항들 정리하기
+            <br> 가능한 일정을 <span class="highlight-black">모두</span> 선택해주시면,
+            <span class="highlight-black">추후 최종적으로 정해진 일정은 0월0일
              [프로그라피] 오픈카톡을 통해 공지해드립니다.</span>
-          <br>
+            <br>
         </p>
 
-        <div class="w3-panel w3-border-top w3-border-lightgray"
-          style="width:90%; height:auto; margin-right:auto; margin-left:auto;">
+        <div class="w3-panel w3-border-top w3-border-lightgray" style="width:90%; height:auto; margin-right:auto; margin-left:auto;">
         </div>
 
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!--<section id="result-after-fail" class="container">
+<!--<section id="result-after-fail" class="container">
       <div class="recruit-box">
         <img src="img/emotion-sad.svg" class="tab-img-circle" >
         <p class="text-center recruit-box-text">지원자님께서는 프로그라피 3기<br>
@@ -97,62 +92,63 @@
       </div>
     </section>-->
 
+<div class="box" style="height:100px;"></div>
+<!-- 중간에 띄어놓음 -->
+<!-- footer -->
+<section class="text-center">
+    <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
+    <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
+    <br>
+    <div class="box" style="height:20px;"></div>
+    <!-- 중간에 띄어놓음 -->
+</section>
+<!-- footer end -->
+<script type="text/javascript" src="js/master.js"></script>
+<!-- Channel Plugin Scripts -->
+<script>
+    ;
+    window.channelPluginSettings = {
+        "pluginKey": "c01373e4-2452-4ce4-8e9d-c25fa238eea8"
+    };
+    (function() {
+        var w = window;
+        if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
+        }
+        var d = window.document;
+        var ch = function() {
+            ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+            ch.q.push(args);
+        };
+        w.ChannelIO = ch;
 
+        function l() {
+            if (w.ChannelIOInitialized) {
+                return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+            l();
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', l);
+        } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+            window.addEventListener('load', l, false);
+        }
+    })();
+</script>
+<!-- End Channel Plugin -->
+</body>
 
-    <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
-    <!-- footer -->
-    <section class="text-center">
-      <p class="p-pp"><small>제작 / 2기 WEB 프로젝트 팀</small></p>
-      <p class="p-pp"><small>COPYRIGHTⓒPROGRAPHYALLRIGHTSRESERVED</small></p>
-      <br>
-      <div class="box" style="height:20px;"></div><!-- 중간에 띄어놓음 -->
-    </section>
-    <!-- footer end -->
-    <script type="text/javascript" src="js/master.js"></script>
-	<!-- Channel Plugin Scripts -->
-	<script>
-		;
-		window.channelPluginSettings = {
-			"pluginKey": "c01373e4-2452-4ce4-8e9d-c25fa238eea8"
-		};
-		(function() {
-			var w = window;
-			if (w.ChannelIO) {
-				return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
-			}
-			var d = window.document;
-			var ch = function() {
-				ch.c(arguments);
-			};
-			ch.q = [];
-			ch.c = function(args) {
-				ch.q.push(args);
-			};
-			w.ChannelIO = ch;
-
-			function l() {
-				if (w.ChannelIOInitialized) {
-					return;
-				}
-				w.ChannelIOInitialized = true;
-				var s = document.createElement('script');
-				s.type = 'text/javascript';
-				s.async = true;
-				s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-				s.charset = 'UTF-8';
-				var x = document.getElementsByTagName('script')[0];
-				x.parentNode.insertBefore(s, x);
-			}
-			if (document.readyState === 'complete') {
-				l();
-			} else if (window.attachEvent) {
-				window.attachEvent('onload', l);
-			} else {
-				window.addEventListener('DOMContentLoaded', l, false);
-				window.addEventListener('load', l, false);
-			}
-		})();
-	</script>
-	<!-- End Channel Plugin -->
-  </body>
 </html>

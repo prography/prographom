@@ -1,18 +1,9 @@
-
 /*
   [input css index]
     1.input
-
-
 */
 
-
-
-
-
-
 /*-------- 1.input --------*/
-
 
 .login-form{
   margin: auto;
@@ -27,7 +18,6 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 
 .login-btn {
   width:100%;
@@ -65,33 +55,3 @@ form{
   background-color: #ff9f17;
   font-weight: 700;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/

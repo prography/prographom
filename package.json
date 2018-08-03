@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/prography/web#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
     "date-utils": "^1.2.21",
     "ejs": "^2.5.9",
     "express": "^4.16.3",

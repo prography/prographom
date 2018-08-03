@@ -227,18 +227,39 @@ textarea {
     color: #fff;
 }
 
-.dropdown-menu li a {
-    color: #777 !important;
+@media only screen and (max-width: 600px) {
+    .dropdown-menu li a {
+		color: #fff !important;
+	}
+	
+	.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+		background: #d81d45 !important;
+	}
 }
 
 .dropdown-menu li a:hover {
     background-color: #d81d45 ;
     color: #fff;
+	opacity: 0.6;
 }
 
 .navbar-inverse .navbar-nav>li>a {
     color: #fff;
     transition: 0.2s ease;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+	background-color: transparent !important;
+}
+
+@media only screen and (max-width: 600px) {
+	.navbar-inverse .navbar-toggle:hover {
+		background: #d81d45 !important;
+	}
+}
+
+.navbar-nav>.open>a:focus{
+	background-color: #93142f !important;
 }
 
 .navbar-inverse:hover .navbar-nav>li>a:hover {
@@ -285,11 +306,11 @@ textarea {
 
 .logo-middle {
     width: 7%;
-    margin-top: 130px;
+    height: auto;
+    margin-top: 10%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    transition: 0.2s ease;
 }
 
 
@@ -473,7 +494,6 @@ input::placeholder {
     height: auto;
     box-shadow: 3px 5px 20px lightgray;
     display: block;
-    margin-top: -50px;
     margin-left: auto;
     margin-right: auto;
     transition: .5s ease;
@@ -548,7 +568,6 @@ input::placeholder {
 .banner {
     position: relative;
     width: 100%;
-    height: 555px;
     z-index: -1;
 }
 
@@ -567,7 +586,7 @@ input::placeholder {
 .banner-contents {
     position: absolute;
     z-index: 100;
-    top: 300px;
+    top: 150px;
 }
 
 
@@ -581,7 +600,7 @@ input::placeholder {
     background-image: url('../img/re-bg-1.jpg');
     background-attachment: fixed;
     width: 100%;
-    height: 500px;
+    height: 400px;
     z-index: -2;
     user-select: none;
 }

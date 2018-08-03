@@ -1,50 +1,66 @@
-
 /*-------- 2-1.nav-blue --------*/
-#navbar{
-  transition: top 0.3s;
+
+#navbar {
+    transition: top 0.3s;
+}
+
+.navbar {
+    top: 0px;
+    background-color: #fff;
+    border: 0;
+    color: #fff;
+    opacity: 0.9;
+    font-size: 0.9em;
+    transition: top 0.3s;
 }
 
 
-.navbar{
-  top:0px;
-  background-color: #fff;
-  border: 0;
-  color: #fff;
-  opacity: 0.9;
-  font-size: 0.9em;
-  transition: top 0.3s;
+.logo-img {
+    width: 17%;
+    transition: 0.2s ease;
 }
 
-.open .dropdown-toggle{
-  color: #fff;
-  background-color: #0A88A7 !important;
+.logo-img:hover {
+    opacity: 0.6;
 }
 
+.open .dropdown-toggle {
+    color: #fff;
+    background-color: #0A88A7 !important;
+}
 
 .dropdown-menu li a {
-  color: lightgray !important;
+    color: lightgray !important;
 }
 
 .dropdown-menu li a:hover {
-  background-color: #0A88A7 !important;
-  color: #fff!important;
-}
-.navbar-inverse .navbar-nav>li>a{
-  color: #fff;
-  transition: 0.2s ease;
-}
-.navbar-inverse:hover .navbar-nav>li>a:hover{
-  opacity: 0.8;
+    background-color: #0A88A7 !important;
+    color: #fff!important;
 }
 
-.navbar .navbar-toggle{
-  border-color: #0A88A7 !important;
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    transition: 0.2s ease;
 }
 
-.navbar:hover .navbar-toggle:hover{
-  background-color: #0A88A7 !important;
+.navbar-inverse:hover .navbar-nav>li>a:hover {
+    opacity: 0.8;
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
-  border-color: #0A88A7 !important;
+.navbar .navbar-toggle {
+    border-color: #0A88A7 !important;
+}
+
+.navbar:hover .navbar-toggle:hover {
+    background-color: #0A88A7 !important;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: #0A88A7 !important;
+    background-color: #0A88A7 !important;
+}
+
+.navbar-nav>.open>a:focus{
+	background-color: #075c71 !important;
 }

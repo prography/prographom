@@ -11,25 +11,17 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!--
-    <style>
-        #result-after-pass-1 {
-            visibility: hidden
-            <div style="display:none;"></div>
-            
-        }
-        
-        #result-after-fail-1 {
-            visibility: hidden
-        }
-    </style>
--->
 
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/font.css">
     <link rel="stylesheet" href="css/btn.css">
-    <title>result1</title>
+
+    <% include ../common/var_header %>
+	<meta property="og:title" content="1차 서류전형 결과 확인" />
+	<% include ../common/var_etc_header.ejs %>
+    <title>1차 서류전형 결과 확인</title>
+
 </head>
 
 <section id="banner">
@@ -38,8 +30,8 @@
     </div>
     <div class="container">
         <div class="banner-contents2">
-            <a class="logo-middle div-center" href="/"><img src="img/logo-03.svg" alt="white-logo"></a>
-            <p class="p-submain text-center">[ 프로그라피 3기 ]
+            <a href="/"><img src="img/logo-03.svg" alt="white-logo" class="logo-middle"></a>
+            <p class="p-submain text-center">[ 프로그라피 <%=n_th%>기 ]
                 <br><span>1차 서류전형 결과 확인</span></p>
         </div>
     </div>
@@ -216,7 +208,6 @@
 
 <script>
     function checkValue() {
-        //save #answer1_thru_4 to database
         console.log(document.getElementById("email").value);
         var email = document.getElementById("email").value;
 
@@ -238,7 +229,7 @@
                 console.log(name);
 
                 if (survived == '1') {
-//                    document.getElementById("result-after-pass-1").style.visibility = "visible";
+                    //document.getElementById("result-after-pass-1").style.visibility = "visible";
                     document.getElementById("result-after-pass-1").style="display:block;";
 					var highlightname = $('.highlightname');
                     highlightname.text(name);
@@ -261,7 +252,6 @@
     function result() {
         alert($("#day").val() + " " + $("#hour").val() + "" + $("#min").val() + "에 면접이 있습니다.");
 
-		
         var day = $("#day").val();
         var hour = $("#hour").val();
         var min = $("#min").val();
@@ -283,10 +273,6 @@
                 alert('통신성공');
             }
         });
-		
     }
 </script>
-
 </html>
-
-<!-- -->

@@ -1,0 +1,229 @@
+<% include common/head_header %><meta property="og:title" content="운영진 페이지 - 개별 지원서" /><% include common/body_header_admin %>
+	<title>운영진 페이지 - 개별 지원서</title>
+    <script>
+        $(document).ready(function() {
+            $(".show4").hide();
+        });
+    </script>
+    <div class="box" style="height:50px;"></div>
+        <div class="container"  style="width:95%;">
+            <div class="div-center">
+                <div class="box-gray">
+                    <div class="row" style="padding-left:30px; padding-right:30px;">
+                        <div class="col-sm-3">
+                            <div class="per-90 div-center">
+                                <label class="application-label" for="sel1">면접 날짜</label>
+                                <select class="form-control" id="sel1" name="interview_date">
+                                    <option value="7">8월 7일 (토)</option>
+                                    <option value="8">8월 8일 (일)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="per-90 div-center">
+                                <label class="application-label" for="sel2">면접 시간</label>
+                                <select class="form-control" id="sel2" name="interview_time">
+                                    <option value="11">AM 11:00 ~ 12:00</option>
+                                    <option value="12">PM 12:00 ~ 1:00</option>
+                                    <option value="1">PM 1:00 ~ 2:00</option>
+                                    <option value="2">PM 2:00 ~ 3:00</option>
+                                    <option value="3">PM 3:00 ~ 4:00</option>
+                                    <option value="4">PM 4:00 ~ 5:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="per-90 div-center" >
+                                <label class="application-label" for="sel3">면접 타임</label>
+                                <select class="form-control" id="sel3" name="interview_min">
+                                    <option value="0">:00 ~ :20</option>
+                                    <option value="20">:20 ~:40</option>
+                                    <option value="40">:40 ~ :00</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3" style="padding:35px;">
+                            <button type="button" class="btn-gray-small-rec show3" onclick="searchMemberByTime()" >조회하기</button>
+                        </div>
+                    </div>
+                </div>
+          
+                <section id="apply" class="show4">
+                    <ul class="nav nav-tabs nav-tabs-d">
+                        <li id= "applicant_tab1" class="active tab-33 text-center"-><a class = "tab" data-toggle="tab" href="#applicant1">-</a></li>
+                        <li id= "applicant_tab2" class="tab-33 text-center"><a class="tab" data-toggle="tab" href="#applicant2">-</a></li>
+                        <li id= "applicant_tab3" class="tab-33 text-center"><a class="tab" data-toggle="tab" href="#applicant3">-</a></li>
+                    </ul>
+                    <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar" id="tmptmp">
+                    <% for (var i = 1; i <= 3; i++) { %>
+                        <div id="applicant<%=i%>" class="tab-pane fade in active tab-box-pad">
+                            <button data-toggle="collapse" data-target="#personal-data-cut" class="cut-btn collapsed btn-c">인적사항 접기</button>
+                            <div class="per-90 div-center collapse in" id="personal-data-cut">
+                                <div class="row">
+                                    <div class="col-sm-6 margin-top-20">
+                                        <label class="application-label">이름</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                    <div class="col-sm-6 margin-top-20">
+                                        <label class="application-label">성별</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 margin-top-20">
+                                        <label class="application-label">생년월일</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                    <div class="col-sm-6 margin-top-20">
+                                        <label class="application-label">연락처 (중간 -를 생략하세요)</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 margin-top-20">
+                                    <label class="application-label">소속대학 / 전공 / 학년</label>
+                                    <p class="output-box">-</p>
+                                </div>
+                            </div>
+                            <div class="row margin-top-20">
+                                <div class="col-sm-12">
+                                    <label class="application-label">현 거주지 및 가까운 역</label>
+                                    <p class="output-box">-</p>
+                                </div>
+                            </div>
+                            <div class="row margin-top-20">
+                                <div class="col-sm-12">
+                                    <label class="application-label">지원분야</label>
+                                    <p class="output-box">-</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w3-border-top w3-border-lightgray" style="margin-bottom:20px; margin-top:40px; opacity:0.5;"></div>
+                            <div class="per-90 div-center" style="margin-top :50px;">
+                                <div class="row margin-top-40">
+                                    <div class="col-sm-12">
+                                        <label class="application-label">[1] 간단히 자기소개를 해주세요! (500자 이내)</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                </div>
+                                <div class="row margin-top-40">
+                                    <div class="col-sm-12">
+                                        <label class="application-label">[2] 프로그라피에 지원하게 된 동기에 대해 말씀해주세요! (500자 이내)</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                </div>
+                                <div class="row margin-top-40">
+                                    <div class="col-sm-12">
+                                        <label class="application-label">[3] 프로그라피에서 만들어보고 싶은 것이 있다면 말해주세요! (300자 이내)</label>
+                                        <p class="output-box">-</p>
+                                    </div>
+                                </div>
+                                <div class="row margin-top-40">
+                                    <div class="col-sm-12">
+                                        <label class="application-label">[4] 과거 활동했던 경험과 현재 하고 있는 활동에 대해 말씀해주세요!
+                                        <br><p class="p-pp" style="margin-left:-20px;">(ex. 학과활동, 동아리, 단체활동, 봉사활동, 수상내역, 인턴, 기타 등)</p></label>
+                                        <table class="table text-center" style="margin-top:20px;">
+                                        <tbody>
+                                            <tr class="thead" style="background-color:#f1f1f1;">
+                                                <td class="td-3">분야</td>
+                                                <td class="td-3">기간</td>
+                                                <td class="td-4">직책 및 활동</td>
+                                            </tr>
+                                            <tr id="q4-1" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-2" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-3" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-4" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-5" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-6" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                            <tr id="q4-7" class="tbody" style="background-color:#fff;">
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-3"><p class="output-box-table">-</p></td>
+                                                <td class="td-4"><p class="output-box-table text-left">-</p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row margin-top-40">
+                                <div class="col-sm-12">
+                                    <label class="application-label">[5] 위에서 표현하지 못한 자기 자신에 대해 적어주세요 (길이 제한 없음)</label>
+                                    <p class="output-box">-</p>
+                                </div>
+                            </div>
+                            <!--ot, mt 확인 버튼-->
+                            <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+                                <table class="table table-striped text-center" style="width:100%; margin-right:auto; margin-left:auto;">
+                                    <tbody>
+                                        <tr class="thead">
+                                            <td class="td-1" style="background-color:#0a88a7; opacity:0.6; color:#fff;">시간</td>
+                                            <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">참석</td>
+                                            <td class="td-2" style="background-color:#0a88a7; opacity:0.8; color:#fff;">불참석</td>
+                                        </tr>
+                                        <tr class="tbody">
+                                            <td class="td-1" style="background-color:#b2d7e1; color:#222;">OT (9/1)</td>
+                                            <form id="ot<%=i%>" name = "ot_select" >
+                                                <td class="td-2">
+                                                    <label class="label-circle">
+                                                        <input type="radio" id="ot_attend"><p class="checkmark"></p>
+                                                    </label>
+                                                </td>
+                                                <td class="td-2">
+                                                    <label class="label-circle">
+                                                        <input type="radio" id="ot_absent"><p class="checkmark"></p>
+                                                    </label>
+                                                </td>
+                                            </form>
+                                        </tr>
+                                        <tr class="tbody">
+                                            <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (9/1 ~ 2)</span></td>
+                                            <form id="mt<%=i%>" name="mt_select">
+                                                <td class="td-2">
+                                                    <label class="label-circle">    
+                                                        <input type="radio" id="mt_attend"><p class="checkmark"></p>
+                                                    </label>
+                                                </td>
+                                                <td class="td-2">
+                                                    <label class="label-circle">
+                                                        <input type="radio" id="mt_absent">
+                                                        <p class="checkmark"></p>
+                                                    </label>
+                                                </td>
+                                             </form>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!--탭 마무리-->
+                    <% } %>
+                    </div>
+            </section>
+        </div>
+    </div>
+    <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
+    <!--.................................................................................................... -->
+    <script type="text/javascript" src="js/admin-interview.js"></script>
+<% include common/footer %>

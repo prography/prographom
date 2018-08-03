@@ -1,5 +1,4 @@
 /*
-
   index
   -하단에서 상단으로 스크롤 부드럽게
   -아코디언
@@ -63,29 +62,6 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
 }
-
-//
-// /*모달 표시하기*/
-// $(document).ready(function() {
-// $('.show1').show(); //페이지를 로드할 때 표시할 요소
-// $('.show2').hide(); //페이지를 로드할 때 숨길 요소
-// $('.show1').click(function(){
-// $ ('.show1').show(); //클릭 시 두 번째 요소 표시
-// $ ('.show2').show(); //클릭 시 두 번째 요소 표시
-// return false;
-// });
-// });
-//
-//
-// /*admin 조회하기 누르면 나오기*/
-// $(document).ready(function() {
-// $('.show3').show(); //페이지를 로드할 때 표시할 요소
-// $('.show4').hide(); //페이지를 로드할 때 숨길 요소
-// $('.show3').click(function(){
-// $ ('.show4').show(); //클릭 시 두 번째 요소 표시
-// return false;
-// });
-// });
 
 /*application alert, confirm 모달뜨게하기*/
 function btn_js_alert_click() {

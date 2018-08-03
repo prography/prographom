@@ -29,4 +29,3 @@ Express server has started on port 80
 ```
 
 웹페이지에서 `localhost:3000`으로 들어갔을 때 Prography의 홈이 뜨면 성공!
-
