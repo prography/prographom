@@ -87,7 +87,6 @@ h6 {
 body {
     font-size: 15px;
     color: #777;
-    background-color: #f2f2f2;
 }
 
 .body {
@@ -696,26 +695,11 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 1200px) {
-    .cropping {
-        overflow: hidden;
-        margin-bottom: -100px;
-        z-imdex: -1;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .cropping {
-        overflow: hidden;
-        margin-bottom: 20px;
-        z-imdex: -1;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .cropping video {
-		    height: 100%;
-			margin: 0 -60vh;
-    }
+	.cropping video{
+		height:100%;
+		overflow: hidden;
+		margin: 0;
+	}
 }
 
 .b-0 {
@@ -771,7 +755,7 @@ input::placeholder {
 
 @media only screen and (max-width: 800px) {
     .carousel-caption {
-        margin-bottom: 25vh !important;
+        margin-bottom: 22% !important;
     }
 }
 

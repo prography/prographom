@@ -11,37 +11,36 @@ router.get('/', function(req, res) {
                 if (error){
                     console.log(error);
                 } else {
-                    res.render('admin/admin', {data: results});
+                    res.render('admin/admin', {data: results, title: "운영진 페이지 - 전체 지원서", url : req.protocol + '://' + req.headers.host + req.url});
                 }
             });
         } else if (req.query.filter == "interviewTime") {
-            res.render('admin/admin-interview');
+            res.render('admin/admin-interview', {title: "운영진 페이지 - 개별 지원서", url : req.protocol + '://' + req.headers.host + req.url});
         } else if (req.query.filter == "specific") {
             var email = req.query.email;
 
             var query_string = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') AS birth, phone, college, address, field, email, q1, q2, q3, q5, q6, q7 FROM application WHERE email = ?`;
-                  
             client.query(query_string, [email], function(error, results){
                 if (error) {
                     console.log(error);
+                    client.end();
                 } else {
                     var data = results[0];    
                     if (data.q6 == null) data.q6 = -1;
                     if (data.q7 == null) data.q7 = -1;
                     var sql = `SELECT q4.field AS q4_field, term, activity FROM application, q4 WHERE application.email = q4.email and application.email = ?`;
-                      
                     client.query(sql, [email], function(error, results){
                         if (error) {
                             console.log(error);
                         } else {
-                            res.render('admin/admin-specific', {'data': data, 'data2': results});
+                            res.render('admin/admin-specific', {'data': data, 'data2': results, title: "운영진 페이지 - 개별 지원서", url : req.protocol + '://' + req.headers.host + req.url});
                         }
                     });
                 }
-            }); 
+            });
         }
     } else {
-        res.render('admin/admin-login', {'err': false, 'errmsg': ''});
+        res.render('admin/admin-login', {'err': false, 'errmsg': '', title: "운영진 페이지 로그인", url : req.protocol + '://' + req.headers.host + req.url});
     }
 });
 
@@ -82,12 +81,11 @@ router.post('/', function(req, res) {
                 if (error){
                     console.log(error);
                 } else {
-                    res.render('admin/admin', {data: results});
+                    res.render('admin/admin', {data: results, title: "운영진 페이지 - 전체 지원서", url : req.protocol + '://' + req.headers.host + req.url});
                 }
             });
-		}
-		else {
-			res.render('admin/admin-login', {'err': true, 'errmsg': '아이디와 비밀 번호가 일치하지 않습니다.'});
+		} else {
+			res.render('admin/admin-login', {'err': true, 'errmsg': '아이디와 비밀 번호가 일치하지 않습니다.', title: "운영진 페이지 로그인", url : req.protocol + '://' + req.headers.host + req.url});
 		}
     }
 });

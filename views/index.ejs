@@ -1,7 +1,15 @@
-<% include common/head_header %><meta property="og:title" content="프로그라피" /><% include common/body_header %>
-	<title>프로그라피</title>
-
+<% include common/head_header %><% include common/body_header %>
     <!--동영상 배너-->
+	<script>
+		$( document ).ready(function() {
+			var windowWidth = $( window ).width();
+			if(windowWidth < 600){
+				$("#myVideo").html('<source src="video/m_Walking.mp4" type="video/mp4"></source>' );
+				$("#myVideo")[0].load();
+			}
+			$('.cropping').css('height',$( window ).height());
+		});
+	</script>
     <section>
         <div class="carousel-inner" role="listbox">
             <!---->

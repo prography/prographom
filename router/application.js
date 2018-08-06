@@ -13,7 +13,7 @@ function reverseHash(id){
 router.get('/', function(req ,res){
     var id = req.query.id;
     if (!(id in hashMap)) {
-        res.render('application/application-unauthorized', {'n_th': n_th});
+        res.render('application/application-unauthorized', {'n_th': n_th, title: n_th+"기 지원서 작성"});
     } else {
         var email = reverseHash(id);
 
@@ -23,28 +23,26 @@ router.get('/', function(req ,res){
         var time = date.toFormat('YYYY-MM-DD HH24:MI:SS');
 
         // if (id in hashMap) {}
-        if (time < '2018-08-18 00:00:00') {		  
+        if (time < '2018-08-18 00:00:00') {		 
             client.query(`SELECT submit FROM application WHERE email = ?`, [email], function(error, result){
                 if (error) {
                     console.log(error);
                 } else {
                     if (result.length != 0 && result[0].submit == 1) {
-                        res.render('application/application-reject', {'n_th': n_th});
+                        res.render('application/application-reject', {'n_th': n_th, title: n_th+"기 지원서 작성", url : req.protocol + '://' + req.headers.host + req.url});
                     } else {
                         var query_string = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') AS birth, phone, college, address, field, email, q1, q2, q3, q5, q6, q7 FROM application WHERE email = ?`;
-                              
                         client.query(query_string, [email], function(error, results){
                             if (error) {
                                 console.log(error);
                             } else {
                                 if (results.length == 0) {
-                                    res.render('application/application', {'dates': dates, 'n_th': n_th, 'data': {'email': email, 'q6': -1, 'q7': -1}, 'data2': [{}, {}, {}, {}, {}, {}, {}]});
+                                    res.render('application/application', {'dates': dates, 'n_th': n_th, 'data': {'email': email, 'q6': -1, 'q7': -1}, 'data2': [{}, {}, {}, {}, {}, {}, {}], title: n_th+"기 지원서 작성", url : req.protocol + '://' + req.headers.host + req.url});
                                 } else {
                                     var data = results[0];    
                                     if (data.q6 == null) data.q6 = -1;
                                     if (data.q7 == null) data.q7 = -1;
                                     var sql = `SELECT q4.field AS q4_field, term, activity FROM application, q4 WHERE application.email = q4.email and application.email = ?`;
-                                      
                                     client.query(sql, [email], function(error, results){
                                         if (error) {
                                             console.log(error);
@@ -54,7 +52,7 @@ router.get('/', function(req ,res){
                                             for (var i = 0; i < remain_row; i++) {
                                                 results[q4_length + i] = {'q4_field': '', 'term': '', 'activity': ''};
                                             }
-                                            res.render('application/application', {'dates': dates, 'n_th': n_th, 'data': data, 'data2': results});
+                                            res.render('application/application', {'dates': dates, 'n_th': n_th, 'data': data, 'data2': results, title: n_th+"기 지원서 작성", url : req.protocol + '://' + req.headers.host + req.url});
                                         }
                                     });
                                 }
@@ -64,7 +62,7 @@ router.get('/', function(req ,res){
                 }
             });
         } else {
-            res.render('application/application-fin', {'n_th': n_th});
+            res.render('application/application-fin', {'n_th': n_th, title: n_th+"기 지원서 작성" , url : req.protocol + '://' + req.headers.host + req.url});
         }
     }
 });
@@ -90,7 +88,6 @@ router.post('/', function(req, res) {
     client.query(`SELECT * FROM q4 WHERE email = ?`, [body.email], function (error, result) {
         if (result.length != 0) q4_exists = 1;
     });
-
     client.query(`SELECT * FROM application WHERE email = ?`, [body.email], function (error, result) {
         var query_string = ''
         if (result.length == 0) {

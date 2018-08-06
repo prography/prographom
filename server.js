@@ -1,3 +1,4 @@
+var minify = require('express-minify');
 var express = require('express'); 
 var compression = require('compression');
 var app = express();
@@ -29,5 +30,17 @@ var server = app.listen(3000, function() {
     console.log("Express server")
 });
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(compression());
+app.use(minify({
+  cache: false,
+  uglifyJsModule: null,
+  errorHandler: null,
+  jsMatch: /javascript/,
+  cssMatch: /css/,
+  jsonMatch: /json/,
+  sassMatch: /scss/,
+  lessMatch: /less/,
+  stylusMatch: /stylus/,
+  coffeeScriptMatch: /coffeescript/,
+}));

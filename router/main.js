@@ -10,10 +10,6 @@ var client = mysql.createConnection({
     multipleStatements: true
 });
 
-client.connect(function (err) {
-    console.log("Connected!");
-});
-
 var n_th = 3;
 dates = {'due_month': 8, 'due_day': 1, 'OT_month': 9, 'OT_day': 1, 'MT_month': 9, 'MT_day': 2};
 
@@ -32,19 +28,34 @@ var admin = require('./admin.js');
 module.exports = function(app)
 {
     app.get('/', function (req,res) {
-        res.render('index')
+        res.render('index', {
+            title: "프로그라피",
+			url : req.protocol + '://' + req.headers.host + req.url
+        })
     });
     app.get('/about', function (req,res) {
-        res.render('about')
+        res.render('about', {
+            title: "프로그라피 소개",
+			url : req.protocol + '://' + req.headers.host + req.url
+        })
     });
     app.get('/activity', function (req, res) {
-      res.render('activity')
+      res.render('activity', {
+            title: "공식활동",
+			url : req.protocol + '://' + req.headers.host + req.url
+        })
     });
     app.get('/product', function (req, res) {
-        res.render('product')
+        res.render('product', {
+            title: "포트폴리오",
+			url : req.protocol + '://' + req.headers.host + req.url
+        })
     });
     app.get('/history', function (req, res) {
-        res.render('history')
+        res.render('history', {
+            title: "히스토리",
+			url : req.protocol + '://' + req.headers.host + req.url
+        })
     });
     
     app.use('/send', send);
