@@ -413,6 +413,14 @@ footer {
     }
 }
 
+.re-notice-container div{
+	display: table-cell;
+}
+
+.re-notice-container .re-content-tag{
+	padding: 0 15px;
+}
+
 .highlight {
     font-family: 'Spoqa Han Sans', 'Sans-serif';
     font-weight: 700;
@@ -681,7 +689,7 @@ input::placeholder {
     .main-title {}
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .sub-title {}
 }
 
@@ -694,9 +702,9 @@ input::placeholder {
     margin: 0;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 800px) {
 	.cropping video{
-		height:100%;
+		height: 100%;
 		overflow: hidden;
 		margin: 0;
 	}
@@ -710,7 +718,7 @@ input::placeholder {
     margin-bottom: 30px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .b-0 {
         margin-bottom: 25px;
         font-size: 40px;
@@ -750,12 +758,12 @@ input::placeholder {
 }
 
 .carousel-caption {
-    margin-bottom: 22vh !important;
+    margin: 15vw 0 !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .carousel-caption {
-        margin-bottom: 22% !important;
+        margin: 20vw 0 !important;
     }
 }
 
@@ -962,7 +970,7 @@ tr {
     user-select: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .bg-img3 {
         background-image: none;
         width: 100%;
@@ -979,7 +987,7 @@ tr {
     display: block;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .bg-img4 {
         width: 100%;
         height: 400;
@@ -1011,28 +1019,28 @@ tr {
     font-weight: 300;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .main-title-b {
         font-size: 24px;
         margin-top: -150px;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .main-title-b2 {
         font-size: 24px;
         margin-top: -250px;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .main-title-b3 {
         font-size: 24px;
         margin-top: 150px;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .sub-title-b {
         font-size: 14px;
     }
@@ -1046,7 +1054,7 @@ tr {
     width: 33.33%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .overlay-container {
         width: 100%;
     }
@@ -1058,7 +1066,7 @@ tr {
     width: 33.33%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .overlay-container {
         width: 100%;
     }
@@ -1072,7 +1080,7 @@ tr {
     padding: 0px !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .col-sm-8 {
         margin: 0px !important;
         padding: 0px !important;
@@ -1159,20 +1167,20 @@ tr {
     user-select: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .unit-p-main {
         font-size: 40px;
         display: block;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .unit-p-small {
         font-size: 16px;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .line {
         width: 80% !important;
         margin-top: 20px;

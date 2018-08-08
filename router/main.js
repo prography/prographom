@@ -11,7 +11,7 @@ var client = mysql.createConnection({
 });
 
 var n_th = 3;
-dates = {'due_month': 8, 'due_day': 1, 'OT_month': 9, 'OT_day': 1, 'MT_month': 9, 'MT_day': 2};
+dates = {'due_month': 8, 'due_day': 20, 'OT_month': 9, 'OT_day': 1, 'MT_month': 9, 'MT_day': 2};
 
 module.exports = {
   hashMap: hashMap,
