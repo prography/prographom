@@ -111,12 +111,12 @@
                 </div>
                 <!-- -->
                 <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" src="img/panel/2-6-poster.jpg"></div>
+                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" src="img/panel/2-6-poster.png"></div>
                     <div class="col-sm-6">
                         <div class="w3-tb-cell-content">
                             <h2>2기 딥러닝2팀, <strong>Highlight Tekken</strong></h2>
                             <p>철권 게임에서 하이라이트를 추출하는 서비스</p>
-                            <p>: 철권의 '화랑' 캐릭터를 모델로 하여 Supervied 모델과 Unsupervised모델을 이용</p>
+                            <p>: GRU-AutoEncoder를 사용한 모델로 철권의 ‘화랑’ 캐릭터 영상에서 하이라이트 프레임 추출</p>
                             <P>팀원 - 김동훈 / 송영인 / 이유정 / 장혁진<br>
 							멘토 - 박수현</p>
                         </div>
@@ -296,7 +296,7 @@
             $('.modal-body').html('');
             $('#exampleModalCenter1').modal('show');
             $('.modal-body').append('<img style="width:100%" src="' + src + '" data-dismiss="modal" aria-label="Close"/>');
-        }		
+        }
     </script>
 
     <!-- Modal-alert -->

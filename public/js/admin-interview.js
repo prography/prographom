@@ -17,8 +17,6 @@ function searchMemberByTime(){
         },
         dataType:"text",
         success: function(data) {
-            applications = JSON.parse(data);
-              
             for (var i = 1; i <= 3; i++) {
                 $("#applicant_tab" + i).find(".tab").text("-");
             
@@ -38,6 +36,8 @@ function searchMemberByTime(){
                 document.forms["mt" + i]["mt_absent"].checked = false;
                 
             }
+
+            applications = JSON.parse(data);
               
             for (var i = 1; i <= applications.length; i++){
                 application = applications[i - 1];

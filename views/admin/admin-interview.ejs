@@ -13,8 +13,8 @@
                             <div class="per-90 div-center">
                                 <label class="application-label" for="sel1">면접 날짜</label>
                                 <select class="form-control" id="sel1" name="interview_date">
-                                    <option value="7">8월 7일 (토)</option>
-                                    <option value="8">8월 8일 (일)</option>
+                                    <option value="25">8월 25일 (토)</option>
+                                    <option value="26">8월 26일 (일)</option>
                                 </select>
                             </div>
                         </div>
@@ -55,9 +55,9 @@
                     </ul>
                     <div class="tab-content w3-border-right w3-border-left w3-border-lightgray w3-bottombar" id="tmptmp">
                     <% for (var i = 1; i <= 3; i++) { %>
-                        <div id="applicant<%=i%>" class="tab-pane fade in active tab-box-pad">
-                            <button data-toggle="collapse" data-target="#personal-data-cut" class="cut-btn collapsed btn-c">인적사항 접기</button>
-                            <div class="per-90 div-center collapse in" id="personal-data-cut">
+                        <div id="applicant<%=i%>" class="tab-pane fade <% if (i == 1) { %> in active <% } else {} %> tab-box-pad">
+                            <button data-toggle="collapse" data-target="#personal-data-cut<%=i%>" class="cut-btn collapsed btn-c">인적사항 접기</button>
+                            <div class="per-90 div-center collapse in" id="personal-data-cut<%=i%>">
                                 <div class="row">
                                     <div class="col-sm-6 margin-top-20">
                                         <label class="application-label">이름</label>

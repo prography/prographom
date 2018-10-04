@@ -1,0 +1,22 @@
+<% include common/head_header %><% include common/body_header_feed %>
+    <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+    <div class="container"  style="width:90%;">
+        <div class="div-center">
+            <embed src='http://prography.org/<%= pdf.name %>' type='application/pdf'>
+            <div class="trash-full-wrap">
+                <form action="/feed/delete" method="post" onsubmit="if(!confirm('정말로 삭제하시겠습니까?')){return false;}" class="delete-form">
+                    <input name="pdf" value="<%= pdf.id %>" type="hidden">
+                    <button class="fa fa-trash fa-2x" type="submit"></button>
+                </form>
+                <button class="full-btn" type="submit" onclick="javascript:document.location='http://prography.org/<%= pdf.name %>'">Full</button>
+            </div>
+        </div>
+    <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
+    <script>
+        $(function(){
+            if ('<%= user %>' != 'admin') {
+                $(".delete-form").css('display', 'none');
+            }
+        });
+    </script>
+<% include common/footer %>

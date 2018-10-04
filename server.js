@@ -21,17 +21,12 @@ const session = cookieSession({
 })
 app.use(session)
 
-var router = require('./router/main')(app);
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-
-var server = app.listen(3000, function() {
-    console.log("Express server")
-});
-
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/uploaded'));
+
 app.use(compression());
 app.use(minify({
 	cache: false,
@@ -50,12 +45,17 @@ app.use(minifyHTML({
     override: true,
     exception_url: false,
     htmlMinifier: {
-        removeComments:            true,
-        collapseWhitespace:        true,
+        removeComments: true,
+        collapseWhitespace: true,
         collapseBooleanAttributes: true,
-        removeAttributeQuotes:     true,
-        removeEmptyAttributes:     true,
-        minifyJS:                  true
+        removeAttributeQuotes: true,
+        removeEmptyAttributes: true,
+        minifyJS: true
     }
 }));
 
+var router = require('./router/main')(app);
+
+var server = app.listen(3000, function() {
+    console.log("Express server")
+});

@@ -1,0 +1,55 @@
+<% include common/head_header %><% include common/body_header_feed %>
+    <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
+    <div class="container"  style="width:90%;">
+        <div class="div-center">
+            <div class="box-gray">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped text-center" style="width:100%; margin-right:auto; margin-left:auto;">
+                            <tbody id="left-tbl-body">
+                                <tr class="thead">
+                                    <td class="td-3" style="background-color:#0a88a7; opacity:0.6; color:#fff; padding:10px;">업로드</td>
+                                    <td class="td-3" style="background-color:#0a88a7; opacity:0.8; color:#fff; padding:10px;">작성시각</td>
+                                    <td class="td-4" style="background-color:#0a88a7; opacity:0.6; color:#fff; padding:10px;">pdf</td>
+                                </tr>
+                                <% pdfs.forEach(function (pdf, index) { %>
+                                <tr class="tbody pdf" id="<%= pdf.id %>"> 
+                                    <td class="td-3" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.owner %></td>
+                                    <td class="td-3" style="background-color:#fff; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.created_at %></td>
+                                    <td class="td-4" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.name %></td>
+                                </tr>
+                                <% }) %>  
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="create-pdf" class="create-pdf">
+                <div class="fa-plus-circle-wrap"><i class="fa fa-plus-circle fa-2x" onclick="plus()"></i></div>
+                <form class="create-form" action="/feed" method="post" enctype="multipart/form-data">
+                    <input id="file-upload" type="file" name="pdf" class="file-upload"/>
+                    <button class="btn create-btn" type="submit">create</button>
+                </form>
+                <button class="btn cancel-btn" onclick="hide()">cancel</button>
+            </div>
+        </div>
+    <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
+    <% if (err) {%>
+    <script>
+        alert("<%=errmsg%>");
+    </script>
+    <% } %>
+    <script>
+        $(".pdf").on('click', function () {
+            location.href = '/feed?filter=specific&id=' + $(this)[0].id;
+        });
+		function plus() {
+			$(".create-form").css('display', 'table-cell');
+			$(".cancel-btn").show();
+		}
+		function hide() {
+			$(".create-form").hide();
+			$(".cancel-btn").hide();
+		}
+    </script>
+<% include common/footer %>
