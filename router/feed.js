@@ -42,6 +42,20 @@ router.get('/', function(req, res){
 router.post('/', function(req, res) {
     if (req.files) {
         var pdf = req.files.pdf;
+        if (!pdf) {
+            sql = `SELECT * FROM pdfs ORDER BY created_at DESC`;
+            client.query(sql, function(error, results) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    for (var i = 0; i < results.length; i++) {
+                        results[i].created_at = moment(results[i].created_at).format("YYYY-MM-DD HH:mm");
+                    }
+                    res.render('feed/pdfs', {err: true, errmsg: '파일을 첨부해주세요!', title: "프로그라피드", url: req.protocol + '://' + req.header.host + req.url, pdfs: results});
+                }
+            });
+            return;
+        } 
         var pdfName = req.files.pdf.name;
         var reg = /pdf/
 

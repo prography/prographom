@@ -4,7 +4,7 @@ var router = express.Router();
 var client = require("./main.js").client;
 
 router.get('/', function(req, res) {
-    if (req.session.user) {
+    if (req.session.adminUser) {
         if (!req.query.filter) {
             var sql = `SELECT email, name, field FROM application WHERE survived = 1 and submit = 1`;
             client.query(sql, function (error, results) {
@@ -79,7 +79,7 @@ router.post('/', function(req, res) {
     } else {
 		var body = req.body;
 		if (body.admin_id == 'webteam' && body.admin_pw == 'isbest') {
-            req.session.user = 'admin';
+            req.session.adminUser = 'admin';
 		    var sql = `SELECT email, name, field FROM application WHERE submit = 1 and survived = 1`;
             client.query(sql, function (error, results) {
                 if (error){
