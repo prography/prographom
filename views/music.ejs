@@ -1,0 +1,29 @@
+<% include common/head_header %><% include common/body_header %>
+    <section class="container">
+        <h1 class="text-center" style="margin-top:140px; font-weight:400; color:#333; font-size:40px;">Prography Melon</h1>
+        <h5 class="text-center">프로그라피 해커톤 음악 신청</h5>
+        <div class="w3-border-bottom w3-border-lightgray half-p"></div>
+        <!--  ..........  -->
+        <div class="box" style="height:50px;"></div>
+        <!-- 중간에 띄어놓음 -->
+        <!--  ..........  -->
+        <div class="row">
+            <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
+            <div class="login-form col-sm-6">
+                <form method="post" class="form-horizontal">
+                    <label for="music_title">음악제목</label>
+                    <input type="text" class="login-input" id="music_title" name="music_title" placeholder="음악제목">
+
+                    <label for="music_artist">아티스트</label>
+                    <input type="text" class="login-input" id="music_artist" name="music_artist" placeholder="아티스트">
+
+                    <input type="submit" value="신청" class="login-btn">
+                </form>
+            </div>
+            <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
+        </div>
+        <div class="box" style="height:150px;"></div>
+
+    </section>
+
+<% include common/footer %>

@@ -74,5 +74,18 @@ module.exports = function(app)
         res.redirect('https://docs.google.com/spreadsheets/d/1L_5VyesPX86yxxr0-zwT3BigWOLEklBc2hTTN31pTiU/edit#gid=59274967');
     });
 
-    } 
+    app.get('/music', function (req, res) {
+        res.render('music', {
+            title: "신청곡 받아요",
+            url: req.protocol + '://' + req.headers.host + req.url
+        })
+    })
+    
+    app.post('/music', async function (req, res) {
+        const musicTitle = req.body.music_title
+        const musicArtist = req.body.music_artist
+        await client.query('INSERT INTO music(music_title, music_artist) VALUES(?, ?)', [musicTitle, musicArtist])
+        res.redirect('/music')
+    })
+} 
 
