@@ -1156,6 +1156,43 @@ tr {
     letter-spacing: 0.3px;
 }
 
+.process {
+    float: left;
+    position: relative;
+    width: 25%;
+    height: 400px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.process_head_bar {
+    border: 2px solid #d81d45;
+}
+
+.process_title {
+    margin-bottom: 15px;
+    color: #000;
+    font-size:20px;
+    font-weight: bold;
+}
+
+.process_content {
+    color: #000;
+    font-weight: 300;
+}
+
+.process_arrow {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .process {
+        width: 100%;
+    }
+}
 
 /*-------- 14.product . css --------*/
 
