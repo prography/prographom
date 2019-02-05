@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql')
 
 let hashMap = {}
 
@@ -10,9 +10,9 @@ const client = mysql.createConnection({
     multipleStatements: true,
 })
 
-setInterval(function () {
+setInterval(() => {
     client.query('SELECT 1')
-}, 5000);
+}, 5000)
 
 const n_th = 4
 dates = {'due_month': 2, 'due_day': 16, 'OT_month': 3, 'OT_day': 2, 'MT_month': 3, 'MT_day': 9}
@@ -49,7 +49,7 @@ module.exports = (app) => {
             title: '프로그라피::포트폴리오',
 			url: req.protocol + '://' + req.headers.host + req.url
         })
-    });
+    })
     app.get('/schedule', (req, res) => {
         res.render('schedule', {
             title: '프로그라피::일정',

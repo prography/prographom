@@ -32,7 +32,7 @@
                     </div>
                     <div class="col-sm-6 margin-top-20">
                         <label class="application-label">성별</label>
-                        <input id="sex" name="sex" class="w3-input w3-border" type="text" placeholder="여 / 남" value="<%=data.sex%>">
+                        <input id="sex" name="sex" class="w3-input w3-border" type="text" placeholder="남 / 여" value="<%=data.sex%>">
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
 
                 <div class="row">
                     <div class="col-sm-12 margin-top-20">
-                        <label class="application-label">소속대학 / 전공 / 학년</label>
+                        <label class="application-label">소속 / 전공 / 학년</label>
                         <input id="college" name="college" class="w3-input w3-border" type="text" placeholder="ex) 단국대 녹지조경학과 4학년" value="<%=data.college%>">
                     </div>
                 </div>
@@ -63,8 +63,15 @@
 
                 <div class="row margin-top-20">
                     <div class="col-sm-12">
-                        <label class="application-label">안드로이드, 딥러닝, 장고, 노드js 의 경우에는 경쟁률이 굉장히 높은 상태입니다!  해당 분야 지원자 분들은 충분한 프로그래밍 경험을 요합니다.</label>
-                        <input id="field" name="field" class="w3-input w3-border" type="text" placeholder="웹 프론트엔드 / 백엔드-서버(Ruby on Rails) / 백엔드-서버(Node.js) / 백엔드-서버(Python.Django) / 안드로이드 / 딥러닝 / UI-UX 중 택 1" value="<%=data.field%>">
+                        <label class="application-label">지원분야 (1차 합격자에 한해서 각 분야로 프로젝트를 진행할 준비가 되어 있는지를 확인하기 위한 간단한 사전과제가 나갈 예정입니다. 또한 포스터에서 분야별 멘토링 요일을 확인하고 참석하실 수 있는 분야로 택해주세요!)</label>
+                        <input id="field" name="field" class="w3-input w3-border" type="text" placeholder="웹 프론트엔드 / 백엔드-서버(Node.js) / 백엔드-서버(Python.Django) / 딥러닝 중 택 1" value="<%=data.field%>">
+                    </div>
+                </div>
+
+                <div class="row margin-top-20">
+                    <div class="col-sm-12">
+                        <label class="application-label">GitHub 주소 (GitHub 계정이 없으신 분들도 계정 생성 후 작성해주세요! - 1차 합격자에 한해 나갈 사전과제를 업로드할 주소입니다.)</label>
+                        <input id="github" name="github" class="w3-input w3-border" type="text" placeholder="" value="<%=data.github%>">
                     </div>
                 </div>
 
@@ -91,8 +98,22 @@
 
                 <div class="row margin-top-60">
                     <div class="col-sm-12">
-                        <label class="application-label">[3] 프로그라피에서 만들어보고 싶은 것이 있다면 말해주세요! (300자 이내)</label>
-                        <textarea name="q3" class="w3-input w3-border" rows="3" id="q3" placeholder=""><%=data.q3%></textarea>
+                        <label class="application-label">[3] 본인의 관심분야를 자세히 설명해주세요! (공유경제, 금융, 스포츠, 패션, 모빌리티, 식품 등.  앞의 키워드는 예시일 뿐, 앞의 키워드에 맞춰서 말해주실 필요 없습니다!) <br>팀빌딩시에 반영할 내용이므로 자세하게 작성할수록 딱 맞는 팀에서 활동할 수 있습니다! (300자 이내)</label>
+                        <textarea name="q3" class="w3-input w3-border" rows="6" id="q3" placeholder=""><%=data.q3%></textarea>
+                    </div>
+                </div>
+
+                <div class="row margin-top-60">
+                    <div class="col-sm-12">
+                        <label class="application-label">[3-1] 프로그라피에서 반드시 만들어 내고 싶은 서비스를 설명해주세요! <br>팀빌딩시에 반영할 내용이므로 자세하게 작성할수록 딱 맞는 팀에서 활동할 수 있습니다! (500자 이내)</label>
+                        <textarea name="q3_1" class="w3-input w3-border" rows="6" id="q3_1" placeholder=""><%=data.q3_1%></textarea>
+                    </div>
+                </div>
+
+                <div class="row margin-top-60">
+                    <div class="col-sm-12">
+                        <label class="application-label">[3-2] 스스로 만들어서 배포해 보았던 서비스, 혹은 스스로 진행했던 프로젝트들에 대해 얘기해주세요! (500자 이내)</label>
+                        <textarea name="q3_2" class="w3-input w3-border" rows="6" id="q3_2" placeholder=""><%=data.q3_2%></textarea>
                     </div>
                 </div>
 
@@ -232,7 +253,7 @@
                             </form>
                         </tr>
                         <tr class="tbody">
-                            <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (<%=dates.OT_month%>/<%=dates.OT_day%> ~ <%=dates.MT_month%>/<%=dates.MT_day%>)</span></td>
+                            <td class="td-1" style="background-color:#b2d7e1; color:#222;"><span>MT (<%=dates.MT_month%>/<%=dates.MT_day%>)</span></td>
                             <form action="index.html" method="post">
                                 <td class="td-2">
                                     <label class="label-circle">

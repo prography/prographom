@@ -24,25 +24,25 @@ router.get('/', function(req, res) {
         
         const recruit_wait = 1 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
         
-        if (recruit_wait == 1) {
+        if (recruit_wait === 1) {
             res.render('recruit/recruit-none', { // recruit_wait가 1이면 '모집전' 상태로 노출
 				title: '지원하기(모집전)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2018-08-19 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
+        } else if (time < '2019-02-16 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
             res.render('recruit/recruit-ing', {
 				'n_th': n_th, 'due_month': dates.due_month,
 				'due_day': dates.due_day,
 				title: '지원하기(모집중)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2018-08-21 18:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 18시 전 까지
+        } else if (time < '2019-02-17 18:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 18시 전 까지
             res.render('recruit/recruit-fin', {
 				'due_day': dates.due_day,
 				title: '지원하기(모집종료)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2018-08-24 18:00:00'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
+        } else if (time < '2019-02-20 18:00:00'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
             var query = `SELECT interview_date, interview_hour FROM application`;
             client.query(query, function(error, result){
                 if (error) {
@@ -82,19 +82,19 @@ router.get('/', function(req, res) {
 
                 }
             })
-        } else if (time < '2018-08-26 18:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
+        } else if (time < '2019-02-24 18:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
             res.render('recruit/recruit-result1-1', {
                 'n_th': n_th,
 				title: '면접시간확인',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2018-08-28 18:00:00'){ // '2차 발표일' 설정, 모집종료 노출은 '2차 발표일' 18시 전 까지
+        } else if (time < '2019-02-26 18:00:00'){ // '2차 발표일' 설정, 모집종료 노출은 '2차 발표일' 18시 전 까지
             res.render('recruit/recruit-fin2', {
 				'due_day': dates.due_day,
 				title: '면접마감',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2018-08-30 23:59:59'){ // '합격 공지 종료일' 설정, 2차발표 노출은 '합격 공지 종료일' 자정 전 까지
+        } else if (time < '2019-03-01 23:59:59'){ // '합격 공지 종료일' 설정, 2차발표 노출은 '합격 공지 종료일' 자정 전 까지
             res.render('recruit/recruit-result2', {
 				'n_th': n_th,
 				title: '2차 면접 결과 확인',

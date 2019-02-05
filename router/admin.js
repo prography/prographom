@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
         } else if (req.query.filter == "specific") {
             var email = req.query.email;
 
-            var query_string = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') AS birth, phone, college, address, field, email, q1, q2, q3, q5, q6, q7 FROM application WHERE email = ?`;
+            var query_string = `SELECT name, sex, DATE_FORMAT(birth, \'%y-%m-%d\') AS birth, phone, college, address, field, github, email, q1, q2, q3, q3_1, q3_2, q5, q6, q7 FROM application WHERE email = ?`;
             client.query(query_string, [email], function(error, results){
                 if (error) {
                     console.log(error);
@@ -48,7 +48,7 @@ router.post('/', function(req, res) {
     if (req.query.filter == "interviewTime") {
         var body = req.body;
         var params = [body.date, body.hour, body.minute];
-        client.query(`SELECT email, name, sex, DATE_FORMAT(birth, \'%y-%m-%d\'), phone, college, address, field, q1, q2, q3, q5, q6, q7
+        client.query(`SELECT email, name, sex, DATE_FORMAT(birth, \'%y-%m-%d\'), phone, college, address, field, github, q1, q2, q3, q3_1, q3_2, q5, q6, q7
                     FROM application WHERE interview_date = ? and interview_hour = ? and interview_min = ? and submit = 1 and survived = 1`, params, function (error, results) {
             if (error) {
                 console.log(error);
@@ -78,7 +78,7 @@ router.post('/', function(req, res) {
         });
     } else {
 		var body = req.body;
-		if (body.admin_id == 'webteam' && body.admin_pw == 'isbest') {
+		if (body.admin_id == 'admin' && body.admin_pw == 'Prography1!') {
             req.session.adminUser = 'admin';
 		    var sql = `SELECT email, name, field FROM application WHERE submit = 1 and survived = 1`;
             client.query(sql, function (error, results) {

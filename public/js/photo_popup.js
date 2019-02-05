@@ -9,7 +9,7 @@
         'height': maskHeight
     });
     // 마스크의 투명도 처리
-    $('#mask').fadeTo("slow", 0.8);
+    $('#mask').fadeTo('slow', 0.8);
 }
 
 $(document).ready(function() {

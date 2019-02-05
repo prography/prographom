@@ -8,4 +8,4 @@ router.get('/1', function(req, res) {
     })
 })
 
-module.exports = router;
+module.exports = router
