@@ -83,6 +83,11 @@
     overflow-x: scroll;
 }
 
+@media screen and (max-width: 480px){
+    .sd-schedule-graph-wrap::-webkit-scrollbar {
+        display: none;
+    }
+}
 .sd-schedule-graph-content {
     display: flex;
     justify-content: stretch;
@@ -93,7 +98,6 @@
 @media screen and (max-width: 480px) {
     .sd-schedule-graph-content {
         min-width: 650px;
-        margin-bottom: 150px;
     }
 }
 
