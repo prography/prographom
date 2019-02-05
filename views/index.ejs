@@ -1,173 +1,180 @@
-<% include common/head_header %><% include common/body_header %>
-	<script>
-		$(document).ready(function () {
-			var windowWidth = $(window).width();
-			if(windowWidth <= 700){
-				$("#myVideo").html('<source src="video/m_Walking.mp4" type="video/mp4"></source>' );
-				$("#myVideo")[0].load();
-			}
-			$('.cropping').css('height', $(window).height());
-		});
-	</script>
+<% include common/head_header %> <% include common/body_header %>
+<script>
+  $(document).ready(function () {
+    var windowWidth = $(window).width();
+    if (windowWidth <= 700) {
+      $("#myVideo").html('<source src="video/m_Walking.mp4" type="video/mp4"></source>');
+      $("#myVideo")[0].load();
+    }
+    $('.cropping').css('height', $(window).height());
+  });
+</script>
 
-    <section>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <div class="cropping">
-                    <video autoplay muted loop id="myVideo">
-                        <source src="video/Walking.mp4" type="video/mp4">
-                    </video>
+<section>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="cropping">
+                <video autoplay muted loop id="myVideo">
+                    <source src="video/Walking.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="carousel-caption">
+                <p class="b-0">02.07 - 02.16</p>
+                <div class="b-p">연합 IT 프로젝트 동아리
+                    <br><span>프로그라피 4기를</span> <br/>모집합니다.
                 </div>
-                <div class="carousel-caption">
-                    <p class="b-0">02.07 - 02.16</p>
-                    <div class="b-p">연합 IT 프로젝트 동아리
-                        <br><span>프로그라피에서 4기를 모집</span>합니다.</div>
-                    <p class="b-pp">[ 4기 프로젝트 기간 : 2019년 3월 ~ 2019년 7월 ]</p>
-                    <a href="/recruit" class="btn-white-top scroll">지원하기</a>
-                </div>
+                <p class="b-pp">[ 4기 프로젝트 기간 : 2019년 3월 ~ 2019년 7월 ]</p>
+                <a href="/recruit" class="btn-white-top scroll">지원하기</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section style="margin-top:100px">
-        <p class="main-title-b container">프로그라피 소개</p>
-        <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
-        <p class="sub-title-b container">프로그라피는 연합 IT 프로젝트 동아리로
-            <br>개발자들이 함께 모여 세상에 필요한 서비스를 기획-개발-배포 하는 활동을 진행합니다.</p>
-        <div class="margin-top-20 container">
-            <a href="/about" class="btn-pink-big scroll">자세한 소개</a>
-        </div>
-        <div style="width:100%; height:400px; position:relative;">
-            <div class="container-fluid">
-                <div style="position:absolute; top:0px; left:0; width:100%;">
-                    <div class="in-bg-img"></div>
-                </div>
+<section class="content-section">
+    <p class="main-title-b container">프로그라피 소개</p>
+    <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
+    <p class="sub-title-b container">프로그라피는 연합 IT 프로젝트 동아리로
+        <span><br></span>개발자들이 함께 모여 세상에 필요한 서비스를 기획-개발-배포 하는 활동을 진행합니다.</p>
+    <div class="margin-top-20 container">
+        <a href="/about" class="btn-pink-big scroll">자세한 소개</a>
+    </div>
+    <div class="web-only" style="width:100%; height:400px; position:relative;">
+        <div class="container-fluid">
+            <div style="position:absolute; top:0px; left:0; width:100%;">
+                <div class="in-bg-img"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section style="margin-top:100px">
-        <p class="main-title-b container">프로그라피 활동 프로세스</p>
-        <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
-        <p class="sub-title-b container">프로그라피의 활동은 한 학기동안 진행되며
-            <br>팀빌딩-기획-개발-배포 의 프로세스를 따릅니다.</p>
-        <div>
-            <div class="row">
+<section class="content-section">
+    <p class="main-title-b container">프로그라피 활동 프로세스</p>
+    <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
+    <p class="sub-title-b container">프로그라피의 활동은 한 학기동안 진행되며
+        <span><br></span>팀빌딩-기획-개발-배포 의 프로세스를 따릅니다.</p>
+    <div>
+        <div class="row scrollable">
+            <div class="process_scroll">
                 <div class="process">
-                    <hr class="process_head_bar">
-                    <div class="process_title">팀빌딩</div>
+                    <!--<hr class="process_head_bar">-->
+                    <div class="process_title team_build">팀빌딩</div>
                     <div class="process_content">- 프로그라피 정규 활동을 시작하기에 앞서, 함께 프로젝트를 진행할 팀을 구성합니다.
-                    <br><br>- 지원자의 관심 주제와 지원 분야(프론트엔드, 백엔드(Django or Node.js), 딥러닝) 를 바탕으로 팀을 구성합니다. 
-                    <br><br>- 다양한 프로젝트를 진행해 본 경험이 있는 멘토들의 주도 하에 프로젝트 팀을 조직하게 됩니다.</div>
+                        <span><br></span><br>- 지원자의 관심 주제와 지원 분야(프론트엔드, 백엔드(Django or Node.js), 딥러닝) 를 바탕으로 팀을 구성합니다.
+                        <span><br></span><br>- 다양한 프로젝트를 진행해 본 경험이 있는 멘토들의 주도 하에 프로젝트 팀을 조직하게 됩니다.
+                    </div>
                     <img src="img/arrow_right.png" class="process_arrow">
                 </div>
                 <div class="process">
-                    <hr class="process_head_bar">
+                    <!--<hr class="process_head_bar">-->
                     <div class="process_title">기획</div>
-                    <div class="process_content">- 약 5주간의 일정으로 진행되며, ‘세상에 필요한 서비스’를 출시하기 위해 모든 팀원이 함께 탐구합니다. 
-                    <br><br>- 팀별 관심 키워드를 바탕으로 사용자를 중심으로한 탐색 과정을 거친후 퍼소나를 작성하고 서비스의 목표를 설정합니다.
-                    <br><br>- 팀의 공통된 의견을 세우고 서비스를 구체화 해 나가며 개발에 필요한 기획을 정립하게 됩니다.</div>
+                    <div class="process_content">- 약 5주간의 일정으로 진행되며, ‘세상에 필요한 서비스’를 출시하기 위해 모든 팀원이 함께 탐구합니다.
+                        <span><br></span><br>- 팀별 관심 키워드를 바탕으로 사용자를 중심으로한 탐색 과정을 거친후 퍼소나를 작성하고 서비스의 목표를 설정합니다.
+                        <span><br></span><br>- 팀의 공통된 의견을 세우고 서비스를 구체화 해 나가며 개발에 필요한 기획을 정립하게 됩니다.
+                    </div>
                     <img src="img/arrow_right.png" class="process_arrow">
                 </div>
                 <div class="process">
-                    <hr class="process_head_bar">
+                    <!--<hr class="process_head_bar">-->
                     <div class="process_title">개발</div>
                     <div class="process_content">- 약 4달의 기간동안 앞서 기획한 서비스를 개발, 구현하는 단계입니다.
-                    <br><br>- 사용성에 대해 함께 고민하고 협력하며 자신이 맡은 분야를 학습하고 구현해 나갑니다.
-                    <br><br>- 매주 토요일 진행되는 해커톤 형식의 팀별 모임과 각 분야 멘토들의 기술적 지원을 통해 더 완성도 있는 서비스를 만들어 나가게 됩니다.</div>
+                        <span><br></span><br>- 사용성에 대해 함께 고민하고 협력하며 자신이 맡은 분야를 학습하고 구현해 나갑니다.
+                        <span><br></span><br>- 매주 토요일 진행되는 해커톤 형식의 팀별 모임과 각 분야 멘토들의 기술적 지원을 통해 더 완성도 있는 서비스를 만들어 나가게 됩니다.
+                    </div>
                     <img src="img/arrow_right.png" class="process_arrow">
                 </div>
                 <div class="process">
-                    <hr class="process_head_bar">
+                    <!--<hr class="process_head_bar">-->
                     <div class="process_title">배포</div>
                     <div class="process_content">- 기획과 개발을 거쳐 만들어진 서비스를 실제로 배포하는 단계입니다.
-                    <br><br>- 실제 사용자들의 반응을 수집하고 분석하여 서비스를 검증하고 개선할 방향을 찾아 나감으로써 훌륭한 서비스를 만들어나기 위한 방향을 탐구합니다.
-                    <br><br>- 사용자 반응을 반영하여 서비스를 더 나은 방향으로 개선해 나갑니다.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="box" style="height:100px; clear:both;"></div>
-
-    <section style="margin-top:100px;">
-        <p class="main-title-b container">프로그라피 4기 활동일정</p>
-        <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
-        <p class="sub-title-b container">
-            프로그라피 4기 활동은 2019년 3월 2일부터 7월 27일까지 진행되며
-            <br> 세상에 필요한 서비스를 만들어 나가는 과정을 함꼐 하기 위해 주중에는 분야별 멘토링, 토요일에는 팀별 프로젝트 모임 및 강연을 진행하고 있습니다.
-        </p>
-        <div class="margin-top-20 container">
-            <a href="/schedule" class="btn-pink-big scroll">상세일정 확인하기</a>
-        </div>
-        <div style="width:100%; height:400px; position:relative;">
-            <div class="container-fluid">
-                <div style="position:absolute; top:0px; left:0; width:100%;">
-                    <div class="in-bg-img"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <p class="main-title-b main-title-b2 container">프로그라피 히스토리</p>
-        <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
-        <p class="sub-title-b container">2017년 8월, 간단한 서비스를 만들어보고 싶었던 개발자들의 모임에서 시작한 프로그라피는
-            <br>다양한 서비스를 만들고 런칭하는 모임을 목표로 함께 즐겁게 공부하며 계속 성장하고 있습니다.</p>
-        <div>
-            <div class="row">
-                <div class="col-sm-4 overlay-container">
-                    <img src="img/in-c-2.jpg" alt="" class="eximg">
-                    <div class="overlay-1">
-                        <div class="overlay-text">
-                            <p class="o-p">1기</p>
-                            <p class="o-pp">2017.08 ~ 2018.01
-                                <br>웹, 앱, 딥러닝 분야별 개발 프로젝트
-								<br>프로그라피의 시작</p>
-                            <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 overlay-container">
-                    <img src="img/in-c-3.jpg" alt="" class="eximg">
-                    <div class="overlay-1">
-                        <div class="overlay-text">
-                            <p class="o-p">2기</p>
-                            <p class="o-pp">2018.02 ~ 2018.07
-                                <br>웹, 앱, 딥러닝 분야별 개발 프로젝트
-								<br>공통강연 및 멘토링 진행</p>
-                            <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 overlay-container">
-                    <img src="img/in-c-4.jpg" alt="" class="eximg">
-                    <div class="overlay-1">
-                        <div class="overlay-text">
-                            <p class="o-p">3기</p>
-                            <p class="o-pp">2018.09 ~ 2019.01
-							<br>웹, 앱, 딥러닝, UI-UX 융합 프로젝트
-							<br>분야별 멘토링 세션 및 공통강연 진행</p>
-                            <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
-                        </div>
+                        <span><br></span><br>- 실제 사용자들의 반응을 수집하고 분석하여 서비스를 검증하고 개선할 방향을 찾아 나감으로써 훌륭한 서비스를 만들어나기 위한 방향을 탐구합니다.
+                        <span><br></span><br>- 사용자 반응을 반영하여 서비스를 더 나은 방향으로 개선해 나갑니다.
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-        <p class="main-title-b main-title-b3 container">그렇게,</p>
-        <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
-        <p class="sub-title-b container">현재까지 <strong style="font-size:20px;"> 180명 </strong>의 프로그라피들이 <strong style="font-size:20px;"> 32개 </strong>의 프로젝트를 진행했으며
-            <br>4기에도 쉬지않고 진행됩니다!</p>
-        <div style="width:100%; height:600px; position:relative;">
-            <div style="position:absolute; top:0px; width:100%;">
-                <div class="in-bg-img-l"></div>
+
+<section class="content-section">
+    <p class="main-title-b container">프로그라피 4기 활동일정</p>
+    <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
+    <p class="sub-title-b container">
+        프로그라피 4기 활동은 2019년 3월 2일부터 7월 27일까지 진행되며
+        <span><br></span> 세상에 필요한 서비스를 만들어 나가는 과정을 함꼐 하기 위해 주중에는 분야별 멘토링, 토요일에는 팀별 프로젝트 모임 및 강연을 진행하고 있습니다.
+    </p>
+    <div class="margin-top-20 container">
+        <a href="/schedule" class="btn-pink-big scroll">상세일정 확인하기</a>
+    </div>
+    <div class="web-only" style="width:100%; height:400px; position:relative;">
+        <div class="container-fluid">
+            <div style="position:absolute; top:0px; left:0; width:100%;">
+                <div class="in-bg-img"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="content-history-section">
+    <p class="main-title-b main-title-b2 container">프로그라피 히스토리</p>
+    <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
+    <p class="sub-title-b container">2017년 8월, 간단한 서비스를 만들어보고 싶었던 개발자들의 모임에서 시작한 프로그라피는
+        <span><br></span>다양한 서비스를 만들고 런칭하는 모임을 목표로 함께 즐겁게 공부하며 계속 성장하고 있습니다.</p>
+    <div>
+        <div class="row">
+            <div class="col-sm-4 overlay-container">
+                <img src="img/in-c-2.jpg" alt="" class="eximg">
+                <div class="overlay-1">
+                    <div class="overlay-text">
+                        <p class="o-p">1기</p>
+                        <p class="o-pp">2017.08 ~ 2018.01
+                            <br>웹, 앱, 딥러닝 분야별 개발 프로젝트
+                            <br>프로그라피의 시작</p>
+                        <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 overlay-container">
+                <img src="img/in-c-3.jpg" alt="" class="eximg">
+                <div class="overlay-1">
+                    <div class="overlay-text">
+                        <p class="o-p">2기</p>
+                        <p class="o-pp">2018.02 ~ 2018.07
+                            <br>웹, 앱, 딥러닝 분야별 개발 프로젝트
+                            <br>공통강연 및 멘토링 진행</p>
+                        <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 overlay-container">
+                <img src="img/in-c-4.jpg" alt="" class="eximg">
+                <div class="overlay-1">
+                    <div class="overlay-text">
+                        <p class="o-p">3기</p>
+                        <p class="o-pp">2018.09 ~ 2019.01
+                            <br>웹, 앱, 딥러닝, UI-UX 융합 프로젝트
+                            <br>분야별 멘토링 세션 및 공통강연 진행</p>
+                        <a href="/product" class="btn-white-top-overlay scroll">포트폴리오</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section">
+    <p class="main-title-b main-title-b3 container">그렇게,</p>
+    <div class="w3-border-top w3-border-lightgray" style="width:60%; margin-bottom:20px;"></div>
+    <p class="sub-title-b container">현재까지 <strong style="font-size:20px;"> 180명 </strong>의 프로그라피들이 <strong
+                style="font-size:20px;"> 32개 </strong>의 프로젝트를 진행했으며
+        <span><br/></span>4기에도 쉬지않고 진행됩니다!</p>
+    <div style="width:100%; height:600px; position:relative;">
+        <div style="position:absolute; top:0px; width:100%;">
+            <div class="in-bg-img-l"></div>
+        </div>
+    </div>
+</section>
 
 <% include common/footer %>

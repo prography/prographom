@@ -635,6 +635,7 @@ input::placeholder {
 @media only screen and (max-width: 600px) {
     .in-bg-img {
         background-image: none;
+        display: none;
     }
 }
 
@@ -1035,6 +1036,9 @@ tr {
 }
 
 @media only screen and (max-width: 600px) {
+    .sub-title-b > span > br{
+        display: none;
+    }
     .main-title-b {
         font-size: 24px;
         margin-top: -150px;
@@ -1132,6 +1136,15 @@ tr {
 .overlay-1:hover {
     opacity: 0.9;
 }
+@media screen and (max-width: 480px){
+
+    .overlay-container,
+    .overlay-1 {
+        opacity: 0.7;
+        margin-bottom: 20px;
+    }
+
+}
 
 .overlay-text {
     color: white;
@@ -1160,7 +1173,6 @@ tr {
     float: left;
     position: relative;
     width: 25%;
-    height: 400px;
     padding: 50px;
     box-sizing: border-box;
 }
@@ -1174,11 +1186,35 @@ tr {
     color: #000;
     font-size:20px;
     font-weight: bold;
+    position: relative;
 }
 
+.process_title:after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    content: ' ';
+    width: 2.4rem;
+    height: 2px;
+    background-color: #d81d45;
+}
+
+.process_title.team_build:after {
+    width: 3.6rem;
+}
 .process_content {
     color: #000;
     font-weight: 300;
+}
+@media screen and (max-width: 800px) {
+    .process_content > span {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .process_content {
+        line-height: 1.2;
+    }
 }
 
 .process_arrow {
@@ -1191,6 +1227,12 @@ tr {
 @media only screen and (max-width: 800px) {
     .process {
         width: 100%;
+        padding: 0 50px;
+        margin: 20px 0;
+        height: inherit;
+    }
+    .process_head_bar{
+        display: none;
     }
 }
 
@@ -1299,6 +1341,27 @@ tr {
     font-weight: 300;
 }
 
+@media screen and (max-width: 480px) {
+    .content-section {
+        margin-top: 250px;
+    }
+
+    .content-history-section {
+        margin-top: 450px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .scrollable {
+        overflow-x: scroll;
+    }
+
+    .process_scroll {
+        min-width: 1024px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
 
 /*-------- 16.feed . css --------*/
 .create-pdf {display:flex; align-items:center; height:50px;}
@@ -1312,3 +1375,4 @@ embed {width:100%; height:800px;}
 .trash-full-wrap {display:flex; align-items:center; height:50px;}
 .fa-trash {margin:0; padding:0; border:none; background:none;}
 .full-btn {width:50px; height:30px; background-color:#3a9fb7; color:white; padding:5px; text-align:center; border:1px solid white; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; font-size:8px;}
+.web-only{display: inherit} @media screen and (max-width: 480px){.web-only{display: none !important}}
