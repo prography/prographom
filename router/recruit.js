@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
         date.setHours(date.getHours() + 9) //서버 로컬 시간이 표준시간과 정확히 9시간 차이남
         let time = date.toFormat('YYYY-MM-DD HH24:MI:SS')
         
-        const recruit_wait = 1 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
+        const recruit_wait = 0 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
         
         if (recruit_wait === 1) {
             res.render('recruit/recruit-none', { // recruit_wait가 1이면 '모집전' 상태로 노출
