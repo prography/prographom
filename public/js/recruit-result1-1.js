@@ -16,7 +16,8 @@ function checkValue() {
         error: function() {
             alert('통신실패');
         },
-        success: function(results) {
+        success: function(data) {
+            results = data.uresult
             if (results.length == 0) {
                 alert('잘못된 이메일입니다!');
                 return;
@@ -65,21 +66,21 @@ function checkValue() {
                         });
                     });
 
-                    var message = '8월 ' + result.day + '일 ';
+                    var message = '2월 ' + result.day + '일 ';
                     if (result.hour == 11) {
                         message += '오전 ';
                     } else {
                         message += '오후 ';
                     }
                     message += result.hour + '시';
-                    if (result.min == 20 || result.min == 40) {
+                    if (result.min == 30) {
                         message += ' ' + result.min + '분';
                     }
 
-                    if (result.day == 26) {
-                        message += ', 마루 180 지하 1층 이벤트홀';
+                    if (result.day == 23) {
+                        message += ', 디캠프 6층 세미나실';
                     } else {
-                        message += ', 이화여자대학교 ECC 강의실 B156호';
+                        message += ', TOZ 선릉점';
                     }
 
                     message += '에서 20분간 진행됩니다.';

@@ -6,6 +6,7 @@ function searchMemberByTime(){
     const date = $('#sel1 option:selected').val();
     const hour = $('#sel2 option:selected').val();
     const minute = $('#sel3 option:selected').val();
+    const field = $('#sel4 option:selected').val();
     
     $.ajax({
         type: 'POST',
@@ -13,7 +14,8 @@ function searchMemberByTime(){
         data: {
             date: date,
             hour: hour,
-            minute: minute
+            minute: minute,
+            field: field
         },
         dataType: 'text',
         success: function(data) {

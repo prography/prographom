@@ -1,47 +1,78 @@
 var map;
 
 function checkValue() {
-    var email = document.getElementById("email").value;
+    var email = document.getElementById('email').value;
     if (email == '') {
         alert('이메일을 적어주세요!');
         return;
     }
 
     $.ajax({
-        type: "GET",
-        url: "/recruit?filter=checkSurvived",
+        type: 'GET',
+        url: '/recruit?filter=checkSurvived',
         data: {
             email: email
         },
-        error: function() {
+        error: () => {
             alert('통신실패');
         },
-        success: function(results) {
+        success: (data) => {
+            let results = data.uresult
+            let full_flags = data.full_flags
+
             if (results.length == 0) {
                 alert('잘못된 이메일입니다!');
                 return;
             }
-            survived = JSON.stringify(results[0]['survived']);
-            name = JSON.stringify(results[0]['name']);
+            let survived = JSON.stringify(results[0]['survived']);
+            let name = JSON.stringify(results[0]['name']);
+            let field = results[0]['field'];
+            
+            for (let f in full_flags) {
+                if (f == field) {
+                    for (let i = 0; i < $("input:radio").length; i++) { 
+                        if (full_flags[f][i]) $("input:radio")[i].disabled = true; 
+                    } 
+                }
+            }
 
-            result = {}
+            let result = {}
             result.day = JSON.stringify(results[0]['interview_date']);
             result.hour = JSON.stringify(results[0]['interview_hour']);
             result.min = JSON.stringify(results[0]['interview_min']);
 
             if (survived == '1') {
-
-                if (result.day != null && result.day != 0) {
-
-                    $("#result-after-fail-1").css('display', 'none');
-                    $("#result-after-pass-1").css('display', 'none');
-                    $("#result-after-select-1").css('display', 'block');
-                    var highlightname = $('.highlightname');
+                if (result.day != 'null' && result.day != 0) {
+                    $('#result-after-fail-1').css('display', 'none');
+                    $('#result-after-pass-1').css('display', 'none');
+                    $('#result-after-select-1').css('display', 'block');
+                    let highlightname = $('.highlightname');
                     highlightname.text(name);
 
+                    let message = '2월 ' + result.day + '일 ';
+                    if (result.hour == 11) {
+                        message += '오전 ';
+                    } else {
+                        message += '오후 ';
+                    }
+                    message += result.hour + '시';
+                    if (result.min == 30) {
+                        message += ' ' + result.min + '분';
+                    }
+
+                    if (result.day == 23) {
+                        message += ', 디캠프 6층 세미나실';
+                    } else {
+                        message += ', TOZ 선릉점';
+                    }
+
+                    message += '에서 20분간 진행됩니다.';
+
+                    $('#message').text(message);
+
                     map = new naver.maps.Map('map');
-                    var myaddress = '';
-                    var url = '';
+                    let myaddress = '';
+                    let url = '';
                     if (result.day == 26) {
                         myaddress = '서울특별시 강남구 역삼로 180';
                         url = 'https://map.naver.com/local/siteview.nhn?code=34284482';
@@ -50,56 +81,34 @@ function checkValue() {
                         url = 'https://map.naver.com/local/siteview.nhn?code=19558721';
                     }
                     
-                    naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+                    naver.maps.Service.geocode({address: myaddress}, (status, response) => {
                         if (status !== naver.maps.Service.Status.OK) {
                             return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
                         }
-                        var result = response.result;
-                        var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+                        let result = response.result;
+                        let myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
                         map.setCenter(myaddr); 
-                        var marker = new naver.maps.Marker({
+                        let marker = new naver.maps.Marker({
                             position: myaddr,
                             map: map
                         });
-                        naver.maps.Event.addListener(marker, "click", function(e) {
+                        naver.maps.Event.addListener(marker, 'click', (e) => {
                             location.href = url;
                         });
                     });
 
-                    var message = '8월 ' + result.day + '일 ';
-                    if (result.hour == 11) {
-                        message += '오전 ';
-                    } else {
-                        message += '오후 ';
-                    }
-                    message += result.hour + '시';
-                    if (result.min == 20 || result.min == 40) {
-                        message += ' ' + result.min + '분';
-                    }
-
-                    if (result.day == 26) {
-                        message += ', 마루 180 지하 1층 이벤트홀';
-                    } else {
-                        message += ', 이화여자대학교 ECC 강의실 B156호';
-                    }
-
-                    message += '에서 20분간 진행됩니다.';
-
-                    $("#message").text(message);
-
-
                 } else {
-                    $("#result-after-pass-1").css('display', 'block');
-                    $("#result-after-fail-1").css('display', 'none');
-                    $("#result-after-select-1").css('display', 'none');
-                    var highlightname = $('.highlightname');
+                    $('#result-after-pass-1').css('display', 'block');
+                    $('#result-after-fail-1').css('display', 'none');
+                    $('#result-after-select-1').css('display', 'none');
+                    let highlightname = $('.highlightname');
                     highlightname.text(name);
                 }
             } else {
-                $("#result-after-pass-1").css('display', 'none');
-                $("#result-after-fail-1").css('display', 'block');
-                $("#result-after-select-1").css('display', 'none');
-                var highlightname = $('.highlightname');
+                $('#result-after-pass-1').css('display', 'none');
+                $('#result-after-fail-1').css('display', 'block');
+                $('#result-after-select-1').css('display', 'none');
+                let highlightname = $('.highlightname');
                 highlightname.text(name);
             }
         }
@@ -108,20 +117,20 @@ function checkValue() {
 
 function schedule_submit() {
     
-    var day = null;
-    var hour = null;
-    var min = null;
+    let day = null;
+    let hour = null;
+    let min = null;
 
-    $("input:radio").each( function () { 
+    $('input:radio').each(function () { 
         if ($(this)[0].checked) {
-            time = $(this)[0].value.split(",");
+            time = $(this)[0].value.split(',');
             day = time[0];
             hour = time[1];
             min = time[2];
         } 
     });
     
-    var email = document.getElementById("email").value;
+    let email = document.getElementById('email').value;
     
     if (!(day && hour && min)) {
         alert('면접 일정을 선택해주세요!');
@@ -129,31 +138,52 @@ function schedule_submit() {
     }
 
     $.ajax({
-        type: "POST",
-        url: "/recruit/update",
+        type: 'POST',
+        url: '/recruit/update',
         data: {
             day: day,
             hour: hour,
             min: min,
             email: email
         },
-        error: function() {
+        error: () => {
             alert('통신실패');
         },
-        success: function(result) {
+        success: (result) => {
             if (result.full) {
                 alert('신청 하는 동안 해당 시간 면접정원이 모두 찼습니다!');
                 return;
             } 
 
-            $("#result-after-pass-1").css('display', 'none');
-            $("#result-after-fail-1").css('display', 'none');
-            $("#result-after-select-1").css('display', 'block');
+            $('#result-after-pass-1').css('display', 'none');
+            $('#result-after-fail-1').css('display', 'none');
+            $('#result-after-select-1').css('display', 'block');
+
+            let message = '2월 ' + result.day + '일 ';
+            if (result.hour == 11) {
+                message += '오전 ';
+            } else {
+                message += '오후 ';
+            }
+            message += result.hour + '시';
+            if (result.min == 30) {
+                message += ' ' + result.min + '분';
+            }
+
+            if (result.day == 23) {
+                message += ', 디캠프 6층 세미나실';
+            } else {
+                message += ', TOZ 선릉점';
+            }
+
+            message += '에서 진행됩니다.';
+
+            $('#message').text(message);
 
             map = new naver.maps.Map('map');
-            var myaddress = '';
-            var url = '';
-            if (result.day == 26) {
+            let myaddress = '';
+            let url = '';
+            if (result.day == 23) {
                 myaddress = '서울특별시 강남구 역삼로 180';
                 url = 'https://map.naver.com/local/siteview.nhn?code=34284482';
             } else {
@@ -161,93 +191,71 @@ function schedule_submit() {
                 url = 'https://map.naver.com/local/siteview.nhn?code=19558721';
             }
 
-            naver.maps.Service.geocode({address: myaddress}, function(status, response) {
+            naver.maps.Service.geocode({address: myaddress}, (status, response) => {
                 if (status !== naver.maps.Service.Status.OK) {
                     return alert(myaddress + '의 검색 결과가 없거나 기타 네트워크 에러');
                 }
-                var result = response.result;
-                var myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
+                let result = response.result;
+                let myaddr = new naver.maps.Point(result.items[0].point.x, result.items[0].point.y);
                 map.setCenter(myaddr); 
-                var marker = new naver.maps.Marker({
+                let marker = new naver.maps.Marker({
                     position: myaddr,
                     map: map
                 });
-                naver.maps.Event.addListener(marker, "click", function(e) {
+                naver.maps.Event.addListener(marker, 'click', (e) => {
                     location.href = url;
                 });
             });
-
-            var message = '8월 ' + result.day + '일 ';
-            if (result.hour == 11) {
-                message += '오전 ';
-            } else {
-                message += '오후 ';
-            }
-            message += result.hour + '시';
-            if (result.min == 20 || result.min == 40) {
-                message += ' ' + result.min + '분';
-            }
-
-            if (result.day == 26) {
-                message += ', 마루 180 지하 1층 이벤트홀';
-            } else {
-                message += ', 이화여자대학교 ECC 강의실 B156호';
-            }
-
-            message += '에서 진행됩니다.';
-
-            $("#message").text(message);
-
         }
     });
 }
 
 function resubmit() {
-    var email = document.getElementById("email").value;
+    let email = document.getElementById('email').value;
 
     $.ajax({
-        type: "GET",
-        url: "/recruit?filter=checkSurvived",
+        type: 'GET',
+        url: '/recruit?filter=checkSurvived',
         data: {
             email: email
         },
-        error: function() {
+        error: () => {
             alert('통신실패');
         },
-        success: function(results) {
+        success: (results) => {
             interview_day = JSON.stringify(results[0]['interview_date']);
             interview_hour = JSON.stringify(results[0]['interview_hour']);
 
-            var day_arr = [25, 26];
-            var hour_arr = [11, 12, 1, 2, 3, 4];
+            let day_arr = [23, 24];
+            let hour_arr = [1, 2, 3, 4];
 
             count = 0;
-            for (var hour in hour_arr) {
-                for (var day in day_arr) {
-                    if (interview_day == day_arr[day] && interview_hour == hour_arr[hour] && $("input:radio")[count].disabled) {
-                        $("input:radio")[count].disabled = false;
+            for (let hour in hour_arr) {
+                for (let day in day_arr) {
+                    if (interview_day == day_arr[day] && interview_hour == hour_arr[hour] && $('input:radio')[count].disabled) {
+                        $('input:radio')[count].disabled = false;
                     }
                     count += 1;
                 }
             }
 
             $.ajax({
-                type: "POST",
-                url: "/recruit/init",
+                type: 'POST',
+                url: '/recruit/init',
                 data: {
                     day: 0,
                     hour: 0,
                     min: 0,
                     email: email
                 },
-                error: function() {
+                error: () => {
                     alert('통신실패');
                 },
-                success: function(result) {
+                success: (result) => {
                     map.destroy();
-                    $("#result-after-select-1").css('display', 'none');
-                    $("#result-after-fail-1").css('display', 'none');
-                    $("#result-after-pass-1").css('display', 'block');
+                    $('#result-after-select-1').css('display', 'none');
+                    $('#result-after-fail-1').css('display', 'none');
+                    $('#result-after-pass-1').css('display', 'block');
                 }
             });
 

@@ -1,21 +1,61 @@
 const express = require('express')
 const router = express.Router()
 
-const client = require("./main.js").client
+const client = require('./main.js').client
 const n_th = require('./main.js').n_th
 const dates = require('./main.js').dates
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
     if (req.query.filter && req.query.filter == 'checkSurvived') {
-        var email = req.query.email;
-        var query = `SELECT survived, name, interview_date, interview_hour, interview_min FROM application WHERE email = '` + email + `'`;
-        client.query(query, function(error, result){
+        let email = req.query.email
+        let query = `SELECT survived, name, field, interview_date, interview_hour, interview_min FROM application WHERE email = '` + email + `'`
+        client.query(query, (error, uresult) => {
             if (error) {
-                console.log(error);
+                console.log(error)
             } else {
-                res.send(result);
+                query = `SELECT field, interview_date, interview_hour FROM application`
+                client.query(query, (error, result) => {
+                    if (error) {
+                        console.log(error)
+                    } else {
+                        let full_flags = {}
+                        full_flags['front'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['nodejs'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['django'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['deep'] = [0, 0, 0, 0, 0, 0, 0, 0]
+
+                        let interview_dict = {}
+                        for (let i = 0; i < result.length; i++) {
+                            if (result[i].interview_date && result[i].interview_hour) {
+                                let key = result[i].field + ',' + result[i].interview_date + ',' + result[i].interview_hour
+                                if (!(key in interview_dict)) {
+                                    interview_dict[key] = 1
+                                } else {
+                                    interview_dict[key] += 1
+                                }
+                            }
+                        }
+                        
+                        let flag_count = 0
+                        let hour_arr = ['1', '2', '3', '4']
+                        let date_arr = ['23', '24']
+                        let field_arr = ['front', 'nodejs', 'django', 'deep']
+
+                        for (let hour in hour_arr) {
+                            for (let date in date_arr) {
+                                for (let field in field_arr) {
+                                    if (interview_dict[field_arr[field] + ',' + date_arr[date] + ',' + hour_arr[hour]] == 4) {
+                                        full_flags[field_arr[field]][flag_count] = 1
+                                    }
+                                }
+                                flag_count += 1
+                            }
+                        }
+                        res.send({'full_flags': full_flags, 'uresult': uresult})
+                    }
+                })
             }
-        });
+        })
     } else {
         require('date-utils')
         let date = new Date()
@@ -23,64 +63,31 @@ router.get('/', function(req, res) {
         let time = date.toFormat('YYYY-MM-DD HH24:MI:SS')
         
         const recruit_wait = 0 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
-        
+       
+        console.log(time)
         if (recruit_wait === 1) {
             res.render('recruit/recruit-none', { // recruit_wait가 1이면 '모집전' 상태로 노출
 				title: '지원하기(모집전)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-16 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
+        } else if (time < '2019-02-15 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
             res.render('recruit/recruit-ing', {
 				'n_th': n_th, 'due_month': dates.due_month,
 				'due_day': dates.due_day,
 				title: '지원하기(모집중)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-17 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 18시 전 까지
+        } else if (time < '2019-02-16 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 14시 전 까지
             res.render('recruit/recruit-fin', {
 				'due_day': dates.due_day,
 				title: '지원하기(모집종료)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
         } else if (time < '2019-02-17 23:59:59'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
-            var query = `SELECT interview_date, interview_hour FROM application`;
-            client.query(query, function(error, result){
-                if (error) {
-                    console.log(error);
-                } else {
-                    var interview_dict = {}
-                    for (var i = 0; i < result.length; i++) {
-                        if (result[i].interview_date && result[i].interview_hour) {
-                            var key = result[i].interview_date + ',' + result[i].interview_hour;
-                            if (!(key in interview_dict)) {
-                                interview_dict[key] = 1
-                            } else {
-                                interview_dict[key] += 1
-                            }
-                        }
-                    }
-                    var full_flag = [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0];
-                    
-                    var flag_count = 0;
-                    var hour_arr = ['11', '12', '1', '2', '3', '4'];
-                    var date_arr = ['25', '26'];
-
-                    for (var hour in hour_arr) {
-                        for (var date in date_arr) {
-                            if (interview_dict[date_arr[date] + ',' + hour_arr[hour]] == 9) {
-                                full_flag[flag_count] = 1;
-                            }
-                            flag_count += 1;
-                        }
-                    }
-                    res.render('recruit/recruit-result1', {
-                        'n_th': n_th,
-                        title: '서류전형 결과 확인',
-                        url: req.protocol + '://' + req.headers.host + req.url,
-                        full_flag: full_flag
-                    });
-
-                }
+            res.render('recruit/recruit-result1', {
+                'n_th': n_th,
+                title: '서류전형 결과 확인',
+                url: req.protocol + '://' + req.headers.host + req.url
             })
         } else if (time < '2019-02-24 18:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
             res.render('recruit/recruit-result1-1', {
@@ -109,64 +116,68 @@ router.get('/', function(req, res) {
     }
 })
 
-router.post('/update', function (req, res) {
-    var day = req.body.day;
-    var hour = req.body.hour;
-    var min = req.body.min;
-    var email = req.body.email;
+router.post('/update', (req, res) => {
+    let day = req.body.day
+    let hour = req.body.hour
+    let min = req.body.min
+    let email = req.body.email
 
-    var query = `SELECT interview_min, count(interview_min) AS count from application WHERE interview_date = ` + day + ` and interview_hour = ` + hour + ` GROUP BY interview_min ORDER BY interview_min`;
-    client.query(query, function (error, result) {
+    let query = `SELECT field FROM application WHERE email = '` + email + `'`
+    client.query(query, (error, result) => {
         if (error) {
-            console.log(error);
+            console.log(error)
         } else {
-            var count = {0: 0, 20: 0, 40: 0};
-            var total_count = 0;
-            for (var row in result) {
-                count[result[row].interview_min] += Number(result[row].count)
-                total_count += Number(result[row].count);
-            }
-
-            if (total_count == 9) {
-                res.send({'full': true});
-            } else {
-                var min = null;
-                if (count[0] != 3) {
-                    min = 0;
-                } else if (count[20] != 3) {
-                    min = 20;
+            let field = result[0].field
+            query = `SELECT interview_min, count(interview_min) AS count FROM application WHERE field = '` + field + `' AND interview_date = ` + day + ` AND interview_hour = ` + hour + ` GROUP BY interview_min ORDER BY interview_min`
+            client.query(query, (error, result) => {
+                if (error) {
+                    console.log(error)
                 } else {
-                    min = 40;
-                }
-                query = `UPDATE application SET interview_date = ` + day + `, interview_hour = ` + hour + `, interview_min = ` + min + ` WHERE email = '` + email + `'`;
-                client.query(query, function (error, result) {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        res.send({'full': false, 'day': day, 'hour': hour, 'min': min});
+                    var count = {0: 0, 30: 0}
+                    var total_count = 0
+                    for (var row in result) {
+                        count[result[row].interview_min] += Number(result[row].count)
+                        total_count += Number(result[row].count)
                     }
-                });
-            }
+
+                    if (total_count == 4) {
+                        res.send({'full': true})
+                    } else {
+                        var min = null
+                        if (count[0] != 2) {
+                            min = 0
+                        } else if (count[30] != 2) {
+                            min = 30
+                        }
+                        query = `UPDATE application SET interview_date = ` + day + `, interview_hour = ` + hour + `, interview_min = ` + min + ` WHERE email = '` + email + `'`
+                        client.query(query, (error, result) => {
+                            if (error) {
+                                console.log(error)
+                            } else {
+                                res.send({'full': false, 'day': day, 'hour': hour, 'min': min})
+                            }
+                        })
+                    }
+                }
+            })
         }
-    });
+    })
+})
 
-});
+router.post('/init', (req, res) => {
+    let day = req.body.day
+    let hour = req.body.hour
+    let min = req.body.min
+    let email = req.body.email
 
-router.post('/init', function (req, res) {
-    var day = req.body.day;
-    var hour = req.body.hour;
-    var min = req.body.min;
-    var email = req.body.email;
-
-    query = `UPDATE application SET interview_date = ` + day + `, interview_hour = ` + hour + `, interview_min = ` + min + ` WHERE email = '` + email + `'`;
-    client.query(query, function (error, result) {
+    query = `UPDATE application SET interview_date = ` + day + `, interview_hour = ` + hour + `, interview_min = ` + min + ` WHERE email = '` + email + `'`
+    client.query(query, (error, result) => {
         if (error) {
-            console.log(error);
+            console.log(error)
         } else {
-            res.send({'full': false, 'day': day, 'hour': hour, 'min': min});
+            res.send({'full': false, 'day': day, 'hour': hour, 'min': min})
         }
-    });
-});
+    })
+})
 
-
-module.exports = router;
+module.exports = router
