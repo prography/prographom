@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
         date.setHours(date.getHours() + 9) //서버 로컬 시간이 표준시간과 정확히 9시간 차이남
         let time = date.toFormat('YYYY-MM-DD HH24:MI:SS')
         
-        const recruit_wait = 1 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
+        const recruit_wait = 0 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
         
         if (recruit_wait === 1) {
             res.render('recruit/recruit-none', { // recruit_wait가 1이면 '모집전' 상태로 노출
@@ -36,13 +36,13 @@ router.get('/', function(req, res) {
 				title: '지원하기(모집중)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-17 18:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 18시 전 까지
+        } else if (time < '2019-02-17 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 18시 전 까지
             res.render('recruit/recruit-fin', {
 				'due_day': dates.due_day,
 				title: '지원하기(모집종료)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-20 18:00:00'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
+        } else if (time < '2019-02-17 23:59:59'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
             var query = `SELECT interview_date, interview_hour FROM application`;
             client.query(query, function(error, result){
                 if (error) {

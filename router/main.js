@@ -15,7 +15,7 @@ setInterval(() => {
 }, 5000)
 
 const n_th = 4
-dates = {'due_month': 2, 'due_day': 16, 'OT_month': 3, 'OT_day': 2, 'MT_month': 3, 'MT_day': 9}
+dates = {'due_month': 2, 'due_day': 16, 'OT_month': 3, 'OT_day': 2, 'MT_month': 3, 'MT_day': 16}
 
 module.exports = {
   hashMap: hashMap,

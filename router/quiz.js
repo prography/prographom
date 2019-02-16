@@ -8,4 +8,11 @@ router.get('/1', function(req, res) {
     })
 })
 
+router.get('/2', function(req, res) {
+    res.render('quiz/quiz-2', {
+        title: '프로그라피',
+        url: req.protocol + '://' + req.headers.host + req.url
+    })
+})
+
 module.exports = router
