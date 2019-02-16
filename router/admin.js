@@ -24,6 +24,8 @@ router.get('/', function(req, res) {
                 if (error) {
                     console.log(error);
                     client.end();
+                } else if (results.length === 0) {
+                    res.send('NO EMAIL')
                 } else {
                     var data = results[0];    
                     if (data.q6 == null) data.q6 = -1;
