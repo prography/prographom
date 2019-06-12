@@ -1,36 +1,31 @@
-var map;
+let map
 
-function checkValue() {
-    var email = document.getElementById("email").value;
-    if (email == '') {
-        alert('이메일을 적어주세요!');
-        return;
+const checkValue = () => {
+    const email = document.getElementById('email').value
+    if (email === '') {
+        alert('이메일을 적어주세요!')
+        return
     }
 
     $.ajax({
-        type: "GET",
-        url: "/recruit?filter=checkSurvived",
+        type: 'GET',
+        url: '/recruit?filter=checkSurvived',
         data: {
             email: email
         },
-        error: function() {
+        error: () => {
             alert('통신실패');
         },
-        success: function(results) {
-            if (results.length == 0) {
-                alert('잘못된 이메일입니다!');
+        success: (data) => {
+            const results = data.uresult
+            if (results.length === 0) {
+                alert('잘못된 이메일입니다!')
                 return;
             }
-            survived = JSON.stringify(results[0]['survived']);
-            name = JSON.stringify(results[0]['name']);
-
-            result = {}
-            result.day = JSON.stringify(results[0]['interview_date']);
-            result.hour = JSON.stringify(results[0]['interview_hour']);
-            result.min = JSON.stringify(results[0]['interview_min']);
+            survived = JSON.stringify(results[0]['survived'])
+            name = JSON.stringify(results[0]['name'])
 
             if (survived == '1') {
-
                 $("#result-after-fail-1").css('display', 'none');
                 $("#result-after-select-1").css('display', 'block');
                 var highlightname = $('.highlightname');
@@ -57,18 +52,16 @@ function checkValue() {
                         location.href = url;
                     });
                 });
-
-
             } else {
-                $("#result-after-fail-1").css('display', 'block');
-                $("#result-after-select-1").css('display', 'none');
-                var highlightname = $('.highlightname');
-                highlightname.text(name);
+                $("#result-after-fail-1").css('display', 'block')
+                $("#result-after-select-1").css('display', 'none')
+                let highlightname = $('.highlightname')
+                highlightname.text(name)
             }
         }
-    });
+    })
 }
 
-function enterkey() {
-    if (window.event.keyCode == 13) checkValue(); 
+const enterkey = () => {
+    if (window.event.keyCode === 13) checkValue()
 }

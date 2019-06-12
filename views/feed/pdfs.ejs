@@ -16,7 +16,7 @@
                                 <tr class="tbody pdf" id="<%= pdf.id %>"> 
                                     <td class="td-3" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.owner %></td>
                                     <td class="td-3" style="background-color:#fff; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.created_at %></td>
-                                    <td class="td-4" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222;"><%= pdf.name %></td>
+                                    <td class="td-4" style="background-color:#f1f1f1; border: 1px solid #30aecd 0.5; color:#222; cursor:pointer;"><%= pdf.name %></td>
                                 </tr>
                                 <% }) %>  
                             </tbody>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div id="create-pdf" class="create-pdf">
-                <div class="fa-plus-circle-wrap"><i class="fa fa-plus-circle fa-2x" onclick="plus()"></i></div>
+                <div class="fa-plus-circle-wrap"><i class="fa fa-plus-circle fa-2x" onclick="plus()" style="cursor:pointer;"></i></div>
                 <form class="create-form" action="/feed" method="post" enctype="multipart/form-data">
                     <input id="file-upload" type="file" name="pdf" class="file-upload"/>
                     <button class="btn create-btn" type="submit">create</button>
@@ -36,20 +36,20 @@
     <div class="box" style="height:100px;"></div><!-- 중간에 띄어놓음 -->
     <% if (err) {%>
     <script>
-        alert("<%=errmsg%>");
+        alert('<%=errmsg%>');
     </script>
     <% } %>
     <script>
-        $(".pdf").on('click', function () {
+        $('.pdf').on('click', function () {
             location.href = '/feed?filter=specific&id=' + $(this)[0].id;
         });
 		function plus() {
-			$(".create-form").css('display', 'table-cell');
-			$(".cancel-btn").show();
+			$('.create-form').css('display', 'table-cell');
+			$('.cancel-btn').show();
 		}
 		function hide() {
-			$(".create-form").hide();
-			$(".cancel-btn").hide();
+			$('.create-form').hide();
+			$('.cancel-btn').hide();
 		}
     </script>
 <% include common/footer %>

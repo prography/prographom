@@ -5,7 +5,7 @@ let hashMap = {}
 const client = mysql.createConnection({
     host: 'ec2-13-125-55-125.ap-northeast-2.compute.amazonaws.com',
     user : 'root',
-    password : 'hansol64',
+    password : 'Prography1!',
     database : 'prography',
     multipleStatements: true,
 })
@@ -80,6 +80,26 @@ module.exports = (app) => {
         const musicArtist = req.body.music_artist
         await client.query('INSERT INTO music(music_title, music_artist) VALUES(?, ?)', [musicTitle, musicArtist])
         res.redirect('/music')
+    })
+
+    app.get('/demo-day', (req, res) => {
+        res.render('demo-day', {
+            title: '프로그라피 데모데이 참가신청',
+            url: req.protocol + '://' + req.headers.host + req.url,
+            post: false
+        })
+    })
+    
+    app.post('/demo-day', async (req, res) => {
+        const name = req.body.name
+        const phone = req.body.phone
+        const org = req.body.org
+        await client.query('INSERT INTO demo_day_application(demo_day_application_name, demo_day_application_phone, demo_day_application_org) VALUES(?, ?, ?)', [name, phone, org])
+        res.render('demo-day', {
+            title: '프로그라피 데모데이 참가신청',
+            url: req.protocol + '://' + req.headers.host + req.url,
+            post: true
+        })
     })
 } 
 

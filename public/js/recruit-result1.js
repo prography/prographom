@@ -73,12 +73,12 @@ function checkValue() {
                     map = new naver.maps.Map('map');
                     let myaddress = '';
                     let url = '';
-                    if (result.day == 26) {
-                        myaddress = '서울특별시 강남구 역삼로 180';
-                        url = 'https://map.naver.com/local/siteview.nhn?code=34284482';
+                    if (result.day == 23) {
+                        myaddress = '서울특별시 강남구 선릉로 551';
+                        url = 'https://map.naver.com/local/siteview.nhn?code=32811758';
                     } else {
-                        myaddress = '서울특별시 서대문구 이화여대길 52';
-                        url = 'https://map.naver.com/local/siteview.nhn?code=19558721';
+                        myaddress = '서울특별시 강남구 테헤란로70길 14-8';
+                        url = 'https://map.naver.com/local/siteview.nhn?code=18468993';
                     }
                     
                     naver.maps.Service.geocode({address: myaddress}, (status, response) => {
@@ -184,11 +184,11 @@ function schedule_submit() {
             let myaddress = '';
             let url = '';
             if (result.day == 23) {
-                myaddress = '서울특별시 강남구 역삼로 180';
-                url = 'https://map.naver.com/local/siteview.nhn?code=34284482';
+                myaddress = '서울특별시 강남구 선릉로 551';
+                url = 'https://map.naver.com/local/siteview.nhn?code=32811758';
             } else {
-                myaddress = '서울특별시 서대문구 이화여대길 52';
-                url = 'https://map.naver.com/local/siteview.nhn?code=19558721';
+                myaddress = '서울특별시 강남구 테헤란로70길 14-8';
+                url = 'https://map.naver.com/local/siteview.nhn?code=18468993';
             }
 
             naver.maps.Service.geocode({address: myaddress}, (status, response) => {
@@ -222,7 +222,8 @@ function resubmit() {
         error: () => {
             alert('통신실패');
         },
-        success: (results) => {
+        success: (data) => {
+            results = data.uresult
             interview_day = JSON.stringify(results[0]['interview_date']);
             interview_hour = JSON.stringify(results[0]['interview_hour']);
 

@@ -1,18 +1,26 @@
 <% include common/head_header %><% include common/body_header %>
+ 	<script>
+		$(window).ready(function () {
+			if (<%=post%>) alert('참가 신청 완료 되었습니다!');
+		});
+	</script>
     <section class="container">
         <h1 class="text-center" style="margin-top:140px; font-weight:400; color:#333; font-size:40px;">Prography 4th Demo Day</h1>
-        <h5 class="text-center">프로그라피 해커톤 음악 신청</h5>
+        <h5 class="text-center">프로그라피 4기 데모데이 참가 신청</h5>
         <div class="w3-border-bottom w3-border-lightgray half-p"></div>
         <div class="box" style="height:50px;"></div>
         <div class="row">
             <div class="col-sm-3" style="weight:auto; height:auto;"> </div>
             <div class="login-form col-sm-6">
                 <form method="post" class="form-horizontal">
-                    <label for="music_title">음악제목</label>
-                    <input type="text" class="login-input" id="music_title" name="music_title" placeholder="음악제목">
+                    <label for="name">이름</label>
+                    <input type="text" class="login-input" id="name" name="name" placeholder="성함">
 
-                    <label for="music_artist">아티스트</label>
-                    <input type="text" class="login-input" id="music_artist" name="music_artist" placeholder="아티스트">
+                    <label for="phone">전화번호</label>
+                    <input type="text" class="login-input" id="phone" name="phone" placeholder="전화번호">
+
+                    <label for="org">소속</label>
+                    <input type="text" class="login-input" id="org" name="org" placeholder="소속">
 
                     <input type="submit" value="신청" class="login-btn">
                 </form>

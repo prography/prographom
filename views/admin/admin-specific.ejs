@@ -48,7 +48,7 @@
 
                         <div class="row">
                             <div class="col-sm-12 margin-top-20">
-                                <label class="application-label">소속대학 / 전공 / 학년</label>
+                                <label class="application-label">소속 / 전공 / 학년</label>
                                 <p class="output-box">
                                     <%=data.college%>
                                 </p>
@@ -76,9 +76,9 @@
                         <div class="row margin-top-20">
                             <div class="col-sm-12">
                                 <label class="application-label">GitHub 주소</label>
-                                <p class="output-box">
+                                <p class="output-box"><a href="<%=data.github%>" target="_blank" style="cursor:pointer; color:#000;">
                                     <%=data.github%>
-                                </p>
+                                </a></p>
                             </div>
                         </div>
 

@@ -70,14 +70,14 @@ router.get('/', (req, res) => {
 				title: '지원하기(모집전)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-15 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
+        } else if (time < '2019-02-16 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
             res.render('recruit/recruit-ing', {
 				'n_th': n_th, 'due_month': dates.due_month,
 				'due_day': dates.due_day,
 				title: '지원하기(모집중)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-16 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 14시 전 까지
+        } else if (time < '2019-02-17 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 14시 전 까지
             res.render('recruit/recruit-fin', {
 				'due_day': dates.due_day,
 				title: '지원하기(모집종료)',
@@ -89,7 +89,7 @@ router.get('/', (req, res) => {
                 title: '서류전형 결과 확인',
                 url: req.protocol + '://' + req.headers.host + req.url
             })
-        } else if (time < '2019-02-24 18:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
+        } else if (time < '2019-02-24 16:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
             res.render('recruit/recruit-result1-1', {
                 'n_th': n_th,
 				title: '면접시간확인',

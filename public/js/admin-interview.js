@@ -51,7 +51,8 @@ function searchMemberByTime(){
                 $('#applicant' + i).find('.output-box').eq(4).text(application['college']);
                 $('#applicant' + i).find('.output-box').eq(5).text(application['address']);
                 $('#applicant' + i).find('.output-box').eq(6).text(application['field']);
-                $('#applicant' + i).find('.output-box').eq(7).text(application['github']);
+                $('#applicant' + i).find('.output-box').eq(7).text('');
+                $('#applicant' + i).find('.output-box').eq(7).append('<a href="' + application['github'] + '" target="_blank" style="cursor:pointer; color:#000;">' + application['github'] + '</a>')
                 $('#applicant' + i).find('.output-box').eq(8).text(application['q1']);
                 $('#applicant' + i).find('.output-box').eq(9).text(application['q2']);
                 $('#applicant' + i).find('.output-box').eq(10).text(application['q3']);
