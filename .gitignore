@@ -4,5 +4,8 @@
 public/uploaded/
 *.pdf
 
+#node modules
+node_modules/
+
 #For JetBrain IDE Users:
 .idea/
