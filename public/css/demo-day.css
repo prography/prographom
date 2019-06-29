@@ -1,3 +1,6 @@
+html, body{
+  scroll-behavior: smooth;
+}
 .demoday-main-banner{
   background-image: url("../img/demo-day/20190420_144841.jpg");
   -webkit-background-size: cover;
@@ -317,6 +320,8 @@
   width: 120px;
   margin: 0 10px;
   display: inline-block;
+
+  text-decoration: none;
 }
 
 
@@ -341,7 +346,7 @@
   font-size: 18px;
   font-weight: 600;
   color: #2d2d2d;
-  margin-bottom: 16px;
+  margin: 16px 0;
 }
 
 
@@ -446,7 +451,9 @@
   color: #2d2d2d;
   margin-bottom: 16px;
 }
-
+.program-content{
+  margin: 0 auto;
+}
 
 
 .about-table-row{
@@ -478,17 +485,25 @@
   background-image: url("../img/demo-day/program-bg.jpg");
   -webkit-background-size: cover;
   background-size: cover;
-  height: 100vh;
-
+  min-height: 100vh;
 }
+
+@media screen and (max-width: 768px) {
+  .demoday-main-banner {
+    background-position: center right -280px;
+  }
+}
+
 .program-bg-filter{
   background-color: rgba(10,0,0,.8);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
+  padding: 30px 0;
 }
+
 
 .program-table{
   margin-top: 20px;
@@ -521,6 +536,12 @@
   display: flex;
   align-content: center;
   align-items: center; ;
+}
+
+@media screen and (max-width: 768px) {
+  .program-table-time{
+    width: 60px;
+  }
 
 }
 
@@ -536,5 +557,14 @@
 .program-text{
   color: #dddddd;
   font-size: 18px;
+}
+
+#enrollForm>h1{
+  margin-top:140px; font-weight:400; color:#333; font-size:40px;
+}
+@media screen and (max-width:768px) {
+  #enrollForm>h1{
+    margin-top:70px;
+  }
 }
 

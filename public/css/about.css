@@ -26,19 +26,19 @@
     .ab-text-box-r{
       right:3%;}
     .ab-text-box h1{
-      font-size: 30px !important;
+      font-size: 24px !important;
     }
     .ab-text-box h2{
-      font-size: 26px !important;
+      font-size: 21px !important;
     }
     .ab-text-box p{
       font-size: 13px !important;
     }
     .ab-text-box-r h1{
-      font-size: 30px !important;
+      font-size: 24px !important;
     }
     .ab-text-box-r h2{
-      font-size: 26px !important;
+      font-size: 21px !important;
     }
     .ab-text-box-r p{
       font-size: 13px !important;
@@ -75,6 +75,7 @@
   font-weight: 300;
   letter-spacing: 1.3px;
   opacity: 0.8;
+  word-break: keep-all;
 }
 
 .bg-img1{
