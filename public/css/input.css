@@ -9,13 +9,24 @@
   margin: auto;
 }
 
+
+.login-input::placeholder{
+  line-height: 0;
+}
 .login-input, select{
+
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+
   width: 100%;
-  padding: 8px 20px;
+  padding: 2px 5px;
   margin: 8px 0;
   display:block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  height: 42px;
   box-sizing: border-box;
 }
 
