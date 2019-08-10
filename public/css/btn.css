@@ -172,8 +172,8 @@
     border: 1px solid #fff;
     color: #fff;
     transition: 0.3s ease;
-    margin-top: -130px;
     z-index: 100;
+    width: 280px;
     text-decoration: none;
     text-shadow: none;
     cursor: pointer;

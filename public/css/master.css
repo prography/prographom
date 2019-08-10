@@ -684,6 +684,7 @@ input::placeholder {
   height: 100vh;
   overflow: hidden;
   margin: 0;
+  display: block;
 }
 
 @media only screen and (max-width: 800px) {
@@ -743,12 +744,13 @@ input::placeholder {
 }
 
 .carousel-caption {
-  margin: 30vh 0 !important;
+  margin: 0 !important;
+  display: block;
 }
 
 @media only screen and (max-width: 600px) {
   .carousel-caption {
-    margin: 10vw 0 30vw !important;
+    margin: 10vw 0 !important;
   }
 }
 
@@ -1045,7 +1047,7 @@ tr {
 
 .overlay-container {
   position: relative;
-  width: 33.33%;
+  width: 25%;
   padding: 0 !important;
 }
 
@@ -1462,4 +1464,27 @@ embed {
   .web-only {
     display: none !important
   }
+}
+
+
+.no-padding-margin{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.main-banner-text{
+  width: 100%;
+  height: 100vh;
+  margin-top: -100vh;
+  z-index: 100;
+}
+
+
+.carousel-content{
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
