@@ -5,8 +5,8 @@ const nodemailer = require('nodemailer')
 const smtpTransport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'prography.verify',
-        pass: 'Prography1!',
+        user: 'prography.verify@gmail.com',
+        pass: 'Prography1!'
     }
 })
 

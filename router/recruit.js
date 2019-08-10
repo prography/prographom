@@ -22,6 +22,8 @@ router.get('/', (req, res) => {
                         full_flags['front'] = [0, 0, 0, 0, 0, 0, 0, 0]
                         full_flags['nodejs'] = [0, 0, 0, 0, 0, 0, 0, 0]
                         full_flags['django'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['android'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['ios'] = [0, 0, 0, 0, 0, 0, 0, 0]
                         full_flags['deep'] = [0, 0, 0, 0, 0, 0, 0, 0]
 
                         let interview_dict = {}
@@ -38,8 +40,8 @@ router.get('/', (req, res) => {
                         
                         let flag_count = 0
                         let hour_arr = ['1', '2', '3', '4']
-                        let date_arr = ['23', '24']
-                        let field_arr = ['front', 'nodejs', 'django', 'deep']
+                        let date_arr = ['8', '9']
+                        let field_arr = ['front', 'nodejs', 'django', 'android', 'ios', 'deep']
 
                         for (let hour in hour_arr) {
                             for (let date in date_arr) {
@@ -62,7 +64,7 @@ router.get('/', (req, res) => {
         date.setHours(date.getHours() + 9) //서버 로컬 시간이 표준시간과 정확히 9시간 차이남
         let time = date.toFormat('YYYY-MM-DD HH24:MI:SS')
         
-        const recruit_wait = 0 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
+        const recruit_wait = 1 // 모집전 상태인 경우 1, 모집중 상태인 경우 0으로 변경
        
         console.log(time)
         if (recruit_wait === 1) {
@@ -70,38 +72,38 @@ router.get('/', (req, res) => {
 				title: '지원하기(모집전)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-16 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
+        } else if (time < '2019-08-27 23:59:59'){ // '모집 종료일' 설정, 지원중 노출은 '모집 종료일' 자정 전 까지
             res.render('recruit/recruit-ing', {
 				'n_th': n_th, 'due_month': dates.due_month,
 				'due_day': dates.due_day,
 				title: '지원하기(모집중)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-17 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 14시 전 까지
+        } else if (time < '2019-08-29 14:00:00'){ // '1차 발표일' 설정, 모집종료 노출은 '1차 발표일' 14시 전 까지
             res.render('recruit/recruit-fin', {
 				'due_day': dates.due_day,
 				title: '지원하기(모집종료)',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-17 23:59:59'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
+        } else if (time < '2019-08-29 23:59:59'){ // '면접시간 선택 종료일' 설정, 1차 발표 노출은 '면접시간 선택  종료일' 18시 전 까지
             res.render('recruit/recruit-result1', {
                 'n_th': n_th,
                 title: '서류전형 결과 확인',
                 url: req.protocol + '://' + req.headers.host + req.url
             })
-        } else if (time < '2019-02-24 16:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
+        } else if (time < '2019-09-08 16:00:00'){ // '면접종료시간' 설정, 면접시간확인 노출은 '면접종료시간' 전 까지
             res.render('recruit/recruit-result1-1', {
                 'n_th': n_th,
 				title: '면접시간확인',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-02-26 18:00:00'){ // '2차 발표일' 설정, 모집종료 노출은 '2차 발표일' 18시 전 까지
+        } else if (time < '2019-09-09 18:00:00'){ // '2차 발표일' 설정, 모집종료 노출은 '2차 발표일' 18시 전 까지
             res.render('recruit/recruit-fin2', {
 				'due_day': dates.due_day,
 				title: '면접마감',
 				url: req.protocol + '://' + req.headers.host + req.url
 			})
-        } else if (time < '2019-03-01 23:59:59'){ // '합격 공지 종료일' 설정, 2차발표 노출은 '합격 공지 종료일' 자정 전 까지
+        } else if (time < '2019-09-16 23:59:59'){ // '합격 공지 종료일' 설정, 2차발표 노출은 '합격 공지 종료일' 자정 전 까지
             res.render('recruit/recruit-result2', {
 				'n_th': n_th,
 				title: '2차 면접 결과 확인',

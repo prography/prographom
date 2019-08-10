@@ -2,10 +2,12 @@ const mysql = require('mysql')
 
 let hashMap = {}
 
+require('dotenv').config()
+
 const client = mysql.createConnection({
     host: 'ec2-13-125-55-125.ap-northeast-2.compute.amazonaws.com',
     user : 'root',
-    password : 'Prography1!',
+    password : process.env.DB_PASSWORD,
     database : 'prography',
     multipleStatements: true,
 })
@@ -14,8 +16,8 @@ setInterval(() => {
     client.query('SELECT 1')
 }, 5000)
 
-const n_th = 4
-dates = {'due_month': 2, 'due_day': 16, 'OT_month': 3, 'OT_day': 2, 'MT_month': 3, 'MT_day': 16}
+const n_th = 5
+dates = {'due_month': 8, 'due_day': 27, 'OT_month': 9, 'OT_day': 21, 'MT_month': 9, 'MT_day': 28}
 
 module.exports = {
   hashMap: hashMap,
@@ -68,6 +70,13 @@ module.exports = (app) => {
         res.redirect('https://docs.google.com/spreadsheets/d/1L_5VyesPX86yxxr0-zwT3BigWOLEklBc2hTTN31pTiU/edit#gid=59274967')
     })
 
+    app.get('/privacy-policy', (req, res) => {
+        res.render('privacy-policy.html', {
+            title: '개인정보처리방침',
+            url: req.protocol + '://' + req.headers.host + req.url
+        })
+    })
+
     app.get('/music', (req, res) => {
         res.render('music', {
             title: '신청곡 받아요',
@@ -99,6 +108,15 @@ module.exports = (app) => {
             title: '프로그라피 데모데이 참가신청',
             url: req.protocol + '://' + req.headers.host + req.url,
             post: true
+        })
+    })
+
+    app.get('/demo-day-servey', (req, res) => {
+        res.render('demo-day-servey', {
+            title: '프로그라피 데모데이 설문',
+            url: req.protocol + '://' + req.headers.host + req.url,
+            qr_img_url: req.query.team + '.png',
+            post: false
         })
     })
 } 

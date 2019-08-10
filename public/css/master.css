@@ -743,7 +743,7 @@ input::placeholder {
 }
 
 .carousel-caption {
-  margin: 20vh 0 !important;
+  margin: 30vh 0 !important;
 }
 
 @media only screen and (max-width: 600px) {

@@ -22,7 +22,7 @@ router.get('/', (req ,res) => {
         date.setHours(date.getHours() + 9)
         const time = date.toFormat('YYYY-MM-DD HH24:MI:SS')
 
-        if (time < '2019-02-16 23:59:59') {		 
+        if (time < '2019-08-27 23:59:59') {		 
             client.query(`SELECT submit FROM application WHERE email = ?`, [email], (error, result) => {
                 if (error) {
                     console.log(error)
