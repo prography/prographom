@@ -4,7 +4,7 @@ $('#saveButton').click(function() {
     const birth = $('#birth').val();
     const college = $('#college').val();
     const address = $('#address').val();
-    const field = $('#field').val();
+    const field = $('input[name="field"]:checked').val();
     const name = $('#name').val();
     const phone = $('#phone').val();
     const github = $('#github').val();
@@ -63,7 +63,7 @@ $('#submitButton').click(function() {
     const birth = $('#birth').val();
     const college = $('#college').val();
     const address = $('#address').val();
-    const field = $('#field').val();
+    const field = $('input[name="field"]:checked').val();
     const github = $('#github').val();
     const name = $('#name').val();
     const phone = $('#phone').val();

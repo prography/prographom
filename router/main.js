@@ -4,6 +4,13 @@ let hashMap = {}
 
 require('dotenv').config()
 
+const { RTMClient } = require('@slack/client')
+const { WebClient } = require('@slack/client')
+const token = process.env.SLACK_BOT_TOKEN
+const rtm = new RTMClient(token)
+const web = new WebClient(token)
+const hanspell = require('hanspell')
+
 const client = mysql.createConnection({
     host: 'ec2-13-125-55-125.ap-northeast-2.compute.amazonaws.com',
     user : 'root',
@@ -121,3 +128,35 @@ module.exports = (app) => {
     })
 } 
 
+rtm.start()
+let currentChannel
+
+const check = async (wrong) => {
+    let str = ''
+    for (let i of wrong) {
+        const token = i.token
+        const suggestions = i.suggestions
+        const info = i.info
+        str += token + '=> {'
+        str += suggestions.join(', ')
+        str += '}\n'
+        str += info + '\n\n'
+    }
+    console.log(str)
+    await web.chat.postMessage({ channel: currentChannel, text: str })
+}
+
+rtm.on('message', async (msg) => {
+    if (msg.files) {
+        const user = msg.user
+        currentChannel = msg.channel
+        await web.chat.postMessage({ channel: currentChannel, text: '파일은 드라이브에 반드시 백업 해주세요!' })
+    } else {
+        const text = msg.text
+        const user = msg.user
+        currentChannel = msg.channel
+        if (text && text.includes('맞춤법')) {
+            // hanspell.spellCheckByDAUM(text, 6000, check)
+        }
+    }
+})

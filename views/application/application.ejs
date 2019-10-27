@@ -63,8 +63,22 @@
 
                 <div class="row margin-top-20">
                     <div class="col-sm-12">
-                        <label class="application-label">지원분야 (1차 합격자에 한해서 각 분야로 프로젝트를 진행할 준비가 되어 있는지를 확인하기 위한 간단한 사전과제가 나갈 예정입니다.</label>
-                        <input id="field" name="field" class="w3-input w3-border" type="text" placeholder="웹 프론트엔드 / 백엔드-서버(Node.js) / 백엔드-서버(Python.Django) / 딥러닝 중 택 1" value="<%=data.field%>">
+                        <label class="application-label">지원분야 (1차 합격자에 한해서 각 분야로 프로젝트를 진행할 준비가 되어 있는지를 확인하기 위한 간단한 사전과제가 나갈 예정입니다.)</label>
+                        <br>
+                        <input type="radio" name="field" value="react" style="margin-right:10px;">웹 프론트(ReactJS)
+                        <br>
+                        <input type="radio" name="field" value="android" style="margin-right:10px;">모바일 프론트(Android)
+                        <br>
+                        <input type="radio" name="field" value="ios" style="margin-right:10px;">모바일 프론트(iOS)
+                        <br>
+                        <input type="radio" name="field" value="nodejs" style="margin-right:10px;">백엔드(Node.js)
+                        <br>
+                        <input type="radio" name="field" value="django" style="margin-right:10px;">백엔드(Python.Django)
+                        <br>
+                        <input type="radio" name="field" value="deep" style="margin-right:10px;">딥러닝(Computer Vision)
+                        <script>
+                            $('input[name="field"][value="<%=data.field%>"]').attr('checked', true)
+                        </script>
                     </div>
                 </div>
 
