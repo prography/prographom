@@ -90,7 +90,7 @@ module.exports = (app) => {
             url: req.protocol + '://' + req.headers.host + req.url
         })
     })
-    
+
     app.post('/music', async (req, res) => {
         const musicTitle = req.body.music_title
         const musicArtist = req.body.music_artist
@@ -105,13 +105,33 @@ module.exports = (app) => {
             post: false
         })
     })
-    
+
     app.post('/demo-day', async (req, res) => {
         const name = req.body.name
         const phone = req.body.phone
         const org = req.body.org
         await client.query('INSERT INTO demo_day_application(demo_day_application_name, demo_day_application_phone, demo_day_application_org) VALUES(?, ?, ?)', [name, phone, org])
         res.render('demo-day', {
+            title: '프로그라피 데모데이 참가신청',
+            url: req.protocol + '://' + req.headers.host + req.url,
+            post: true
+        })
+    })
+
+    app.get('/5th-demoday', (req, res) => {
+        res.render('5th-demoday', {
+            title: '프로그라피 데모데이 참가신청',
+            url: req.protocol + '://' + req.headers.host + req.url,
+            post: false
+        })
+    })
+
+    app.post('/5th-demoday', async (req, res) => {
+        const name = req.body.name
+        const phone = req.body.phone
+        const org = req.body.org
+        await client.query('INSERT INTO demo_day_application(demo_day_application_name, demo_day_application_phone, demo_day_application_org) VALUES(?, ?, ?)', [name, phone, org])
+        res.render('5th-demoday', {
             title: '프로그라피 데모데이 참가신청',
             url: req.protocol + '://' + req.headers.host + req.url,
             post: true
@@ -126,7 +146,7 @@ module.exports = (app) => {
             post: false
         })
     })
-} 
+}
 
 rtm.start()
 let currentChannel
