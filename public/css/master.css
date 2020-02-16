@@ -1089,6 +1089,7 @@ tr {
 }
 
 .overlay-1 {
+  height: 300px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1470,6 +1471,11 @@ embed {
 .no-padding-margin{
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.portfolio-button {
+  height: 300px;
+  overflow: hidden;
 }
 
 .main-banner-text{
