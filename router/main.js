@@ -98,6 +98,7 @@ module.exports = (app) => {
         res.redirect('/music')
     })
 
+    /*
     app.get('/demo-day', (req, res) => {
         res.render('demo-day', {
             title: '프로그라피 데모데이 참가신청',
@@ -118,6 +119,28 @@ module.exports = (app) => {
         })
     })
 
+    */
+    app.get('/fifth-demo-day', (req, res) => {
+        res.render('fifth-demo-day')
+    })
+
+    app.post('/fifth-demoday-apply', async (req, res) => {
+        const name = req.body.name
+        const email = req.body.email
+        const phone = req.body.phone
+        const work = req.body.work
+        const department = req.body.department
+        const interests = (req.body.interest) ? req.body.interest.join(',') : ''
+        const comment = req.body.comment
+        if (!name || !email || !phone) {
+            return res.status(400).json({ errMsg: '내용을 모두 입력해주세요' })
+        }
+        await client.query('INSERT INTO fifth_demo_day(name, email, phone, work, department, interests, comment) VALUES(?, ?, ?, ?, ?, ?, ?)', [name, email, phone, work, department, interests, comment])
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+        res.status(204).json({})
+    })
+
     app.get('/demo-day-servey', (req, res) => {
         res.render('demo-day-servey', {
             title: '프로그라피 데모데이 설문',
@@ -126,6 +149,26 @@ module.exports = (app) => {
             post: false
         })
     })
+
+    app.post('/easytac-test', async (req, res) => {
+        const senderPhone = req.body.senderPhone
+        const receiverPhone = req.body.receiverPhone
+        const senderName = req.body.senderName
+        const receiverName = req.body.receiverName
+        const fromAddress = req.body.fromAddress
+        const toAddress = req.body.toAddress
+        const pickupTime = new Date(req.body.pickupTime)
+        if (!senderPhone || !receiverPhone || !senderName || !receiverName || !fromAddress || !toAddress || !pickupTime) {
+            return res.status(400).json({ errMsg: '내용을 모두 입력해주세요' })
+        }
+        await client.query('INSERT INTO easytac_test(sender_phone, receiver_phone, sender_name, receiver_name, from_address, to_address, pickup_time) VALUES(?, ?, ?, ?, ?, ?, ?)', [senderPhone, receiverPhone, senderName, receiverName, fromAddress, toAddress, pickupTime])
+        res.header('Access-Control-Allow-Origin', '*')
+        res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+        await web.chat.postMessage({ channel: 'GTFJXCEKT', text: `새로운 배송이 신청되었습니다! 보내는 이: ${senderName}` })
+        res.status(204).json({})
+    })
+
+
 } 
 
 rtm.start()
