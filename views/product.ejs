@@ -1,544 +1,818 @@
-<% include common/head_header %><% include common/body_header %>
-    <section>
-        <div class="banner">
-            <div class="pr-bg-img">
-            </div>
-        </div>
-        <div class="container">
-            <div class="banner-contents">
-                <p class="main-title">PORTFOLIO</p>
-                <p class="sub-title"><strong style="margin-bottom:-20px;">Project Posters</strong>
-                    <br>1기부터 현 기수까지 다양한 분야를 넘나드는
-                    <br>프로젝트를 한눈에 볼수 있습니다.
-                </p>
-                <a onclick="slide_section(1)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important;">1기</a>
-                <a onclick="slide_section(2)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important; margin-left:5px !important;">2기</a>
-                <a onclick="slide_section(3)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important; margin-left:5px !important;">3기</a>
-                <a onclick="slide_section(4)" name="sel_th" class="btn-pink-top scroll" style="padding:6px !important; margin-left:5px !important;">4기</a>
-            </div>
-        </div>
-    </section>
-    <div class="box" style="height:50px;"></div>
-    <link rel="stylesheet" href="css/product.css">
-
-    <section id="4th">
-        <div class="unit">
-            <div class="unit-nav container">
-                <span class="unit-p-main">4기</span>
-            </div>
-            <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
-        </div>
-        <div id="sw_box" class="container">
-            <div class="hi-box">
-                <!-- start -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-1-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 정강2팀, <strong>쉼</strong></h2>
-                            <p>마음의 평화와 안정을 찾고 싶어하는 이들을 위한 힐링 어플리케이션 </p>
-                            <p>: 피곤한 하루를 마치고 잠시 휴식을 취하고 싶을 떄, </p>
-                            <p>: 무언가에 집중하고 싶을 때 필요한 청각 컨텐츠(음악, ASMR 등)를 제공합니다. </p>
-                            <p>안드로이드 - 강찬 / 박승재
-                                <br>백엔드(Node.js) - 정예은 / 하태린
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="https://play.google.com/store/apps/details?id=co.shimm.app" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱 다운로드</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-2-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 김선욱팀, <strong>COFFEE REMOCON</strong></h2>
-                            <p>커피, 편하게 주문하자!</p>
-                            <p>: 모바일 웹 앱을 통해서 테이크아웃 커피를 사전 주문할 수 있는 서비스</p>
-                            <p>프론트엔드(ReactJS) - 김선욱 / 백승호
-								<br>백엔드(Python.Django) - 이한울 / 이상은
-								<br>멘토 - 한수민 / 김은향</p>
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="http://coffeeremocon.com" class="w3-button w3-gray" style="margin-top:10px; margin-left:10px; font-size:14px;">페이지 가기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-3-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 DDEEP 팀, <strong>DDEEP</strong></h2>
-                            <p></p>
-                            <p>스트리밍 영상 모자이크 서비스</p>
-                            <p>: 딥러닝 기반의 얼굴 인식 기술을 이용하여 실시간 송출 영상에서 특정 인물의 모자이크를 선택적으로 설정 및 해제할 수 있는 서비스</p>
-                            <p>딥러닝 - 김윤아, 진서연, 손원주, 김예지
-								<br>멘토 - 조성만</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-4-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 5분팀, <strong>Correct Code</strong></h2>
-                            <p>온라인 코드리뷰 커뮤니티 서비스</p>
-                            <p>: 줄 단위로 코드리뷰를 할 수 있는 온라인 코드리뷰 커뮤니티 서비스</p>
-                            <p>프론트엔드(ReactJS) - 이태희 / 김일혁 / 길상혁
-                                <br>백엔드(Node.js) - 임규산
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="https://correctcode.dev" class="w3-button w3-gray" style="margin-top:10px; margin-left:10px; font-size:14px;">페이지 가기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-5-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 Humony, <strong>Picxy</strong></h2>
-                            <p>딥러닝 기반 누끼따기 서비스</p>
-                            <p>: 딥러닝 Segmentation 기술을 이용하여, 이미지 업로드 - 분할 - 카테고리별 누끼따기 기능을 제공하여 주는 온라인 서비스</p>
-                            <p>프론트엔드(ReactJS) - 정상협
-                                <br>백엔드(Python.Django) - 백경준 / 이주은
-                                <br>딥러닝 - 윤대영
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides4">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/4-6-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>4기 Honey Bee, <strong>Honey Bee</strong></h2>
-                            <p>딥러닝 기반 온라인 사진 필터 서비스</p>
-                            <p>: 고흐, 뒤샹, 피카비아 등 다양한 고전 화가들의 화풍으로 사진에 필터를 입혀주는 서비스</p>
-                            <p>프론트엔드(VueJS) - 오원종 / 홍유석
-                                <br>백엔드(Python.Django) - 박예원 / 김성일
-							    <br>멘토 - 신성환</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end -->
-            </div>
-        </div>
-    </section>
-
-    <section id="3th" style="display:none;">
-        <div class="unit">
-            <div class="unit-nav container">
-                <span class="unit-p-main">3기</span>
-            </div>
-            <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
-        </div>
-        <div id="sw_box" class="container">
-            <div class="hi-box">
-                <!-- start -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-1-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 갬성팀, <strong>GAEMSUNG</strong></h2>
-                            <p>딥러닝을 이용한 카페 추천 서비스</p>
-                            <p>: 업로드한 카페 사진과 가장 비슷한 분위기의 카페를 추천해주는 앱</p>
-                            <p>딥러닝 - 조성만 / 최혜송
-								<br>안드로이드, 서버(Django) - 김선경
-								<br>멘토 - 송영인 / 류승준</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-2-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 우리집냉장고팀, <strong>우리집냉장고</strong></h2>
-                            <p>딥러닝을 이용한 레시피 추천 서비스</p>
-                            <p>: 냉장고 안에 있는 재료들을 딥러닝을 이용해 판별하고, 해당 재료들로 만들 수 있는 음식 레시피를 추천해주는 서비스</p>
-                            <p>딥러닝 - 장원범 / 홍성재
-                                <br>프론트 - 김도영 / 황재우
-                                <br>서버(Django) - 최지수
-								<br>멘토 - 김승재 / 신성환 / 류승준 / 김은향</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-3-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 잘했조, <strong>책왓챠!</strong></h2>
-                            <p>장르 태그 기반 책 추천 서비스</p>
-                            <p>장르 태그를 여러개 고르면, 해당 장르 조합에 맞추어 읽을만한 책을 추천해주는 서비스 </p>
-                            <p>안드로이드 - 안다희 / 박예원
-                                <br>서버(Node.js) - 조준현 / 이상은
-                                <br>딥러닝 - 박찬웅
-								<br>멘토 - 장선옥 / 이재규 / 이종희 / 이민영</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-4-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 오늘 어디가, <strong>오늘 어디가?</strong></h2>
-                            <p>딥러닝을 이용한 여행지 추천 서비스</p>
-                            <p>: 마음에 드는 여행지 사진을 3개 선택하면 학습된 딥러닝 모델을 통해 딱 맞는 여행지를 추천해주는 서비스</p>
-                            <p>프론트 - 최인지
-                                <br>서버(Django) - 공현정 / 송경린
-                                <br>딥러닝 - 유용환 / 윤지원
-							    <br>멘토 - 강민정 / 김은향 / 박수현</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-5-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 빠릉이, <strong>빠릉이</strong></h2>
-                            <p>서울시 따릉이 앱을 개선하는 UX 프로젝트</p>
-                            <p>: 기존의 서울시 따릉이 앱의 UX적 문제점을 분석하고 이를 모두 개선한 새로운 어플리케이션</p>
-                            <p>안드로이드 - 이재욱
-                                <br>UIUX - 김태희 / 백승호
-                                <br>서버(Ruby on Rails) - 하태린 / 정유진
-							    <br>멘토 - 이민영 / 장주진 / 신주형</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-6-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 TNFit, <strong>The Natural Fit</strong></h2>
-                            <p>음식별 영양정보 데이터를 기반으로 한 소셜 식단관리 서비스</p>
-                            <p>: 매일 먹은 음식을 아침/점심/저녁으로 맞추어 입력할 수 있고, 영양정보를 분석해주며 식단을 관리할 수 있게 하여주는 소셜 서비스</p>
-                            <p>안드로이드 - 강찬
-                                <br>서버(Node.js) - 정예은 / 허차영
-							    <br>멘토 - 박혜연 / 홍기림</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides3">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/3-7-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>3기 당신을 위로합니다, <strong>당신을 위로합니다</strong></h2>
-                            <p>귀여운 냥냥이, 댕댕이 사진으로부터 힐링과 위로를 받고 싶은 분들을 위한 서비스</p>
-                            <p>: 귀여운 냥냥이, 댕댕이 사진들을 업로드할 수 있는 웹페이지와 업로드된 사진을 구글 페이지 및 새탭에 적용할 수 있는 크롬익스텐션</p>
-                            <p>프론트 - 구본정
-                                <br>서버(Ruby on Rails) - 조완주 / 심정민
-							    <br>멘토 - 한수민 / 신성환</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end -->
-            </div>
-        </div>
-    </section>
-
-    <section id="2th" style="display:none;">
-        <div class="unit">
-            <div class="unit-nav container">
-                <span class="unit-p-main">2기</span>
-                <span class="unit-p-small">Web 1</span>
-                <span class="unit-p-small">App 3</span>
-                <span class="unit-p-small">Deep-Learning 3</span>
-            </div>
-            <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
-        </div>
-        <div id="sw_box" class="container">
-            <div class="hi-box">
-                <!-- start -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-1-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 웹팀, <strong>Prography Homepage</strong></h2>
-                            <p>프로그라피 웹페이지 리뉴얼 프로젝트</p>
-                            <p>: 운영진과 지원자를 위해 쓰임새가 있고 운영에 도움이 될 수 있는 페이지</p>
-                            <p>프론트엔드 팀원 - 강민정
-							    <br>백엔드 팀원 - 심정민 / 정예은 / 국지원
-							    <br>멘토 -  유용환 / 김홍찬 / 신주형</p>
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="http://prography.org" class="w3-button w3-gray" style="margin-top:10px; margin-left:10px; font-size:14px;">페이지 가기</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-2-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 앱1팀, <strong>모지모지</strong></h2>
-                            <p>드라마에 나온 아이템을 알려주는 플랫폼</p>
-                            <p>: 방송사별 드라마 아이템부터 데일리 추천 상품과 베스트 상품 리스트까지 옷, 악세서리, 신발 등 정보를 알려주는 앱 서비스</p>
-                            <p>팀원 - 강민아 / 김선경
-							    <br>멘토 - 이승준</p>
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.prograpy.app1.appdev1" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱 다운로드</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-3-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 앱2팀, <strong>MILOTIC</strong></h2>
-                            <p>취미기반 소셜 매칭 서비스</p>
-                            <p>: 소개팅앱이 아닌 취미를 같이 즐길 사람을 매칭하는 "사람 만나기 프로젝트" </p>
-                            <p>팀원 - 최혜송 / 이다영 / 한승동
-							    <br>멘토 - 이승준</p>
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.prograpy.app2.appdev2" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱 다운로드</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-4-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 앱3팀, <strong>Prography App</strong></h2>
-                            <p>프로그라피 공식 커뮤니티 앱</p>
-                            <p>: 프로그라피 멤버들을 위한 커뮤니티 앱으로 소통공간부터 나와 팀의 정보까지 찾아볼 수 있는 앱</p>
-                            <p>팀원 - 유용환 / 하태린 / 송가람 / 추청원 / 이루다
-							    <br>멘토 - 강재윤 / 이민영 / 이승준</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-5-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 딥러닝1팀, <strong>Make Unmakeup Face</strong></h2>
-                            <p>GAN 모델을 이용한 메이크업 어플리케이션</p>
-                            <p>: 쌩얼을 화장한 얼굴로 만들어주고, 화장한 얼굴을 쌩얼로 만들어주는 서비스로 GAN모델 중 pix to pix 모델을 활용한 딥러닝 기법 사용</p>
-                            <p>팀원 - 노재석 / 허은지 / 지서영
-							    <br>멘토 - 기호건 / 박찬웅</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-6-poster.png"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 딥러닝2팀, <strong>Highlight Tekken</strong></h2>
-                            <p>철권 게임에서 하이라이트를 추출하는 서비스</p>
-                            <p>: GRU-AutoEncoder를 사용한 모델로 철권의 ‘화랑’ 캐릭터 영상에서 하이라이트 프레임 추출</p>
-                            <p>팀원 - 김동훈 / 송영인 / 이유정 / 장혁진
-                                <br>멘토 - 박수현</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides2">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/2-7-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>2기 딥러닝4팀, <strong>Smile Detection</strong></h2>
-                            <p>웃는지 안 웃는지 알려주는 서비스</p>
-                            <p>: 직접 만개의 이미지로 데이터셋을 만들어 높은 정확도로 실시간 웹캠을 이용해 바로 확인해 볼 수 있는 서비스</p>
-                            <p>팀원 - 이종희 / 최지수
-                                <br>멘토 - 김승재</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end -->
-            </div>
-        </div>
-    </section>
-
-    <section id="1th" style="display:none">
-        <div class="unit">
-            <div class="unit-nav container">
-                <span class="unit-p-main">1기</span>
-                <span class="unit-p-small">Web 1</span>
-                <span class="unit-p-small">App 4</span>
-                <span class="unit-p-small">Deep-Learning 2</span>
-            </div>
-            <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
-        </div>
-        <div id="sw_box" class="container">
-            <div class="hi-box">
-                <!-- start -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6">
-                        <img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-1-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 웹 1팀, <strong>Puppy Signal</strong></h2>
-                            <p>사람과 반려동물의 조화로운 삶을 위한 프로젝트</p>
-                            <p>: 애완동물의 귀여운 단면만 보여주는 매체의 문제점을 전하며, 유기견의 현실을 보여주기 위한 웹페이지</p>
-                            <p>강민정 / 심준식 / 유용환 / 지서영 / 이예은</p>
-                            <div class="hi-click-btn">
-                                <a target="_blank" href="http://puppysignal.com/" class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">페이지 가기</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-2-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 앱 2팀, <strong>맛집Go!</strong></h2>
-                            <p>분위기별로 맛집 추천해주는 서비스</p>
-                            <p>: 무조건 맛있는 곳이 아닌, 분위기 별로 동형 별로 갈 곳을 추천서비스를 위한 앱 서비스</p>
-                            <p>김수빈 / 김현성 / 김지원</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-3-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 앱 2팀, <strong>Travel Maker</strong></h2>
-                            <p>관광지 추천 및 경로 탐색 어플</p>
-                            <p>: 도쿄를 여행하고 싶어하는 고객을 위하여 인기있는 관광지 추천과 관광지를 연결한 경로를 만들어주는 앱 서비스</p>
-                            <p>김록현 / 이유림 / 김선경 / 국지원 / 고서연 / 하태린</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-4-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 앱 3팀, <strong>Fit Me</strong></h2>
-                            <p>피트니스 강사 매칭 서비스</p>
-                            <p>: 내게 맞는 강사를 매칭할 수 있는 피트니스 플랫폼 앱 서비스</p>
-                            <p>허은지 / 장혁진</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-5-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 앱 3팀, <strong>나만의 여행일기</strong></h2>
-                            <p>위치 기반 다이어리</p>
-                            <p>: 위치에 기반하여 나의 일상을 기록할 수 있는 앱 서비스</p>
-                            <p>김혜진 / 이자연 / 추청원 / 강민정</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-6-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 딥러닝 1팀, <strong>Visnet</strong></h2>
-                            <p>유사한 옷 추천 서비스</p>
-                            <p>: 소비자들이 인터넷으로 옷을 쇼핑하게 될 때, 효율적이고 저렴하게 소비할 수 있게 편의를 제공하는 것을 프로젝트 목적</p>
-                            <p>박찬웅 / 김성경 / 서지원 / 유한동 / 이소연 / 장원영</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- -->
-                <div class="row mySlides1">
-                    <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-7-poster.jpg"></div>
-                    <div class="col-sm-6">
-                        <div class="w3-tb-cell-content">
-                            <h2>1기 딥러닝 2팀, <strong>iFontMe</strong></h2>
-                            <p>나의 글씨체를 나만의 폰트로</p>
-                            <p>: 내 글씨 200자를 학습된 모델에 넣어 한글 낱글자 2350자를 생성</p>
-                            <p>김승재 / 노신영 / 김현성 / 박수현</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- end -->
-            </div>
-        </div>
-    </section>
-
-    <div class="w3-content w3-display-container">
-        <div class="w3-btn-nav">
-            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+<% include common/head_header %> <% include common/body_header %>
+<section>
+    <div class="banner">
+        <div class="pr-bg-img">
         </div>
     </div>
-
-    <div class="box" style="height:500px;"></div>
-    <!-- 중간에 띄어놓음 -->
-
-    <script>
-        var x = document.getElementsByClassName('mySlides' + $('a[name=sel_th]').length);
-        var sectionIndex = 4;
-        function slide_section(n) {
-            x = document.getElementsByClassName('mySlides' + n);
-            sectionIndex = n;
-            for (i = 1; i < 5; i++) {
-                if (i == n) {
-                    $('#' + i + 'th').css('display', 'block');
-                } else {
-                    $('#' + i + 'th').css('display', 'none');
-                }
-            }
-            showDivs(1);
-        }
-
-        var slideIndex = 1;
-        showDivs(slideIndex);
-
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
-
-        function showDivs(n) {
-            var i;
-
-            if (n > x.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = x.length
-            }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = 'none';
-            }
-            x[slideIndex - 1].style.display = 'block';
-
-            // Lazy-Loading Image
-            var posterImage = $('.mySlides' + sectionIndex + ' .product_img').eq(slideIndex - 1);
-            if (!posterImage.attr('src')) {
-                posterImage.attr('src', posterImage.data('src'));
-            }
-        }
-
-        function pop(src) {
-            $('.modal-body').html('');
-            $('#exampleModalCenter1').modal('show');
-            $('.modal-body').append('<img style="width:100%" src="' + src + '" data-dismiss="modal" aria-label="Close"/>');
-        }
-    </script>
-
-    <!-- Modal-alert -->
-    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="text-align:center;"></div>
-            </div>
+    <div class="container">
+        <div class="banner-contents">
+            <p class="main-title">PORTFOLIO</p>
+            <p class="sub-title"><strong style="margin-bottom:-20px;">Project Posters</strong>
+                <br>1기부터 현 기수까지 다양한 분야를 넘나드는
+                <br>프로젝트를 한눈에 볼수 있습니다.
+            </p>
+            <a onclick="slide_section(1)" name="sel_th" class="btn-pink-top scroll"
+               style="padding:6px !important;">1기</a>
+            <a onclick="slide_section(2)" name="sel_th" class="btn-pink-top scroll"
+               style="padding:6px !important; margin-left:5px !important;">2기</a>
+            <a onclick="slide_section(3)" name="sel_th" class="btn-pink-top scroll"
+               style="padding:6px !important; margin-left:5px !important;">3기</a>
+            <a onclick="slide_section(4)" name="sel_th" class="btn-pink-top scroll"
+               style="padding:6px !important; margin-left:5px !important;">4기</a>
+            <a onclick="slide_section(5)" name="sel_th" class="btn-pink-top scroll"
+               style="padding:6px !important; margin-left:5px !important;">5기</a>
         </div>
     </div>
+</section>
+<div class="box" style="height:50px;"></div>
+<link rel="stylesheet" href="css/product.css">
+
+<section id="5th">
+    <div class="unit">
+        <div class="unit-nav container">
+            <span class="unit-p-main">5기</span>
+        </div>
+        <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
+    </div>
+    <div id="sw_box" class="container">
+        <div class="hi-box">
+            <!-- start -->
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-1-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 Pizza팀, <strong>헤쳐모여</strong></h2>
+                        <br/><br/>
+                        러닝, 사이클에 대한 개인의 운동 목표를 설정 후,
+                        같은 목표 (챌린지)를 설정한 사용자들과 함께 도전하는 모바일 앱 서비스 입니다. 나의 운동 경로, 속도, 시간을 기록할
+                        수 있으며, 원하는 사람들과 기록을 공유할 수 있습니다.<br/>
+                        <br/>
+                        Android - 조연우, 이선민<br/>
+                        Node.js - 문예지, 임규산<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://play.google.com/store/apps/details?id=com.prography.prography_pizza&hl=ko"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-2-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 Oreo 팀,<strong>Daily Picture</strong></h2>
+                        <br/><br/>
+                        변화를 기록하고 영상으로 변화를 확인할 수 있는 서비스입니다.
+                        사용자가 같은 구도의 사진을 찍을 수 있게 카메라 위에 지정 사진을 필터로 씌워 변화를 쉽게 기록하고,
+                        기록이 20장이 넘으면 영상으로 변환 가능합니다.<br/>
+                        <br/>
+                        Android - 김우빈, 송하경<br/>
+                        Django - 윤성호, 최지수, 한수민<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://play.google.com/store/apps/details?id=org.techtown.dailypicture&hl=ko"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-3-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 팅팅 팀, <strong>tingting</strong></h2>
+                        <br/><br/>
+                        미팅을 위한 모바일 플랫폼 서비스입니다. 친한 친구들과 혹은 새로운 사람들과 팀을 만든 다음,
+                        마음에 드는 이성팀에게 하트를 보내 매칭을 시도해보세요! 상대 팀원이 만장일치로 하트를 수락했을 때, 매칭이 성사됩니다!<br/>
+                        <br/>
+                        iOS - 김선우<br/>
+                        Android - 추지철, 여혜민, 최정우<br/>
+                        Node.js - 양지원, 하지영, 강재윤<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://play.google.com/store/apps/details?id=com.tingting.tintint_jw&hl=ko"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-4-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 Shimm 팀, <strong>쉼</strong></h2>
+                        <br/><br/>
+                        '쉼'은 현대인들을 위로하고 공감하기 위한 서비스입니다.
+                        사용자들은 자신들의 심리적 문제에 맞는 오디오 & 비디오 컨텐츠를 자유롭게 이용할 수 있으며,
+                        컨텐츠가 마음에 들 경우 컨텐츠 제공자인 전문 심리상담가분들에게 전화상담을 받을 수 있습니다!<br/>
+                        <br/>
+                        Android - 강찬<br/>
+                        Node.js - 정예은, 박승재<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://play.google.com/store/apps/details?id=co.shimm.app&hl=ko"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-5-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 FourMan 팀, <strong>개발은 같이 하자</strong></h2>
+                        <br/><br/>
+                        함께 개발할 사람, 3초만에 알아보세요. 개같하는 개발을 같이 하고 싶은 사람들을 매칭 시켜주는 플랫폼입니다.
+                        같이 개발할 사람 찾기가 어려웠다면 개같하로 나와 FIT이 맞는 사람을 찾아보세요!<br/>
+                        <br/>
+                        React - 고기훈, 정상협<br/>
+                        Django - 김형선, 백경준<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://www.gaegata.com/"
+                               class="w3-button w3-gray"
+                            >웹페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-6-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 sudo 팀, <strong>끼리끼니</strong></h2>
+                        <br/><br/>
+                        식단 기록 및 관리 서비스 ‘끼리끼니’. 매 끼니 사진과 초간단 정보를 입력하면,
+                        건강도 점수와 귀여운 끼리니의 정성 어린 피드백을 받아볼 수 있습니다.<br/>
+                        <br/>
+                        React Native - 양현식, 한지원<br/>
+                        Django - 선진, 조예지<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.kirikini&hl=ko"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-7-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 Deep Fashion 팀, <strong>Fash</strong></h2>
+                        <br/><br/>
+                        날씨기반 코디 추천 서비스 Fash! 코트 vs 롱패딩 고민되는 날엔? 촬영한 옷 정보를 딥러닝을 통해 자동 분류하여 편리하게 옷장에 저장하고,
+                        취향에 맞는 옷 추천을 제공 받으세요!<br/>
+                        <br/>
+                        iOS - 민경태<br/>
+                        Django - 이동주<br/>
+                        Deep Learning - 김건호, 손주영, 홍예지<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://apps.apple.com/kr/app/fash/id1492692916"
+                               class="w3-button w3-gray"
+                            >앱 다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-8-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 JSA 팀, <strong>Just Select pizzA</strong></h2>
+                        <br/><br/>
+                        원하는 피자를 찾아 주는 웹 서비스입니다. 좋아하는 피자 토핑을 골라 도우 위에 드래그 앤 드롭으로 올려주세요!
+                        선택하신 토핑과 가장 비슷한 피자를 저희가 찾아드립니다!<br/>
+                        <br/>
+                        React - 강민정, 정승아<br/>
+                        Node.js - 김용민, 안동원<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="http://www.jsa-pizza.com/" class="w3-button w3-gray"
+                            >웹페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-9-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 Hello New Face 팀, <strong>Co.gether</strong></h2>
+                        <br/><br/>
+                        Co.gether 에서는 개발자들을 위한 동아리 교육 컨퍼런스 정보를 한번에 모아서 제공합니다.
+                        원하는 정보들을 일정별로 관리하고 공유할 수 있으며, 이메일로 소식 업데이트를 받아 볼 수도 있습니다!<br/>
+                        <br/>
+                        React - 민지호, 황희연<br/>
+                        Django - 김시현, 장지창<br/>
+                        <br/>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://cogether.kr/" class="w3-button w3-gray"
+                            >웹페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mySlides5">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/5-10-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>5기 DDeeP 팀 , <strong>온리유</strong></h2>
+                        <br/><br/>
+                        유투브 인기 영상에 내 얼굴이 있다면? DDEEP에서 제작한 실시간 모자이크 처리 서비스는 야외 스트리밍 촬영 시
+                        스트리머가 초상권 문제로부터 자유로울 수 있도록 자동 모자이크 기능을 제공하는 api 서비스 입니다.<br/>
+                        <br/>
+                        Deep Learning - 김윤아, 김예지, 손원주, 진서연<br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+    </div>
+</section>
+
+<section id="4th" style="display:none;">
+    <div class="unit">
+        <div class="unit-nav container">
+            <span class="unit-p-main">4기</span>
+        </div>
+        <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
+    </div>
+    <div id="sw_box" class="container">
+        <div class="hi-box">
+            <!-- start -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-1-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 정강2팀, <strong>쉼</strong></h2>
+                        <p>마음의 평화와 안정을 찾고 싶어하는 이들을 위한 힐링 어플리케이션 </p>
+                        <p>: 피곤한 하루를 마치고 잠시 휴식을 취하고 싶을 떄, </p>
+                        <p>: 무언가에 집중하고 싶을 때 필요한 청각 컨텐츠(음악, ASMR 등)를 제공합니다. </p>
+                        <p>안드로이드 - 강찬 / 박승재
+                            <br>백엔드(Node.js) - 정예은 / 하태린
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://play.google.com/store/apps/details?id=co.shimm.app"
+                               class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱
+                                다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-2-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 김선욱팀, <strong>COFFEE REMOCON</strong></h2>
+                        <p>커피, 편하게 주문하자!</p>
+                        <p>: 모바일 웹 앱을 통해서 테이크아웃 커피를 사전 주문할 수 있는 서비스</p>
+                        <p>프론트엔드(ReactJS) - 김선욱 / 백승호
+                            <br>백엔드(Python.Django) - 이한울 / 이상은
+                            <br>멘토 - 한수민 / 김은향</p>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="http://coffeeremocon.com" class="w3-button w3-gray"
+                            >페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-3-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 DDEEP 팀, <strong>DDEEP</strong></h2>
+                        <p></p>
+                        <p>스트리밍 영상 모자이크 서비스</p>
+                        <p>: 딥러닝 기반의 얼굴 인식 기술을 이용하여 실시간 송출 영상에서 특정 인물의 모자이크를 선택적으로 설정 및 해제할 수 있는 서비스</p>
+                        <p>딥러닝 - 김윤아, 진서연, 손원주, 김예지
+                            <br>멘토 - 조성만</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-4-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 5분팀, <strong>Correct Code</strong></h2>
+                        <p>온라인 코드리뷰 커뮤니티 서비스</p>
+                        <p>: 줄 단위로 코드리뷰를 할 수 있는 온라인 코드리뷰 커뮤니티 서비스</p>
+                        <p>프론트엔드(ReactJS) - 이태희 / 김일혁 / 길상혁
+                            <br>백엔드(Node.js) - 임규산
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="https://correctcode.dev" class="w3-button w3-gray"
+                            >페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-5-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 Humony, <strong>Picxy</strong></h2>
+                        <p>딥러닝 기반 누끼따기 서비스</p>
+                        <p>: 딥러닝 Segmentation 기술을 이용하여, 이미지 업로드 - 분할 - 카테고리별 누끼따기 기능을 제공하여 주는 온라인 서비스</p>
+                        <p>프론트엔드(ReactJS) - 정상협
+                            <br>백엔드(Python.Django) - 백경준 / 이주은
+                            <br>딥러닝 - 윤대영
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides4">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/4-6-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>4기 Honey Bee, <strong>Honey Bee</strong></h2>
+                        <p>딥러닝 기반 온라인 사진 필터 서비스</p>
+                        <p>: 고흐, 뒤샹, 피카비아 등 다양한 고전 화가들의 화풍으로 사진에 필터를 입혀주는 서비스</p>
+                        <p>프론트엔드(VueJS) - 오원종 / 홍유석
+                            <br>백엔드(Python.Django) - 박예원 / 김성일
+                            <br>멘토 - 신성환</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+    </div>
+</section>
+
+<section id="3th" style="display:none;">
+    <div class="unit">
+        <div class="unit-nav container">
+            <span class="unit-p-main">3기</span>
+        </div>
+        <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
+    </div>
+    <div id="sw_box" class="container">
+        <div class="hi-box">
+            <!-- start -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-1-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 갬성팀, <strong>GAEMSUNG</strong></h2>
+                        <p>딥러닝을 이용한 카페 추천 서비스</p>
+                        <p>: 업로드한 카페 사진과 가장 비슷한 분위기의 카페를 추천해주는 앱</p>
+                        <p>딥러닝 - 조성만 / 최혜송
+                            <br>안드로이드, 서버(Django) - 김선경
+                            <br>멘토 - 송영인 / 류승준</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-2-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 우리집냉장고팀, <strong>우리집냉장고</strong></h2>
+                        <p>딥러닝을 이용한 레시피 추천 서비스</p>
+                        <p>: 냉장고 안에 있는 재료들을 딥러닝을 이용해 판별하고, 해당 재료들로 만들 수 있는 음식 레시피를 추천해주는 서비스</p>
+                        <p>딥러닝 - 장원범 / 홍성재
+                            <br>프론트 - 김도영 / 황재우
+                            <br>서버(Django) - 최지수
+                            <br>멘토 - 김승재 / 신성환 / 류승준 / 김은향</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-3-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 잘했조, <strong>책왓챠!</strong></h2>
+                        <p>장르 태그 기반 책 추천 서비스</p>
+                        <p>장르 태그를 여러개 고르면, 해당 장르 조합에 맞추어 읽을만한 책을 추천해주는 서비스 </p>
+                        <p>안드로이드 - 안다희 / 박예원
+                            <br>서버(Node.js) - 조준현 / 이상은
+                            <br>딥러닝 - 박찬웅
+                            <br>멘토 - 장선옥 / 이재규 / 이종희 / 이민영</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-4-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 오늘 어디가, <strong>오늘 어디가?</strong></h2>
+                        <p>딥러닝을 이용한 여행지 추천 서비스</p>
+                        <p>: 마음에 드는 여행지 사진을 3개 선택하면 학습된 딥러닝 모델을 통해 딱 맞는 여행지를 추천해주는 서비스</p>
+                        <p>프론트 - 최인지
+                            <br>서버(Django) - 공현정 / 송경린
+                            <br>딥러닝 - 유용환 / 윤지원
+                            <br>멘토 - 강민정 / 김은향 / 박수현</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-5-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 빠릉이, <strong>빠릉이</strong></h2>
+                        <p>서울시 따릉이 앱을 개선하는 UX 프로젝트</p>
+                        <p>: 기존의 서울시 따릉이 앱의 UX적 문제점을 분석하고 이를 모두 개선한 새로운 어플리케이션</p>
+                        <p>안드로이드 - 이재욱
+                            <br>UIUX - 김태희 / 백승호
+                            <br>서버(Ruby on Rails) - 하태린 / 정유진
+                            <br>멘토 - 이민영 / 장주진 / 신주형</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-6-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 TNFit, <strong>The Natural Fit</strong></h2>
+                        <p>음식별 영양정보 데이터를 기반으로 한 소셜 식단관리 서비스</p>
+                        <p>: 매일 먹은 음식을 아침/점심/저녁으로 맞추어 입력할 수 있고, 영양정보를 분석해주며 식단을 관리할 수 있게 하여주는 소셜 서비스</p>
+                        <p>안드로이드 - 강찬
+                            <br>서버(Node.js) - 정예은 / 허차영
+                            <br>멘토 - 박혜연 / 홍기림</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides3">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/3-7-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>3기 당신을 위로합니다, <strong>당신을 위로합니다</strong></h2>
+                        <p>귀여운 냥냥이, 댕댕이 사진으로부터 힐링과 위로를 받고 싶은 분들을 위한 서비스</p>
+                        <p>: 귀여운 냥냥이, 댕댕이 사진들을 업로드할 수 있는 웹페이지와 업로드된 사진을 구글 페이지 및 새탭에 적용할 수 있는 크롬익스텐션</p>
+                        <p>프론트 - 구본정
+                            <br>서버(Ruby on Rails) - 조완주 / 심정민
+                            <br>멘토 - 한수민 / 신성환</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+    </div>
+</section>
+
+<section id="2th" style="display:none;">
+    <div class="unit">
+        <div class="unit-nav container">
+            <span class="unit-p-main">2기</span>
+            <span class="unit-p-small">Web 1</span>
+            <span class="unit-p-small">App 3</span>
+            <span class="unit-p-small">Deep-Learning 3</span>
+        </div>
+        <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
+    </div>
+    <div id="sw_box" class="container">
+        <div class="hi-box">
+            <!-- start -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-1-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 웹팀, <strong>Prography Homepage</strong></h2>
+                        <p>프로그라피 웹페이지 리뉴얼 프로젝트</p>
+                        <p>: 운영진과 지원자를 위해 쓰임새가 있고 운영에 도움이 될 수 있는 페이지</p>
+                        <p>프론트엔드 팀원 - 강민정
+                            <br>백엔드 팀원 - 심정민 / 정예은 / 국지원
+                            <br>멘토 - 유용환 / 김홍찬 / 신주형</p>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="http://prography.org" class="w3-button w3-gray"
+                            >페이지 가기</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-2-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 앱1팀, <strong>모지모지</strong></h2>
+                        <p>드라마에 나온 아이템을 알려주는 플랫폼</p>
+                        <p>: 방송사별 드라마 아이템부터 데일리 추천 상품과 베스트 상품 리스트까지 옷, 악세서리, 신발 등 정보를 알려주는 앱 서비스</p>
+                        <p>팀원 - 강민아 / 김선경
+                            <br>멘토 - 이승준</p>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://play.google.com/store/apps/details?id=com.prograpy.app1.appdev1"
+                               class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱
+                                다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-3-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 앱2팀, <strong>MILOTIC</strong></h2>
+                        <p>취미기반 소셜 매칭 서비스</p>
+                        <p>: 소개팅앱이 아닌 취미를 같이 즐길 사람을 매칭하는 "사람 만나기 프로젝트" </p>
+                        <p>팀원 - 최혜송 / 이다영 / 한승동
+                            <br>멘토 - 이승준</p>
+                        <div class="hi-click-btn">
+                            <a target="_blank"
+                               href="https://play.google.com/store/apps/details?id=com.prograpy.app2.appdev2"
+                               class="w3-button w3-gray" style="margin-top:10px;margin-left:10px;font-size:14px;">앱
+                                다운로드</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-4-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 앱3팀, <strong>Prography App</strong></h2>
+                        <p>프로그라피 공식 커뮤니티 앱</p>
+                        <p>: 프로그라피 멤버들을 위한 커뮤니티 앱으로 소통공간부터 나와 팀의 정보까지 찾아볼 수 있는 앱</p>
+                        <p>팀원 - 유용환 / 하태린 / 송가람 / 추청원 / 이루다
+                            <br>멘토 - 강재윤 / 이민영 / 이승준</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-5-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 딥러닝1팀, <strong>Make Unmakeup Face</strong></h2>
+                        <p>GAN 모델을 이용한 메이크업 어플리케이션</p>
+                        <p>: 쌩얼을 화장한 얼굴로 만들어주고, 화장한 얼굴을 쌩얼로 만들어주는 서비스로 GAN모델 중 pix to pix 모델을 활용한 딥러닝 기법 사용</p>
+                        <p>팀원 - 노재석 / 허은지 / 지서영
+                            <br>멘토 - 기호건 / 박찬웅</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-6-poster.png"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 딥러닝2팀, <strong>Highlight Tekken</strong></h2>
+                        <p>철권 게임에서 하이라이트를 추출하는 서비스</p>
+                        <p>: GRU-AutoEncoder를 사용한 모델로 철권의 ‘화랑’ 캐릭터 영상에서 하이라이트 프레임 추출</p>
+                        <p>팀원 - 김동훈 / 송영인 / 이유정 / 장혁진
+                            <br>멘토 - 박수현</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides2">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/2-7-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>2기 딥러닝4팀, <strong>Smile Detection</strong></h2>
+                        <p>웃는지 안 웃는지 알려주는 서비스</p>
+                        <p>: 직접 만개의 이미지로 데이터셋을 만들어 높은 정확도로 실시간 웹캠을 이용해 바로 확인해 볼 수 있는 서비스</p>
+                        <p>팀원 - 이종희 / 최지수
+                            <br>멘토 - 김승재</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+    </div>
+</section>
+
+<section id="1th" style="display:none">
+    <div class="unit">
+        <div class="unit-nav container">
+            <span class="unit-p-main">1기</span>
+            <span class="unit-p-small">Web 1</span>
+            <span class="unit-p-small">App 4</span>
+            <span class="unit-p-small">Deep-Learning 2</span>
+        </div>
+        <div class="w3-border-top w3-border-lightgray line hi-line" style="width:40%; margin-bottom:20px;"></div>
+    </div>
+    <div id="sw_box" class="container">
+        <div class="hi-box">
+            <!-- start -->
+            <div class="row mySlides1">
+                <div class="col-sm-6">
+                    <img class="product_img" onclick="pop(this.src)" data-src="img/panel/1-1-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 웹 1팀, <strong>Puppy Signal</strong></h2>
+                        <p>사람과 반려동물의 조화로운 삶을 위한 프로젝트</p>
+                        <p>: 애완동물의 귀여운 단면만 보여주는 매체의 문제점을 전하며, 유기견의 현실을 보여주기 위한 웹페이지</p>
+                        <p>강민정 / 심준식 / 유용환 / 지서영 / 이예은</p>
+                        <div class="hi-click-btn">
+                            <a target="_blank" href="http://puppysignal.com/" class="w3-button w3-gray"
+                               style="margin-top:10px;margin-left:10px;font-size:14px;">페이지 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-2-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 앱 2팀, <strong>맛집Go!</strong></h2>
+                        <p>분위기별로 맛집 추천해주는 서비스</p>
+                        <p>: 무조건 맛있는 곳이 아닌, 분위기 별로 동형 별로 갈 곳을 추천서비스를 위한 앱 서비스</p>
+                        <p>김수빈 / 김현성 / 김지원</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-3-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 앱 2팀, <strong>Travel Maker</strong></h2>
+                        <p>관광지 추천 및 경로 탐색 어플</p>
+                        <p>: 도쿄를 여행하고 싶어하는 고객을 위하여 인기있는 관광지 추천과 관광지를 연결한 경로를 만들어주는 앱 서비스</p>
+                        <p>김록현 / 이유림 / 김선경 / 국지원 / 고서연 / 하태린</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-4-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 앱 3팀, <strong>Fit Me</strong></h2>
+                        <p>피트니스 강사 매칭 서비스</p>
+                        <p>: 내게 맞는 강사를 매칭할 수 있는 피트니스 플랫폼 앱 서비스</p>
+                        <p>허은지 / 장혁진</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-5-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 앱 3팀, <strong>나만의 여행일기</strong></h2>
+                        <p>위치 기반 다이어리</p>
+                        <p>: 위치에 기반하여 나의 일상을 기록할 수 있는 앱 서비스</p>
+                        <p>김혜진 / 이자연 / 추청원 / 강민정</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-6-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 딥러닝 1팀, <strong>Visnet</strong></h2>
+                        <p>유사한 옷 추천 서비스</p>
+                        <p>: 소비자들이 인터넷으로 옷을 쇼핑하게 될 때, 효율적이고 저렴하게 소비할 수 있게 편의를 제공하는 것을 프로젝트 목적</p>
+                        <p>박찬웅 / 김성경 / 서지원 / 유한동 / 이소연 / 장원영</p>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row mySlides1">
+                <div class="col-sm-6"><img class="product_img" onclick="pop(this.src)"
+                                           data-src="img/panel/1-7-poster.jpg"></div>
+                <div class="col-sm-6">
+                    <div class="w3-tb-cell-content">
+                        <h2>1기 딥러닝 2팀, <strong>iFontMe</strong></h2>
+                        <p>나의 글씨체를 나만의 폰트로</p>
+                        <p>: 내 글씨 200자를 학습된 모델에 넣어 한글 낱글자 2350자를 생성</p>
+                        <p>김승재 / 노신영 / 김현성 / 박수현</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+    </div>
+</section>
+
+<div class="w3-content w3-display-container">
+    <div class="w3-btn-nav">
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+
+<div class="box" style="height:500px;"></div>
+<!-- 중간에 띄어놓음 -->
+
+<script>
+  // TODO: Change function as re-usable (scalable)
+  // 2020. 02. 16. 신성환
+  var x = document.getElementsByClassName('mySlides' + $('a[name=sel_th]').length);
+  var sectionIndex = 5;
+
+  function slide_section(n) {
+    x = document.getElementsByClassName('mySlides' + n);
+    sectionIndex = n;
+    for (var i = 1; i < 6; i++) {
+      if (i === n) {
+        $('#' + i + 'th').css('display', 'block');
+      } else {
+        $('#' + i + 'th').css('display', 'none');
+      }
+    }
+    showDivs(1);
+  }
+
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+
+    if (n > x.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+      slideIndex = x.length
+    }
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = 'none';
+    }
+    x[slideIndex - 1].style.display = 'block';
+
+    // Lazy-Loading Image
+    var posterImage = $('.mySlides' + sectionIndex + ' .product_img').eq(slideIndex - 1);
+    if (!posterImage.attr('src')) {
+      posterImage.attr('src', posterImage.data('src'));
+    }
+  }
+
+  function pop(src) {
+    $('.modal-body').html('');
+    $('#exampleModalCenter1').modal('show');
+    $('.modal-body').append('<img style="width:100%" src="' + src + '" data-dismiss="modal" aria-label="Close"/>');
+  }
+</script>
+
+<!-- Modal-alert -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align:center;"></div>
+        </div>
+    </div>
+</div>
 <% include common/footer %>
