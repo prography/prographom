@@ -90,7 +90,7 @@ module.exports = (app) => {
             url: req.protocol + '://' + req.headers.host + req.url
         })
     })
-    
+
     app.post('/music', async (req, res) => {
         const musicTitle = req.body.music_title
         const musicArtist = req.body.music_artist
@@ -106,7 +106,7 @@ module.exports = (app) => {
             post: false
         })
     })
-    
+
     app.post('/demo-day', async (req, res) => {
         const name = req.body.name
         const phone = req.body.phone
@@ -118,7 +118,6 @@ module.exports = (app) => {
             post: true
         })
     })
-
     */
     app.get('/fifth-demo-day', (req, res) => {
         res.render('fifth-demo-day')
@@ -167,8 +166,6 @@ module.exports = (app) => {
         await web.chat.postMessage({ channel: 'GTFJXCEKT', text: `새로운 배송이 신청되었습니다! 보내는 이: ${senderName}` })
         res.status(204).json({})
     })
-
-
 } 
 
 rtm.start()
