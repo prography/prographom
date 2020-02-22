@@ -23,8 +23,8 @@ setInterval(() => {
     client.query('SELECT 1')
 }, 5000)
 
-const n_th = 5
-dates = {'due_month': 8, 'due_day': 27, 'OT_month': 9, 'OT_day': 21, 'MT_month': 9, 'MT_day': 28}
+const n_th = 6
+dates = {'due_month': 2, 'due_day': 29, 'OT_month': 3, 'OT_day': 14, 'MT_month': 3, 'MT_day': 21}
 
 module.exports = {
   hashMap: hashMap,

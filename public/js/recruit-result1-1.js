@@ -63,7 +63,7 @@ function checkValue() {
                         location.href = url;
                     });
                     
-                    var message = '9월 ' + result.day + '일 ';
+                    var message = '3월 ' + result.day + '일 ';
                     if (result.hour == 11) {
                         message += '오전 ';
                     } else {

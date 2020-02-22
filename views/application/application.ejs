@@ -11,7 +11,7 @@
             <div>
                 <p class="l-explain text-left">프로그라피 <%=n_th%>기 지원서</p>
                 <p class="explain text-left" style="margin-top:-10px;">안녕하세요 프로그라피 <%=n_th%>기 지원자님. 해당 자료는 <%=n_th%>기 모집 관련 자료에만 사용이 됩니다.
-                    <br>지원서 최종 제출일은 <strong><%=dates.due_month%>월 <%=dates.due_day%>일 밤 12시</strong> 입니다. 그 이후에는 제출 및 수정이 불가능 합니다!</p>
+                    <br>지원서 최종 제출일은 <strong><%=dates.due_month%>월 <%=dates.due_day%>일 오후 2시</strong> 입니다. 그 이후에는 제출 및 수정이 불가능 합니다!</p>
             </div>
 
             <!--line-->
@@ -70,6 +70,8 @@
                         <input type="radio" name="field" value="android" style="margin-right:10px;">모바일 프론트(Android)
                         <br>
                         <input type="radio" name="field" value="ios" style="margin-right:10px;">모바일 프론트(iOS)
+                        <br>
+                        <input type="radio" name="field" value="react-native" style="margin-right:10px;">모바일 프론트(React Native)
                         <br>
                         <input type="radio" name="field" value="nodejs" style="margin-right:10px;">백엔드(Node.js)
                         <br>
@@ -318,7 +320,7 @@
                             </div>
                             <div class="modal-body">
                                 성공적으로 저장되었습니다.
-                                <br> <%=dates.due_month%>월<%=dates.due_day%>일까지 최종제출을 잊지마세요! ღ'ᴗ'ღ
+                                <br> <%=dates.due_month%>월<%=dates.due_day%>일 14:00 까지 최종제출을 잊지마세요! ღ'ᴗ'ღ
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

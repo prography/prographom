@@ -49,7 +49,7 @@ function checkValue() {
                     let highlightname = $('.highlightname');
                     highlightname.text(name);
 
-                    let message = '9월 ' + result.day + '일 ';
+                    let message = '3월 ' + result.day + '일 ';
                     if (result.hour == 11) {
                         message += '오전 ';
                     } else {
@@ -156,7 +156,7 @@ function schedule_submit() {
             $('#result-after-fail-1').css('display', 'none');
             $('#result-after-select-1').css('display', 'block');
 
-            let message = '9월 ' + result.day + '일 ';
+            let message = '3월 ' + result.day + '일 ';
             if (result.hour == 11) {
                 message += '오전 ';
             } else {
