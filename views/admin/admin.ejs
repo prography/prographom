@@ -1,5 +1,4 @@
 <% include common/head_header %> <% include common/body_header_admin %>
-<div><%= data[0].field = 'react' %></div>
 <% var dataByParts = [[], [], [], [], [], [], []] %>
 <% var partArr = ['react', 'react-native', 'android', 'ios', 'nodejs', 'django', 'deep'] %>
 
@@ -9,10 +8,14 @@
             <% dataByParts[fieldIndex].push(applicant) %>
         <% } %>
 <% })}) %>
+<div style="margin-top: 80px; text-align: center; font-size: 24px;">
+    현재 최종제출 마감자 : <%= data.length%>명
+</div>
+
 <% dataByParts.forEach(function (chunk, chunkIndex){ %>
     <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
     <div class="container admin-container">
-        <div class="box-label"><%= partArr[chunkIndex] %></div>
+        <div class="box-label"><%= partArr[chunkIndex] %>(<%= chunk.length %>명)</div>
         <div class="div-center">
             <div class="box-gray">
                 <div class="row">
