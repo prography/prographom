@@ -1517,12 +1517,6 @@ embed {
   padding: 20px;
 }
 
-@media screen and (max-width: 480px) {
-  .covid-19-noti__card {
-    width: calc(100vw - 30px)
-  }
-}
-
 .covid-19-noti__title{
   padding: 10px 5px 5px;
   font-size: 18px;
@@ -1557,3 +1551,13 @@ embed {
 
 }
 
+
+@media screen and (max-width: 480px) {
+  .covid-19-noti__card {
+    width: calc(100vw - 30px);
+    margin: 30px auto;
+  }
+  .covid-19-noti__body{
+    line-height: 1.5;
+  }
+}
