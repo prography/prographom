@@ -9,12 +9,20 @@
         <% } %>
 <% })}) %>
 <div style="margin-top: 80px; text-align: center; font-size: 24px;">
-    현재 최종제출 마감자 : <%= data.length%>명
+    현재 최종제출 마감자 : <%= data.length %>명
+</div>
+<div class="admin-button-wrapper">
+    <button onclick="selectPart('react')">React</button>
+    <button onclick="selectPart('react-native')">React Native</button>
+    <button onclick="selectPart('android')">Android</button>
+    <button onclick="selectPart('ios')">ios</button>
+    <button onclick="selectPart('django')">Django</button>
+    <button onclick="selectPart('nodejs')">Nodejs</button>
+    <button onclick="selectPart('deep')">React</button>
 </div>
 
 <% dataByParts.forEach(function (chunk, chunkIndex){ %>
-    <div class="box" style="height:50px;"></div><!-- 중간에 띄어놓음 -->
-    <div class="container admin-container">
+    <div class="container admin-container" id="<%= partArr[chunkIndex] %>">
         <div class="box-label"><%= partArr[chunkIndex] %>(<%= chunk.length %>명)</div>
         <div class="div-center">
             <div class="box-gray">
@@ -91,5 +99,19 @@
   $(".applicant").on('click', function () {
     location.href = '/admin?filter=specific&email=' + $(this)[0].id;
   });
+
+  let containers = document.getElementsByClassName('admin-container');
+  const partStringArray = ['react', 'react-native', 'android', 'ios', 'nodejs', 'django', 'deep'];
+  function selectPart(fieldName) {
+    for (let i = 0; i < containers.length; i++) {
+      $('#' + partStringArray[i]).addClass('hidden')
+    }
+    $('#' + fieldName).removeClass('hidden')
+  }
+
+  selectPart('react')
+  // forEach((container) => {
+  //   console.log(container)
+  // })
 </script>
 <% include common/footer %>

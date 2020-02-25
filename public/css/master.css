@@ -98,16 +98,34 @@ h5 {
 textarea {
   resize: none;
 }
-
+.admin-button-wrapper > button:hover{
+  background-color: #fffafa;
+}
+.admin-button-wrapper > button{
+  cursor: pointer;
+  border: 1px solid #e9e9e9;
+  font-size: 13px;
+  color: #2d2d2d;
+  background-color: transparent;
+  transition: .25s ease-in-out;
+  padding: 8px 12px;
+  margin: 6px;
+  outline: none;
+}
+.admin-button-wrapper{
+  text-align: center;
+  padding: 12px;
+}
 .box-label {
   font-size: 16px;
   font-weight: 700;
   margin-top: 40px
 }
-.container{
+.admin-container{
   max-width: 1024px;
   margin: 0 auto;
 }
+
 .box-gray {
   margin-top: 5px;
   margin-bottom: 10px;
