@@ -99,9 +99,18 @@ textarea {
   resize: none;
 }
 
+.box-label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 40px
+}
+.container{
+  max-width: 1024px;
+  margin: 0 auto;
+}
 .box-gray {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   padding: 20px;
   width: 100%;
   height: 100%;
