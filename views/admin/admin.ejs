@@ -12,13 +12,13 @@
     현재 최종제출 마감자 : <%= data.length %>명
 </div>
 <div class="admin-button-wrapper">
-    <button onclick="selectPart('react')">React</button>
-    <button onclick="selectPart('react-native')">React Native</button>
-    <button onclick="selectPart('android')">Android</button>
-    <button onclick="selectPart('ios')">ios</button>
-    <button onclick="selectPart('django')">Django</button>
-    <button onclick="selectPart('nodejs')">Nodejs</button>
-    <button onclick="selectPart('deep')">Deep Learning</button>
+    <button onclick="selectPart('react')">React (<%= dataByParts[0].length %>)</button>
+    <button onclick="selectPart('react-native')">React Native (<%= dataByParts[1].length %>)</button>
+    <button onclick="selectPart('android')">Android (<%= dataByParts[2].length %>)</button>
+    <button onclick="selectPart('ios')">ios (<%= dataByParts[3].length %>)</button>
+    <button onclick="selectPart('django')">Django (<%= dataByParts[4].length %>)</button>
+    <button onclick="selectPart('nodejs')">Nodejs (<%= dataByParts[5].length %>)</button>
+    <button onclick="selectPart('deep')">Deep Learning (<%= dataByParts[6].length %>)</button>
 </div>
 
 <% dataByParts.forEach(function (chunk, chunkIndex){ %>
