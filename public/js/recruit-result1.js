@@ -61,12 +61,12 @@ function checkValue() {
                     }
 
                     if (result.day == 7) {
-                        message += ', 디캠프 6층 세미나실';
+                        message += ', 행아웃(온라인 화상면접)';
                     } else {
-                        message += ', 중앙대학교 310관 617호';
+                        message += ', 행아웃(온라인 화상면접)';
                     }
 
-                    message += '에서 20분간 진행됩니다.';
+                    message += '에서 30분간 진행됩니다.';
 
                     $('#message').text(message);
 
@@ -168,9 +168,9 @@ function schedule_submit() {
             }
 
             if (result.day == 7) {
-                message += ', 디캠프 6층 세미나실';
+                message += ', 행아웃(온라인 화상면접)';
             } else {
-                message += ', 중앙대학교 310관 617호';
+                message += ', 행아웃(온라인 화상면접)';
             }
 
             message += '에서 진행됩니다.';

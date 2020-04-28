@@ -1,4 +1,6 @@
 const mysql = require('mysql')
+const crypto = require('crypto')
+const jwt = require('jsonwebtoken')
 
 let hashMap = {}
 
@@ -24,7 +26,7 @@ setInterval(() => {
 }, 5000)
 
 const n_th = 6
-dates = {'due_month': 2, 'due_day': 29, 'OT_month': 3, 'OT_day': 14, 'MT_month': 3, 'MT_day': 21}
+dates = {'due_month': 2, 'due_day': 29, 'OT_month': 3, 'OT_day': 21, 'MT_month': '취소입니다', 'MT_day': '불참 표시해주세요!'}
 
 module.exports = {
   hashMap: hashMap,
@@ -149,22 +151,48 @@ module.exports = (app) => {
         })
     })
 
-    app.post('/easytac-test', async (req, res) => {
-        const senderPhone = req.body.senderPhone
-        const receiverPhone = req.body.receiverPhone
-        const senderName = req.body.senderName
-        const receiverName = req.body.receiverName
-        const fromAddress = req.body.fromAddress
-        const toAddress = req.body.toAddress
-        const pickupTime = new Date(req.body.pickupTime)
-        if (!senderPhone || !receiverPhone || !senderName || !receiverName || !fromAddress || !toAddress || !pickupTime) {
-            return res.status(400).json({ errMsg: '내용을 모두 입력해주세요' })
+	function shuffle(a) {
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+
+    const isLoggedIn = async (req, res, next) => {
+        const token = req.headers['x-access-token']
+        if (!token) return res.status(401).json({ errMsg: '인증 오류' })
+        try {
+            const decoded = await jwt.verify(token, process.env.COPL_JWT_SECRET)
+            req.decoded = decoded
+            next()
+        } catch (err) {
+            return res.status(403).json({ errMsg: '인증 오류' })
         }
-        await client.query('INSERT INTO easytac_test(sender_phone, receiver_phone, sender_name, receiver_name, from_address, to_address, pickup_time) VALUES(?, ?, ?, ?, ?, ?, ?)', [senderPhone, receiverPhone, senderName, receiverName, fromAddress, toAddress, pickupTime])
-        res.header('Access-Control-Allow-Origin', '*')
-        res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-        await web.chat.postMessage({ channel: 'GTFJXCEKT', text: `새로운 배송이 신청되었습니다! 보내는 이: ${senderName}` })
-        res.status(204).json({})
+    }
+
+    app.get('/next-ad', isLoggedIn, async (req, res) => {
+        client.query('SELECT * FROM copl_ad', (err, results) => {
+			if (!results || results.length === 0) return res.status(404).json({ errMsg: '계정이 없습니다' })
+            return res.status(200).json(shuffle(results)[0])
+        })
+    })
+
+    const authWithPwd = (password, hashedPassword, salt) => {
+        const key = crypto.pbkdf2Sync(password, salt, 100000, 64, 'sha512')
+        return key.toString('base64') === hashedPassword
+    }
+
+    app.post('/copl/login', async (req, res) => {
+        const uid = req.body.uid
+        const password = req.body.password
+        client.query(`SELECT * FROM copl_account WHERE uid = ${uid}`, (err, results) => {
+			if (!results || results.length === 0) return res.status(404).json({ 'errMsg': '계정이 없습니다' })
+            const account = results[0]
+            if(!authWithPwd(password, account.password, account.salt)) return res.status(401).json({ errMsg: '인증 오류' })
+            const token = jwt.sign({ id: account.id }, process.env.COPL_JWT_SECRET, { expiresIn: '365d' })
+            return res.status(200).json({ token})
+        })
     })
 } 
 
@@ -190,7 +218,7 @@ rtm.on('message', async (msg) => {
     if (msg.files) {
         const user = msg.user
         currentChannel = msg.channel
-        await web.chat.postMessage({ channel: currentChannel, text: '파일은 드라이브에 반드시 백업 해주세요!' })
+        await web.chat.postMessage({ channel: currentChannel, text: '파일은 드라이브에 업로드해주세요!' })
     } else {
         const text = msg.text
         const user = msg.user

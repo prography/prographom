@@ -19,13 +19,13 @@ router.get('/', (req, res) => {
                         console.log(error)
                     } else {
                         let full_flags = {}
-                        full_flags['react'] = [1, 1, 1, 0, 0, 0, 0, 0]
-                        full_flags['nodejs'] = [1, 1, 1, 0, 0, 0, 0, 0]
-                        full_flags['django'] = [1, 0, 1, 0, 0, 0, 0, 0]
-                        full_flags['android'] = [1, 1, 1, 0, 0, 0, 0, 0]
-                        full_flags['ios'] = [1, 1, 1, 0, 0, 0, 0, 0]
-                        full_flags['deep'] = [1, 1, 1, 0, 0, 0, 0, 0]
-                        full_flags['react-native'] = [1, 1, 1, 0, 0, 0, 0, 0]
+                        full_flags['react'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['nodejs'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['django'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['android'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['ios'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['deep'] = [0, 0, 0, 0, 0, 0, 0, 0]
+                        full_flags['react-native'] = [0, 1, 0, 1, 0, 1, 0, 1]
 
                         let interview_dict = {}
                         for (let i = 0; i < result.length; i++) {
