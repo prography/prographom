@@ -713,6 +713,20 @@ input::placeholder {
   margin: 0;
   display: block;
 }
+.over-xl{
+  display: none;
+}
+@media screen and (min-width: 1920px){
+  .under-xl{
+    display: none;
+  }
+  .over-xl{
+    display: inherit;
+    background-image: url(../img/demo-day/program-bg.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+}
 
 @media only screen and (max-width: 800px) {
   .cropping video {
