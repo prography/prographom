@@ -2,7 +2,7 @@ html, body{
   scroll-behavior: smooth;
 }
 .demoday-main-banner{
-  background-image: url("../img/demo-day/20190420_144841.jpg");
+  background-image: url("../img/demo-day/main.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   height: 100vh;
