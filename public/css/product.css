@@ -747,6 +747,10 @@
   }
 }
 
+.hi-click-btn + .hi-click-btn {
+  margin-top: 14px;
+}
+
 .hi-click-btn > a {
   font-size: 14px;
   outline: none;
