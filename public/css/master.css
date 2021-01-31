@@ -738,7 +738,7 @@ input::placeholder {
 
 .b-0 {
   font-size: 55px;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.2;
   text-shadow: none;
   margin-bottom: 30px;
@@ -752,8 +752,13 @@ input::placeholder {
 }
 
 .b-p {
-  font-size: 25px;
-  font-weight: 400;
+  background-color: #00000080;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 24px 12px;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
   line-height: 1.2;
   text-shadow: none;
   letter-spacing: 1.2;
@@ -761,7 +766,7 @@ input::placeholder {
 
 @media only screen and (max-width: 600px) {
   .b-p {
-    font-size: 20px;
+    font-size: 14px;
     margin: 0 -20px;
   }
 }
@@ -783,6 +788,29 @@ input::placeholder {
     font-size: 12px;
   }
 }
+
+.notification__request-button{
+  color: #fff;
+  background-color: #d81d45;
+  padding: 6px 16px 8px;
+
+  border: none;
+  margin: 12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  opacity: .8;
+  -webkit-transition: opacity .25s;
+  -moz-transition: opacity .25s;
+  -ms-transition: opacity .25s;
+  -o-transition: opacity .25s;
+  transition: opacity .25s;
+}
+
+.notification__request-button:hover{
+  opacity: 1;
+}
+
 
 .carousel-caption {
   margin: 0 !important;
